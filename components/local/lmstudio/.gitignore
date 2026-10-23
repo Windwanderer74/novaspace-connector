@@ -1,0 +1,13 @@
+**/node_modules/
+**/dist/
+**/.sites-runtime/
+**/__pycache__/
+**/*.pyc
+**/local.json
+**/installation.json
+topics-candidate/plugin.cjs
+topics-candidate/plugin.cjs.LEGAL.txt
+topics-candidate/src/
+topics-candidate/tests/fixtures/
+nextcloud-local-candidate/TOOL-MANIFEST.json
+topics-candidate/TOOL-MANIFEST.json

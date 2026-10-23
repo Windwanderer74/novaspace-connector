@@ -1,0 +1,7 @@
+{
+  "type": "plugin",
+  "runner": "node",
+  "owner": "novaforge",
+  "name": "themenauswahl",
+  "revision": 10
+}

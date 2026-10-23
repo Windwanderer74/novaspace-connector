@@ -1,0 +1,14 @@
+{
+  "name": "novaspace-lmstudio-source",
+  "version": "1.31.0-local.1",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "install:ci": "npm ci --prefix nextcloud-local-candidate --no-audit --no-fund && npm ci --prefix topics-candidate --no-audit --no-fund",
+    "build": "npm run build --prefix nextcloud-local-candidate && npm run build --prefix topics-candidate",
+    "test": "npm test --prefix nextcloud-local-candidate && npm test --prefix topics-candidate"
+  }
+}

@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+import { McpServer } from '@modelcontextprotocol/server';
+import * as z from 'zod/v4';
+import { requireScope, scopeMetadata } from './access';
+import { INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE } from './oauth';
+import { inventoryStatus, inventoryList, inventoryRead, inventoryCreate } from './inventory';
+import { delegatedCommand, delegatedWrite } from './inventory-delegated';
+
+const result = (data: object) => ({ content: [{ type: 'text' as const, text: JSON.stringify(data) }], structuredContent: data as Record<string, unknown> });
+const read = { ...scopeMetadata(INVENTORY_READ_SCOPE), annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } };
+const text = (maxBytes: number) => z.string().refine(s => new TextEncoder().encode(s).length <= maxBytes && !/[\x00]/.test(s));
+export function registerInventoryTools(server: McpServer) {
+  server.registerTool('inventory_status', { ...read, title: 'Inventory-Zugang prüfen', description: 'Prüft im Cloud-Konnektor die aktive persönliche Verbindung und deren native Gerätefreigabe. Nennt Bestandskonto, technischen Zugang und Freigaberevision; kein Schreibversuch. Lokal ohne Gateway-Identität bleibt die Prüfung auf das technische Konto begrenzt. Benötigt inventory:read.', inputSchema: z.object({}).strict() }, async (_, c) => requireScope(c, INVENTORY_READ_SCOPE) ?? result(await inventoryStatus()));
+  server.registerTool('inventory_list_items', { ...read, title: 'Inventory-Geräte auflisten', description: 'Liest und durchsucht Geräte im verbundenen eigenen Inventory-Bestand. Lokale Seiten einer begrenzten Gesamtliste; keine Suche in anderen Konten. Keine Weblinks öffnen. Benötigt inventory:read.', inputSchema: z.object({ query: z.string().max(200).default(''), offset: z.number().int().min(0).max(5000).default(0), limit: z.number().int().min(1).max(50).default(20) }).strict() }, async (a, c) => requireScope(c, INVENTORY_READ_SCOPE) ?? result(await inventoryList(a.query, a.offset, a.limit)));
+  server.registerTool('inventory_get_item', { ...read, title: 'Inventory-Gerät lesen', description: 'Liest genau ein Gerät mit nativen Details aus dem verbundenen Bestandskonto; fremde Konten sind ausgeschlossen. Benötigt inventory:read.', inputSchema: z.object({ itemId: z.number().int().positive().max(Number.MAX_SAFE_INTEGER) }).strict() }, async (a, c) => requireScope(c, INVENTORY_READ_SCOPE) ?? result(await inventoryRead(a.itemId)));
+  server.registerTool('inventory_create_item', {
+    ...scopeMetadata(INVENTORY_WRITE_SCOPE, INVENTORY_READ_SCOPE), title: 'Inventory-Stammdatensatz anlegen',
+    description: 'Legt im persönlich bestätigten und nativ freigegebenen Inventory-Bestand einen Stammdatensatz an. expectedAccount vorher mit inventory_status prüfen. Im Cloud-Konnektor werden Anlage und Änderungsnachweis atomar mit requestId gespeichert; identische requestId darf nur mit identischem Inhalt wiederverwendet werden. Bei unknown keine automatische Wiederholung oder neue requestId. Ohne persönliche Gateway-Identität bleibt der lokale alte Zugriff auf das native Konto begrenzt. Keine Exemplare, Orte, Anhänge oder Weiterfreigaben. Benötigt inventory:write und inventory:read.',
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
+    inputSchema: z.object({ requestId: z.uuid().optional(), expectedAccount: text(255).min(1), reference: text(100).min(1), name: text(100).refine(s => s.trim().length > 0), maker: text(100).default(''), description: text(20000).default(''), link: text(255).refine(s => s === '' || /^https?:\/\/[^\s]+$/i.test(s)).default(''), details: text(20000).default(''), comment: text(20000).default('') }).strict(),
+  }, async (a, c) => requireScope(c, INVENTORY_WRITE_SCOPE) ?? requireScope(c, INVENTORY_READ_SCOPE) ?? result(await inventoryCreate(a)));
+  server.registerTool('inventory_update_item', {
+    ...scopeMetadata(INVENTORY_WRITE_SCOPE, INVENTORY_READ_SCOPE), title: 'Inventory-Stammdaten bearbeiten',
+    description: 'Bearbeitet ausdrücklich beauftragte Stammdaten im eigenen nativ freigegebenen Bestand. expectedVersion aus frischem inventory_get_item verwenden. Bei version_conflict neu lesen und Entscheidung prüfen. requestId identifiziert genau diese Änderung; unknown niemals automatisch mit neuer Kennung wiederholen. Atomarer Änderungsnachweis; keine Löschung, Weiterfreigabe, Anhänge oder Standortänderung.',
+    annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
+    inputSchema: z.object({ expectedAccount: text(255).min(1), itemId: z.number().int().positive().max(Number.MAX_SAFE_INTEGER), expectedVersion: z.string().regex(/^[0-9a-f]{64}$/), requestId: z.uuid().optional(), patch: z.object({ name: text(100).refine(s => s.trim().length > 0).optional(), maker: text(100).optional(), description: text(20000).optional(), link: text(255).refine(s => s === '' || /^https?:\/\/[^\s]+$/i.test(s)).optional(), details: text(20000).optional(), comment: text(20000).optional() }).strict().refine(p => Object.keys(p).length > 0) }).strict(),
+  }, async (a, c) => requireScope(c, INVENTORY_WRITE_SCOPE) ?? requireScope(c, INVENTORY_READ_SCOPE) ?? result(await delegatedWrite({ ...a, operation: 'update' })));
+  server.registerTool('inventory_action_history', { ...read, title: 'Inventory-KI-Aktionen lesen', description: 'Liest die letzten fünf protokollierten KI-Geräteänderungen und Web-Freigabeaktionen des eigenen bestätigten Bestands mit Eigentümer, ausführendem Zugang, Verbindung, Zeitpunkt und Vorher/Nachher. Normale Änderungen der Inventory-Oberfläche sind noch nicht erfasst. Benötigt inventory:read und native Lesefreigabe.', inputSchema: z.object({}).strict() }, async (_, c) => requireScope(c, INVENTORY_READ_SCOPE) ?? result(await delegatedCommand({ operation: 'history' })));
+}

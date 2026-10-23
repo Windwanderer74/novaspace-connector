@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "edition": "sanitized source snapshot",
+  "versions": {
+    "core": "1.31.0-local.1",
+    "topics": "0.1.10",
+    "topicsRevision": 10,
+    "commonTools": 152,
+    "coreTools": 130,
+    "topicsTools": 129
+  },
+  "runtime": {
+    "os": "Linux x86_64",
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "python": "Python 3.12.14"
+  },
+  "originalArchiveVerification": {
+    "name": "NovaSpace-Connector-LMStudio-1.31.0-local.1.zip",
+    "sha256": "9375e7bc1f7189bc3f624f6308ec3bff03de9fc850577704e2b7dab5c7b2a7db",
+    "size": 4927405,
+    "entries": 1751,
+    "verifiedManifestEntries": [
+      1750,
+      124,
+      1615
+    ]
+  },
+  "checks": {
+    "lockedInstallation": {
+      "coreInstalledPackages": 14,
+      "topicsInstalledPackages": 30,
+      "passed": true
+    },
+    "sourceBuilds": {
+      "core": true,
+      "topics": true,
+      "catalogueGeneratedWithoutCredentials": true
+    },
+    "javascript": {
+      "corePassed": 21,
+      "topicsPassed": 20,
+      "failed": 0,
+      "topicCombinations": 16384,
+      "realMcpChildProcesses": true,
+      "actualLmStudioOrCloudRequests": false
+    },
+    "python": {
+      "launcherPassed": 3,
+      "topicsInstallerPassed": 9,
+      "coordinatorPassed": 4,
+      "failed": 0,
+      "mutationsSimulated": true
+    },
+    "historicalCliDefaultDeny": {
+      "programs": [
+        "update_connector.py",
+        "nextcloud-local-candidate/install.py",
+        "topics-candidate/install_topics.py"
+      ],
+      "passed": 3,
+      "exitCode": 78,
+      "beforeConfigurationOrCredentials": true
+    },
+    "sharedLibraryOriginalCheckpoint": {
+      "files": 84,
+      "byteIdentical": 83,
+      "intentionalAdapterDifference": "lib/mcp.ts optional supplied server"
+    },
+    "dependencyPins": {
+      "coreOriginalLockEntries": 786,
+      "corePublishedLockEntries": 39,
+      "coreResolutionOrIntegrityChanges": [],
+      "topicsPublishedLockEntries": 55,
+      "originalVendoredRuntimeVersionsCompared": 13,
+      "allRuntimeVersionsMatch": true,
+      "scripts": "New source-only catalogue generator; temporary binary fixture generated from current sources, no historical fixture binaries copied."
+    }
+  },
+  "limits": [
+    "No new Windows, DPAPI or LM Studio host installation or manual model acceptance.",
+    "External legacy nextcloud-mcp-connector 0.1.13 launcher sources/license not verified from a matching source archive.",
+    "Not a standalone first installer; historical update CLIs denied by default.",
+    "Original credentials/configuration not read or copied; cloud app switches do not govern this old local connector.",
+    "Two old core installer test files excluded because they require historical compiled fixture bundles; no new claim of their acceptance.",
+    "No online 1.31.1 GitHub bridge or prepared 1.32 code added; original Library ZIP unchanged."
+  ]
+}
