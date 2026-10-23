@@ -79,7 +79,8 @@ final class GithubBridgeService {
             $service = \OCP\Server::get(\OCA\DeckGithubSync\Service\SyncService::class);
             $map = $service->findMap($id, $owner);
             if ($map->getUserId() !== $owner) { throw new PlatformDenied('mapping_owner_conflict'); }
-            return $service->syncBoard($map);
+            require_once __DIR__ . '/GithubSyncProjectAdapter.php';
+            return GithubSyncProjectAdapter::forMapping($map)->syncBoard($map);
         };
         return $base + (new GithubBridgeCore($request, $maps, $sync))->execute($owner, $command);
     }

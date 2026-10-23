@@ -42,3 +42,14 @@ jobs:
         run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/legacy-bridge-core.php'
       - name: Verify bridge result reporting
         run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/bridge-results.php'
+      - name: Verify unchanged native sync through the selected adapter
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/native-sync-adapter.php' 'components/nextcloud/github-bridge/development/sync-guards/upstream/lib/Service/SyncService.php' fixed
+      - name: Verify adapter with real project query service
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/project-adapter.php'
+      - name: Build and verify the reproducible installer
+        run: |
+          python 'components/nextcloud/github-bridge/development/sync-guards/build-install-bundle.py'
+          git diff --exit-code -- 'components/nextcloud/github-bridge/development/sync-guards/INSTALL_SHA256.json' 'components/nextcloud/github-bridge/development/sync-guards/NovaSpace_GitHub_Sync_Bridge_0_1_1_Installer.php.txt'
+          php -l 'components/nextcloud/github-bridge/development/sync-guards/NovaSpace_GitHub_Sync_Bridge_0_1_1_Installer.php.txt'
+      - name: Verify installation, rollback and concurrent changes
+        run: python 'components/nextcloud/github-bridge/development/sync-guards/tests/installer.py'
