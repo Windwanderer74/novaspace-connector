@@ -10,6 +10,6 @@
   <author>NovaSpace</author>
   <namespace>NovaspacePlatform</namespace>
   <category>integration</category>
-  <dependencies><nextcloud min-version="34" max-version="34"/></dependencies>
+  <dependencies><nextcloud min-version="34" max-version="35"/></dependencies>
   <navigations><navigation><name>KI-Verbindungen</name><route>novaspace_platform.connections.index</route><order>80</order><icon>app.svg</icon></navigation></navigations>
 </info>

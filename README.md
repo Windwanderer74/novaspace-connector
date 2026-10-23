@@ -57,7 +57,7 @@ Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie zwei zu
 - Die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) als einzeln nachvollziehbares Modul.
 - Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
 
-Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernommene Fremdhinweise bleiben erhalten. Das App-Paket dient der Prüfung und Testinstallation. Ein offener Metadatenabgleich und die praktische Nextcloud-Abnahme sind vor einem Produktionsupdate erforderlich. Der vollständige Online-/LM-Studio-Connector ist noch nicht als Gesamtpaket bereitgestellt. [Lizenzzuordnung](LICENSING.md) und [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang.
+Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernommene Fremdhinweise bleiben erhalten. Das App-Paket dient der Prüfung und Testinstallation. Der Quellabgleich anhand der bereitgestellten Metadaten und aller 26 Dateihashes ist dokumentiert. Die praktische Nextcloud-Abnahme ist vor einem Produktionsupdate weiterhin erforderlich. Der vollständige Online-/LM-Studio-Connector ist noch nicht als Gesamtpaket bereitgestellt. [Lizenzzuordnung](LICENSING.md) und [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang.
 
 ---
 

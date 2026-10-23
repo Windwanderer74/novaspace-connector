@@ -11,14 +11,16 @@
   "prepared132Included": false,
   "fullPrivateHistoryImported": false,
   "productionDeploymentPerformed": false,
-  "liveTreeComparedOnPublication": false,
+  "liveTreeComparedOnPublication": true,
   "files": [
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/appinfo/info.xml",
       "publishedPath": "app/appinfo/info.xml",
       "sourceSha256": "d9999934691da6946a4600b6c22390c0822d857ee8d42d5574bae6dfbb65b873",
-      "publishedSha256": "d9999934691da6946a4600b6c22390c0822d857ee8d42d5574bae6dfbb65b873",
-      "changes": []
+      "publishedSha256": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d",
+      "changes": [
+        "Adopt max-version 35 from the supplied running metadata; all other bytes unchanged."
+      ]
     },
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/appinfo/routes.php",
@@ -362,12 +364,17 @@
     "baseFilesExactlyMatched": 21,
     "gatewayChange": "GatewayVerifier matches the existing GitHub installer before/after provenance.",
     "githubBundleFilesMatched": 4,
-    "unresolvedMetadataDifference": {
+    "liveTreeComparedOnPublication": true,
+    "resolvedMetadataDifference": {
       "path": "appinfo/info.xml",
       "receiptSha256": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d",
       "sourceSha256": "d9999934691da6946a4600b6c22390c0822d857ee8d42d5574bae6dfbb65b873",
-      "action": "Retain known source metadata; do not assert an exact deployed copy or permit a production upgrade based on this snapshot."
+      "action": "Resolved from supplied running metadata: max-version 34 -> 35 only; publication adopts the exact observed XML.",
+      "resolvedOn": "2026-10-23",
+      "observedSha256": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d"
     },
-    "liveTreeComparedOnPublication": false
-  }
+    "reportedCurrentFilesMatched": 26
+  },
+  "liveTreeEvidenceSource": "User-provided read-only SSH JSON result dated 2026-10-23; hashes checked against reconstructed source.",
+  "deployedSourceCheck": "DEPLOYED_SOURCE_CHECK.json"
 }

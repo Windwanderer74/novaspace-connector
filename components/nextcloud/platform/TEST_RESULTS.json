@@ -52,6 +52,15 @@
     "Boundary doubles and in-memory SQLite, not a complete Nextcloud HTTP server.",
     "MariaDB/PostgreSQL migration and HTTP/CSRF acceptance remain open.",
     "No compatibility certification of optional external apps.",
-    "Installed appinfo/info.xml hash mismatch remains unresolved; no production update approved."
-  ]
+    "No practical Nextcloud 35 compatibility or production update acceptance is claimed."
+  ],
+  "sourceReconciliation": {
+    "observedFiles": 26,
+    "matchedFiles": 26,
+    "evidenceSource": "User-provided read-only SSH JSON output",
+    "metadataDifferenceResolved": true,
+    "phpImplementationChanged": false,
+    "fullPhpSuiteRepeated": false,
+    "reason": "Only app XML, provenance, checksums and documentation changed; prior PHP results remain applicable."
+  }
 }

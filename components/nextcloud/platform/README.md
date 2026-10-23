@@ -13,11 +13,13 @@ Quellaufnahme vom **23. Oktober 2026**: App-Metadaten **0.4.0**, Hilfeänderunge
 
 Das Paket veröffentlicht den zusammengeführten **App-Quellstand zur Prüfung und Testinstallation**. Es ist noch kein abgenommenes Produktionsupdate und kein veröffentlichtes Nextcloud-App-Store-Release. Online-Connector und persönlicher LM-Studio-Anschluss sind eigene Komponenten.
 
-## Abgleich mit dem erhaltenen Einbaubeleg
+## Abgleich mit dem belegten Betriebsstand
 
-Von 23 Basisdateien stimmen 21 Originaldateien exakt mit dem erhaltenen ui.7-Einbaubeleg überein. Die Änderung des Gateway-Prüfers ist durch das bestehende GitHub-Einbaupaket und seine Vorher-/Nachher-Hashes belegt. Die vier darin enthaltenen Dateien stimmen mit den aufgenommenen Quellen überein; seine Route wurde identisch in den App-Baum übernommen.
+Der ursprüngliche Einbaubeleg und die später bereitgestellte lesende SSH-Ausgabe sind gemeinsam ausgewertet. Die aktuelle Ausgabe enthält die vollständige `info.xml` und SHA-256-Hashes aller **26 gemeldeten App-Dateien**. Alle 26 passen zum rekonstruierten Betriebsstand, einschließlich GitHub-Route, GitHub-Klassen und Gateway-Prüfer. Es fehlen keine erwarteten Dateien und es gibt keine zusätzlichen gemeldeten Dateien.
 
-**Offener Punkt:** Der Hash der erhaltenen `appinfo/info.xml` stimmt nicht mit dem Einbaubeleg überein. Die bekannte Quelldatei mit Version 0.4.0 wird unverändert erhalten. Die fehlende Bytegleichheit und ein frischer Vergleich mit der laufenden Installation bleiben ausdrücklich offen. Dieses Paket darf deshalb nicht als nachgewiesen identische Kopie des aktuellen Betriebs oder als freigegebener Aktualisierungspfad bezeichnet werden.
+Die Metadatenabweichung ist aufgelöst: Die Betriebsdatei enthält `max-version="35"` statt `34`; sämtliche anderen Bytes der XML-Datei stimmen überein. Das Quellpaket übernimmt diese Datei mit dem belegten Hash `f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d`. Die deklarierte Spanne **Nextcloud 34–35** ist ein übernommener Metadateneintrag, keine durch diesen Vergleich erbrachte praktische Kompatibilitätsfreigabe.
+
+Der Vergleich beruht auf der vom Nutzer bereitgestellten Ausgabe, nicht auf einem unabhängigen direkten Serverzugriff der Assistenz. [DEPLOYED_SOURCE_CHECK.json](DEPLOYED_SOURCE_CHECK.json) hält den Nachweis fest. Die unten beschriebenen bewussten Veröffentlichungsänderungen bleiben bestehen; insbesondere werden aktive Vertrauensdaten nicht ausgeliefert.
 
 Für die Veröffentlichung wurden SPDX-Zeilen ergänzt, die Testpfade angepasst und Testkonten durch allgemeine Namen ersetzt. Die Online-Hilfe verweist auf die veröffentlichte [Integrationsanleitung](INSTALL.md). Die produktive Vertrauenskonfiguration wurde durch inaktive Beispiele mit leerem öffentlichem Schlüssel ersetzt. Die eigentliche App-Implementierung wurde ansonsten beibehalten. [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) dokumentiert die Dateizuweisung und die offenen Grenzen.
 
@@ -43,4 +45,4 @@ Das Skript prüft zuerst [SHA256SUMS.json](SHA256SUMS.json). Es erzeugt ein voll
 
 Die Veröffentlichung wurde mit isoliertem PHP 8.3 über PHP-WASM geprüft: 32 PHP-Dateien syntaktisch gültig; vorhandene Identitäts-, Registry-/Freigabe-, Inventory- und GitHub-Prüfungen erfolgreich. Zusätzliche Prüfungen bestätigen die eindeutige POST-Route und die gesperrte Beispielkonfiguration. Ergebnisse und Grenzen stehen in [TEST_RESULTS.json](TEST_RESULTS.json).
 
-Als Nächstes folgen der Metadatenabgleich und eine isolierte praktische Nextcloud-Testinstallation mit Datenbankmigrationen, HTTP-/CSRF-Prüfung sowie Wiederanlauf/Widerruf. Eine solche Abnahme wurde mit den Fixture-Prüfungen nicht durchgeführt. Die laufende Installation wurde für diese Quellveröffentlichung nicht verändert.
+Als Nächstes folgt eine isolierte praktische Nextcloud-Testinstallation mit Datenbankmigrationen, HTTP-/CSRF-Prüfung sowie Wiederanlauf/Widerruf. Eine solche Abnahme wurde mit den Fixture-Prüfungen nicht durchgeführt. Die laufende Installation wurde für diese Quellveröffentlichung nicht verändert.

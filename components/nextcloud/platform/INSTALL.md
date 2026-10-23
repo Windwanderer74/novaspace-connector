@@ -1,10 +1,10 @@
 # Integration und Testinstallation
 
-Dieses Dokument gehört zum App-Quellpaket vom 23. Oktober 2026. Es beschreibt den vorgesehenen Einbau und seine offenen Abnahmen. Das Paket ist noch kein freigegebenes Produktionsupdate. Insbesondere muss die in [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) dokumentierte Metadatenabweichung vor einem Update des bestehenden Betriebs geklärt werden.
+Dieses Dokument gehört zum App-Quellpaket vom 23. Oktober 2026. Es beschreibt den vorgesehenen Einbau und seine offenen Abnahmen. Das Paket ist noch kein freigegebenes Produktionsupdate. Der in [DEPLOYED_SOURCE_CHECK.json](DEPLOYED_SOURCE_CHECK.json) dokumentierte Vergleich aller 26 gemeldeten Betriebsdateien ist abgeschlossen; die frühere Metadatenabweichung ist aufgelöst. Die praktische Neuinstallations- und Updateabnahme steht weiterhin aus.
 
 ## Voraussetzungen
 
-- Eine getrennte Nextcloud-Testinstallation der Hauptversion **34**, entsprechend den erhaltenen App-Metadaten. Die vollständige Nextcloud-/PHP-/Datenbank-Versionsmatrix ist noch praktisch abzunehmen.
+- Eine getrennte Nextcloud-Testinstallation. Die belegten Betriebsmetadaten deklarieren die Hauptversionen **34–35**. Für die erste praktische Abnahme ist eine konkrete Version festzulegen; die vollständige Nextcloud-/PHP-/Datenbank-Versionsmatrix einschließlich Version 35 ist noch nicht praktisch abgenommen.
 - Ein App-Verzeichnis `novaspace_platform` in einem dafür konfigurierten beschreibbaren Nextcloud-App-Pfad. Der Inhalt von `app/` gehört unmittelbar hinein; `appinfo/info.xml` muss direkt darunter liegen.
 - Bei Online-Anbindung ein eigener bestätigter Gateway-Kontext und eine persönliche Verbindung. Das Paket enthält keine funktionsfähigen fremden Vertrauensdaten oder Zugangsdaten.
 - Für GitHub-Funktionen die passende vorhandene `deckgithubsync`-App und ein persönlich dort eingerichteter GitHub-Zugang. Die verwendeten Dienstschnittstellen sind in [app/lib/Service/GithubBridgeService.php](app/lib/Service/GithubBridgeService.php) sichtbar. Eine allgemeine Kompatibilitätsfreigabe für beliebige Versionen wird nicht behauptet.

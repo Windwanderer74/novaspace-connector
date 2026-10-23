@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "component": "novaspace_platform",
+  "observedOn": "2026-10-23",
+  "evidenceSource": "User-provided JSON output of a read-only SSH source-manifest command in this conversation.",
+  "directServerAccessByAssistant": false,
+  "observedFiles": 26,
+  "expectedFiles": 26,
+  "matchedFiles": 26,
+  "missingFiles": [],
+  "unexpectedFiles": [],
+  "unexplainedDifferences": [],
+  "metadata": {
+    "path": "appinfo/info.xml",
+    "sha256": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d",
+    "appVersion": "0.4.0",
+    "nextcloudMinVersion": "34",
+    "nextcloudMaxVersion": "35",
+    "resolvedDifference": "The preserved repository source declared max-version 34; the supplied running file declares 35. All other bytes match."
+  },
+  "publishedFileDifferences": [
+    "SPDX identifiers added to own PHP files.",
+    "GitHub OCS route retained from the existing installer and confirmed by observed route hash.",
+    "Help URL points to the public integration guide instead of the instance-specific hosted endpoint.",
+    "Active gateway configuration replaced with inactive public examples; app LICENSE and gateway example added."
+  ],
+  "observedNonConfigurationSha256": {
+    "appinfo/info.xml": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d",
+    "appinfo/routes.php": "fdf95ccf5c8322d4391d446e573537cdad65f7c9e0b5805fa2e32c1c4e701f64",
+    "css/connections-scroll.css": "7f4159b41143e8c4a0d559bf041be2e965ca9cd6fcc2317ec0a5647722f78684",
+    "css/connections.css": "09c7371c9bcbd90ff314fc66b8a68d6023496b363d4804aaf8ea42896d4575e1",
+    "img/app.svg": "f2151cfd213a4615383e6658468418de731b494faa1d736f9946b3a0f52e6024",
+    "lib/Controller/ConnectionsController.php": "2d3613d9d66151649f65f938809cf06f06c78e2d54d77ef21824a768b4a5fc6b",
+    "lib/Controller/ContextController.php": "a3a4046a1bde5d66889f710ce619227d9299cdbd310593db47ecc40b40634062",
+    "lib/Controller/GithubBridgeController.php": "263dfe9c770f953fe780d233de216fae81d6fe6d16f5c7fedf7dc6eb39fc71ce",
+    "lib/Controller/InventoryApiController.php": "7ebb3d0a15151d8b9e581a44cd82c4ad8bb93ba0dec480f115e6c7df7a0cc4a0",
+    "lib/Controller/InventoryController.php": "2052fa5a396650d4b19dd598e8eaa378f767dbc7ee72badce2c6dfb4373df710",
+    "lib/Controller/RegistryController.php": "4d056320d3c264e0e2360a1997472a7ccf71cea90bba4a421d8a7ac26a5799a2",
+    "lib/Migration/Version000200Date20261018030000.php": "ea3bb097a0e21f28e02568cea32205380d60ea500b155a4a38ef2d0635cf3eae",
+    "lib/Migration/Version000300Date20261018060000.php": "ed005a2306e93115342e4bbfda412ece95872cbf01c15223b868af3a662c097a",
+    "lib/Migration/Version000400Date20261018180000.php": "475dcd8674612bd880229922fd6d1304ed8d25c61276639a7ce669750f66003b",
+    "lib/Native/NativeAccessResolver.php": "7e4558cfcf51b09131e52753e209d10da508b58fce0e7e736f234c89c2209adb",
+    "lib/Service/ConnectionPolicy.php": "b8c32de619c2d64f74da6d7fa0fe56895c1d8e660aaac40e0d44cc2fe91c710f",
+    "lib/Service/ConnectionService.php": "dc28acfd3882d196bd63c62d1fbb7f9be74b09d3fbdb09db9d16ddfb9f2e2963",
+    "lib/Service/ConnectionStore.php": "3528e5810adf0a4db056c1f82857e6dfbed0848ec7d70b28f8c3608cb4897b86",
+    "lib/Service/GatewayVerifier.php": "2d546059e8bd163a3ffb141832a714e8ae8ca17003b3bc068f38e81c1d9677ad",
+    "lib/Service/GithubBridgeCore.php": "27907145aebc2fd3957e0241598161215f831bc5e9d6735e57257a3f595be29b",
+    "lib/Service/GithubBridgeService.php": "0bca526649042babb950f6d4025bad5396d81588c7a9ed0b350025c359db2d2a",
+    "lib/Service/InventoryDelegation.php": "5e5f5774ea8134cf69d59284bfc8760bc8bd2b094ba89b776831392025c73515",
+    "lib/Service/InventoryRepository.php": "163b81474ab0eb28872758a6680fe81da940f228f57b7f1bbe55477916a91ff3",
+    "templates/connections.php": "05a7621cd68a613f84d68b1cccb361880ed601a16bfa7c2be7b2f1223e40b769",
+    "templates/inventory.php": "fadc891b10c3d687c9abf5505a10a452807ef2c1201a7a71ee7c99eb20752571"
+  },
+  "configuration": {
+    "path": "appinfo/trusted-gateway.json",
+    "matchedPreservedInstanceSource": true,
+    "activeConfigurationPublished": false
+  },
+  "acceptanceLimits": [
+    "The comparison uses supplied file hashes and metadata, not an independently authenticated live server read.",
+    "The declared Nextcloud range 34–35 is not a practical compatibility certification.",
+    "No new installation, migration, HTTP/CSRF or production update acceptance is claimed."
+  ]
+}

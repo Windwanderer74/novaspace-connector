@@ -12,7 +12,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 - Projekt- und Profilvorstellung sowie vier zugeordnete Entwicklungsaufgaben sind veröffentlicht.
 - Als erstes Quellmodul liegt die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) unter **AGPL-3.0-or-later** vor: drei PHP-Klassen, vorhandener Kerntest, vollständiger Lizenztext und Dateiherkunft. Vier Syntaxprüfungen und 34 isolierte Kernprüfungen sind erfolgreich.
 - Das [Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) führt den App-Baum mit Hilfe ui.7 und GitHub-Brücke zusammen. AGPL, Fremdhinweise, inaktive Beispielkonfiguration, Tests und reproduzierbare Quell-/App-Archive sind enthalten.
-- 32 PHP-Dateien und die isolierten Funktionsprüfungen des App-Pakets sind erfolgreich geprüft. 21 von 23 Basisdateien stimmen mit dem erhaltenen Einbaubeleg überein; ein Gateway-Update ist erklärt. Eine Metadatenabweichung in `appinfo/info.xml` und die praktische Testinstallation bleiben offen. Das ist noch kein abgenommenes Produktionsupdate oder Gesamt-Connector-Release; der [Quellstand](docs/SOURCE_STATUS.md) führt die Abgrenzung.
+- 32 PHP-Dateien und die isolierten Funktionsprüfungen des App-Pakets sind erfolgreich geprüft. Der ergänzte Quellabgleich bestätigt alle 26 gemeldeten Dateien des laufenden App-Baums einschließlich GitHub-Route und Metadaten. Die frühere XML-Abweichung ist aufgelöst: Die Betriebsmetadaten deklarieren Nextcloud 34–35; diese Deklaration ersetzt keine praktische Kompatibilitätsprüfung. Das ist noch kein abgenommenes Produktionsupdate oder Gesamt-Connector-Release; der [Quellstand](docs/SOURCE_STATUS.md) führt die Abgrenzung.
 
 ## Arbeitspakete und Aufgaben
 
@@ -21,7 +21,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 | Produktweg und verständliche Einrichtung | Zwei von acht Produktbedingungen belegen interne Grundlagen; die allgemeine Produktabnahme ist offen. | [Produktweg](https://github.com/Windwanderer74/novaspace-connector/issues/1) |
 | Drei Lieferpakete | Alltag/Planung, Kommunikation/Daten und Fachfunktionen/Office sind abgegrenzt. Noch kein Paket ist als Ganzes abgeschlossen. | [Lieferplan](https://github.com/Windwanderer74/novaspace-connector/issues/2) |
 | Paket 1: Alltag und Planung | Acht Basisbedingungen und drei technische Vorbereitungsergebnisse sind belegt; 21 der 32 Abschlussbedingungen sind offen. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
-| Quellübernahme und Entwicklungsablauf | GitHub-Modul und zusammengeführtes natives App-Quellpaket sind mit Lizenz, Herkunft und Tests veröffentlicht. Metadatenabgleich, praktische App-Abnahme und weitere Connector-Komponenten bleiben offen. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
+| Quellübernahme und Entwicklungsablauf | GitHub-Modul und zusammengeführtes natives App-Quellpaket sind mit Lizenz, Herkunft und Tests veröffentlicht. Der Quellabgleich ist dokumentiert; praktische App-Abnahme und weitere Connector-Komponenten bleiben offen. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
 
 Die Zählungen beschreiben definierte Bedingungen. Sie sind keine Schätzung des verbleibenden Zeitaufwands oder der gesamten Produktreife.
 
@@ -39,7 +39,6 @@ Der erste praktische Weg ist ein **Abgleich auf ausdrücklichen Auftrag**. Eine 
 
 ## Nächste Schritte
 
-- Die dokumentierte Abweichung der App-Metadaten gegen den Einbaubeleg klären und den laufenden App-Baum frisch vergleichen.
 - Das native App-Quellpaket in einer getrennten Nextcloud-Umgebung praktisch abnehmen: Migrationen, HTTP-/CSRF-Verhalten, Widerruf und optionale externe App-Schnittstellen.
 - Für weitere Komponenten die tatsächlich benötigten Abhängigkeiten und übernehmbare Versionsgeschichte vollständig abgrenzen; die [Lizenzzuordnung](LICENSING.md) dateigenau fortführen.
 - Den ersten Abgleich der zugeordneten Aufgaben prüfen und sein Ergebnis nachvollziehbar festhalten.
