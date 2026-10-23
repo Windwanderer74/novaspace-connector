@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "component": "novaspace-native-github-bridge",
+  "componentVersion": "0.1.0",
+  "publicationDate": "2026-10-23",
+  "license": "AGPL-3.0-or-later",
+  "sourceCheckpoint": {
+    "commit": "ca1fb50642c0b3cab7c5f9d898e36fba7befdf38",
+    "connectorVersion": "1.31.1",
+    "historyImport": "Snapshot with explicit provenance; private source repository and its full history are not imported.",
+    "pathHistory": "The four selected source paths each first occur in this source checkpoint."
+  },
+  "files": [
+    {
+      "sourcePath": "ops/github-bridge/GithubBridgeCore.php",
+      "publishedPath": "src/Service/GithubBridgeCore.php",
+      "sourceSha256": "27907145aebc2fd3957e0241598161215f831bc5e9d6735e57257a3f595be29b",
+      "publishedSha256": "43f5a8f3628f2eeda5543f13f8e030d562ebaa91929a15e05129db550e6a1885",
+      "changes": [
+        "Add SPDX license identifier; no behavior changes."
+      ]
+    },
+    {
+      "sourcePath": "ops/github-bridge/GithubBridgeService.php",
+      "publishedPath": "src/Service/GithubBridgeService.php",
+      "sourceSha256": "0bca526649042babb950f6d4025bad5396d81588c7a9ed0b350025c359db2d2a",
+      "publishedSha256": "a19cf27bc7ebac494a585428004b567b9071a3d2528a3c27c7585497fe1f1b6c",
+      "changes": [
+        "Add SPDX license identifier; no behavior changes."
+      ]
+    },
+    {
+      "sourcePath": "ops/github-bridge/GithubBridgeController.php",
+      "publishedPath": "src/Controller/GithubBridgeController.php",
+      "sourceSha256": "263dfe9c770f953fe780d233de216fae81d6fe6d16f5c7fedf7dc6eb39fc71ce",
+      "publishedSha256": "6243de59aa596ed003a1f2d117d3e9d2d47099c537624f5bf701c4f2842ee20a",
+      "changes": [
+        "Add SPDX license identifier; no behavior changes."
+      ]
+    },
+    {
+      "sourcePath": "tests/github-bridge-core.php",
+      "publishedPath": "tests/github-bridge-core.php",
+      "sourceSha256": "689a711bb5ff27aa933d2a1c4304ec430770979cdd04d463d20a063312e26472",
+      "publishedSha256": "52f26db3a46132658b6fe1849f4bd540965d6b418d6aceb5c105ade5fa719096",
+      "changes": [
+        "Add SPDX license identifier; no behavior changes.",
+        "Adjust require_once to the published directory layout."
+      ]
+    }
+  ],
+  "licenseText": {
+    "sourceRepository": "spdx/license-list-data",
+    "sourcePath": "text/AGPL-3.0-or-later.txt",
+    "sourceBlob": "0c97efd25b5974b974ed9a8a18207bc4f55bb338"
+  }
+}

@@ -52,8 +52,11 @@ Fragen zum Projekt, konkrete Anwendungsfälle und Rückmeldungen können über d
 
 ## Veröffentlichungsumfang
 
-Dieses Repository stellt das Projekt und seine Entwicklung vor. Es enthält an dieser Stelle keine Installationspakete und erteilt keine Nutzungslizenz für die Connector-Software. Die beschlossene Lizenzrichtung, der aktuelle Entwicklungsstand und die nächsten Schritte stehen in der [Entwicklungsübersicht](ROADMAP.md). Die konkrete Lizenzzuordnung und Softwarebereitstellung werden vorbereitet.
+Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie als erstes Quellmodul die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) unter **AGPL-3.0-or-later**. Dazu gehören drei PHP-Klassen, der vorhandene Kerntest, der vollständige Lizenztext und ein Herkunftsnachweis.
+
+Die Brücke ergänzt die vorhandene Nextcloud-App; ein vollständiges installierbares Connector-Paket ist noch in Arbeit. Die [Lizenzzuordnung](LICENSING.md) und die [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang und die verbleibenden Schritte.
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows, including files, Deck, planning, notes, contacts and mind maps. Nova Space develops the connector within the NOVAFORGE project. It is used through an online connection and a personal LM Studio connection. This repository presents the project; software distribution and licensing are separate decisions.
+**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows, including files, Deck, planning, notes, contacts and mind maps. Nova Space develops the connector within the NOVAFORGE project. It is used through an online connection and a personal LM Studio connection. This repository presents the project and includes the first native GitHub bridge source module under AGPL-3.0-or-later. A complete installable connector package is still being prepared; see the component documentation and LICENSING.md for the exact scope.
+

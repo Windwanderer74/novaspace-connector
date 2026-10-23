@@ -9,7 +9,9 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 - Der Online-Anschluss ist im vorhandenen Arbeitsumfeld in Version **1.31.1** eingebaut.
 - Der persönliche LM-Studio-Anschluss hat einen eigenen Versions- und Einbaustand. Ein Online-Update aktualisiert ihn nicht automatisch.
 - Ein Entwicklungsstand **1.32** mit zusätzlichen Funktionen ist technisch vorbereitet. Er ist noch kein gemeinsam ausgeliefertes oder praktisch abgenommenes Release.
-- Projekt- und Profilvorstellung sind veröffentlicht. Dieses Repository enthält derzeit die Projektvorstellung und Entwicklungsplanung; Programmquellcode und Installationspakete werden gesondert für die Bereitstellung vorbereitet.
+- Projekt- und Profilvorstellung sowie vier zugeordnete Entwicklungsaufgaben sind veröffentlicht.
+- Als erstes Quellmodul liegt die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) unter **AGPL-3.0-or-later** vor: drei PHP-Klassen, vorhandener Kerntest, vollständiger Lizenztext und Dateiherkunft. Vier Syntaxprüfungen und 34 isolierte Kernprüfungen sind erfolgreich.
+- Die Brücke ist ein Modul der vorhandenen Nextcloud-App. Die vollständige Quellübernahme und ein installierbares Gesamtpaket sind weiterhin offen; der [Quellstand](docs/SOURCE_STATUS.md) führt die Abgrenzung.
 
 ## Arbeitspakete und Aufgaben
 
@@ -18,7 +20,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 | Produktweg und verständliche Einrichtung | Zwei von acht Produktbedingungen belegen interne Grundlagen; die allgemeine Produktabnahme ist offen. | [Produktweg](https://github.com/Windwanderer74/novaspace-connector/issues/1) |
 | Drei Lieferpakete | Alltag/Planung, Kommunikation/Daten und Fachfunktionen/Office sind abgegrenzt. Noch kein Paket ist als Ganzes abgeschlossen. | [Lieferplan](https://github.com/Windwanderer74/novaspace-connector/issues/2) |
 | Paket 1: Alltag und Planung | Acht Basisbedingungen und drei technische Vorbereitungsergebnisse sind belegt; 21 der 32 Abschlussbedingungen sind offen. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
-| Quellübernahme und Entwicklungsablauf | Die Präsentation steht. Komponentenabgrenzung, Quellbereitstellung und der Abgleich mit Mindmap/Deck werden schrittweise umgesetzt. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
+| Quellübernahme und Entwicklungsablauf | Das erste AGPL-Quellmodul ist mit Herkunft und Kerntest veröffentlicht. Vollständige Komponentenabgrenzung, App-Quellbereitstellung und wiederholter Abgleich bleiben in Arbeit. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
 
 Die Zählungen beschreiben definierte Bedingungen. Sie sind keine Schätzung des verbleibenden Zeitaufwands oder der gesamten Produktreife.
 
@@ -36,20 +38,22 @@ Der erste praktische Weg ist ein **Abgleich auf ausdrücklichen Auftrag**. Eine 
 
 ## Nächste Schritte
 
-- Vorhandene Komponenten, Herkunft, Abhängigkeiten und übernehmbare Versionsgeschichte vollständig abgrenzen.
-- Die konkrete Lizenzzuordnung, erforderliche Hinweise und den vorgesehenen Auslieferungsumfang vorbereiten.
+- Als nächste Quelllieferung die aktuelle native Plattform-App einschließlich der benötigten GitHub-Einbauänderungen zusammenführen und prüfen.
+- Dafür sichere Beispielkonfiguration, vollständige Herkunft, Fremdhinweise und Einbau-/Build-Angaben ergänzen.
+- Für weitere Komponenten die tatsächlich benötigten Abhängigkeiten und übernehmbare Versionsgeschichte vollständig abgrenzen; die [Lizenzzuordnung](LICENSING.md) dateigenau fortführen.
 - Den ersten Abgleich der zugeordneten Aufgaben prüfen und sein Ergebnis nachvollziehbar festhalten.
 - Erst danach eine begrenzte automatische Zuordnung mit vereinbarten Feldern, Konfliktbehandlung und Abschaltweg erproben.
 - Die verbleibenden Abschlussbedingungen von Paket 1 weiterbearbeiten.
 
 ## Lizenzrichtung und Bereitstellung
 
-Für AGPL-gebundene beziehungsweise entsprechend eingebundene Nextcloud-Bestandteile ist eine Veröffentlichung unter **AGPL-3.0-or-later** vorgesehen.
+Die veröffentlichten PHP-Dateien der nativen GitHub-Brücke einschließlich ihres Kerntests stehen unter **AGPL-3.0-or-later**; der vollständige [Lizenztext](components/nextcloud/github-bridge/LICENSE) liegt beim Modul. Für weitere AGPL-gebundene beziehungsweise entsprechend eingebundene Nextcloud-Bestandteile wird dieselbe Lizenzrichtung umgesetzt.
 
 Für rechtlich eigenständige eigene Bestandteile können gesonderte kommerzielle Nutzungs- und Weiterverwendungsbedingungen vorgesehen werden, soweit die vorhandenen Rechte und Abhängigkeiten dies erlauben. Fremdsoftware behält ihre jeweiligen Lizenzbedingungen.
 
-Die Komponentenabgrenzung und vollständigen Lizenzunterlagen werden vor der Softwarebereitstellung abgeschlossen. Diese Entwicklungsübersicht erteilt selbst keine neue Software-Nutzungslizenz. Das spätere Angebot kann auch vergütete Einrichtung, Wartung oder Betrieb umfassen.
+Die [Lizenzzuordnung](LICENSING.md) nennt den bereits veröffentlichten Umfang. Weitere Komponenten werden jeweils mit ihren erforderlichen Lizenzunterlagen bereitgestellt. Diese Entwicklungsübersicht erteilt keine pauschale Lizenz für unveröffentlichte Software. Das spätere Angebot kann auch vergütete Einrichtung, Wartung oder Betrieb umfassen.
 
 ## Fortschreibung
 
 Diese Übersicht und die zugehörigen Aufgaben halten einen datierten Entwicklungsstand fest. Weitere Änderungen werden anhand geprüfter Ergebnisse nachgeführt. Fragen und konkrete Anwendungsfälle können über die [Issues](https://github.com/Windwanderer74/novaspace-connector/issues) eingebracht werden.
+
