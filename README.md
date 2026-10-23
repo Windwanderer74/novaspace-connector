@@ -34,6 +34,10 @@ Der weitere Ausbau läuft in drei Lieferpaketen:
 
 Der Umfang befindet sich in Entwicklung. Vorbereitete Funktionen und abgeschlossene praktische Abnahmen werden unterschiedlich ausgewiesen. Die Übersicht beschreibt den Projektumfang; einzelne Funktionen können je nach Anschluss, Berechtigung und Einbaustand unterschiedlich verfügbar sein.
 
+## Entwicklungsübersicht und laufende Aufgaben
+
+Die [Entwicklungsübersicht](ROADMAP.md) verbindet den dokumentierten Stand mit den [laufenden Aufgaben](https://github.com/Windwanderer74/novaspace-connector/issues). Sie unterscheidet vorhandenen Betrieb, vorbereitete Erweiterungen und offene Abnahmen.
+
 ## Über Nova Space
 
 Unter dem Namen **Nova Space** entstehen Werkzeuge für die Arbeit mit Nextcloud und KI. Der Nextcloud Connector verbindet ausgewählte Nextcloud-Funktionen mit angebundenen KI-Programmen.
@@ -48,7 +52,7 @@ Fragen zum Projekt, konkrete Anwendungsfälle und Rückmeldungen können über d
 
 ## Veröffentlichungsumfang
 
-Dieses Repository stellt das Projekt vor. Es enthält an dieser Stelle keine Installationspakete und erteilt keine Nutzungslizenz für die Connector-Software. Über deren Bereitstellung und Nutzungsbedingungen wird gesondert entschieden.
+Dieses Repository stellt das Projekt und seine Entwicklung vor. Es enthält an dieser Stelle keine Installationspakete und erteilt keine Nutzungslizenz für die Connector-Software. Die beschlossene Lizenzrichtung, der aktuelle Entwicklungsstand und die nächsten Schritte stehen in der [Entwicklungsübersicht](ROADMAP.md). Die konkrete Lizenzzuordnung und Softwarebereitstellung werden vorbereitet.
 
 ---
 
