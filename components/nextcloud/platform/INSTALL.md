@@ -1,10 +1,10 @@
 # Integration und Testinstallation
 
-Dieses Dokument gehört zum App-Quellpaket vom 23. Oktober 2026. Es beschreibt den vorgesehenen Einbau und seine offenen Abnahmen. Das Paket ist noch kein freigegebenes Produktionsupdate. Der in [DEPLOYED_SOURCE_CHECK.json](DEPLOYED_SOURCE_CHECK.json) dokumentierte Vergleich aller 26 gemeldeten Betriebsdateien ist abgeschlossen; die frühere Metadatenabweichung ist aufgelöst. Die praktische Neuinstallations- und Updateabnahme steht weiterhin aus.
+Dieses Dokument gehört zum App-Quellpaket vom 23. Oktober 2026. Es beschreibt den vorgesehenen Einbau und seine offenen Abnahmen. Das Paket ist noch kein freigegebenes Produktionsupdate. Der in [DEPLOYED_SOURCE_CHECK.json](DEPLOYED_SOURCE_CHECK.json) dokumentierte Vergleich aller 26 gemeldeten Betriebsdateien ist abgeschlossen; die frühere Metadatenabweichung ist aufgelöst. Die frische Neuinstallation wurde inzwischen für Nextcloud 34.0.4 und 35.0.0 mit PHP 8.3.6/MariaDB 10.11.14 erfolgreich geprüft. Der produktive Updatepfad bleibt gesondert abzunehmen.
 
 ## Voraussetzungen
 
-- Eine getrennte Nextcloud-Testinstallation. Die belegten Betriebsmetadaten deklarieren die Hauptversionen **34–35**. Für die erste praktische Abnahme ist eine konkrete Version festzulegen; die vollständige Nextcloud-/PHP-/Datenbank-Versionsmatrix einschließlich Version 35 ist noch nicht praktisch abgenommen.
+- Eine getrennte Nextcloud-Testinstallation. Die belegten Betriebsmetadaten deklarieren die Hauptversionen **34–35**. Praktisch geprüft sind **34.0.4 und 35.0.0 mit PHP 8.3.6 und MariaDB 10.11.14**, jeweils 36/36 native Prüfungen. Andere Kombinationen sind damit nicht pauschal freigegeben.
 - Ein App-Verzeichnis `novaspace_platform` in einem dafür konfigurierten beschreibbaren Nextcloud-App-Pfad. Der Inhalt von `app/` gehört unmittelbar hinein; `appinfo/info.xml` muss direkt darunter liegen.
 - Bei Online-Anbindung ein eigener bestätigter Gateway-Kontext und eine persönliche Verbindung. Das Paket enthält keine funktionsfähigen fremden Vertrauensdaten oder Zugangsdaten.
 - Für GitHub-Funktionen die passende vorhandene `deckgithubsync`-App und ein persönlich dort eingerichteter GitHub-Zugang. Die verwendeten Dienstschnittstellen sind in [app/lib/Service/GithubBridgeService.php](app/lib/Service/GithubBridgeService.php) sichtbar. Eine allgemeine Kompatibilitätsfreigabe für beliebige Versionen wird nicht behauptet.
@@ -36,7 +36,7 @@ Die Beispieladresse lautet `https://nextcloud.example.invalid/ocs/v2.php/apps/no
 
 Das App-Paket bringt keine Einrichtung eines Online-Gateways und keinen vollständigen Online-Connector mit. Dafür werden die entsprechenden Komponenten und ihre eigenen Konfigurationen benötigt.
 
-## Geplanter Ablauf in einer frischen Testinstallation
+## Ablauf in einer frischen Testinstallation
 
 1. Den Paketinhalt und die SHA-256-Nachweise prüfen; das App-Archiv zunächst außerhalb der Nextcloud-Installation entpacken.
 2. Den App-Baum in den vorgesehenen Test-App-Pfad übernehmen. Es darf dort noch keine vorhandene App gleichen Namens und keine unerwarteten `ns_pf_*`-Tabellen geben.
@@ -49,6 +49,8 @@ Die Migrationen legen die Registry-/Journal-, Inventory-Freigabe-/Journal- und A
 
 ## Abnahme und Rückweg
 
-Die verbleibende praktische Prüfung umfasst mindestens Datenbankmigrationen auf der gewählten Datenbank, Nextcloud-Abhängigkeitsauflösung, UI-/HTTP- und CSRF-Verhalten, Widerruf sowie die optionalen externen App-Schnittstellen. Die Fixture-Prüfungen in diesem Repository belegen diese HTTP-/Datenbankabnahme nicht.
+Die native Neuinstallationsprüfung einschließlich Datenbankmigrationen, HTTP/CSRF, persönlicher Freigabe, Widerruf und Webserver-Neustart ist für die beiden dokumentierten Kombinationen erfolgreich. [Testaufbau](integration/README.md) und [Ergebnisse](INTEGRATION_RESULTS.json) halten Umfang und Grenzen fest. Die isolierten Fixture-Prüfungen bleiben ein separater Nachweis.
+
+Vor einem produktiven Update bleiben der konkrete bestehende Daten-/Quellstand, Sicherung/Wiederherstellung und der tatsächlich gewählte Updatepfad zu prüfen. Erfolgreiche Abläufe mit installierten externen Zusatz-Apps sowie weitere Laufzeit-/Webserverkombinationen werden gesondert abgenommen.
 
 Ein Abschalten über Nextcloud widerruft nicht automatisch jeden bereits bestehenden externen Token. Vorhandene persönliche Verbindungen, externe Sync-Zuordnungen und deren Zeitpläne müssen entsprechend ihrem tatsächlichen Eigentümer und Betriebszustand getrennt behandelt werden. Daten und Journale werden nicht als Aufräummaßnahme gelöscht.

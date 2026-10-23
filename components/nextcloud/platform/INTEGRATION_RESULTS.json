@@ -1,0 +1,504 @@
+{
+  "schemaVersion": 1,
+  "kind": "native-nextcloud-fresh-installation-checks",
+  "testedAppVersion": "0.4.0",
+  "includedHelpPatch": "0.4.0-ui.7",
+  "includedGithubBridge": "0.1.0",
+  "testRunnerSha256": "289e29491b88761bfd1f708aeefd1259b30256ea33e8953f6a0be7229a786fd3",
+  "productionUpdated": false,
+  "matrix": [
+    {
+      "nextcloud": "34.0.4",
+      "php": "8.3.6",
+      "database": "10.11.14-MariaDB-0ubuntu0.24.04.1",
+      "passed": 36,
+      "total": 36
+    },
+    {
+      "nextcloud": "35.0.0",
+      "php": "8.3.6",
+      "database": "10.11.14-MariaDB-0ubuntu0.24.04.1",
+      "passed": 36,
+      "total": 36
+    }
+  ],
+  "preparationRecipeVerified": true,
+  "reports": [
+    {
+      "schemaVersion": 1,
+      "testedAtUtc": "2026-10-23T20:20:36.401130+00:00",
+      "nextcloud": "34.0.4",
+      "php": "8.3.6",
+      "database": "10.11.14-MariaDB-0ubuntu0.24.04.1",
+      "webServer": "PHP built-in loopback test server",
+      "coreArchive": {
+        "url": "https://download.nextcloud.com/server/releases/nextcloud-34.0.4.tar.bz2",
+        "sha256": "00f226e6364f96e0918ab06157158f66601b8cedc25af777f5ee5a3056f42b83"
+      },
+      "productionAccessed": false,
+      "externalGithubOperationsPerformed": false,
+      "credentials": "Generated exclusively for this disposable local lab; omitted from report.",
+      "testGatewayKey": "Ephemeral RSA key, generated in process memory.",
+      "testedAppFileSha256": {
+        "LICENSE": "41c454984ccb03e15b90fecd4ac64405dddb1b61e8aaba7e6aadb6e54a34456e",
+        "appinfo/info.xml": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d",
+        "appinfo/routes.php": "029359ebd3b073206a03041e269bae10cb8df36657e325677575933583b235a5",
+        "appinfo/trusted-gateway.example.json": "a6564ef013effcaf7ce784edbb7c1051c3180615dbcca0dd164a8334ebed32ba",
+        "appinfo/trusted-gateway.json": "a6564ef013effcaf7ce784edbb7c1051c3180615dbcca0dd164a8334ebed32ba",
+        "css/connections-scroll.css": "7f4159b41143e8c4a0d559bf041be2e965ca9cd6fcc2317ec0a5647722f78684",
+        "css/connections.css": "09c7371c9bcbd90ff314fc66b8a68d6023496b363d4804aaf8ea42896d4575e1",
+        "img/app.svg": "f2151cfd213a4615383e6658468418de731b494faa1d736f9946b3a0f52e6024",
+        "lib/Controller/ConnectionsController.php": "fde16d1c2e4c1acd8c4ca7aee5cd94ea27d4e99b29a635e70a177a4a0d2b346c",
+        "lib/Controller/ContextController.php": "b9ce0e982185837e1a2b214c65ad7e1f54fc98461970e05f0fe3858bd97fada1",
+        "lib/Controller/GithubBridgeController.php": "6243de59aa596ed003a1f2d117d3e9d2d47099c537624f5bf701c4f2842ee20a",
+        "lib/Controller/InventoryApiController.php": "d97c1c1da294681c9e0a7333d2c3b81a194d9a5bb53b5533c62a81c4b7a9d3b7",
+        "lib/Controller/InventoryController.php": "2d2235ec418eb4f2eacff6df408ef9f3ce75e76b8de4cce63fc03116716a3a99",
+        "lib/Controller/RegistryController.php": "402a8d107fab0f43b0686c6b3cb59ee32ecee2dacb42746da37f69e3bfe0352b",
+        "lib/Migration/Version000200Date20261018030000.php": "b0104c4ec616ae34b42c764ff826646cd7bf313c8003a5f25aa80cfa9f4339e8",
+        "lib/Migration/Version000300Date20261018060000.php": "9e9528dc7f315dd633aba7b8a97c41bbcbeef88306e3a46f5184878093bd8f85",
+        "lib/Migration/Version000400Date20261018180000.php": "3eb3d9484130e9cc1e4e957ccc2f4baa174804d81120ce8a502c4f96fdea9e01",
+        "lib/Native/NativeAccessResolver.php": "21d0876cd999ecf6fb618363e9f05f246b36876db38a7b9b11a2cbe278c16e93",
+        "lib/Service/ConnectionPolicy.php": "eb7984ddc675fb33ab3e13b0ed61aaf5c7e4a5dafabf1ca21374949bb2e6badf",
+        "lib/Service/ConnectionService.php": "e5b50e86732f8c7e862f10861c5d2926e766519f37674e2a322b108c2de52847",
+        "lib/Service/ConnectionStore.php": "489618d6656939bc14a54df1b3f9f70897a566c041da15cdb15321065e04cfdb",
+        "lib/Service/GatewayVerifier.php": "0ab12dcc347b719f0b03ba627ed3d8c7438a7c7c3575dbf794312f43e62cfc21",
+        "lib/Service/GithubBridgeCore.php": "43f5a8f3628f2eeda5543f13f8e030d562ebaa91929a15e05129db550e6a1885",
+        "lib/Service/GithubBridgeService.php": "a19cf27bc7ebac494a585428004b567b9071a3d2528a3c27c7585497fe1f1b6c",
+        "lib/Service/InventoryDelegation.php": "5a5133faab396ffebb6e2d4ece1f8d407a036d420931815808bb685b9f4c7444",
+        "lib/Service/InventoryRepository.php": "d9d2f03d3f307908d87e8c12d3fc824c2d447f40f31059b46b64c590fbd80d7a",
+        "templates/connections.php": "a4818570b470ff4872d4ea12da8b158bc08212f47c1a23c0e66ae140994b067e",
+        "templates/inventory.php": "a9f8a183fdd48dbe5d4ad800a4d7c8406f3d7e9783c03f79518cd9c38fd8d4af"
+      },
+      "checksPassed": 36,
+      "checksTotal": 36,
+      "results": [
+        {
+          "name": "Official Nextcloud installation succeeds",
+          "passed": true
+        },
+        {
+          "name": "Requested Nextcloud 34.0.4 installed",
+          "passed": true,
+          "version": "34.0.4"
+        },
+        {
+          "name": "Native app activates through real occ",
+          "passed": true
+        },
+        {
+          "name": "All six native migrations tables exist",
+          "passed": true,
+          "tables": [
+            "oc_ns_pf_access",
+            "oc_ns_pf_actions",
+            "oc_ns_pf_connections",
+            "oc_ns_pf_events",
+            "oc_ns_pf_grants",
+            "oc_ns_pf_owners"
+          ]
+        },
+        {
+          "name": "Unauthenticated native page requires login",
+          "passed": true,
+          "httpStatus": 401
+        },
+        {
+          "name": "Real native owner page renders",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Inactive publication trust rejects signed online request",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Real app-password identity reaches unregistered registry",
+          "passed": true
+        },
+        {
+          "name": "Signed setup returns native approval link without registering",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Owner receives native approval form",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Approval without CSRF is rejected without database change",
+          "passed": true,
+          "httpStatus": 412
+        },
+        {
+          "name": "Native owner can approve the exact personal connection",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Registration separates logical owner from native actor",
+          "passed": true
+        },
+        {
+          "name": "Approval creates one registry row and one journal event",
+          "passed": true
+        },
+        {
+          "name": "Expired assertion is rejected",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Cross-purpose assertion is rejected",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Wrong issuer is rejected",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Owner parameter injection is rejected",
+          "passed": true,
+          "httpStatus": 400
+        },
+        {
+          "name": "Web session cannot substitute for signed app-password caller",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Missing optional GitHub app is reported without false connection",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Missing optional Inventory app cannot create a grant or orphan journal",
+          "passed": true,
+          "httpStatus": 409
+        },
+        {
+          "name": "Owner can atomically disable the connection main switch",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Repeated identical access request does not duplicate journal",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Stale permission form cannot overwrite a newer revision",
+          "passed": true,
+          "httpStatus": 409
+        },
+        {
+          "name": "Disabled main switch blocks native GitHub operation",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Another owner cannot see this connection",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Another owner cannot change the connection with valid own CSRF",
+          "passed": true,
+          "httpStatus": 409
+        },
+        {
+          "name": "Fresh owner form can re-enable the connection",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Revocation without CSRF is rejected without state change",
+          "passed": true,
+          "httpStatus": 412
+        },
+        {
+          "name": "Native owner revocation becomes visible to following API read",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Repeated revocation preserves one journal event",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Revoked connection blocks following GitHub operation",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Disabling app preserves registry and journal",
+          "passed": true
+        },
+        {
+          "name": "Re-enabling app does not rerun or duplicate migrations",
+          "passed": true
+        },
+        {
+          "name": "Revocation remains effective after app re-enable",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Real webserver restart preserves session, journal and revocation",
+          "passed": true,
+          "httpStatus": 200
+        }
+      ],
+      "limits": [
+        "Only the exact version and runtime combination in this report is covered.",
+        "PHP built-in loopback server; Apache/nginx/FPM, HTTPS and production load are not certified.",
+        "External deckgithubsync/Inventory apps absent: their guarded absence is tested; successful external-app and GitHub writes are not tested.",
+        "Stale-version rejection tested; no multi-worker race/load test.",
+        "This fresh installation is not an upgrade acceptance for an existing production installation.",
+        "Lab-only brute-force/rate-limit protection disabled to keep negative functional tests deterministic."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "testedAtUtc": "2026-10-23T20:20:56.874878+00:00",
+      "nextcloud": "35.0.0",
+      "php": "8.3.6",
+      "database": "10.11.14-MariaDB-0ubuntu0.24.04.1",
+      "webServer": "PHP built-in loopback test server",
+      "coreArchive": {
+        "url": "https://download.nextcloud.com/server/releases/nextcloud-35.0.0.tar.bz2",
+        "sha256": "d8c165e764a7a4de82eb3dec510d66e19f2d82218572604af9c15d99a98a29a0"
+      },
+      "productionAccessed": false,
+      "externalGithubOperationsPerformed": false,
+      "credentials": "Generated exclusively for this disposable local lab; omitted from report.",
+      "testGatewayKey": "Ephemeral RSA key, generated in process memory.",
+      "testedAppFileSha256": {
+        "LICENSE": "41c454984ccb03e15b90fecd4ac64405dddb1b61e8aaba7e6aadb6e54a34456e",
+        "appinfo/info.xml": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d",
+        "appinfo/routes.php": "029359ebd3b073206a03041e269bae10cb8df36657e325677575933583b235a5",
+        "appinfo/trusted-gateway.example.json": "a6564ef013effcaf7ce784edbb7c1051c3180615dbcca0dd164a8334ebed32ba",
+        "appinfo/trusted-gateway.json": "a6564ef013effcaf7ce784edbb7c1051c3180615dbcca0dd164a8334ebed32ba",
+        "css/connections-scroll.css": "7f4159b41143e8c4a0d559bf041be2e965ca9cd6fcc2317ec0a5647722f78684",
+        "css/connections.css": "09c7371c9bcbd90ff314fc66b8a68d6023496b363d4804aaf8ea42896d4575e1",
+        "img/app.svg": "f2151cfd213a4615383e6658468418de731b494faa1d736f9946b3a0f52e6024",
+        "lib/Controller/ConnectionsController.php": "fde16d1c2e4c1acd8c4ca7aee5cd94ea27d4e99b29a635e70a177a4a0d2b346c",
+        "lib/Controller/ContextController.php": "b9ce0e982185837e1a2b214c65ad7e1f54fc98461970e05f0fe3858bd97fada1",
+        "lib/Controller/GithubBridgeController.php": "6243de59aa596ed003a1f2d117d3e9d2d47099c537624f5bf701c4f2842ee20a",
+        "lib/Controller/InventoryApiController.php": "d97c1c1da294681c9e0a7333d2c3b81a194d9a5bb53b5533c62a81c4b7a9d3b7",
+        "lib/Controller/InventoryController.php": "2d2235ec418eb4f2eacff6df408ef9f3ce75e76b8de4cce63fc03116716a3a99",
+        "lib/Controller/RegistryController.php": "402a8d107fab0f43b0686c6b3cb59ee32ecee2dacb42746da37f69e3bfe0352b",
+        "lib/Migration/Version000200Date20261018030000.php": "b0104c4ec616ae34b42c764ff826646cd7bf313c8003a5f25aa80cfa9f4339e8",
+        "lib/Migration/Version000300Date20261018060000.php": "9e9528dc7f315dd633aba7b8a97c41bbcbeef88306e3a46f5184878093bd8f85",
+        "lib/Migration/Version000400Date20261018180000.php": "3eb3d9484130e9cc1e4e957ccc2f4baa174804d81120ce8a502c4f96fdea9e01",
+        "lib/Native/NativeAccessResolver.php": "21d0876cd999ecf6fb618363e9f05f246b36876db38a7b9b11a2cbe278c16e93",
+        "lib/Service/ConnectionPolicy.php": "eb7984ddc675fb33ab3e13b0ed61aaf5c7e4a5dafabf1ca21374949bb2e6badf",
+        "lib/Service/ConnectionService.php": "e5b50e86732f8c7e862f10861c5d2926e766519f37674e2a322b108c2de52847",
+        "lib/Service/ConnectionStore.php": "489618d6656939bc14a54df1b3f9f70897a566c041da15cdb15321065e04cfdb",
+        "lib/Service/GatewayVerifier.php": "0ab12dcc347b719f0b03ba627ed3d8c7438a7c7c3575dbf794312f43e62cfc21",
+        "lib/Service/GithubBridgeCore.php": "43f5a8f3628f2eeda5543f13f8e030d562ebaa91929a15e05129db550e6a1885",
+        "lib/Service/GithubBridgeService.php": "a19cf27bc7ebac494a585428004b567b9071a3d2528a3c27c7585497fe1f1b6c",
+        "lib/Service/InventoryDelegation.php": "5a5133faab396ffebb6e2d4ece1f8d407a036d420931815808bb685b9f4c7444",
+        "lib/Service/InventoryRepository.php": "d9d2f03d3f307908d87e8c12d3fc824c2d447f40f31059b46b64c590fbd80d7a",
+        "templates/connections.php": "a4818570b470ff4872d4ea12da8b158bc08212f47c1a23c0e66ae140994b067e",
+        "templates/inventory.php": "a9f8a183fdd48dbe5d4ad800a4d7c8406f3d7e9783c03f79518cd9c38fd8d4af"
+      },
+      "checksPassed": 36,
+      "checksTotal": 36,
+      "results": [
+        {
+          "name": "Official Nextcloud installation succeeds",
+          "passed": true
+        },
+        {
+          "name": "Requested Nextcloud 35.0.0 installed",
+          "passed": true,
+          "version": "35.0.0"
+        },
+        {
+          "name": "Native app activates through real occ",
+          "passed": true
+        },
+        {
+          "name": "All six native migrations tables exist",
+          "passed": true,
+          "tables": [
+            "oc_ns_pf_access",
+            "oc_ns_pf_actions",
+            "oc_ns_pf_connections",
+            "oc_ns_pf_events",
+            "oc_ns_pf_grants",
+            "oc_ns_pf_owners"
+          ]
+        },
+        {
+          "name": "Unauthenticated native page requires login",
+          "passed": true,
+          "httpStatus": 401
+        },
+        {
+          "name": "Real native owner page renders",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Inactive publication trust rejects signed online request",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Real app-password identity reaches unregistered registry",
+          "passed": true
+        },
+        {
+          "name": "Signed setup returns native approval link without registering",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Owner receives native approval form",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Approval without CSRF is rejected without database change",
+          "passed": true,
+          "httpStatus": 412
+        },
+        {
+          "name": "Native owner can approve the exact personal connection",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Registration separates logical owner from native actor",
+          "passed": true
+        },
+        {
+          "name": "Approval creates one registry row and one journal event",
+          "passed": true
+        },
+        {
+          "name": "Expired assertion is rejected",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Cross-purpose assertion is rejected",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Wrong issuer is rejected",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Owner parameter injection is rejected",
+          "passed": true,
+          "httpStatus": 400
+        },
+        {
+          "name": "Web session cannot substitute for signed app-password caller",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Missing optional GitHub app is reported without false connection",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Missing optional Inventory app cannot create a grant or orphan journal",
+          "passed": true,
+          "httpStatus": 409
+        },
+        {
+          "name": "Owner can atomically disable the connection main switch",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Repeated identical access request does not duplicate journal",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Stale permission form cannot overwrite a newer revision",
+          "passed": true,
+          "httpStatus": 409
+        },
+        {
+          "name": "Disabled main switch blocks native GitHub operation",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Another owner cannot see this connection",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Another owner cannot change the connection with valid own CSRF",
+          "passed": true,
+          "httpStatus": 409
+        },
+        {
+          "name": "Fresh owner form can re-enable the connection",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Revocation without CSRF is rejected without state change",
+          "passed": true,
+          "httpStatus": 412
+        },
+        {
+          "name": "Native owner revocation becomes visible to following API read",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Repeated revocation preserves one journal event",
+          "passed": true,
+          "httpStatus": 303
+        },
+        {
+          "name": "Revoked connection blocks following GitHub operation",
+          "passed": true,
+          "httpStatus": 503
+        },
+        {
+          "name": "Disabling app preserves registry and journal",
+          "passed": true
+        },
+        {
+          "name": "Re-enabling app does not rerun or duplicate migrations",
+          "passed": true
+        },
+        {
+          "name": "Revocation remains effective after app re-enable",
+          "passed": true,
+          "httpStatus": 200
+        },
+        {
+          "name": "Real webserver restart preserves session, journal and revocation",
+          "passed": true,
+          "httpStatus": 200
+        }
+      ],
+      "limits": [
+        "Only the exact version and runtime combination in this report is covered.",
+        "PHP built-in loopback server; Apache/nginx/FPM, HTTPS and production load are not certified.",
+        "External deckgithubsync/Inventory apps absent: their guarded absence is tested; successful external-app and GitHub writes are not tested.",
+        "Stale-version rejection tested; no multi-worker race/load test.",
+        "This fresh installation is not an upgrade acceptance for an existing production installation.",
+        "Lab-only brute-force/rate-limit protection disabled to keep negative functional tests deterministic."
+      ]
+    }
+  ]
+}

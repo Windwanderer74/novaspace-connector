@@ -49,10 +49,8 @@
     }
   ],
   "limits": [
-    "Boundary doubles and in-memory SQLite, not a complete Nextcloud HTTP server.",
-    "MariaDB/PostgreSQL migration and HTTP/CSRF acceptance remain open.",
-    "No compatibility certification of optional external apps.",
-    "No practical Nextcloud 35 compatibility or production update acceptance is claimed."
+    "These fixture suites use boundary doubles and in-memory SQLite; native HTTP/MariaDB results are in INTEGRATION_RESULTS.json.",
+    "External application success paths, production upgrades and other runtime combinations remain separately scoped."
   ],
   "sourceReconciliation": {
     "observedFiles": 26,
@@ -62,5 +60,26 @@
     "phpImplementationChanged": false,
     "fullPhpSuiteRepeated": false,
     "reason": "Only app XML, provenance, checksums and documentation changed; prior PHP results remain applicable."
+  },
+  "scope": "Isolated PHP fixture suites; full native server integration is reported separately.",
+  "nativeIntegration": {
+    "report": "INTEGRATION_RESULTS.json",
+    "recipe": "integration/README.md",
+    "matrix": [
+      {
+        "nextcloud": "34.0.4",
+        "php": "8.3.6",
+        "mariadb": "10.11.14",
+        "passed": 36,
+        "total": 36
+      },
+      {
+        "nextcloud": "35.0.0",
+        "php": "8.3.6",
+        "mariadb": "10.11.14",
+        "passed": 36,
+        "total": 36
+      }
+    ]
   }
 }

@@ -376,5 +376,18 @@
     "reportedCurrentFilesMatched": 26
   },
   "liveTreeEvidenceSource": "User-provided read-only SSH JSON result dated 2026-10-23; hashes checked against reconstructed source.",
-  "deployedSourceCheck": "DEPLOYED_SOURCE_CHECK.json"
+  "deployedSourceCheck": "DEPLOYED_SOURCE_CHECK.json",
+  "nativeIntegration": {
+    "report": "INTEGRATION_RESULTS.json",
+    "recipe": "integration/README.md",
+    "testedNextcloudVersions": [
+      "34.0.4",
+      "35.0.0"
+    ],
+    "php": "8.3.6",
+    "mariadb": "10.11.14",
+    "checksPerCombination": 36,
+    "appImplementationChanged": false,
+    "productionUpdated": false
+  }
 }

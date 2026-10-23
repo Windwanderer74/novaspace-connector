@@ -17,7 +17,7 @@ Das Paket veröffentlicht den zusammengeführten **App-Quellstand zur Prüfung u
 
 Der ursprüngliche Einbaubeleg und die später bereitgestellte lesende SSH-Ausgabe sind gemeinsam ausgewertet. Die aktuelle Ausgabe enthält die vollständige `info.xml` und SHA-256-Hashes aller **26 gemeldeten App-Dateien**. Alle 26 passen zum rekonstruierten Betriebsstand, einschließlich GitHub-Route, GitHub-Klassen und Gateway-Prüfer. Es fehlen keine erwarteten Dateien und es gibt keine zusätzlichen gemeldeten Dateien.
 
-Die Metadatenabweichung ist aufgelöst: Die Betriebsdatei enthält `max-version="35"` statt `34`; sämtliche anderen Bytes der XML-Datei stimmen überein. Das Quellpaket übernimmt diese Datei mit dem belegten Hash `f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d`. Die deklarierte Spanne **Nextcloud 34–35** ist ein übernommener Metadateneintrag, keine durch diesen Vergleich erbrachte praktische Kompatibilitätsfreigabe.
+Die Metadatenabweichung ist aufgelöst: Die Betriebsdatei enthält `max-version="35"` statt `34`; sämtliche anderen Bytes der XML-Datei stimmen überein. Das Quellpaket übernimmt diese Datei mit dem belegten Hash `f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d`. Die deklarierte Spanne **Nextcloud 34–35** ist zunächst ein übernommener Metadateneintrag. Die nachfolgende native Integrationsprüfung ergänzt ihn um Nachweise für zwei konkrete Kombinationen.
 
 Der Vergleich beruht auf der vom Nutzer bereitgestellten Ausgabe, nicht auf einem unabhängigen direkten Serverzugriff der Assistenz. [DEPLOYED_SOURCE_CHECK.json](DEPLOYED_SOURCE_CHECK.json) hält den Nachweis fest. Die unten beschriebenen bewussten Veröffentlichungsänderungen bleiben bestehen; insbesondere werden aktive Vertrauensdaten nicht ausgeliefert.
 
@@ -43,6 +43,17 @@ Das Skript prüft zuerst [SHA256SUMS.json](SHA256SUMS.json). Es erzeugt ein voll
 
 ## Nachweise und nächste Abnahme
 
-Die Veröffentlichung wurde mit isoliertem PHP 8.3 über PHP-WASM geprüft: 32 PHP-Dateien syntaktisch gültig; vorhandene Identitäts-, Registry-/Freigabe-, Inventory- und GitHub-Prüfungen erfolgreich. Zusätzliche Prüfungen bestätigen die eindeutige POST-Route und die gesperrte Beispielkonfiguration. Ergebnisse und Grenzen stehen in [TEST_RESULTS.json](TEST_RESULTS.json).
+Die isolierten PHP-Fixture-Prüfungen bleiben in [TEST_RESULTS.json](TEST_RESULTS.json) dokumentiert. Sie umfassen 32 syntaktisch gültige PHP-Dateien und die vorhandenen Identitäts-, Registry-/Freigabe-, Inventory- und GitHub-Kernprüfungen.
 
-Als Nächstes folgt eine isolierte praktische Nextcloud-Testinstallation mit Datenbankmigrationen, HTTP-/CSRF-Prüfung sowie Wiederanlauf/Widerruf. Eine solche Abnahme wurde mit den Fixture-Prüfungen nicht durchgeführt. Die laufende Installation wurde für diese Quellveröffentlichung nicht verändert.
+Zusätzlich wurde die App in zwei vollständigen frischen Nextcloud-Installationen mit echten Datenbankmigrationen und HTTP-Anfragen geprüft:
+
+| Nextcloud | PHP | Datenbank | Ergebnis |
+|---|---|---|---|
+| 34.0.4 | 8.3.6 | MariaDB 10.11.14 | **36/36 erfolgreich** |
+| 35.0.0 | 8.3.6 | MariaDB 10.11.14 | **36/36 erfolgreich** |
+
+Installation und App-Aktivierung, sechs Migrationstabellen, native Anmeldung, persönliche Registrierung, CSRF-Abwehr, Identitätstrennung, Hauptschalter, idempotente Wiederholungen, veraltete Formulare, Widerruf und tatsächlicher Webserver-Neustart sind damit für diese Kombinationen belegt. Die App-Implementierung musste dafür nicht geändert werden.
+
+[INTEGRATION_RESULTS.json](INTEGRATION_RESULTS.json) enthält die Ergebnisse und die Hashes der geprüften App-Dateien. [integration/README.md](integration/README.md) beschreibt den ebenfalls erhaltenen Testaufbau. Testpasswörter, aktive Schlüssel und Rohprotokolle sind nicht Bestandteil der Veröffentlichung.
+
+Die externen GitHub-/Inventory-Apps waren nicht installiert; ihre abgesicherte Abwesenheit ist geprüft. Erfolgreiche externe App-Operationen, ein Update einer bestehenden Installation sowie andere PHP-/Datenbank-/Webserverkombinationen bleiben eigene Abnahmen. Die laufende Installation wurde durch diese Tests nicht verändert.

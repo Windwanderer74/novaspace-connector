@@ -12,3 +12,5 @@ Zwei öffentliche Nextcloud-Schnittstellen sind ausschließlich als unverändert
 Der vollständige AGPL-3.0-Text liegt zusätzlich in [LICENSES/AGPL-3.0-only.txt](LICENSES/AGPL-3.0-only.txt) für die auf Version 3 beschränkte Schnittstelle. Die eigene Lizenzzuordnung hebt diese Einschränkung nicht auf. Die Fixtures sind im vollständigen Quellarchiv enthalten und gehören nicht in das getrennte App-Archiv.
 
 Lizenztextquelle: [SPDX License List Data](https://github.com/spdx/license-list-data/blob/main/text/AGPL-3.0-only.txt), Blob `0c97efd25b5974b974ed9a8a18207bc4f55bb338`. Die identischen Lizenztexte für die Kennungen `AGPL-3.0-only` und `AGPL-3.0-or-later` ändern nichts an der unterschiedlichen Versionswahl in den jeweiligen Dateihinweisen.
+
+Die native Integrationsprüfung benötigt zusätzlich Python `cryptography` sowie getrennt heruntergeladene PHP-/MariaDB-/Nextcloud-Laufzeiten. Diese Abhängigkeiten werden nicht in diesem Quellpaket gebündelt und behalten ihre eigenen Lizenzbedingungen. Der Testaufbau und die gewählte Python-Version stehen in `integration/`.
