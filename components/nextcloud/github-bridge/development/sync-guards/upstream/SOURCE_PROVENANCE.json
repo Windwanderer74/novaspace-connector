@@ -1,0 +1,36 @@
+{
+  "kind": "isolated-regression-source-fixture",
+  "upstreamRepository": "SchVinzenz/Github-Projects-for-Deck",
+  "upstreamCommit": "d750a58e5f018d854c11f3a3811aa4c3f3f1ed77",
+  "upstreamPath": "lib/Service/SyncService.php",
+  "upstreamGitBlobSha": "add2a544736c13fa6fa0e49736d2432cbe6cf7dd",
+  "license": "AGPL-3.0-or-later",
+  "originalCopyrightHeaderPreserved": true,
+  "installedSourceHashMatchVerified": true,
+  "productionDeploymentPerformed": false,
+  "purpose": "Reproduce the observed draft-date-query omission and disabled-status setup, then verify a minimal candidate patch using dependency doubles.",
+  "limitations": [
+    "The observed draft-date-filter omission is replayed, not asserted by a live API test.",
+    "Nextcloud transport/bootstrap dependencies are doubles; hosting acceptance is separate.",
+    "The direct upstream patch is a regression proposal, not part of the installer."
+  ],
+  "sourceBaselineReconciledOn": "2026-10-24",
+  "installationStrategy": "Own bridge adapter only; signed upstream files remain unchanged.",
+  "upstreamFiles": [
+    {
+      "path": "lib/Service/SyncService.php",
+      "gitBlobSha": "add2a544736c13fa6fa0e49736d2432cbe6cf7dd",
+      "sha256": "9f9221af999230cd050de14e2915427f4ff49618d48908ebdcba72cb76b7d0b1"
+    },
+    {
+      "path": "lib/Service/DeckService.php",
+      "gitBlobSha": "e5a3fd8cc7f69fe1c352faeadf5a1f5b2a6c7d08",
+      "sha256": "69d9f62b41bf7c3fcdb717ade573460eaf1422fad938694316695a32bf68c213"
+    },
+    {
+      "path": "lib/Service/GithubProjectService.php",
+      "gitBlobSha": "29739e8135cae9a20de83d736871d4e1852cd787",
+      "sha256": "4de6ed288cc33479b5309aa1a55ca0f9a5b0caf81fb7c9a29ea0c6513341a57d"
+    }
+  ]
+}
