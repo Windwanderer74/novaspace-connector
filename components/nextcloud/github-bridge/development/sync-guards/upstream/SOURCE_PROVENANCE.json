@@ -1,0 +1,17 @@
+{
+  "kind": "isolated-regression-source-fixture",
+  "upstreamRepository": "SchVinzenz/Github-Projects-for-Deck",
+  "upstreamCommit": "d750a58e5f018d854c11f3a3811aa4c3f3f1ed77",
+  "upstreamPath": "lib/Service/SyncService.php",
+  "upstreamGitBlobSha": "add2a544736c13fa6fa0e49736d2432cbe6cf7dd",
+  "license": "AGPL-3.0-or-later",
+  "originalCopyrightHeaderPreserved": true,
+  "installedSourceHashMatchVerified": false,
+  "productionDeploymentPerformed": false,
+  "purpose": "Reproduce the observed draft-date-query omission and disabled-status setup, then verify a minimal candidate patch using dependency doubles.",
+  "limitations": [
+    "GitHub query omission is replayed from an observed UI probe, not a real GitHub API call.",
+    "Nextcloud services are dependency doubles; these checks do not replace a clean Nextcloud integration or production pilot.",
+    "The candidate is not a packaged release or installed source."
+  ]
+}
