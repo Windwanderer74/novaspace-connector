@@ -1,8 +1,8 @@
-# NovaSpace Connector
+# Nextcloud Connector von NOVAFORGE
 
-**KI-Unterstützung für die Arbeit mit Nextcloud – entwickelt im NOVAFORGE-Projekt.**
+**KI-Anbindung für Nextcloud – Dateien, Aufgaben und Planung gezielt mit KI nutzen.**
 
-Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der NovaSpace Connector macht unterstützte Nextcloud-Funktionen für angebundene KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
+Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NOVAFORGE macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
 ## Was sich damit machen lässt
 
@@ -18,7 +18,7 @@ Ein mögliches Arbeitsgespräch: „Finde die Unterlagen zu diesem Vorhaben, fas
 
 ## Persönliche Zugänge und nachvollziehbare Arbeit
 
-Der Connector prüft das verbundene Konto und die verfügbaren Rechte. Bei unterstützten Änderungen werden außerdem aktuelle Objektkennungen und Versionsstände geprüft. Persönliche Verbindungen lassen sich in NovaSpace verwalten und widerrufen.
+Der Connector prüft das verbundene Konto und die verfügbaren Rechte. Bei unterstützten Änderungen werden außerdem aktuelle Objektkennungen und Versionsstände geprüft. Persönliche Verbindungen lassen sich in der angebundenen Nextcloud-Umgebung verwalten und widerrufen.
 
 Die Entwicklung umfasst einen Online-Anschluss und einen persönlichen Anschluss für LM Studio. Die Themenauswahl stellt passende Fachbereiche zusammen. Automatisierte Prüfungen und praktische Erprobung werden getrennt dokumentiert.
 
@@ -36,7 +36,9 @@ Der Umfang befindet sich in Entwicklung. Vorbereitete Funktionen und abgeschloss
 
 ## Über NOVAFORGE
 
-NOVAFORGE verbindet technische Entwicklung mit einer klaren Arbeitsorganisation. NovaSpace bildet dafür die Arbeitsumgebung; der Connector erweitert sie um gezielt freigegebene KI-Zugriffe.
+NOVAFORGE verbindet technische Entwicklung mit einer klaren Arbeitsorganisation. Der Connector erweitert die Arbeit mit Nextcloud um gezielt freigegebene KI-Zugriffe.
+
+NovaSpace ist der Name unserer eigenen Nextcloud-Arbeitsumgebung, in der der Connector entwickelt und praktisch erprobt wird.
 
 Weitere Informationen: [novaspace.info](https://novaspace.info/).
 
@@ -50,4 +52,4 @@ Dieses Repository stellt das Projekt vor. Es enthält an dieser Stelle keine Ins
 
 ---
 
-**English:** NovaSpace Connector provides permission-controlled AI access to supported Nextcloud workflows, including files, Deck, planning, notes, contacts and mind maps. The project is developed within NOVAFORGE and is used through an online connection and a personal LM Studio connection. This repository presents the project; software distribution and licensing are separate decisions.
+**English:** The Nextcloud Connector by NOVAFORGE provides permission-controlled AI access to supported Nextcloud workflows, including files, Deck, planning, notes, contacts and mind maps. The project is developed within NOVAFORGE and is used through an online connection and a personal LM Studio connection. This repository presents the project; software distribution and licensing are separate decisions.
