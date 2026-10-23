@@ -1,0 +1,2133 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "component": "NovaSpace online connector",
+  "upstreamCommit": "ca1fb50642c0b3cab7c5f9d898e36fba7befdf38",
+  "upstreamTrackedFiles": 461,
+  "upstreamReachableCommits": 93,
+  "onlineVersion": "1.31.1",
+  "edition": "sanitized source snapshot; not byte-identical deployment",
+  "prepared132Commit": "c7fe8522131d72cf057586888dc28682096895aa",
+  "historyImported": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "sourcePath": ".gitignore",
+      "sourceSha256": "fc1dfcd6caf9eb15fc47ede0788559ecadad07ee44bfafa2fcf297b84a751d9d",
+      "publishedSha256": "08441b326954be48ee619dbce78911e50b73c3de5d22af0d50706b5489b18d2b",
+      "changes": [
+        "Ignore the generated browser bundle in favor of its source inputs"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": ".npmrc",
+      "sourcePath": ".npmrc",
+      "sourceSha256": "494e64a8818b6158e89321250500ad5ad018e33ad5cfea06a1cacd2cf4da75fa",
+      "publishedSha256": "494e64a8818b6158e89321250500ad5ad018e33ad5cfea06a1cacd2cf4da75fa",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/.well-known/oauth-authorization-server/route.ts",
+      "sourcePath": "app/.well-known/oauth-authorization-server/route.ts",
+      "sourceSha256": "3700ce1fd8f3032573b02d1e24caaaacff4a38f288454519ef1ab2b2fd1913f6",
+      "publishedSha256": "9f5a9d0f3d0786b1cb5b24c0f113a46bc46f5a0e0a981a9f3a77d7f97fe00357",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/.well-known/oauth-protected-resource/deck-mcp/route.ts",
+      "sourcePath": "app/.well-known/oauth-protected-resource/deck-mcp/route.ts",
+      "sourceSha256": "76b2f3b9e1f4f3109d2cbee9eff19cafc6ce5a04f8045438081303f0d0beee8f",
+      "publishedSha256": "03990c43a084a42cac79f8ce6057e8ac7934708ad57cf4e1d3e0f2b943fde582",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/.well-known/oauth-protected-resource/route.ts",
+      "sourcePath": "app/.well-known/oauth-protected-resource/route.ts",
+      "sourceSha256": "95588e90b29847ee4f02d754ef318c5f75dbd39067f85397b15205cd3a57530c",
+      "publishedSha256": "42b483af10aa56c39fd7e4745d78c457cdfb3ac6c059f68d152a45c00cfedd18",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/anleitung/page.tsx",
+      "sourcePath": "app/anleitung/page.tsx",
+      "sourceSha256": "39acf62616c2d403580654514cad9fb78a642e9216683304cac90b8786fe3585",
+      "publishedSha256": "c32ed9262308ed61cf39f1bf5c60f54f37cf0898292eb753d077583db43d01fb",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/chatgpt-auth.ts",
+      "sourcePath": "app/chatgpt-auth.ts",
+      "sourceSha256": "17a965f8948b21510cdf8ecbd70c5fdf58100e10970463f6a8fd2cc4795f8044",
+      "publishedSha256": "e16f9072590e82a5a75c80875ae3c23f5bc17265dfedcd57de1cd425bf3e5ad3",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/deck-mcp/route.ts",
+      "sourcePath": "app/deck-mcp/route.ts",
+      "sourceSha256": "503953c5db8e4065e791cd0341a873fb1a0944e94e64b442065f9f9d9052f313",
+      "publishedSha256": "9f45245987a90e3e3a3d352587426df54dcd02ce342e9cbe2a12c563f2b08b3d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/globals.css",
+      "sourcePath": "app/globals.css",
+      "sourceSha256": "a8f268248ab3e6a23671faf396f1db3c646382d63d8fd2f96997122c85a14309",
+      "publishedSha256": "398b5183bb9d3949026769d9d20b5997838563d769c0ebd3d406b684413c2085",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourcePath": "app/layout.tsx",
+      "sourceSha256": "8473053d518a683ff367d63ece22f8c73252769eea98ba70f70dad097a31cb2e",
+      "publishedSha256": "767f9c36b96818168447ed66d7a38df294196d54915c603b8fca71cdd0fdab27",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/oauth/authorize/route.ts",
+      "sourcePath": "app/oauth/authorize/route.ts",
+      "sourceSha256": "46da0858dd2928f51e8701b99115925ca8912a647f6d7a146ad3ba4dbacc7b8c",
+      "publishedSha256": "2f53fded0713020cf3c56361305238ab199733210644f5fac00b78859815d3db",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/oauth/register/route.ts",
+      "sourcePath": "app/oauth/register/route.ts",
+      "sourceSha256": "14763b60461c142078f8eafb94d68203109504cd7bf4e3e45b45e730e1d8c80f",
+      "publishedSha256": "3ac8d49440f8e9d60fe9242ec8c9eb7a86108c3e7e57f72e10b330183c9de894",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/oauth/token/route.ts",
+      "sourcePath": "app/oauth/token/route.ts",
+      "sourceSha256": "5ee6a506afcf9b25a076b7c96df852363917f75dc66af77eaf1eefec064b1bf7",
+      "publishedSha256": "61c87e9fe63c2903c4b4e9930e91d34ae61f36ee5aa6f12b46e7d1918066d84d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/page.tsx",
+      "sourcePath": "app/page.tsx",
+      "sourceSha256": "a0f992403a60752484419943c5a070577a7574c4ba1c766a0c3cb9b888e27397",
+      "publishedSha256": "454688f70fb70834cda3dba831f9a1976c1c4afc51e6e4144945eb081beaaddf",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/condition-editor-ui.ts",
+      "sourcePath": "browser/condition-editor-ui.ts",
+      "sourceSha256": "07cce79a0a2deaa7788a61c35e8f417e5aec7952faf11a6f973179ec4c8b7b78",
+      "publishedSha256": "738582f7a0711d422c5b8de1f093527d5976b748f481edb67610912a2187b49a",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/deck-mindmap-client.ts",
+      "sourcePath": "browser/deck-mindmap-client.ts",
+      "sourceSha256": "8586513f64720d0e3b5a28279cbbb5ee8caf27eb46fe2d1a962966db5b43991d",
+      "publishedSha256": "9b0174d6e9c9d136ee3fcc21d4b7bb910e50c6f21a9a68bfd4a8d15b817e7f71",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/deck-mindmap-ui.ts",
+      "sourcePath": "browser/deck-mindmap-ui.ts",
+      "sourceSha256": "5993bd2c1ff8f160fb099be99bcb0ae6b8bfea490aa227e0982b877dfb76bbab",
+      "publishedSha256": "18edc7eaac7aaf22c0edbc246e4e574aafcb66cc70470f3e6586ebb91f2b56a6",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/mindmap-editor-core.ts",
+      "sourcePath": "browser/mindmap-editor-core.ts",
+      "sourceSha256": "e2bdaa06a906a747dfb2d03d35ef89132f7cfa0f56ecb9d0429a63a084695052",
+      "publishedSha256": "151c89532f8486c86668f722f117f546cd0ae9ad325dca72f37168b96c5552b7",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/mindmap-editor-ui.ts",
+      "sourcePath": "browser/mindmap-editor-ui.ts",
+      "sourceSha256": "76fb46dc1313cd588b411899dd09b8df38555b14a13ef0ffdc5edf86fbfa9a9b",
+      "publishedSha256": "c81378b3083c54492afbf4c9ddcc00a64d63451954218deb665427251286d780",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/nextcloud-browser-client.ts",
+      "sourcePath": "browser/nextcloud-browser-client.ts",
+      "sourceSha256": "fe64d738af480772ffa9f2ade3e9c95c9572e29e5334f7bfe1389bc38bae1972",
+      "publishedSha256": "8fd3a05d96a448644a1f233d25232d43402ed593ec8f054825f0262ec11a6bc5",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/source-capsule-client.ts",
+      "sourcePath": "browser/source-capsule-client.ts",
+      "sourceSha256": "ade367fc65722ca90196484fc15485f26ad16a26715a3757531eb07fd4a4a00e",
+      "publishedSha256": "a75434d1e344eed7beaa141147dc7a86b8008c5f583513d8fd46a6dfda31bde4",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/source-capsule-ui.ts",
+      "sourcePath": "browser/source-capsule-ui.ts",
+      "sourceSha256": "cf5a858c699cb92865f5d8729799bc916bfbcb0cfe69d345f8ffc57a733a34ad",
+      "publishedSha256": "003f1164c55a5697ff9201ff4bf264c6b2a937d42a1985afde15fabea84c5298",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "browser/work-step-client.ts",
+      "sourcePath": "browser/work-step-client.ts",
+      "sourceSha256": "e2d4f7591499751c06b12e42525981e4eea11ff568958d8b1471d4aff523c57a",
+      "publishedSha256": "8132f731ab17122d30944c16a314e2b7c271c076a85ac48b66b576e7586c0ea7",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "build/sites-vite-plugin.ts",
+      "sourcePath": "build/sites-vite-plugin.ts",
+      "sourceSha256": "81b7cbfaeb970611572256aba0e313425beb3809f6426f63750696c15d9c756b",
+      "publishedSha256": "cd08e3521ec460c5d0d6c0fc32b37ad30c373eeafdb55b034ff7beaff2e5dc4b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "db/index.ts",
+      "sourcePath": "db/index.ts",
+      "sourceSha256": "dc7610b00b918e0ffff1360a63626f16655ced3064b2eaf96095a4101fb14bcd",
+      "publishedSha256": "ffa333c857eb35ccd8912896526766e5c9e01f0426796778e633b84740590346",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "db/schema.ts",
+      "sourcePath": "db/schema.ts",
+      "sourceSha256": "13ddacbf0be50e054d450a6c642b7fdc1aa943fd6b99084711e07e58b600390d",
+      "publishedSha256": "0a8ddbbeae204034c17485d4d6daf4416efc8be2fca1cec5b691da5490b3e6c5",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "drizzle.config.ts",
+      "sourcePath": "drizzle.config.ts",
+      "sourceSha256": "af081f7384aaeb0082cf422e29f139d137ca2f6a57c69b2c37b9fb1f8479867b",
+      "publishedSha256": "e5d0ecae956f7adb365e7dbeb6edf8f1566e5a1f79e781b924feb8df8586aba2",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "drizzle/meta/_journal.json",
+      "sourcePath": "drizzle/meta/_journal.json",
+      "sourceSha256": "90cb374e093894d0efce6f1830d873a42aadd8ba49d2f024495e5cb2e1c8c303",
+      "publishedSha256": "90cb374e093894d0efce6f1830d873a42aadd8ba49d2f024495e5cb2e1c8c303",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sourcePath": "eslint.config.mjs",
+      "sourceSha256": "870f1adccecf3051cbcd9fd307cef51d7633cf510979c181a81f4b1797273493",
+      "publishedSha256": "ab1a5502ca124322ef84c93bd4bb8c82cbc0db0281a4933aca53c61b4ef5dcbd",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/access.ts",
+      "sourcePath": "lib/access.ts",
+      "sourceSha256": "b6b0c1d95a554273f9f39d60d9a98634b93e0cf71a4e3eb998a675b365c55360",
+      "publishedSha256": "d52311f46f8c346a129249d1bcf61498a7bb0e8aff2e74593b16dc0474b06351",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/attachment-files.ts",
+      "sourcePath": "lib/attachment-files.ts",
+      "sourceSha256": "bacfb0cc57bdc137f39b03db69206ebed9014bad5541c32c1e19ad46c4735c79",
+      "publishedSha256": "5ef02c5602beb7b58fa4c8f070015f736f7de4cbe9e56905cba5f6490eaa1186",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-exchange.ts",
+      "sourcePath": "lib/calendar-exchange.ts",
+      "sourceSha256": "b27dd432b9a0d852cfaa8b8cdf2c5011bdf465d732ee0a3acc7f1c12f46eabc1",
+      "publishedSha256": "b419541c6600ba2016a39db9e764d82dcbbc8748367879f558df5666c69ce415",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-planning.ts",
+      "sourcePath": "lib/calendar-planning.ts",
+      "sourceSha256": "49ecade071be5d5e5f8aedbd7b371dcb5b947e92d5cde98d997df841d01eed32",
+      "publishedSha256": "b9cfc4c4fa9aa564a7c0704ba1c8e0e69e515129bbaa99fbda47179f2100a5f5",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-series.ts",
+      "sourcePath": "lib/calendar-series.ts",
+      "sourceSha256": "5b363a8da0d6344a93724eb9b685ce845fe0e1fe39f21a4d5063b715d9e19072",
+      "publishedSha256": "f267af68ff8fe4a8eedc6f8e626590ae4438008316676a7880fa208eac80e3ba",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-settings.ts",
+      "sourcePath": "lib/calendar-settings.ts",
+      "sourceSha256": "520963e872f574e2c07fb2677ffc7b65aec088075a764d95ddbc448c1bcc8ddf",
+      "publishedSha256": "225a116fb8eed27b8954380ee2f12476630b14731c33aab597b3d381561318c7",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-write.ts",
+      "sourcePath": "lib/calendar-write.ts",
+      "sourceSha256": "dd6013602fffb4b6cec980be55950882eb46f77e95db651f05837a10d0ed9126",
+      "publishedSha256": "3b689d24596e78a99a4430a0c0dbef753204de7a4a5263be77a779d807de51bb",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/connection-policy.ts",
+      "sourcePath": "lib/connection-policy.ts",
+      "sourceSha256": "695c9f7d4e66b76e628fb4ee8860fe2d470f85b5ed3b61fc3262ca99444aff3d",
+      "publishedSha256": "c3370775cc784d6946d42b9785ec1ebe2ba27157ccaaff163bcb2b113fc59ed2",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/connector-version.ts",
+      "sourcePath": "lib/connector-version.ts",
+      "sourceSha256": "9a19121f894484116b1b21bea3be05a4e8eeae34b3d8d4d3eeebe500f0c51885",
+      "publishedSha256": "b33c9f776b6c8f791231d9cb5f71e7267596606bac6a082ca9c96d605d8b6be3",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/contact-exchange.ts",
+      "sourcePath": "lib/contact-exchange.ts",
+      "sourceSha256": "9bfb0345fa327bc2a3eac23b6bc7bde1c382127c9ee0e09289a7db7105bebc2b",
+      "publishedSha256": "037df34ad64d0826687cc31d152583304c8088db840bccc38bebef70b7661d86",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/contact-settings.ts",
+      "sourcePath": "lib/contact-settings.ts",
+      "sourceSha256": "6a899a93a0353a13879faced29572422f86cc099201ce6a46d55b4cdbeb26202",
+      "publishedSha256": "a58337d9bb99176ca053637f165ee354037909eff4357e1fc5d628f2685243b6",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/contacts.ts",
+      "sourcePath": "lib/contacts.ts",
+      "sourceSha256": "92e451dc9fae98349c9c4d80af4a198bab3f4d73effdf489402890e1a808655d",
+      "publishedSha256": "19fa52583d2b96e6c78700606282701991a51bf9a0a27b064eaf45e53329ee73",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/deck-attachments.ts",
+      "sourcePath": "lib/deck-attachments.ts",
+      "sourceSha256": "7a768aa8dd3793d4a3f56016d733904bcde7831eb4dd1b05a2a31c2abad56aad",
+      "publishedSha256": "0931e4009bff392acf5e21e4bea879f0102f5cd54b76b2b37c9d8ca40ee4b2aa",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/deck-mindmap-workflow.ts",
+      "sourcePath": "lib/deck-mindmap-workflow.ts",
+      "sourceSha256": "626cfed7b57b063f967e53ba2fe6369531f3f4daef477d590052a159aa31498e",
+      "publishedSha256": "dd9f6f7c27ce8c0ddbab84f21a4104fa7a57fb4eb82300bb8ddd6c01406736fc",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/deck-planning.ts",
+      "sourcePath": "lib/deck-planning.ts",
+      "sourceSha256": "feee8508d92b3e91144dd09be9879c86992e343016cb89374f368efcfd8f8531",
+      "publishedSha256": "feb64109bb08cb215fe5c0df232f944a2cfdd837a8b0b4c92e114c11ad1c912b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/deck-work.ts",
+      "sourcePath": "lib/deck-work.ts",
+      "sourceSha256": "ee208daa133cd2b7a66f842957960da5cdc8bc31258dbd9ee1437772d3d33f80",
+      "publishedSha256": "46217065b649d63efe008554fa28aae5cc8f150457939af784a90968600dcef0",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/deck.ts",
+      "sourcePath": "lib/deck.ts",
+      "sourceSha256": "bdf6cdf76cc82a5dd5600bfdeaca9a9c6f5171047ad5a760695701968b5a1d09",
+      "publishedSha256": "78bcecf3b1c63481581da12134711b4fec6e5cee6095c65c6cd3ccd4a90cd1ec",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-download.ts",
+      "sourcePath": "lib/files-download.ts",
+      "sourceSha256": "6b83b8b16ef44a139b5b717490153195a0e6cf752f120448493a45c02171db05",
+      "publishedSha256": "ce30201f413c45f503970ffc95f88d3ed77d225c4a6286d10b5c86582a8f1bdc",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-image.ts",
+      "sourcePath": "lib/files-image.ts",
+      "sourceSha256": "bf782a3178b0a4a6cd370557dca2d2932932a5be880eeb85c641fe1a39fc8921",
+      "publishedSha256": "1412de04b21a858a82edc3ff3f6929c2dd983e2d252d2e99d784d1044f0a04bd",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-organize.ts",
+      "sourcePath": "lib/files-organize.ts",
+      "sourceSha256": "0a7d9365786638fef67ce07b019cc6bd0b7a573ccc27c41a61fd112eb11c3661",
+      "publishedSha256": "e97dd5d078e8a06346a2d810c4c681a9e7c3bec9543e66f0c7cee25a589231f1",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-search-copy.ts",
+      "sourcePath": "lib/files-search-copy.ts",
+      "sourceSha256": "622ce6d97faf7a04a11fcf285b835919768b648bc74baeef4926689a353299d8",
+      "publishedSha256": "cfe64025410fa372db62151c581b0d660348276ddd28a2864fa3685bb9e87a51",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-shares.ts",
+      "sourcePath": "lib/files-shares.ts",
+      "sourceSha256": "6c10d927425d3c392d19c8f1eafb9885fdc42e6bc2de80e5f4710299c99cb544",
+      "publishedSha256": "500b690e04d07dee0be547bb7b63c7fdbf413f6d7524e6fe3ebddade807f4df0",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-trash.ts",
+      "sourcePath": "lib/files-trash.ts",
+      "sourceSha256": "de52602df48ed6a01952d532b6f94f03dc86093cdcc9d26f61fd05e89c3bf46a",
+      "publishedSha256": "20011f9421efe3ad403e91839fae6be0139650ec5123a7fcaee7b2b33d09dff2",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-upload.ts",
+      "sourcePath": "lib/files-upload.ts",
+      "sourceSha256": "7f65a6d8e2e5be04452395bcc2e76a094f10e03a5802de42ed52145d2d186df7",
+      "publishedSha256": "22c0d9b389bebcef634c61bb4abf5ae79f472f1aa2960f846833345989ccd6d8",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/files-write.ts",
+      "sourcePath": "lib/files-write.ts",
+      "sourceSha256": "2bbeab6e0c617eaad185e5ebf5390ebee8757467a06ce050a46f12f86314366b",
+      "publishedSha256": "f1cdcead1f25f7ba7184b71e0716633afc835d84ed9fa59b776cafa558e4ecd5",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/github-bridge.ts",
+      "sourcePath": "lib/github-bridge.ts",
+      "sourceSha256": "86b6ee60f5bed02e2f24efe5d5fdf42531bae6c7942299ce29ecca7544e9f21d",
+      "publishedSha256": "262ce9c5e88932adfd501246b638a5ef53f37e2d2b7e97269ad3bc9091b20092",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/groupware-codec.ts",
+      "sourcePath": "lib/groupware-codec.ts",
+      "sourceSha256": "fd23f8ac2db6bdbb2abbad15372f7eb9509bab9454aa0aafeda1a5e7023aa457",
+      "publishedSha256": "046df7ffde4ca8c6290653fc6599a2f6ca3ec917f18e2c13fefa0529adfd41be",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/groupware-dav.ts",
+      "sourcePath": "lib/groupware-dav.ts",
+      "sourceSha256": "17638d7db9ebf7058d8a69f499f3f31f1bd9a80069700f4d97dd14c78b5a0046",
+      "publishedSha256": "ec1bf72727b91c376920f1ada57306ace8fc726d17dfb8b862e7fb0a2de38b48",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/inventory-delegated.ts",
+      "sourcePath": "lib/inventory-delegated.ts",
+      "sourceSha256": "aeedfe61f05b0511aef6a220d03817b3f51ec21052fea0edaddc30fc8a73d6f6",
+      "publishedSha256": "0b36b53cb0dcd5d7675b55642ce618e15a6d8921e9ed62fdbe823416f1a6d52b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/inventory.ts",
+      "sourcePath": "lib/inventory.ts",
+      "sourceSha256": "f65ec26c650990bb10976397835d2bcb92c6c9e40661fe5e4b0ba826362b81c8",
+      "publishedSha256": "76aa4b41a4e8f64823b1d09b528cf81259049e4bbcc7fce5c9b5324580f7e76e",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-announcements.ts",
+      "sourcePath": "lib/mcp-announcements.ts",
+      "sourceSha256": "3cf7d72f0493c5b537c012a0e9c53727e7b4809ac769e7578d49b6cda85f9ab9",
+      "publishedSha256": "f1d2a70a87530b09d6c9c145d3ddd8207bf1048d6dc3621f29bb975092ff97be",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-attachments.ts",
+      "sourcePath": "lib/mcp-attachments.ts",
+      "sourceSha256": "b1aedb878200aee70600aaeaa2ecde04a6a5e398b3b0b6e0ef7b9dddb021afb5",
+      "publishedSha256": "0a0c1b7e7edcdd3b9b718a965237c27d028ea1a1b445864a60d9eb73cabe54be",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar-exchange.ts",
+      "sourcePath": "lib/mcp-calendar-exchange.ts",
+      "sourceSha256": "839ff31990180246b2e343ef27dd2a9b82df4d0eaaadcc0a34733d1ec080dbac",
+      "publishedSha256": "578d255e27e9cc2a5c69b3537f74db6dd4f1d7d83f06d2ce7c62efafe51aaf5d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar-planning.ts",
+      "sourcePath": "lib/mcp-calendar-planning.ts",
+      "sourceSha256": "3fa2ef1cb53f6482edf28cdb78e8417154f6047c5e09f3ffd6ca459b8aca8771",
+      "publishedSha256": "4cc4c9244f5b55933b403fc0922c9ef02054d873dc6944838503d8e903fa9d79",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar-series.ts",
+      "sourcePath": "lib/mcp-calendar-series.ts",
+      "sourceSha256": "34c27520c0d304e501739f7690a60ce70c3af6258933f8dcd9dca7623c6c5097",
+      "publishedSha256": "1144b7ff8def13061dbcc2f2e14de231fddefce59ba8005e50fb514134a470a6",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar.ts",
+      "sourcePath": "lib/mcp-calendar.ts",
+      "sourceSha256": "ed1fda04c94868ebdb68a193c9b38fc9e2896700116166b77ba04e7fd0e3bfb0",
+      "publishedSha256": "b6b79905a941260c17e12ec1256733e661ee0dee94fe0d117755eea4ddd47da1",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-contact-work.ts",
+      "sourcePath": "lib/mcp-contact-work.ts",
+      "sourceSha256": "33d317dad5b455d9457974ca5cc0f6e1648a81310db1253a6c64bd2713380db1",
+      "publishedSha256": "4d4ee3d9017925e009873048191c6c4ce052eb8bf4ddd9d18149a6fc86834e32",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-deck-work.ts",
+      "sourcePath": "lib/mcp-deck-work.ts",
+      "sourceSha256": "9ac6f6e2e1f5c2ed22e033bb09199ba24710855e61a27d6e499e3419426619c1",
+      "publishedSha256": "df2370f9a00e185de965b82176cfd3a384762c7276faac4b2bce7a5f0e74e35c",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-file-content.ts",
+      "sourcePath": "lib/mcp-file-content.ts",
+      "sourceSha256": "3d666766034a3c9dc54f9693ae45ede5251ae11160df6ac3518a18d945b34a8c",
+      "publishedSha256": "16dca2e7ec10987582b33eeae898ab9f266bd55e92a6c5cecf3119adaa41fcac",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-file-shares.ts",
+      "sourcePath": "lib/mcp-file-shares.ts",
+      "sourceSha256": "3e6588dcf2e4259aac1bc4f07b522ed8a9c52a829f569e39718c23502f61ed9c",
+      "publishedSha256": "aa0c2abaaa35a8fe3c70c2636b5184341465319823b112cfb93320c7372e9c34",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-file-trash.ts",
+      "sourcePath": "lib/mcp-file-trash.ts",
+      "sourceSha256": "30309dae0e033a449776b19303f9d465981bde226b9dcb497aa6896ec8c7e17a",
+      "publishedSha256": "f6be1acba0214fd62f9685cee48ab3a6599ec33dab706b506cb44fca1b620a63",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-files.ts",
+      "sourcePath": "lib/mcp-files.ts",
+      "sourceSha256": "ebf28910d2fa28826c7d12d830f6081e0055a4ed3a679d9dc47b4b2cd113341f",
+      "publishedSha256": "58caebc20fefb0d62d073712177cff318fe10f4faf4bbb6ca5b0069168c8a4b6",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-github.ts",
+      "sourcePath": "lib/mcp-github.ts",
+      "sourceSha256": "c03e8c9445d307fb3b5ec730e9c09350d4c29349989f617169220ce95b1ce86c",
+      "publishedSha256": "29c9061ef3e5f5cec155644bad0436223e6ca3fff7aeee53abd5d631adb8be96",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-groupware.ts",
+      "sourcePath": "lib/mcp-groupware.ts",
+      "sourceSha256": "e1e787166f8a0db47fdee88cf95fd82f036c76c3e084293d38ebc000bc203d3d",
+      "publishedSha256": "fb70acf4b9bb576c99fd1db8c3c0d3d08419cdcbf7ea59018113e26386007f1a",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-inventory.ts",
+      "sourcePath": "lib/mcp-inventory.ts",
+      "sourceSha256": "aa613defa9419d5dd6382ede630c430f01d133dd02b6fbaf843ad0f2a75193d4",
+      "publishedSha256": "494514103561b94e3238c9df7669881f6677812203d04370a40c85e40cf63615",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-mail.ts",
+      "sourcePath": "lib/mcp-mail.ts",
+      "sourceSha256": "45448f0e3eeba593c459c86b752cfdfbbac989e94a4f04c63497f9119724d5cd",
+      "publishedSha256": "b3fcd610223f6431ffdfe111bf5409ed7fbed927dc534bd40b6444111fe33ebc",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-mindmap.ts",
+      "sourcePath": "lib/mcp-mindmap.ts",
+      "sourceSha256": "9f1823e17d498bb710d0d40336420ec517a8d65b5dbce2d39c679ac7a9cac342",
+      "publishedSha256": "47ae04f5bcb2abf7e70698c1bb4083a32b8df44f6ba84322ea0c5322ddb7ac28",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-nextcloud.ts",
+      "sourcePath": "lib/mcp-nextcloud.ts",
+      "sourceSha256": "13d792ddb30b77b3c6e5c05662b03534026f6f44a7a65419d25f8dc243892d52",
+      "publishedSha256": "cd8166569a7109798748a6ac62bfaa65dfbe9480f34346e3fa8baa398253276b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-notes-lifecycle.ts",
+      "sourcePath": "lib/mcp-notes-lifecycle.ts",
+      "sourceSha256": "e87b0f03f6cfe2e7ccc1f6be84af87d4cee76f1223902628168568909f7b08cb",
+      "publishedSha256": "36b42f88663d96c7b6d2ddc365998e13b019fe8c3ab63c6d05fb0572dccaf881",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-permissions.ts",
+      "sourcePath": "lib/mcp-permissions.ts",
+      "sourceSha256": "9dd4fb221038c949836a206587e07a0c6f020f357ca125d20d4e8c945573b95e",
+      "publishedSha256": "da63341a6e1d2fc037a6cc163c19821a9716bafade983f826d2464ce96c68eef",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-planning.ts",
+      "sourcePath": "lib/mcp-planning.ts",
+      "sourceSha256": "a07ab9e963cdf40ba6335af9f539bac4a2115e1a2b838fa116a838b1afb438b5",
+      "publishedSha256": "de8a112e9a8b26b1375aeaded895c5b72afbbb0cd28972421a798bb55de3d105",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-tables-general-write.ts",
+      "sourcePath": "lib/mcp-tables-general-write.ts",
+      "sourceSha256": "0978cab606fae342a7e6b25bc8797711be8b3aa7cdc0c9e0d0dc373ba6617639",
+      "publishedSha256": "8c7f0482048e0a7980262ea673bd5c79f86e21155d85b2e102ab93ba48a9caff",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-tables-write.ts",
+      "sourcePath": "lib/mcp-tables-write.ts",
+      "sourceSha256": "96278eef46987396cd0636e9f231d0d1df81f448b83f792559a2df9c832df287",
+      "publishedSha256": "a9152d55f6d4583b4a99aa3c334952a2f29b11987eaf179479b5c4958eb5d022",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-tables.ts",
+      "sourcePath": "lib/mcp-tables.ts",
+      "sourceSha256": "04ed5f8c4893e31ae6bb932e84de67823677d1fb850d2a9602965f0c3534c274",
+      "publishedSha256": "dbf65e0ae867245563b5528c2857e18cef1a63cd46755986df1e7cd500bdfc99",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-talk.ts",
+      "sourcePath": "lib/mcp-talk.ts",
+      "sourceSha256": "a8d229fe9b912df629f9939bb1babe207dc7c89e2a722fb143034ecd44f54bc0",
+      "publishedSha256": "f85abaed04497076e6cbda36d87b4b0b088982eb9a8453bc8e92d0c27f360aca",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-task-lists.ts",
+      "sourcePath": "lib/mcp-task-lists.ts",
+      "sourceSha256": "61a0f07b2b786ff4770a4c6b71c718556c0ee4cc2a05930b6b328d84f36c7c91",
+      "publishedSha256": "fac957d7e63b187813d14bfe0ce92ac5e8cd0910366bc74227aad6f5293b5da6",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp.ts",
+      "sourcePath": "lib/mcp.ts",
+      "sourceSha256": "ce81bcf0a78b22fb6e702ed2f96c41aeb93c1304f7e49ec59124244dc5f97803",
+      "publishedSha256": "ba051e6483bef4de196bce8788d53ae55288a3c5d30fbd8dbc5c7bf6068eca8f",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mindmap-core.ts",
+      "sourcePath": "lib/mindmap-core.ts",
+      "sourceSha256": "9a7f58001d75f43848adf1b95851a5d4955fd8825aacb1ab5616df98e6b0f12f",
+      "publishedSha256": "f52057b38660fb03349738e4773a1e428a865afef16fc7829baad8cc27f47093",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mindmap-deck-core.ts",
+      "sourcePath": "lib/mindmap-deck-core.ts",
+      "sourceSha256": "ed4b22d2022980a8e43a75186496f7d241213aa82f4f6e5807ddd8256850e940",
+      "publishedSha256": "e8e9a7e39f7edb5a4d6d118af2423c53c1f142c898ab91a576bc73c0b25ef60b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mindmap-deck.ts",
+      "sourcePath": "lib/mindmap-deck.ts",
+      "sourceSha256": "6b845e28ba4421484c4894d7c73fb8cf0b5fa7d6d28837e82dd75204d7b6bec6",
+      "publishedSha256": "a1c23a09f0702c4d088c06944f6148f648e93769d6c3d4196396982440825fbf",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mindmap-workflow-core.ts",
+      "sourcePath": "lib/mindmap-workflow-core.ts",
+      "sourceSha256": "501bc1e3d92088c21c48d9be245cba5ebe1824f18e5bd59187eb514b722a3fd7",
+      "publishedSha256": "a44047aa80fcedbe526e378230052ec72b2743f926990307efbae449d2fdbf67",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mindmap.ts",
+      "sourcePath": "lib/mindmap.ts",
+      "sourceSha256": "5f628e8b04c8751e237ecd8f9a9c6ed5dd21718669e8ae338dd80cb8e5227805",
+      "publishedSha256": "caa8dce821772866292504a9da4840eeed3cf8926131529e4a39bfe8d8796fe9",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/nextcloud-announcements-read.ts",
+      "sourcePath": "lib/nextcloud-announcements-read.ts",
+      "sourceSha256": "5553912fab35255080591c8a43c0d54c5260f8dbb6ec233f12150be7aaf78398",
+      "publishedSha256": "cf8e852a85cb51298989800c77ec8d76d744121831dd36413edaa3f1d87ce019",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/nextcloud-mail-read.ts",
+      "sourcePath": "lib/nextcloud-mail-read.ts",
+      "sourceSha256": "58264b95f54299f940948d7ed69e25f0762c04f10884b4b765509be7506a9e3b",
+      "publishedSha256": "8cd545f9761f7d77847df3355052c126a3795d35421cf4113dc1268db8fd0f92",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/nextcloud-read.ts",
+      "sourcePath": "lib/nextcloud-read.ts",
+      "sourceSha256": "67d48a17668bb14f3f55ced92ecfe94a93568ee553b70d9c662984f8de7ac160",
+      "publishedSha256": "4c591584e6e868bf9a5262d1c0b7e56fdf24fd1f1407510787cf0b39a2b295d5",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/nextcloud-talk-read.ts",
+      "sourcePath": "lib/nextcloud-talk-read.ts",
+      "sourceSha256": "897d99e0210ad1a96f13984fc5428c7721db7e674599549f07e60462c369bf79",
+      "publishedSha256": "931965590c6a19b849888234c35d84e85b928a2f07a272d306bf9bb6f44eba77",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/notes-files.ts",
+      "sourcePath": "lib/notes-files.ts",
+      "sourceSha256": "848a7068bfada6fca41a561558d40d030d3cdfc30c7ac1f51b73ce515e28a9bd",
+      "publishedSha256": "2502f96229a9184e05b1dab3fd7ac135ae3865258de1825f76bb2bf8258511af",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/notes-lifecycle.ts",
+      "sourcePath": "lib/notes-lifecycle.ts",
+      "sourceSha256": "549ba1d25b50a05601a05b2c7e4d16ce1c40382b4279116529a1734d66771224",
+      "publishedSha256": "0f985c2a81bb8baca975fec7bb0199fd3e038987e1f071adfa64f90d5a495fe9",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/notes.ts",
+      "sourcePath": "lib/notes.ts",
+      "sourceSha256": "4788841299de64e8aa39e6b450a58fbea189938f1ec256b2c984b68622b80e03",
+      "publishedSha256": "9eae0f21019bc99cf3b8aa5fab3e90f2679f46a2c19826350ce6b6b068d79854",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/oauth.ts",
+      "sourcePath": "lib/oauth.ts",
+      "sourceSha256": "5d114f5af816e53d7e1a0f6ca31ca87731fff8d2a6f108b30ff622ab79eb60b0",
+      "publishedSha256": "6820370ac3aadedb148320480c2e8703368f1333c1a2b61b02ca920363c2a6d2",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/pdf-original-chunk.ts",
+      "sourcePath": "lib/pdf-original-chunk.ts",
+      "sourceSha256": "25966c8324d32ac63ee471201d7e90a9cec48f497176712752d33d53c7735d27",
+      "publishedSha256": "875835d60fb3701be72c40f3e27986aba6a262f30e8dc4d8756289daf1562167",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/pdf-read.ts",
+      "sourcePath": "lib/pdf-read.ts",
+      "sourceSha256": "f43cf5fc9a5b03fdb3970aab460779738861d471974f8fe1f5e25227d70f9369",
+      "publishedSha256": "aef2fe0076c1ccae3b9fec646c5baaca02ba5cb9e3315fbd08883001b349c02d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/planning-json.ts",
+      "sourcePath": "lib/planning-json.ts",
+      "sourceSha256": "50f607af574752b964d3be760aa2869bb24ea5d1e410f4ea3e4e27de0a53b4e8",
+      "publishedSha256": "c83f699d752eb8fce87444e5e85f87f4267e1f0a5f2aae56d04fea6a1759052d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/platform-foundation.ts",
+      "sourcePath": "lib/platform-foundation.ts",
+      "sourceSha256": "dcc1c01a4973b0e64aae3c1d14da2bd26eaecd35b1ab8aeb486382c18c1b0307",
+      "publishedSha256": "8bcf969a65150ae53f744a7028c16c856d4edc2f1baf9e575c6d83fba01af26f",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/platform-native-context.ts",
+      "sourcePath": "lib/platform-native-context.ts",
+      "sourceSha256": "349b8ab2d759c3387fbcd037c0d08a312b2a140d0c7e17406b32a40af6db9732",
+      "publishedSha256": "c07ec04a9d8576c500b7e17e559a7e02a4dbbc3dc4608008d23f874f8d21f7fe",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/platform-reference-store.ts",
+      "sourcePath": "lib/platform-reference-store.ts",
+      "sourceSha256": "d8f963c24285c65c0eefa35e6348c06a455a82e623fd2500620901b2738289e7",
+      "publishedSha256": "c454de3f609ad6fa6af779c3b0d42572826b954232118f0eaa1b81b430814b75",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/platform-registry.ts",
+      "sourcePath": "lib/platform-registry.ts",
+      "sourceSha256": "6c77e1dccb3383f46b1418b8acb2402308b676717f6cdafc1dcaa6a6303e6650",
+      "publishedSha256": "91af5a20eb30449c790045bbd037e9832a83d10abedf5b02ace0f930813606c8",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/raw-php.d.ts",
+      "sourcePath": "lib/raw-php.d.ts",
+      "sourceSha256": "8adaa4504442ffd02906392c4a7fe4a1ffe325e74f0f670bff5bb51f78dfbe7b",
+      "publishedSha256": "c30c62d15ca03e39918334a1531c3eb20954c714bf253c378678fd0ef259ba11",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/runtime-config.ts",
+      "sourcePath": "lib/runtime-config.ts",
+      "sourceSha256": "ea2207fb51e18f814ce0063daa8a487c4425e623a335952ecb5c28b639d57123",
+      "publishedSha256": "654f3e977b0364204057250906a4ef91e44247856e323e9bd5c0e6ababd8414d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/source-capsule-core.ts",
+      "sourcePath": "lib/source-capsule-core.ts",
+      "sourceSha256": "a72d9493e1f19fec940e8742e546a12b1564bc27f4fc18e74f024a5fdc139ed2",
+      "publishedSha256": "9a6735a0a9947b15f90f488b6f9c76583de869625baa104aaf9afe7839508bb2",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/tables-general-write.ts",
+      "sourcePath": "lib/tables-general-write.ts",
+      "sourceSha256": "ff56db207ca9a789c2d31ad3288c724323c5b4950866fa2abb114d9b836e2b71",
+      "publishedSha256": "e045d95c35e5f787d4ffc1be1df8d84559813b9bb4419a6524cb36de85981366",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/tables-read.ts",
+      "sourcePath": "lib/tables-read.ts",
+      "sourceSha256": "b1f7a29d2c4b8a4bfdb700df9396d5340b44ed38fa0779b467cc45c0ab81bf62",
+      "publishedSha256": "cd4ca41f2857f2c2d7fe624c332cb5ceb4ca869b415933d48fcc672ffbe8545f",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/tables-write.ts",
+      "sourcePath": "lib/tables-write.ts",
+      "sourceSha256": "d455c83606aac4ea0ae06047af94c2883534b2cc4c12d8862e3cb52a9f49f8ff",
+      "publishedSha256": "d132b6b1651fb39b6cda1c31e330a9cff28ae78505138d3c5ac928f8ec80b945",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/tasks.ts",
+      "sourcePath": "lib/tasks.ts",
+      "sourceSha256": "8a4276e93b121b79be6fe408e3ec90afd766bec752136331e01e8153f29178f1",
+      "publishedSha256": "4dd5d23dd8abe4471f6f7f3b27d82fd1aa5e4d3b3f050a17eb8e3bfac1477ef8",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/work-step-core.ts",
+      "sourcePath": "lib/work-step-core.ts",
+      "sourceSha256": "7a2110a937cfb9833e5b287b98b02c5f7f227416dd775776bcc21b997ba47faf",
+      "publishedSha256": "56622455e4d5217c2dd8086fb43e0e1d7877951510f2beafa69d13bd6510e4ba",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/work-step.ts",
+      "sourcePath": "lib/work-step.ts",
+      "sourceSha256": "1e8e941aee8ef0833c9ac1514ad226713f794b8c496797272ef1874c5314f1b3",
+      "publishedSha256": "3338e75d31d741f3c1ffda7e085f552c877588bfcaeddb45db0e1c9df663b5b9",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "next.config.ts",
+      "sourcePath": "next.config.ts",
+      "sourceSha256": "614bce25b089c3f19b1e17a6346c74b858034040154c6621e7d35303004767cc",
+      "publishedSha256": "bad2fb1453876308263acbb661481051cf501c52146738c3f3993f04ca14d2f1",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/general-tables-bridge/appinfo/info.xml",
+      "sourcePath": "ops/general-tables-bridge/appinfo/info.xml",
+      "sourceSha256": "cca64c018010cca2e33989728dffb00c69267efec8f6778d39cca241933e51f3",
+      "publishedSha256": "cca64c018010cca2e33989728dffb00c69267efec8f6778d39cca241933e51f3",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/general-tables-bridge/appinfo/routes.php",
+      "sourcePath": "ops/general-tables-bridge/appinfo/routes.php",
+      "sourceSha256": "56db218f22dfff2ae9118873e67f5c4dadbbdd6e431e8d0ef58cf76e21a64374",
+      "publishedSha256": "0fea87937e013012f15e8f0150fddd136845e3ec1ecdf60a2507454102dd8bc2",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/general-tables-bridge/installer-template.php",
+      "sourcePath": "ops/general-tables-bridge/installer-template.php",
+      "sourceSha256": "bceb678b1bf8c547fb026a5552fb8852bb1743bd5020ffde668baf2ab4c8e680",
+      "publishedSha256": "bceb678b1bf8c547fb026a5552fb8852bb1743bd5020ffde668baf2ab4c8e680",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/general-tables-bridge/lib/Controller/GeneralController.php",
+      "sourcePath": "ops/general-tables-bridge/lib/Controller/GeneralController.php",
+      "sourceSha256": "77e280fa53d8510c2b7bf7d08038b5d27d6d39d12f6cea7623840e0816117c35",
+      "publishedSha256": "77e280fa53d8510c2b7bf7d08038b5d27d6d39d12f6cea7623840e0816117c35",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/general-tables-bridge/lib/Service/GeneralWriteService.php",
+      "sourcePath": "ops/general-tables-bridge/lib/Service/GeneralWriteService.php",
+      "sourceSha256": "5d0477b5b70859282d9fdbd2e90a0f369c97929d4b931e925e618e65f188d402",
+      "publishedSha256": "5d0477b5b70859282d9fdbd2e90a0f369c97929d4b931e925e618e65f188d402",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/general-tables-install-test-0.3.0.php",
+      "sourcePath": "ops/general-tables-install-test-0.3.0.php",
+      "sourceSha256": "3acb957fb559e93c7b44461477abe7164739cd5b2bc4b909c03d550500a3ff32",
+      "publishedSha256": "b8e8a2acbfc7f91d96070b9f302afb7f08fc1de0a0d8649b500267ef6340e835",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Require explicit legacy-script enablement before bootstrap or credential input"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/intake-bridge/appinfo/info.xml",
+      "sourcePath": "ops/intake-bridge/appinfo/info.xml",
+      "sourceSha256": "c496cdcc4d99fd0c32c7198788aa371d51d685dce85d9f68eac1bac65672c0ca",
+      "publishedSha256": "c496cdcc4d99fd0c32c7198788aa371d51d685dce85d9f68eac1bac65672c0ca",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/intake-bridge/appinfo/routes.php",
+      "sourcePath": "ops/intake-bridge/appinfo/routes.php",
+      "sourceSha256": "43f453bf7962ce622fca790e08983192fd9d918c56203b297ea55d24f3d3b74e",
+      "publishedSha256": "ad68ffe4969f1c5043059077854d332b9d5707bdbc2c1651ee0e92ea890c57da",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/intake-bridge/installer-template.php",
+      "sourcePath": "ops/intake-bridge/installer-template.php",
+      "sourceSha256": "32297efe9f94cb436c914d8c846e8f6a4f4edbff81072742c097d083699a2820",
+      "publishedSha256": "d647135b6c0229e065816f883daa71cc167ef624f9977faf0658daa82f7eea50",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/intake-bridge/lib/Controller/RegisterController.php",
+      "sourcePath": "ops/intake-bridge/lib/Controller/RegisterController.php",
+      "sourceSha256": "bf1a58a048f5ab5ddc600e0161ef973faba62b62c421734a43591ff3920e16c3",
+      "publishedSha256": "bf1a58a048f5ab5ddc600e0161ef973faba62b62c421734a43591ff3920e16c3",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/intake-bridge/lib/Service/RegisterWriteService.php",
+      "sourcePath": "ops/intake-bridge/lib/Service/RegisterWriteService.php",
+      "sourceSha256": "7e50c9f31f21f5932b88829f798973fc5a5d5eb400d3b585eb0b222998131d0e",
+      "publishedSha256": "88d395d6d95ab2ce556eebc2f26a03ec5e0edaa82a186759f7b3537bb6ff6796",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/intake-install-test-0.2.1.php",
+      "sourcePath": "ops/intake-install-test-0.2.1.php",
+      "sourceSha256": "24a1423d8258232426da61a191f6bc2854301a0aa189588719bb7d28403fa7f2",
+      "publishedSha256": "41eb53c0e0848533237f490cbce714d56527e77ef8841b90715b0070fc787533",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Require explicit legacy-script enablement before bootstrap or credential input"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/pdf-bridge-repair-0.1.1.php",
+      "sourcePath": "ops/pdf-bridge-repair-0.1.1.php",
+      "sourceSha256": "e68b46ea5fd909ba39b9f61326a99b3213f13c774dc59f3acc12fcbb8f9a8ae2",
+      "publishedSha256": "94ace18e62d32de05404f52ff56237242dbcce51f11833c19a45499ff042b43a",
+      "changes": [
+        "Require explicit legacy-script enablement before bootstrap or credential input"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/platform-foundation/schema-reference.sql",
+      "sourcePath": "ops/platform-foundation/schema-reference.sql",
+      "sourceSha256": "b8b4fe7f72f58affa17978b44189512dab2085590c45db4163ca1a75c610214b",
+      "publishedSha256": "b8b4fe7f72f58affa17978b44189512dab2085590c45db4163ca1a75c610214b",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/register-share-soul-0.1.0.php",
+      "sourcePath": "ops/register-share-soul-0.1.0.php",
+      "sourceSha256": "f3aef632f32c1bc634250ab87d40d678845b00e9dbd46ad13d82e8586ff5483f",
+      "publishedSha256": "ab7397bc13085e41ab2b360c4f483098d342d2ba54eb1a4067d718208d9750eb",
+      "changes": [
+        "Require explicit legacy-script enablement before bootstrap or credential input"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-http-test-0.1.0.php",
+      "sourcePath": "ops/tables-http-test-0.1.0.php",
+      "sourceSha256": "ae0d0a5a94ff7879b8f0a4e25c48936d678146c11c4571f383b4edb1ed8cb08a",
+      "publishedSha256": "09db017e2a9a37c77e13dd283681fc448cc2e3595733344d678bb46d078656fb",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Require explicit legacy-script enablement before bootstrap or credential input"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-pilot-bridge/appinfo/info.xml",
+      "sourcePath": "ops/tables-pilot-bridge/appinfo/info.xml",
+      "sourceSha256": "a88bd6e20e10c7babda09c1b486b86c938ea4510b1314ee71d2909e104174005",
+      "publishedSha256": "a88bd6e20e10c7babda09c1b486b86c938ea4510b1314ee71d2909e104174005",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-pilot-bridge/appinfo/routes.php",
+      "sourcePath": "ops/tables-pilot-bridge/appinfo/routes.php",
+      "sourceSha256": "77ba62b543d798823fcdbf387569647b09f8aeaa2bc7e466aa959c631ee18ef2",
+      "publishedSha256": "24abca9dc82ef9ae8901631699bd5436c5e0443132fbebca6e80ef762da6a8ec",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-pilot-bridge/installer-template.php",
+      "sourcePath": "ops/tables-pilot-bridge/installer-template.php",
+      "sourceSha256": "d2e8196d1503292c7e4747e8c8f1b1dafb5d92d7e5e90c3168b9c6d374ca3f87",
+      "publishedSha256": "d2e8196d1503292c7e4747e8c8f1b1dafb5d92d7e5e90c3168b9c6d374ca3f87",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-pilot-bridge/lib/Controller/PilotController.php",
+      "sourcePath": "ops/tables-pilot-bridge/lib/Controller/PilotController.php",
+      "sourceSha256": "ba477181a82613cb246f5b3dd7cb8719da6bab2c46440dee4c3d2c4eeec33157",
+      "publishedSha256": "ba477181a82613cb246f5b3dd7cb8719da6bab2c46440dee4c3d2c4eeec33157",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-pilot-bridge/lib/Service/PilotWriteService.php",
+      "sourcePath": "ops/tables-pilot-bridge/lib/Service/PilotWriteService.php",
+      "sourceSha256": "db06d6c642efc0f8d3badb9e563fdcac2d0ebbec217a56dc7421db4c44b4afb7",
+      "publishedSha256": "db06d6c642efc0f8d3badb9e563fdcac2d0ebbec217a56dc7421db4c44b4afb7",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-pilot-bridge/original-manifest.json",
+      "sourcePath": "ops/tables-pilot-bridge/original-manifest.json",
+      "sourceSha256": "109d05605b3d54b214e769ddae8e779dbbff3dc78157af8c1f04a53bad05d769",
+      "publishedSha256": "109d05605b3d54b214e769ddae8e779dbbff3dc78157af8c1f04a53bad05d769",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-pilot-http-install-0.1.2.php",
+      "sourcePath": "ops/tables-pilot-http-install-0.1.2.php",
+      "sourceSha256": "eedb1356c96726e9fff0f76d271c52bdc4455de219ab56848bcda91668142095",
+      "publishedSha256": "04586b090936fef2a6634129dbb0f17fb119411bcee5585620d1c65874b453d1",
+      "changes": [
+        "Require explicit legacy-script enablement before bootstrap or credential input"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-read-bridge-install-0.1.0.php",
+      "sourcePath": "ops/tables-read-bridge-install-0.1.0.php",
+      "sourceSha256": "c2abe72ef69dc74cc9e4a754f69c4c694f15cb3b3c6d8c4fce83ea5016a6b542",
+      "publishedSha256": "e03aa9dc2f34505f4ce25c191da4227dcfeaa82f112549a46a113ef14e8c585d",
+      "changes": [
+        "Require explicit legacy-script enablement before bootstrap or credential input",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-read-bridge/Controller.php",
+      "sourcePath": "ops/tables-read-bridge/Controller.php",
+      "sourceSha256": "ae63014bd34a94379d80e14be23e347c0a0a93717a6d5191bd92e8be0b2c90ab",
+      "publishedSha256": "94b7f2bde60cba20cb0d49604f0e6568a0321d8ee1049f6cc7aceec5db466bf9",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-read-bridge/info.xml",
+      "sourcePath": "ops/tables-read-bridge/info.xml",
+      "sourceSha256": "3947dcb754b409e6d1cce0ebde89d2bb346add0f738f6684fd74e70818020834",
+      "publishedSha256": "3947dcb754b409e6d1cce0ebde89d2bb346add0f738f6684fd74e70818020834",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-read-bridge/routes.php",
+      "sourcePath": "ops/tables-read-bridge/routes.php",
+      "sourceSha256": "bc0bde86cef4ed9d626894d621bf519fe1f4d594be18759d3dd820735717803e",
+      "publishedSha256": "b13eb73685c7c84286a01e2d85532cc09e00876551d94798f69254b5ac021b5a",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/tables-write-pilot-0.1.1.php",
+      "sourcePath": "ops/tables-write-pilot-0.1.1.php",
+      "sourceSha256": "967e404234e43947f08a0bc8c349642b03cb86d48670bc65f7148f4f901228ee",
+      "publishedSha256": "16d20a452856dc5ed29c6ab50cf5b7f828aaa0ebf65cb60526f48e372bfb80de",
+      "changes": [
+        "Require explicit legacy-script enablement before bootstrap or credential input",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "package-lock.json",
+      "sourcePath": "package-lock.json",
+      "sourceSha256": "2261ad3f2f875744cca7536de185ecf2f663e4f0e7b7e6d951d95e9d60bd2d41",
+      "publishedSha256": "96fcf595c132a4bb77db9e5123c0aa1a4193561b8fba6f216d947212038a2233",
+      "changes": [
+        "Align root metadata; preserve all locked dependency resolutions and integrity values"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "package.json",
+      "sourcePath": "package.json",
+      "sourceSha256": "6ab3cf7af6576420364f3f02d79823369f18e6f77051465b9cf5300e5d646bcb",
+      "publishedSha256": "5f8e3f58ea4b7a4139d683bab0de9b783e4d6de613ec5c89cb98c333e20bd6eb",
+      "changes": [
+        "Set public package identity/license and explicit unit/browser/build checks"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "sourcePath": "postcss.config.mjs",
+      "sourceSha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+      "publishedSha256": "b5d6cd3c327c46d2589524e3c601c4beab7e5e9c2357a4b6806a62fac3f3860c",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "public/favicon.svg",
+      "sourcePath": "public/favicon.svg",
+      "sourceSha256": "e6d2e59b7b5bbb0342e0fb496dfc262decbfe4426bbb7b047aec8d467d1dc6f7",
+      "publishedSha256": "e6d2e59b7b5bbb0342e0fb496dfc262decbfe4426bbb7b047aec8d467d1dc6f7",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "public/file.svg",
+      "sourcePath": "public/file.svg",
+      "sourceSha256": "1e0ae4d1a1ddfa36752988647b731e4abf150c414d069ec83c96fb0aaeff0307",
+      "publishedSha256": "1e0ae4d1a1ddfa36752988647b731e4abf150c414d069ec83c96fb0aaeff0307",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "public/globe.svg",
+      "sourcePath": "public/globe.svg",
+      "sourceSha256": "d051a8c47936990a9085693d307bb7cea1bc1b6d7ed956bcbaacf674f4ec96b9",
+      "publishedSha256": "d051a8c47936990a9085693d307bb7cea1bc1b6d7ed956bcbaacf674f4ec96b9",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "public/window.svg",
+      "sourcePath": "public/window.svg",
+      "sourceSha256": "decf1cf7bb22b5c99c4857cfcd5718ce5465c4454166317589c83fc73df74b66",
+      "publishedSha256": "decf1cf7bb22b5c99c4857cfcd5718ce5465c4454166317589c83fc73df74b66",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/assemble-pdf-chunk.py",
+      "sourcePath": "scripts/assemble-pdf-chunk.py",
+      "sourceSha256": "f7a7fee71ba926a77ad199a57837cf90ae2f4e3ebb15169c81c7ca8ce40fc50f",
+      "publishedSha256": "6149fe9466f87cfac694bff515f3abee952e2e1a1c7e79332fa8a5cd4fb67362",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/build-browser-workflow.mjs",
+      "sourcePath": "scripts/build-browser-workflow.mjs",
+      "sourceSha256": "8a55c82bfb9321e400706637a3bba29d32bb53a0c5521e5c15e22e0c53a4ee4f",
+      "publishedSha256": "a6b0df7d4f89e89bfe350adee5b5f3cc61c7a1a52e2cb0a546cdc79c5c12d352",
+      "changes": [
+        "Retain upstream bundle notices and emit browser input evidence"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/build-verified.sh",
+      "sourcePath": "scripts/build-verified.sh",
+      "sourceSha256": "2ae5329ac860076070c9217a43106a15cb5ecf907a0f7baeb9ef903f76b53c68",
+      "publishedSha256": "9450d879b7bf0c560a4aef4182ec73ade30be84459cd1127691c8bff7bbf1521",
+      "changes": [
+        "Allow invocation after a source download without executable-bit setup",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/install-ci.sh",
+      "sourcePath": "scripts/install-ci.sh",
+      "sourceSha256": "f63e840679ca885f206d17b7f8285199bb6bcd47ebc360008d04d16b8e54f63c",
+      "publishedSha256": "d8eb9019aa6e55d1ab1232ccb4a304e953285e322c5b7fbce9c213966805cf44",
+      "changes": [
+        "Replace hosting-image-specific install checks with one bounded locked npm install",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/package-general-tables.py",
+      "sourcePath": "scripts/package-general-tables.py",
+      "sourceSha256": "bd61e7014ed49603beb945c9d329856e2ad3c4eed65da81764e27b8dc6c40c91",
+      "publishedSha256": "403c27e8f72faf0708cfd8ae96efa46ef8e26f4ee8c499d7005f54c81a188c91",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/package-intake-bridge.py",
+      "sourcePath": "scripts/package-intake-bridge.py",
+      "sourceSha256": "cf5ab94c462ac60977aeb49fa7a85d083e130c08184a7ee9a643e07d030ea7ce",
+      "publishedSha256": "ef3151aa7ba1557e51c386a7882f514065006c2ad77ff66a7fefebbc7a9c00da",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/package-tables-http-pilot.py",
+      "sourcePath": "scripts/package-tables-http-pilot.py",
+      "sourceSha256": "a308917c1e352fd79c4f7002ae2b4476330de006fd7212ea81c0da2aa995174c",
+      "publishedSha256": "f3c2c83ebbbe9c8a448303b883f83a1b31f4de6584976b5f6d6f41188710d653",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/pdf-workbench.py",
+      "sourcePath": "scripts/pdf-workbench.py",
+      "sourceSha256": "a568f58048adf512597b2a5798bae234f049dd9b03250a8b3dc48c40a0cb5e33",
+      "publishedSha256": "99b6fb174e827bbf460b661a27a026b01f879b5521eaf411843189afa6628ac5",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/sites-env.sh",
+      "sourcePath": "scripts/sites-env.sh",
+      "sourceSha256": "df86ebfc27d2f00860036658e933ac0ddd7b5f6879aa5d51218f0863c7e1fb60",
+      "publishedSha256": "102867fbf5055a7e0d05f998df9b037fb36b323d4761bd3cdb596ed12e71bcd5",
+      "changes": [
+        "Use portable project-local caches while preserving the caller environment",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/upload-original.py",
+      "sourcePath": "scripts/upload-original.py",
+      "sourceSha256": "eb87bbf4ba9c4b5a1157cd77911488b68ece82d25aea31b8681e70f3f9df0f66",
+      "publishedSha256": "f6a1a7f2bf88eff0b5629df53bf7eb7b868c708d7ad9d647a732314acccaa21f",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "snapshots/jsloader-before-mindmap-workflow.js",
+      "sourcePath": "snapshots/jsloader-before-mindmap-workflow.js",
+      "sourceSha256": "5a5101bced986bf2a7c7752e2fb335b97fc86bdc0ae2541f0b38c0aef4b32a29",
+      "publishedSha256": "19211aa6d7a5638a9c3e2a7514676feb06514f82f0f8b7f3678286ef0c6c33fe",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Replace private help-page references with inactive documentation examples",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/announcements-read.test.mjs",
+      "sourcePath": "tests/announcements-read.test.mjs",
+      "sourceSha256": "bbdbec6637b831c08a9eaa846d73958b9ea15423c2a1e3b6d89ddb1b0b334058",
+      "publishedSha256": "83df61a0e501bc1959dd2fdc0c4a3598ec5f7905251fbeed1670013bde49256b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/attachments.test.mjs",
+      "sourcePath": "tests/attachments.test.mjs",
+      "sourceSha256": "68cec9df4cdd82e278e7f1920ac284a6b7ff167a5ecebe21349dbeb86714e5ee",
+      "publishedSha256": "c5c612c513ca0c4f6843a3ae068daae47850b3fdd83948685fd0e8a785a440be",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/calendar-exchange.test.mjs",
+      "sourcePath": "tests/calendar-exchange.test.mjs",
+      "sourceSha256": "d4fc8d03de2264c26ae6fad4e1173117ad038087418e58916b00ea65bd2256db",
+      "publishedSha256": "647f66e99e88318fb74dd42d9844d3adb07b645221e411ad134aa4bdaf54d6af",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/calendar-planning.test.mjs",
+      "sourcePath": "tests/calendar-planning.test.mjs",
+      "sourceSha256": "0c62e89836140bd72162c8cc88660a0f299371d5c09e9365467bc38a5076a667",
+      "publishedSha256": "882601e47f313b234ac6d848b03bff057049b1e784ac2164f169f923fd7c8951",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/calendar-series.test.mjs",
+      "sourcePath": "tests/calendar-series.test.mjs",
+      "sourceSha256": "328dab8504921ebb248231c979b48456f2c688264a419eb141ea0cbd3421b20b",
+      "publishedSha256": "c9efe5b3e2dd5ee1a727d9983aabc97c1e927c582ecd76ea58d790a009ffe82d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/calendar-write.test.mjs",
+      "sourcePath": "tests/calendar-write.test.mjs",
+      "sourceSha256": "1b98f2c55f5d7bb7d0cb04fc1dfe1d1374e72f4e0581844abda4994267179ee6",
+      "publishedSha256": "e7aab822decf00fd38ca8f30b62638b3113318a7899a8bdd2d4428a63182b137",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/condition-lists.test.mjs",
+      "sourcePath": "tests/condition-lists.test.mjs",
+      "sourceSha256": "625258e14bb4563566b225e86399b15bddd3f8f1ed8470189284827e5293b46e",
+      "publishedSha256": "2a0ab0854741d388145fc697bece0b7ea44a0ba477e1c5e24bb80a0590418a40",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/connection-policy.test.mjs",
+      "sourcePath": "tests/connection-policy.test.mjs",
+      "sourceSha256": "f880ee3f16dd987deceedfef6bed06dc2e149771403acac8c92f1f8afc1d5fd9",
+      "publishedSha256": "41a3b248ebd61c0faebe26e4e7436b66e066019262da8e6d187c3d9dcec71a50",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/contact-work.test.mjs",
+      "sourcePath": "tests/contact-work.test.mjs",
+      "sourceSha256": "cb6c02d14528424ca2794dfbec83b31bd928eae683ef55e97084810b97b1a60f",
+      "publishedSha256": "b6d8587ebd5d1e17d6b483fc3ccae5a01ac99eef0f915c7fa932248326991b08",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/deck-browser-workflow.test.mjs",
+      "sourcePath": "tests/deck-browser-workflow.test.mjs",
+      "sourceSha256": "0030ee1eb22961815e64b2dc874857b8bc407f450fff3643086f0310103d0140",
+      "publishedSha256": "bd9489f9a1a8f8f5f5d1b67ef4a2f5bcd06769ce2b5587ab0cdc827a9f1c37bc",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/deck-lifecycle.test.mjs",
+      "sourcePath": "tests/deck-lifecycle.test.mjs",
+      "sourceSha256": "75bde49f72bf9b67c3c1836192da553c1c7ece7d1c16ec1d366759cb1c5d46a0",
+      "publishedSha256": "54b965b937f23a301e44babdd3d8c25f392ff8a44e46fda677a654c84d463267",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/deck-mindmap-workflow.test.mjs",
+      "sourcePath": "tests/deck-mindmap-workflow.test.mjs",
+      "sourceSha256": "624e17213868ea514ce954ccf45e23a81db38bf029ab4826a6e3013202e1c564",
+      "publishedSha256": "1eed57a8ff596528b8498aeec09be65368d5e819dee3474fd2770832e8f6abee",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/deck-work.test.mjs",
+      "sourcePath": "tests/deck-work.test.mjs",
+      "sourceSha256": "2a8ddb441728aa67a4794683c62693096d6494819ffc5dd1a86262f8dc16d750",
+      "publishedSha256": "e20506741c74e9963fa6d5016f62b5a81fa8695a483309b38d33acecee4b55b4",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/files-organize-content.test.mjs",
+      "sourcePath": "tests/files-organize-content.test.mjs",
+      "sourceSha256": "83b38c1f2c97c000ebbb0e51981a7c7ccc2f06dfe2e6921b0ddea41fe4b94e40",
+      "publishedSha256": "1b0be00854e77b61032ade4692fd9723486b3f64f896a23b00a5e656eb03fe4e",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/files-search-copy.test.mjs",
+      "sourcePath": "tests/files-search-copy.test.mjs",
+      "sourceSha256": "e30e9b24e28d3481f400a340c39fc1203171ed2e40816943f12f515e932a7e27",
+      "publishedSha256": "9e1c2cbd540c7a2e1d462348ad8ca4f00300456b0ce52b891639dbff716b3866",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/files-shares.test.mjs",
+      "sourcePath": "tests/files-shares.test.mjs",
+      "sourceSha256": "8eed9f5a63197e4a881cc27268be182bb32011feb6f7c7f380e0be6a41ac8c02",
+      "publishedSha256": "a2c1fb121701b4f89ee38c0120e56908f1ee0b8850255e3b1965de7b568607f3",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/files-trash.test.mjs",
+      "sourcePath": "tests/files-trash.test.mjs",
+      "sourceSha256": "123c6189414cc45a2709dc8242edde670320db202193bb551ea6d0665b6b9602",
+      "publishedSha256": "13cb79ea7efec0a91a0e8d00dcfbac578342d9e59cd37448f872fae6b2f6622c",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/files-upload-link.test.mjs",
+      "sourcePath": "tests/files-upload-link.test.mjs",
+      "sourceSha256": "b4d8d584b7ab5e184c7de35cc98e83729082c8d9249fbbe19fcd0a48690ca261",
+      "publishedSha256": "487e735af65998b38ca9997260ea88fff2a1651e3b7c2f28a8030ccc99f7a925",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/files-write.test.mjs",
+      "sourcePath": "tests/files-write.test.mjs",
+      "sourceSha256": "7a017a83aeb687e37ab00d8b975715981ef31c52937d56e0100897d747d7cb48",
+      "publishedSha256": "d5f696e01b6435c3f6eb709e2ee0124ef4eb6bc1163666a9ba7cc221ee2f9d42",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/fixtures/intake-pages.pdf",
+      "sourcePath": "tests/fixtures/intake-pages.pdf",
+      "sourceSha256": "5c0b9282ad4eda6fd10e8e69b8996d5c77f154bbb467b38f3651128e64aa67f4",
+      "publishedSha256": "5c0b9282ad4eda6fd10e8e69b8996d5c77f154bbb467b38f3651128e64aa67f4",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/general-tables-write.test.mjs",
+      "sourcePath": "tests/general-tables-write.test.mjs",
+      "sourceSha256": "0f55f6fbd6e42de387e87e096fb524bc07efe2ad906f6d3e3c283c10e5d612ad",
+      "publishedSha256": "b5943ac511bca27d109a02b2919623334f81fdcaf2c82e0fe1b12724c8cc0047",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/github-bridge.test.mjs",
+      "sourcePath": "tests/github-bridge.test.mjs",
+      "sourceSha256": "23dc9e90a129b24e37f55db5eaca76596134ff0342c9acf5b37065c8c700504b",
+      "publishedSha256": "820d248d753700b4ca97b7e0e786c3537310226259ab341bf6dd7a22cabe1df7",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/groupware.test.mjs",
+      "sourcePath": "tests/groupware.test.mjs",
+      "sourceSha256": "345c6ca46b5f0b71d6562f67fd08c83622e742f640d699907aec7a4bde5cc1d7",
+      "publishedSha256": "48e56827eb37eff79d26c86e61c15c05c9278b1f22fb49b4b4373614d4f48e03",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/intake-downloads.test.mjs",
+      "sourcePath": "tests/intake-downloads.test.mjs",
+      "sourceSha256": "7f43e1a9d8dfe7cf244f768f56c5a4d0b234af3ee8cd68f43cf08b4b3b950198",
+      "publishedSha256": "55956ced0f7a3a79ce986033815aa80bc9536f0a8b14d31a2e02cef55996366d",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/inventory-delegated.test.mjs",
+      "sourcePath": "tests/inventory-delegated.test.mjs",
+      "sourceSha256": "67cee6d05e982810a058fb4d36bbef56029bef3261afc9c523bb411c5c203a23",
+      "publishedSha256": "856d3d624c65c8943f306099cd3ead7ac8c58708c590aeabfebd2f859957a23a",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/inventory.test.mjs",
+      "sourcePath": "tests/inventory.test.mjs",
+      "sourceSha256": "53e673ba7f5f381151cdd8b2e9d2af84a9774e2e599c52aa3962f2118137db2c",
+      "publishedSha256": "ca14740bfa87887d97fa6b300b26b2ed4e79b53f506acbc5cfb1c37bc0ce2161",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/mail-read.test.mjs",
+      "sourcePath": "tests/mail-read.test.mjs",
+      "sourceSha256": "849f6142a71af50b5d827919840312bbb3c910a13ce429d5936dac651b51a81b",
+      "publishedSha256": "e23e297b1325cbe77fef08014d27137d79242ee2b4cfe7e1855e3a4f19ed591e",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/mindmap-editor.test.mjs",
+      "sourcePath": "tests/mindmap-editor.test.mjs",
+      "sourceSha256": "05a809fe71bd1ae75e65d3f0f91e1b4ba55b124fe7a665533b6e7e126c6fc601",
+      "publishedSha256": "c5ed845dc989059990b832382578e3e005b92a368086896caaed73544d18428b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/mindmap-progress.test.mjs",
+      "sourcePath": "tests/mindmap-progress.test.mjs",
+      "sourceSha256": "4924c5440571e920acee60083633fede4a42e216fcfc057da3e0b47e8590d750",
+      "publishedSha256": "f77319023e3028b2c7f40ef9e454d02ae6dcb0fab891e1f1f03d04be1054ec2a",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/mindmap.test.mjs",
+      "sourcePath": "tests/mindmap.test.mjs",
+      "sourceSha256": "48c38aa94de7fc709bb72e87ebae54da6b318ec8a266c713679199abc333464d",
+      "publishedSha256": "9a1a1286c00b3e010cb4369acca6a2a53f66f34cfac6b85c031b4229f3119517",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/nextcloud-read.test.mjs",
+      "sourcePath": "tests/nextcloud-read.test.mjs",
+      "sourceSha256": "f4b8a87854af3e8e367a056b5067515bd34d4c64809b33d05e31addd8b1a2f3e",
+      "publishedSha256": "4dab5809704f9b964167b0e0ba90105a7b97098c6a5b459f062869f348e09f9a",
+      "changes": [
+        "Add the agreed own-code SPDX license notice",
+        "Correct historical discovery expectation from 152 to 158 tools for checkpoint 1.31.1; implementation unchanged"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/notes-lifecycle.test.mjs",
+      "sourcePath": "tests/notes-lifecycle.test.mjs",
+      "sourceSha256": "34592575650dabdccd73661c9c7936b473fdcf12592f3114e0d19978cc55c26b",
+      "publishedSha256": "766b212c73a0bf2199af02c6b11484b8a8b580955f0a9447caebaba597d5a637",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/oauth-consent.test.mjs",
+      "sourcePath": "tests/oauth-consent.test.mjs",
+      "sourceSha256": "b188fb3a652f71021d132773fae6fa86b0414ea37595302aea7dd5bd9a716346",
+      "publishedSha256": "cdfcb65046a0e4eed36011eeb89d30c3ee4b014469ce2e43d0f1b2c5a4ecf7d6",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/pdf-assembly.test.py",
+      "sourcePath": "tests/pdf-assembly.test.py",
+      "sourceSha256": "14b89d1a9d78d5d063deebdd6e69306a5d9dbebe08cb506cfb2018bccab0226f",
+      "publishedSha256": "43f5a6c4fc54d99cff1c90e9e684caae86852b80098a2b381e23229215a0864b",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/pdf-original-chunk.test.mjs",
+      "sourcePath": "tests/pdf-original-chunk.test.mjs",
+      "sourceSha256": "60befd7238104ad626dcf449c34d5a840e0a32dbf7665bd24e704594ffa7616e",
+      "publishedSha256": "f06b670f1892c866c92f8580236425d2ec566bb2effaaae945bc530ecb767174",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/pdf-workbench.test.py",
+      "sourcePath": "tests/pdf-workbench.test.py",
+      "sourceSha256": "42794bfec3c9b5ba5e935978aefb111294aac28e2399e3c7ea56c1fdd51780ca",
+      "publishedSha256": "50512f8273d40b4a6a22b6466892c9eb8cdfbdeb658c8f052c7af88db9cde0b7",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/planning.test.mjs",
+      "sourcePath": "tests/planning.test.mjs",
+      "sourceSha256": "6f372783bc86728eb1d578a08a7295dc1afcdba7b0ed515abbd8093971a55391",
+      "publishedSha256": "2407472d37e727bb11ea6afb02d6e286f75e0393518084f0c478c60c7f217480",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/platform-foundation.test.mjs",
+      "sourcePath": "tests/platform-foundation.test.mjs",
+      "sourceSha256": "b3f09597db93641af0afafea36210de70e5e2d69a24dbe3e72f5275d77ad83b1",
+      "publishedSha256": "30f638d89b724aaf518a026a748f2b2da89d33e75d5a581b6881954794fcdaea",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/platform-native-context.test.mjs",
+      "sourcePath": "tests/platform-native-context.test.mjs",
+      "sourceSha256": "8cfc210f4b1886883d569debe9fe65e5d9c0c67b242667a0301b1306b7d45eb3",
+      "publishedSha256": "1dee2a65fa985914b5c2a8afbc42bbf4702eeefec496b5f4650909514d575c57",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/platform-registry-fixture.mjs",
+      "sourcePath": "tests/platform-registry-fixture.mjs",
+      "sourceSha256": "31c8c540d9729ec84293ea8d917aa9c9080eb5cc106d79d3f0a95be995d39fa2",
+      "publishedSha256": "4503117c901c55faaaa7b036f42d713119bf7b70d2cd653f53af37b06a27ae89",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/platform-registry-gateway.test.mjs",
+      "sourcePath": "tests/platform-registry-gateway.test.mjs",
+      "sourceSha256": "6de1b5d51097458b9edf3f82b700ae1b842cc8ff07a8c6db53df7e0c79b1faf4",
+      "publishedSha256": "a19faef2374df44ba8330206dd08950b4cdc24d592dec4002fb165ea8d6d1a7f",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/rendered-html.test.mjs",
+      "sourcePath": "tests/rendered-html.test.mjs",
+      "sourceSha256": "0f2c2fce24e93f2a9b54cddb84d50bb8432dd847d475fd02492577f091c2df1c",
+      "publishedSha256": "be0e6849d8ce7ce2af26ee7882c10e0c8646be3bfe8efbebcadb8b510d3b7634",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/source-capsule.test.mjs",
+      "sourcePath": "tests/source-capsule.test.mjs",
+      "sourceSha256": "8e4b8aefe928c57a252d554513a08318b23e3b1eea6f070961a10251ecf577d3",
+      "publishedSha256": "ac79eb1fec539e7da0bb6ce04fc9f25c70a3017f5b46aa312ecaa7540c733f66",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/tables-image-read.test.mjs",
+      "sourcePath": "tests/tables-image-read.test.mjs",
+      "sourceSha256": "f0f9cec87cb087461641007d8294cf37b445f3fd7dacdb406cc3fdc800d50678",
+      "publishedSha256": "dc89e0de95232b323c14641290d5fbbd4ec5062482581ee985f31068d585fa6c",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/tables-write.test.mjs",
+      "sourcePath": "tests/tables-write.test.mjs",
+      "sourceSha256": "50698baa82a54c66b401bedec599029dd2f3016d02659e7c5625d311b78acac7",
+      "publishedSha256": "8de6b59d820d8b974958461ef93a4a9d8d3b5dd3139fdc2725c09c3363df2bcf",
+      "changes": [
+        "Replace installation-specific host/contact or fixture value with a reserved example",
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/talk-read.test.mjs",
+      "sourcePath": "tests/talk-read.test.mjs",
+      "sourceSha256": "c92c3955ca2820a8f67e8c3673ef30f683d69444b85a673dde8eea9d18ec1bc7",
+      "publishedSha256": "418cf4980e05ed1151535ecd0907c192e70171081013d35eae4c570b4054ad6f",
+      "changes": [
+        "Add the agreed own-code SPDX license notice",
+        "Correct historical capability expectations: connector 1.31.1 and implemented trash deletion; implementation unchanged"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/task-lists.test.mjs",
+      "sourcePath": "tests/task-lists.test.mjs",
+      "sourceSha256": "c61ad0f08ed1c5d6e17cb5869dbc45dc9a787ff37782b616a4d5619cfcf35cd1",
+      "publishedSha256": "433cfd992f673f94d8534291780fd0ae3173c62af7007bd50587cfa46d247faf",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/upload-original.test.py",
+      "sourcePath": "tests/upload-original.test.py",
+      "sourceSha256": "2a02bd8d204ed516f1e348dcaa16f63b3598b8a850c3dad41cc1e2b810f63d4d",
+      "publishedSha256": "86b79e5ccc894a30ed89646e45318a0cefd6dbd0b554525653e0c8cf34c5dabe",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/work-step.test.mjs",
+      "sourcePath": "tests/work-step.test.mjs",
+      "sourceSha256": "056f8537066d74a48e5d0dd6a5a1c900638358326e9607ee7750c4f7abb9d85c",
+      "publishedSha256": "688923cfa19ab657e298c33173b08ef6d9794163e478d372a896aec998e6c7b7",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tsconfig.json",
+      "sourcePath": "tsconfig.json",
+      "sourceSha256": "be18523b23b78b6e1a876ddd107d330f0168bddf09d751b57e0b5edce69c66f3",
+      "publishedSha256": "be18523b23b78b6e1a876ddd107d330f0168bddf09d751b57e0b5edce69c66f3",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "vite.config.ts",
+      "sourcePath": "vite.config.ts",
+      "sourceSha256": "43e5f02f727ca043f08ebf34789f330580a7a0cb90f426c92f4a454d066988fc",
+      "publishedSha256": "f494204349db5d48266e545b52c9f73a410afe7bcaefaa10c031c21b05f5d667",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "worker/index.ts",
+      "sourcePath": "worker/index.ts",
+      "sourceSha256": "eb3fda9566e75d3c2152c81b9fbc6f69eeb09bc3bdc8c2487afff6a9a7ebdebc",
+      "publishedSha256": "dbefba2c703131ecda72d2c8911c6227b6ad3812641d213bee5ab87d78834bbf",
+      "changes": [
+        "Add the agreed own-code SPDX license notice"
+      ],
+      "license": "AGPL-3.0-or-later"
+    }
+  ],
+  "excluded": "Full private history, deployment identity/secrets, live tests/credentials, receipts, LM Studio packages, other native apps and unused historical snapshots. Native platform source is published separately.",
+  "sourceSnapshotPrepared": true,
+  "additionalFilesPolicy": "New publication helpers, configuration examples, reports and documentation are own AGPL-3.0-or-later unless listed as unchanged third-party notice texts in DEPENDENCIES.json."
+}

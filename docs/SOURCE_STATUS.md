@@ -17,12 +17,12 @@ Das öffentliche Repository erhält ausgewählte, geprüfte Quellstände mit Her
 | Native GitHub-Brücke 0.1.0 | Drei PHP-Klassen; vorhandener reiner Kerntest; Einbindung in die NovaSpace-Plattform-App | [Erstes AGPL-Quellmodul](../components/nextcloud/github-bridge/README.md) mit vollständigem Lizenztext und Dateiherkunft veröffentlicht |
 | Native Plattform-App | [Zusammengeführter App-Quellbaum](../components/nextcloud/platform/README.md) mit Hilfe ui.7 und GitHub-Brücke, AGPL-Zuordnung, Fremdhinweisen, sicherer Beispielkonfiguration und Paketierung | Quellabgleich abgeschlossen; frische Nextcloud-Installationen 34.0.4/35.0.0 mit PHP 8.3.6/MariaDB 10.11.14 jeweils 36/36 native Prüfungen erfolgreich; Updatepfad und externe Zusatz-App-Abläufe gesondert offen |
 | Weitere native Nextcloud-Erweiterungen | Weitere App-/Integrationsstände und vorbereitete Quellen im Bestand | Als eigene Komponenten mit vollständiger Herkunft, Lizenz, Abhängigkeiten und Einbaugrenzen prüfen |
-| Browser-/Nextcloud-Integration | Unter anderem direkte Nutzung von `@nextcloud/files`; generierte Bündel enthalten weitere Lizenzhinweise | Zugehörige Quellen, erforderliche Build-Eingaben und vollständige Fremdhinweise gemeinsam prüfen; keine pauschale proprietäre Zuordnung |
-| Online-Connector und gemeinsame Bibliotheken | Anwendung, Protokolladapter und gemeinsame Hilfsfunktionen im Quellbestand; keine übergreifende Lizenzangabe im bisherigen Paketmanifest | Tatsächliche Abhängigkeiten und Ableitungen prüfen, Quell- und Auslieferungsgrenzen bestimmen; gesonderte kommerzielle Bedingungen nur bei rechtlicher Eigenständigkeit |
+| Browser-/Nextcloud-Integration | Direkte Nutzung von `@nextcloud/files`; tatsächlicher Browser-Aufbau erfasst 17 Fremdpakete und 14 eigene Quellen | Bearbeitbare Quellen und benötigte JSLoader-Grundlage im [Online-Quellpaket](../components/online/connector/README.md); Bundle-Aufbau geprüft, keine generierten Bündel im Quellarchiv |
+| Online-Connector und gemeinsame Bibliotheken | Bereinigter Snapshot aus Betriebscheckpoint 1.31.1, einschließlich Anwendung, MCP/OAuth, Worker und gemeinsamer Kerne | Als zusammengehöriger eigener Nextcloud-Teil unter AGPL-3.0-or-later veröffentlicht; dateigenaue Herkunft, inaktive Konfiguration, Bauanleitung und Fremdhinweise liegen bei; unabhängige kommerzielle Abtrennung nicht behauptet |
 | Persönlicher LM-Studio-Anschluss und Themenauswahl | Eigener Versions-/Einbaustand; lokale Vorbereitungen und Betriebsnachweise sind vom Online-Stand getrennt | Tatsächlich ausgeliefertes Quellpaket samt Build-Eingaben und Fremdhinweisen zusammenführen |
 | Installer, Tests, Vorlagen und Betriebsdateien | Mischung aus Quellmaterial, generierten Bündeln, Prüfhilfen und installationsbezogener Konfiguration | Für jedes Auslieferungspaket benötigte Quellen auswählen, sichere Beispiele erstellen und Herkunft/Lizenzen erhalten |
 
-Diese Aufnahme ist eine Bestands- und Arbeitsübersicht. Die vollständige dateigenaue Lizenzprüfung und der vollständige installierbare Connector sind damit noch nicht abgeschlossen.
+Die veröffentlichten Snapshots haben dateigenaue Herkunfts- und Lizenzzuordnungen. Die vollständige bisherige Git-Historie, weitere native Apps und die LM-Studio-Lieferung sind damit nicht vollständig aufgearbeitet. Ein allgemein installierbares Gesamtprodukt ist noch nicht abgeschlossen.
 
 ## Abhängigkeiten
 
@@ -30,7 +30,15 @@ Das vorhandene Lockfile unterscheidet unter anderem MIT-, Apache-2.0-, MPL-2.0-,
 
 Für die Browser-Integration ist `@nextcloud/files` als **AGPL-3.0-or-later** erfasst; `ical.js` ist als **MPL-2.0** erfasst. Vor weiteren Paketen müssen die tatsächlich mitgelieferten Dateien, ihre Änderungen und erforderlichen Hinweise zugeordnet werden. Für das erste PHP-Quellmodul werden keine dieser JavaScript-Abhängigkeiten gebündelt.
 
-## Nächste überprüfbare Lieferung
+## Online-Quelllieferung 1.31.1
+
+Das [Online-Quellpaket](../components/online/connector/README.md) übernimmt 214 ausgewählte Quelldateien aus dem erhaltenen Betriebscheckpoint. Zusätzliche Dateien liefern Lizenz, sichere Konfiguration, Bauanleitung, Herkunft und Prüfergebnisse. Aktive Installationsadressen, persönliche Verweise und Hosting-Identität werden nicht übernommen. Die historische Pflege von Tabellen-/PDF-Brücken ist als installationsgebundener Code enthalten; acht unmittelbar angebotene PHP-Programme stoppen zusätzlich vor Bootstrap und Passwortabfrage. Zwei Installer-Vorlagen enthalten bewusst noch Ersetzungsmarker und sind keine eigenständig ausführbaren PHP-Dateien.
+
+Der gesperrte Abhängigkeitsstand installiert erfolgreich. Worker und Browser-Erweiterung lassen sich bauen. **503/503 isolierte JavaScript-Prüfungen**, **2/2 Prüfungen der gebauten Ausgabe**, **16/16 Python-Prüfungen**, **20 PHP-Syntaxprüfungen** und die Sperre aller **8** historischen CLI-Programme sind erfolgreich. Zwei historische Tests wurden an die bereits bestehende Implementierung angepasst: 158 Werkzeuge anstelle von 152, Version 1.31.1 anstelle von 1.21.1 und vorhandenes Papierkorb-Löschen. Die Anwendung wurde dafür nicht geändert. [TEST_RESULTS.json](../components/online/connector/TEST_RESULTS.json) benennt die genauen Grenzen.
+
+Die Quellfassung ist wegen der dokumentierten Bereinigung kein byteidentisches Produktionsarchiv. Sie enthält keine produktiven Zugangsdaten, keinen Git-Historienimport und keinen fertig eingerichteten unabhängigen Login-Host. Die bestehende Hosting-Anmeldung und feste Pilot-/Kontogrenzen sind in BUILD.md und LEGACY_OPS.md beschrieben. Es wurde keine laufende Installation aktualisiert und die vorbereitete Version 1.32 nicht ausgeliefert. Als nächstes wird der tatsächliche persönliche LM-Studio-Lieferstand zusammengeführt; erfolgreiche externe Zusatz-App-Abläufe, native Updates und der begrenzte GitHub-Pilot bleiben eigene Abnahmen.
+
+## Nativer Quellabgleich und Neuinstallation
 
 Das native [App-Quellpaket](../components/nextcloud/platform/README.md) führt die benötigten Klassen und GitHub-Einbauänderungen nun zusammen. Eigener AGPL-Lizenztext, erhaltene Fremdhinweise, inaktive Beispielkonfiguration, Entwicklungsprüfungen und reproduzierbare Quell-/App-Archive sind enthalten.
 

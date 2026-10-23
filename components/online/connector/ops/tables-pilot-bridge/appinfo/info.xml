@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+  <id>novaforge_tables</id><name>NOVAFORGE Tables Read Bridge</name>
+  <summary>Read visible Tables without automatic tutorial creation</summary>
+  <description>Account-bound read bridge and strictly limited HTTP pilot updates for synthetic table 6. No general record writes or public shares.</description>
+  <version>0.1.1</version><licence>agpl</licence><author>NOVAFORGE</author>
+  <namespace>NovaforgeTables</namespace><category>tools</category>
+  <dependencies><nextcloud min-version="34" max-version="34"/><php min-version="8.3"/></dependencies>
+</info>

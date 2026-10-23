@@ -1,0 +1,8 @@
+# Server-side placeholders only. Nothing in this file authorizes a connection.
+NEXTCLOUD_BASE_URL=https://cloud.example.invalid
+NEXTCLOUD_LOGIN_NAME=REPLACE_WITH_TECHNICAL_ACCOUNT
+NEXTCLOUD_APP_PASSWORD=
+OAUTH_SIGNING_SECRET=
+CONNECTOR_ALLOWED_EMAIL=owner@example.invalid
+CONNECTOR_PUBLIC_ORIGIN=https://connector.example.invalid
+NOVASPACE_ASSERTION_JWK=

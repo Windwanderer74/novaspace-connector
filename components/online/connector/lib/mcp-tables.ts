@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+import { McpServer } from '@modelcontextprotocol/server';
+import * as z from 'zod/v4';
+import { requireScope, scopeMetadata } from './access';
+import { TABLES_READ_SCOPE } from './oauth';
+import { tablesStatus, listTables, readTable, listTableRows, readTableRow } from './tables-read';
+const result = (data: object) => ({ content: [{ type: 'text' as const, text: JSON.stringify(data) }], structuredContent: data as Record<string, unknown> });
+const annotations = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
+const id = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
+const offset = z.number().int().min(0).max(1000000).default(0);
+const limit = z.number().int().min(1).max(100).default(50);
+export function registerTablesReadTools(server: McpServer) {
+  const meta = { ...scopeMetadata(TABLES_READ_SCOPE), annotations };
+  server.registerTool('tables_status', { ...meta, title: 'Tables-Fähigkeiten prüfen', description: 'Liest gemeldete Tables-Version und API-Fähigkeiten. Die gemeldete App-Fähigkeit ist kein Schreibnachweis; documents_register_status prüft separat die installierte Registerbrücke. Benötigt tables:read.', inputSchema: z.object({}) }, async (_, c) => { const e = requireScope(c, TABLES_READ_SCOPE); return e ?? result(await tablesStatus()); });
+  server.registerTool('tables_list', { ...meta, title: 'Nextcloud-Tabellen auflisten', description: 'Liest sichtbare Tabellen mit Rechten; bis 100 pro Antwort. Bei Folgeseiten expectedSnapshot übernehmen, bei Änderung neu beginnen. Maximal 1000 Tabellen in der zugrunde liegenden Liste. Benötigt tables:read.', inputSchema: z.object({ offset, limit, expectedSnapshot: z.string().regex(/^[a-f0-9]{64}$/).optional() }) }, async (a, c) => { const e = requireScope(c, TABLES_READ_SCOPE); return e ?? result(await listTables(a.offset, a.limit, a.expectedSnapshot)); });
+  server.registerTool('tables_read', { ...meta, title: 'Tabelle und Spalten lesen', description: 'Liest eine anhand tables_list ausgewählte Tabelle und höchstens 200 Spalten mit tatsächlichen Spaltenkennungen und Typen. Keine Datenänderung. Benötigt tables:read.', inputSchema: z.object({ tableId: id }) }, async (a, c) => { const e = requireScope(c, TABLES_READ_SCOPE); return e ?? result(await readTable(a.tableId)); });
+  server.registerTool('tables_list_rows', { ...meta, title: 'Datensatzseite lesen', description: 'Liest bis 100 Datensätze einer gewählten Tabelle. nextOffset fortsetzen; Offset-Seiten sind bei gleichzeitiger Bearbeitung keine stabile Momentaufnahme. readFingerprint ist kein Schreibschutz. Benötigt tables:read.', inputSchema: z.object({ tableId: id, offset, limit }) }, async (a, c) => { const e = requireScope(c, TABLES_READ_SCOPE); return e ?? result(await listTableRows(a.tableId, a.offset, a.limit)); });
+  server.registerTool('tables_read_row', { ...meta, title: 'Einzelnen Datensatz lesen', description: 'Liest einen Datensatz und prüft seine Tabellen- und Spaltenzuordnung. tableId und rowId aus den Übersichten; readFingerprint dient nur dem Vergleich beim Lesen. Benötigt tables:read.', inputSchema: z.object({ tableId: id, rowId: id }) }, async (a, c) => { const e = requireScope(c, TABLES_READ_SCOPE); return e ?? result(await readTableRow(a.tableId, a.rowId)); });
+  server.registerTool('tables_search_rows', { ...meta, title: 'Datensatzseite durchsuchen', description: 'Durchsucht eine begrenzte Datensatzseite anhand tatsächlicher Spalten-IDs, etwa Datei-ID, Aktenzeichen oder Vorgang. Filter werden mit UND verbunden. nextOffset auch bei leerem Treffer fortsetzen; kein globaler Nichtvorhandenseinsnachweis. Benötigt tables:read.', inputSchema: z.object({ tableId: id, offset, limit, filters: z.array(z.object({ columnId: id, value: z.string().min(1).max(512), match: z.enum(['exact','contains']).default('exact') })).min(1).max(5) }) }, async (a, c) => { const e = requireScope(c, TABLES_READ_SCOPE); return e ?? result(await listTableRows(a.tableId, a.offset, a.limit, a.filters)); });
+}
