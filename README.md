@@ -52,11 +52,14 @@ Fragen zum Projekt, konkrete Anwendungsfälle und Rückmeldungen können über d
 
 ## Veröffentlichungsumfang
 
-Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie als erstes Quellmodul die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) unter **AGPL-3.0-or-later**. Dazu gehören drei PHP-Klassen, der vorhandene Kerntest, der vollständige Lizenztext und ein Herkunftsnachweis.
+Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie zwei zusammengehörige Quellbereiche:
 
-Die Brücke ergänzt die vorhandene Nextcloud-App; ein vollständiges installierbares Connector-Paket ist noch in Arbeit. Die [Lizenzzuordnung](LICENSING.md) und die [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang und die verbleibenden Schritte.
+- Die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) als einzeln nachvollziehbares Modul.
+- Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
+
+Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernommene Fremdhinweise bleiben erhalten. Das App-Paket dient der Prüfung und Testinstallation. Ein offener Metadatenabgleich und die praktische Nextcloud-Abnahme sind vor einem Produktionsupdate erforderlich. Der vollständige Online-/LM-Studio-Connector ist noch nicht als Gesamtpaket bereitgestellt. [Lizenzzuordnung](LICENSING.md) und [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang.
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows, including files, Deck, planning, notes, contacts and mind maps. Nova Space develops the connector within the NOVAFORGE project. It is used through an online connection and a personal LM Studio connection. This repository presents the project and includes the first native GitHub bridge source module under AGPL-3.0-or-later. A complete installable connector package is still being prepared; see the component documentation and LICENSING.md for the exact scope.
+**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows, including files, Deck, planning, notes, contacts and mind maps. Nova Space develops the connector within the NOVAFORGE project. It is used through an online connection and a personal LM Studio connection. This repository presents the project and includes the native GitHub bridge and the assembled native app source for review and test installation under AGPL-3.0-or-later, retaining third-party notices. A complete connector distribution and production app acceptance are still being prepared; see the component documentation and LICENSING.md for the exact scope.
 

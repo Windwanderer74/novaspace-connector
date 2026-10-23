@@ -1,0 +1,373 @@
+{
+  "schemaVersion": 1,
+  "component": "novaspace_platform",
+  "appMetadataVersion": "0.4.0",
+  "includedHelpPatch": "0.4.0-ui.7",
+  "includedGithubBridge": "0.1.0",
+  "sourceSnapshotDate": "2026-10-23",
+  "licenseForOwnFiles": "AGPL-3.0-or-later",
+  "sourceCheckpoint": "ca1fb50642c0b3cab7c5f9d898e36fba7befdf38",
+  "sourceConnectorVersion": "1.31.1",
+  "prepared132Included": false,
+  "fullPrivateHistoryImported": false,
+  "productionDeploymentPerformed": false,
+  "liveTreeComparedOnPublication": false,
+  "files": [
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/appinfo/info.xml",
+      "publishedPath": "app/appinfo/info.xml",
+      "sourceSha256": "d9999934691da6946a4600b6c22390c0822d857ee8d42d5574bae6dfbb65b873",
+      "publishedSha256": "d9999934691da6946a4600b6c22390c0822d857ee8d42d5574bae6dfbb65b873",
+      "changes": []
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/appinfo/routes.php",
+      "publishedPath": "app/appinfo/routes.php",
+      "sourceSha256": "29203b1a1d005a40bb44ef180e4a129c24e41740e47f22e6e23b8ab3539259d3",
+      "publishedSha256": "029359ebd3b073206a03041e269bae10cb8df36657e325677575933583b235a5",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Apply the identical OCS route insertion from the existing GitHub bridge installer."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/css/connections-scroll.css",
+      "publishedPath": "app/css/connections-scroll.css",
+      "sourceSha256": "7f4159b41143e8c4a0d559bf041be2e965ca9cd6fcc2317ec0a5647722f78684",
+      "publishedSha256": "7f4159b41143e8c4a0d559bf041be2e965ca9cd6fcc2317ec0a5647722f78684",
+      "changes": []
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/css/connections.css",
+      "publishedPath": "app/css/connections.css",
+      "sourceSha256": "09c7371c9bcbd90ff314fc66b8a68d6023496b363d4804aaf8ea42896d4575e1",
+      "publishedSha256": "09c7371c9bcbd90ff314fc66b8a68d6023496b363d4804aaf8ea42896d4575e1",
+      "changes": []
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/img/app.svg",
+      "publishedPath": "app/img/app.svg",
+      "sourceSha256": "f2151cfd213a4615383e6658468418de731b494faa1d736f9946b3a0f52e6024",
+      "publishedSha256": "f2151cfd213a4615383e6658468418de731b494faa1d736f9946b3a0f52e6024",
+      "changes": []
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Controller/ConnectionsController.php",
+      "publishedPath": "app/lib/Controller/ConnectionsController.php",
+      "sourceSha256": "2d3613d9d66151649f65f938809cf06f06c78e2d54d77ef21824a768b4a5fc6b",
+      "publishedSha256": "fde16d1c2e4c1acd8c4ca7aee5cd94ea27d4e99b29a635e70a177a4a0d2b346c",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Controller/ContextController.php",
+      "publishedPath": "app/lib/Controller/ContextController.php",
+      "sourceSha256": "a3a4046a1bde5d66889f710ce619227d9299cdbd310593db47ecc40b40634062",
+      "publishedSha256": "b9ce0e982185837e1a2b214c65ad7e1f54fc98461970e05f0fe3858bd97fada1",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Controller/InventoryApiController.php",
+      "publishedPath": "app/lib/Controller/InventoryApiController.php",
+      "sourceSha256": "7ebb3d0a15151d8b9e581a44cd82c4ad8bb93ba0dec480f115e6c7df7a0cc4a0",
+      "publishedSha256": "d97c1c1da294681c9e0a7333d2c3b81a194d9a5bb53b5533c62a81c4b7a9d3b7",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Controller/InventoryController.php",
+      "publishedPath": "app/lib/Controller/InventoryController.php",
+      "sourceSha256": "2052fa5a396650d4b19dd598e8eaa378f767dbc7ee72badce2c6dfb4373df710",
+      "publishedSha256": "2d2235ec418eb4f2eacff6df408ef9f3ce75e76b8de4cce63fc03116716a3a99",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Controller/RegistryController.php",
+      "publishedPath": "app/lib/Controller/RegistryController.php",
+      "sourceSha256": "4d056320d3c264e0e2360a1997472a7ccf71cea90bba4a421d8a7ac26a5799a2",
+      "publishedSha256": "402a8d107fab0f43b0686c6b3cb59ee32ecee2dacb42746da37f69e3bfe0352b",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Migration/Version000200Date20261018030000.php",
+      "publishedPath": "app/lib/Migration/Version000200Date20261018030000.php",
+      "sourceSha256": "ea3bb097a0e21f28e02568cea32205380d60ea500b155a4a38ef2d0635cf3eae",
+      "publishedSha256": "b0104c4ec616ae34b42c764ff826646cd7bf313c8003a5f25aa80cfa9f4339e8",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Migration/Version000300Date20261018060000.php",
+      "publishedPath": "app/lib/Migration/Version000300Date20261018060000.php",
+      "sourceSha256": "ed005a2306e93115342e4bbfda412ece95872cbf01c15223b868af3a662c097a",
+      "publishedSha256": "9e9528dc7f315dd633aba7b8a97c41bbcbeef88306e3a46f5184878093bd8f85",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Migration/Version000400Date20261018180000.php",
+      "publishedPath": "app/lib/Migration/Version000400Date20261018180000.php",
+      "sourceSha256": "475dcd8674612bd880229922fd6d1304ed8d25c61276639a7ce669750f66003b",
+      "publishedSha256": "3eb3d9484130e9cc1e4e957ccc2f4baa174804d81120ce8a502c4f96fdea9e01",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Native/NativeAccessResolver.php",
+      "publishedPath": "app/lib/Native/NativeAccessResolver.php",
+      "sourceSha256": "7e4558cfcf51b09131e52753e209d10da508b58fce0e7e736f234c89c2209adb",
+      "publishedSha256": "21d0876cd999ecf6fb618363e9f05f246b36876db38a7b9b11a2cbe278c16e93",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/ConnectionPolicy.php",
+      "publishedPath": "app/lib/Service/ConnectionPolicy.php",
+      "sourceSha256": "b8c32de619c2d64f74da6d7fa0fe56895c1d8e660aaac40e0d44cc2fe91c710f",
+      "publishedSha256": "eb7984ddc675fb33ab3e13b0ed61aaf5c7e4a5dafabf1ca21374949bb2e6badf",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/ConnectionService.php",
+      "publishedPath": "app/lib/Service/ConnectionService.php",
+      "sourceSha256": "dc28acfd3882d196bd63c62d1fbb7f9be74b09d3fbdb09db9d16ddfb9f2e2963",
+      "publishedSha256": "e5b50e86732f8c7e862f10861c5d2926e766519f37674e2a322b108c2de52847",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/ConnectionStore.php",
+      "publishedPath": "app/lib/Service/ConnectionStore.php",
+      "sourceSha256": "3528e5810adf0a4db056c1f82857e6dfbed0848ec7d70b28f8c3608cb4897b86",
+      "publishedSha256": "489618d6656939bc14a54df1b3f9f70897a566c041da15cdb15321065e04cfdb",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/GatewayVerifier.php",
+      "publishedPath": "app/lib/Service/GatewayVerifier.php",
+      "sourceSha256": "2d546059e8bd163a3ffb141832a714e8ae8ca17003b3bc068f38e81c1d9677ad",
+      "publishedSha256": "0ab12dcc347b719f0b03ba627ed3d8c7438a7c7c3575dbf794312f43e62cfc21",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/InventoryDelegation.php",
+      "publishedPath": "app/lib/Service/InventoryDelegation.php",
+      "sourceSha256": "5e5f5774ea8134cf69d59284bfc8760bc8bd2b094ba89b776831392025c73515",
+      "publishedSha256": "5a5133faab396ffebb6e2d4ece1f8d407a036d420931815808bb685b9f4c7444",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/InventoryRepository.php",
+      "publishedPath": "app/lib/Service/InventoryRepository.php",
+      "sourceSha256": "163b81474ab0eb28872758a6680fe81da940f228f57b7f1bbe55477916a91ff3",
+      "publishedSha256": "d9d2f03d3f307908d87e8c12d3fc824c2d447f40f31059b46b64c590fbd80d7a",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/templates/connections.php",
+      "publishedPath": "app/templates/connections.php",
+      "sourceSha256": "05a7621cd68a613f84d68b1cccb361880ed601a16bfa7c2be7b2f1223e40b769",
+      "publishedSha256": "a4818570b470ff4872d4ea12da8b158bc08212f47c1a23c0e66ae140994b067e",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Point public help link to the published integration guide instead of an instance-specific hosted endpoint."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/templates/inventory.php",
+      "publishedPath": "app/templates/inventory.php",
+      "sourceSha256": "fadc891b10c3d687c9abf5505a10a452807ef2c1201a7a71ee7c99eb20752571",
+      "publishedSha256": "a9f8a183fdd48dbe5d4ad800a4d7c8406f3d7e9783c03f79518cd9c38fd8d4af",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/github-bridge/GithubBridgeCore.php",
+      "publishedPath": "app/lib/Service/GithubBridgeCore.php",
+      "sourceSha256": "27907145aebc2fd3957e0241598161215f831bc5e9d6735e57257a3f595be29b",
+      "publishedSha256": "43f5a8f3628f2eeda5543f13f8e030d562ebaa91929a15e05129db550e6a1885",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/github-bridge/GithubBridgeService.php",
+      "publishedPath": "app/lib/Service/GithubBridgeService.php",
+      "sourceSha256": "0bca526649042babb950f6d4025bad5396d81588c7a9ed0b350025c359db2d2a",
+      "publishedSha256": "a19cf27bc7ebac494a585428004b567b9071a3d2528a3c27c7585497fe1f1b6c",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "ops/github-bridge/GithubBridgeController.php",
+      "publishedPath": "app/lib/Controller/GithubBridgeController.php",
+      "sourceSha256": "263dfe9c770f953fe780d233de216fae81d6fe6d16f5c7fedf7dc6eb39fc71ce",
+      "publishedSha256": "6243de59aa596ed003a1f2d117d3e9d2d47099c537624f5bf701c4f2842ee20a",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "tests/platform-native-access.php",
+      "publishedPath": "tests/platform-native-access.php",
+      "sourceSha256": "890626be56b64c5e4c43628cd98b8b437e5035cd9432d4e39afbc551895dca98",
+      "publishedSha256": "ade7a021d424ca1d4c3294f22ead67d9db6745401b2c123bdc4ce1bff8af1ddc",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Adjust source paths to the published app directory layout.",
+        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
+      ]
+    },
+    {
+      "sourcePath": "tests/platform-native-controller.php",
+      "publishedPath": "tests/platform-native-controller.php",
+      "sourceSha256": "79643d4ce82c89aebc2c64cbd99bcc91cea8c8241204cdd1d2fefde4a0c78517",
+      "publishedSha256": "bcbd4f1e7c1ef3e54df3e75d46ee2ec9ce4a626005977dcdb150e8cbb3ad7114",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Adjust source paths to the published app directory layout.",
+        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
+      ]
+    },
+    {
+      "sourcePath": "tests/platform-registry-native.php",
+      "publishedPath": "tests/platform-registry-native.php",
+      "sourceSha256": "d7860e2d0f07d7f77462dc7070b44ba2c509fae2eeee32df5e754b357c257823",
+      "publishedSha256": "ed7dce2b95863f6738c59e1e0ca4edde2c6a2d122c82140ea845cf47592f0ea9",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Adjust source paths to the published app directory layout.",
+        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
+      ]
+    },
+    {
+      "sourcePath": "tests/platform-access-native.php",
+      "publishedPath": "tests/platform-access-native.php",
+      "sourceSha256": "f1a6fe191c1e93de2c30a57aafefcd060d03ad9a0c0b137d83a176fa273529bb",
+      "publishedSha256": "2dcfe591c23c661f216d59a5dbf1f5482610417484f5dc6208fdb080b477ca94",
+      "changes": [
+        "Add SPDX license identifier."
+      ]
+    },
+    {
+      "sourcePath": "tests/platform-access-cases.php",
+      "publishedPath": "tests/platform-access-cases.php",
+      "sourceSha256": "325cfc74e9fbdb21e9abcf366871fe5e82add41f6542427a4b038fca9d97ce0b",
+      "publishedSha256": "ec47d90295ad340318189891951ab3e41929ff845f2abf322a82fba25ed7e4b9",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Adjust source paths to the published app directory layout.",
+        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
+      ]
+    },
+    {
+      "sourcePath": "tests/platform-inventory-native.php",
+      "publishedPath": "tests/platform-inventory-native.php",
+      "sourceSha256": "17a45fbb568506ebd0cf2e718db69810318254adf1f848b79ac3e0a23ca75367",
+      "publishedSha256": "b4ab8b23ed9e7c255f723391680ad0da15e5e3b3d691554210da44d486d02ac9",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Adjust source paths to the published app directory layout.",
+        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
+      ]
+    },
+    {
+      "sourcePath": "tests/github-bridge-core.php",
+      "publishedPath": "tests/github-bridge-core.php",
+      "sourceSha256": "689a711bb5ff27aa933d2a1c4304ec430770979cdd04d463d20a063312e26472",
+      "publishedSha256": "e86b61d174b533bb85577f5034545e5a44e94e02ae9b328dadbeff72d1b5b9e5",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Adjust source paths to the published app directory layout."
+      ]
+    },
+    {
+      "sourcePath": "tests/github-bridge-signature.php",
+      "publishedPath": "tests/github-bridge-signature.php",
+      "sourceSha256": "7beddeacf4afcb0f96d76e5332b90910daa14c2fa9e3452970cba5e2ce0601a4",
+      "publishedSha256": "4b46e6bdd8b6a071aca903fad24a47e160ab17914be9263c33d6d24f03d9a8e6",
+      "changes": [
+        "Add SPDX license identifier.",
+        "Adjust source paths to the published app directory layout."
+      ]
+    },
+    {
+      "sourcePath": "tests/fixtures/platform-native/IProvider.php",
+      "publishedPath": "tests/fixtures/platform-native/IProvider.php",
+      "sourceSha256": "704bdce8337a5bc33da0d6958ce74d5bec3741da08243464aca90abd991105d3",
+      "publishedSha256": "704bdce8337a5bc33da0d6958ce74d5bec3741da08243464aca90abd991105d3",
+      "changes": []
+    },
+    {
+      "sourcePath": "tests/fixtures/platform-native/IToken.php",
+      "publishedPath": "tests/fixtures/platform-native/IToken.php",
+      "sourceSha256": "1ddfc8f18fd7290a622537c657599c137ff4468dd43b7bf0a031822639c434eb",
+      "publishedSha256": "1ddfc8f18fd7290a622537c657599c137ff4468dd43b7bf0a031822639c434eb",
+      "changes": []
+    }
+  ],
+  "configurationChange": {
+    "path": "app/appinfo/trusted-gateway.json",
+    "originalConfigurationPublished": false,
+    "replacement": "Inactive placeholders, empty public key; signed online calls remain disabled until explicitly configured."
+  },
+  "thirdPartyFiles": [
+    {
+      "path": "tests/fixtures/platform-native/IProvider.php",
+      "license": "AGPL-3.0-only",
+      "upstream": "nextcloud/server",
+      "ref": "v34.0.4",
+      "upstreamPath": "lib/public/Authentication/Token/IProvider.php",
+      "upstreamBlob": "ade44a3ee94e40c9c90d1ffbb2e5e37110cca0c4"
+    },
+    {
+      "path": "tests/fixtures/platform-native/IToken.php",
+      "license": "AGPL-3.0-or-later",
+      "upstream": "nextcloud/server",
+      "ref": "v34.0.4",
+      "upstreamPath": "lib/public/Authentication/Token/IToken.php",
+      "upstreamBlob": "c32a233a6508a74de17a9cf2bb58a5b7d7490b70"
+    }
+  ],
+  "baselineEvidence": {
+    "type": "preserved-installation-receipt-plus-github-installer",
+    "receiptPatch": "0.4.0-ui.7",
+    "receiptState": "installed",
+    "receiptBaseAppFiles": 23,
+    "baseFilesExactlyMatched": 21,
+    "gatewayChange": "GatewayVerifier matches the existing GitHub installer before/after provenance.",
+    "githubBundleFilesMatched": 4,
+    "unresolvedMetadataDifference": {
+      "path": "appinfo/info.xml",
+      "receiptSha256": "f06fdf8b1f960e3a34de22bd18a93c9569e690cf77b47ceefc922e5574b9097d",
+      "sourceSha256": "d9999934691da6946a4600b6c22390c0822d857ee8d42d5574bae6dfbb65b873",
+      "action": "Retain known source metadata; do not assert an exact deployed copy or permit a production upgrade based on this snapshot."
+    },
+    "liveTreeComparedOnPublication": false
+  }
+}

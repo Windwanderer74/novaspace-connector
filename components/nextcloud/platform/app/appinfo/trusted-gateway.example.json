@@ -1,0 +1,7 @@
+{
+  "kid": "UNCONFIGURED",
+  "issuer": "https://connector.example.invalid",
+  "audienceBase": "https://nextcloud.example.invalid/ocs/v2.php/apps/novaspace_platform/api/v1/registry",
+  "publicKey": "",
+  "label": "Noch nicht eingerichtet"
+}

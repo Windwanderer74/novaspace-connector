@@ -1,0 +1,57 @@
+{
+  "snapshotDate": "2026-10-23",
+  "runtime": "PHP 8.3 via PHP-WASM",
+  "isolated": true,
+  "productionCredentialsMounted": false,
+  "liveNetworkOrNextcloudUsed": false,
+  "results": [
+    {
+      "target": "--lint",
+      "result": "Syntax OK: 32 PHP files"
+    },
+    {
+      "target": "platform-native-controller.php",
+      "result": [
+        "PASS: 25 native access tests; boundary doubles, no HTTP acceptance.",
+        "PASS: 32 native resolver/controller tests; no HTTP acceptance."
+      ]
+    },
+    {
+      "target": "platform-access-native.php",
+      "result": [
+        "PASS: 52 registry/RSA/SQLite/native-boundary tests. No MariaDB or HTTP acceptance."
+      ]
+    },
+    {
+      "target": "platform-inventory-native.php",
+      "result": [
+        "PASS: 37 registry/RSA/SQLite/native-boundary tests. No MariaDB or HTTP acceptance.",
+        "PASS: 30 inventory-delegation/RSA/SQLite tests. No MariaDB or HTTP acceptance."
+      ]
+    },
+    {
+      "target": "github-bridge-core.php",
+      "result": [
+        "GitHub bridge core: 34 checks passed"
+      ]
+    },
+    {
+      "target": "github-bridge-signature.php",
+      "result": [
+        "GitHub bridge native signatures: 7 checks passed"
+      ]
+    },
+    {
+      "target": "publication-boundaries.php",
+      "result": [
+        "PASS: 4 publication route/configuration boundary checks."
+      ]
+    }
+  ],
+  "limits": [
+    "Boundary doubles and in-memory SQLite, not a complete Nextcloud HTTP server.",
+    "MariaDB/PostgreSQL migration and HTTP/CSRF acceptance remain open.",
+    "No compatibility certification of optional external apps.",
+    "Installed appinfo/info.xml hash mismatch remains unresolved; no production update approved."
+  ]
+}

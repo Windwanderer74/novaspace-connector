@@ -1,0 +1,18 @@
+.ns-platform { max-width: 900px; margin: 32px auto; padding: 0 24px 48px; line-height: 1.6; }
+.ns-platform h1 { font-size: 28px; font-weight: 600; margin-bottom: 20px; }
+.ns-platform h2 { font-size: 21px; font-weight: 600; margin: 22px 0 10px; }
+.ns-platform p { margin: 12px 0; }
+.ns-platform label { display: block; margin: 18px 0 6px; }
+.ns-platform input:not([type=hidden]) { display: block; width: 100%; max-width: 480px; min-height: 44px; }
+.ns-platform button { min-height: 44px; padding: 8px 18px; }
+.ns-connection { padding: 10px 20px 20px; margin: 22px 0; border: 1px solid var(--color-border); border-radius: 12px; }
+.ns-id { display: block; overflow-wrap: anywhere; color: var(--color-text-maxcontrast); font-size: 13px; }
+.ns-events li { margin: 16px 0; }
+.ns-access { border-top: 1px solid var(--color-border); margin-top: 16px; padding-top: 8px; }
+.ns-access fieldset { margin: 16px 0; padding: 8px 16px; border: 1px solid var(--color-border); border-radius: 8px; }
+.ns-app-access { padding: 0 0 12px; border-bottom: 1px solid var(--color-border); }
+.ns-app-access:last-child { border-bottom: 0; }
+.ns-access select { width: 100%; min-height: 44px; }
+.ns-platform [role=alert] { padding: 16px; border: 1px solid var(--color-error); border-radius: 8px; }
+
+.ns-platform select,.ns-platform button {min-height:44px;max-width:100%;} .ns-platform pre {white-space:pre-wrap;overflow-wrap:anywhere;}

@@ -30,7 +30,7 @@ Der Integrationsstand benötigt insbesondere:
 - Die vorhandene App `deckgithubsync` mit ihren persönlichen GitHub-Zugängen und den verwendeten Diensten `GithubClientService`, `BoardMapMapper` und `SyncService`.
 - Die Nextcloud-OCP-Schnittstellen für Identität, App-Passwörter, Sitzung und HTTP-Client. PHP 8.3 dient hier als Testumgebung; eine vollständige unterstützte Versionsmatrix wird erst mit dem App-Paket abgenommen.
 
-Diese externen Bestandteile sind in diesem Modul nicht gebündelt. Ihre jeweiligen Lizenzbedingungen bleiben bestehen. Die bisherige vollständige App- und Gateway-Quellbereitstellung wird mit dem nächsten Quellpaket aufgearbeitet.
+Diese externen Bestandteile sind in diesem einzelnen Modul nicht gebündelt. Die eigenen Plattform- und Gateway-Klassen liegen inzwischen im [zusammengeführten App-Quellpaket](../platform/README.md). Dort sind Einbaugrenzen, Beispielkonfiguration und offene praktische Abnahmen dokumentiert. Nextcloud und `deckgithubsync` bleiben externe Abhängigkeiten mit ihren jeweiligen Lizenzbedingungen.
 
 ## Zugang und Freigaben
 

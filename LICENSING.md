@@ -2,13 +2,16 @@
 
 Stand: **23. Oktober 2026**.
 
-Die Lizenz gilt jeweils für die ausdrücklich zugeordneten Dateien. Dieses Repository enthält derzeit ein erstes veröffentlichtes Quellmodul sowie die Projekt- und Entwicklungsdokumentation.
+Die Lizenz gilt jeweils für die ausdrücklich zugeordneten Dateien. Dieses Repository enthält die native GitHub-Brücke, das zusammengeführte native App-Quellpaket sowie die Projekt- und Entwicklungsdokumentation.
 
 | Veröffentlichter Bestandteil | Zuordnung | Lizenztext |
 |---|---|---|
 | Native GitHub-Brücke 0.1.0: PHP-Dateien unter `components/nextcloud/github-bridge/src/` und `components/nextcloud/github-bridge/tests/` | **AGPL-3.0-or-later** | [Vollständiger Lizenztext](components/nextcloud/github-bridge/LICENSE) |
+| Native Plattform-App: eigene Dateien unter `components/nextcloud/platform/`, einschließlich App-Quellen, Assets, Prüfhilfen und Dokumentation | **AGPL-3.0-or-later** | [Vollständiger Lizenztext](components/nextcloud/platform/LICENSE) |
+| Unveränderte Nextcloud-Testschnittstelle `components/nextcloud/platform/tests/fixtures/platform-native/IProvider.php` | **AGPL-3.0-only**, bestehende Hinweise bleiben erhalten | [Fremdhinweise](components/nextcloud/platform/THIRD_PARTY_NOTICES.md) |
+| Unveränderte Nextcloud-Testschnittstelle `components/nextcloud/platform/tests/fixtures/platform-native/IToken.php` | **AGPL-3.0-or-later**, bestehende Hinweise bleiben erhalten | [Fremdhinweise](components/nextcloud/platform/THIRD_PARTY_NOTICES.md) |
 
-Für dieses AGPL-Modul ist keine zusätzliche kommerzielle Erlaubnis erforderlich. Auch eine kommerzielle Nutzung richtet sich nach den Rechten und Pflichten der AGPL. Kostenpflichtige Einrichtung, Wartung oder Betrieb können daneben angeboten werden.
+Für die veröffentlichten AGPL-Bestandteile ist keine zusätzliche kommerzielle Erlaubnis erforderlich. Auch eine kommerzielle Nutzung richtet sich nach den Rechten und Pflichten der AGPL. Kostenpflichtige Einrichtung, Wartung oder Betrieb können daneben angeboten werden.
 
 Für weitere AGPL-gebundene beziehungsweise entsprechend eingebundene Nextcloud-Bestandteile ist ebenfalls eine AGPL-konforme Veröffentlichung vorgesehen. Ihre konkrete Quellbereitstellung ist noch in Arbeit.
 

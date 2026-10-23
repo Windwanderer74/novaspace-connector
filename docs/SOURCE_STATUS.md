@@ -15,7 +15,8 @@ Das öffentliche Repository erhält ausgewählte, geprüfte Quellstände mit Her
 | Bereich im vorhandenen Quellbestand | Bisheriger Befund | Veröffentlichung / nächster Schritt |
 |---|---|---|
 | Native GitHub-Brücke 0.1.0 | Drei PHP-Klassen; vorhandener reiner Kerntest; Einbindung in die NovaSpace-Plattform-App | [Erstes AGPL-Quellmodul](../components/nextcloud/github-bridge/README.md) mit vollständigem Lizenztext und Dateiherkunft veröffentlicht |
-| Native Plattform-App und weitere Nextcloud-Erweiterungen | Mehrere App-/Integrationsstände; vorhandene App-Metadaten nennen `agpl` | Aktuellen vollständigen Quellstand einschließlich Einbauänderungen zusammenführen; AGPL-Zuordnung, Beispielkonfiguration und Abhängigkeiten vervollständigen |
+| Native Plattform-App | [Zusammengeführter App-Quellbaum](../components/nextcloud/platform/README.md) mit Hilfe ui.7 und GitHub-Brücke, AGPL-Zuordnung, Fremdhinweisen, sicherer Beispielkonfiguration und Paketierung | Für Prüfung/Testinstallation veröffentlicht; Metadatenabweichung und frischer Betriebsabgleich sowie praktische Nextcloud-Abnahme bleiben offen |
+| Weitere native Nextcloud-Erweiterungen | Weitere App-/Integrationsstände und vorbereitete Quellen im Bestand | Als eigene Komponenten mit vollständiger Herkunft, Lizenz, Abhängigkeiten und Einbaugrenzen prüfen |
 | Browser-/Nextcloud-Integration | Unter anderem direkte Nutzung von `@nextcloud/files`; generierte Bündel enthalten weitere Lizenzhinweise | Zugehörige Quellen, erforderliche Build-Eingaben und vollständige Fremdhinweise gemeinsam prüfen; keine pauschale proprietäre Zuordnung |
 | Online-Connector und gemeinsame Bibliotheken | Anwendung, Protokolladapter und gemeinsame Hilfsfunktionen im Quellbestand; keine übergreifende Lizenzangabe im bisherigen Paketmanifest | Tatsächliche Abhängigkeiten und Ableitungen prüfen, Quell- und Auslieferungsgrenzen bestimmen; gesonderte kommerzielle Bedingungen nur bei rechtlicher Eigenständigkeit |
 | Persönlicher LM-Studio-Anschluss und Themenauswahl | Eigener Versions-/Einbaustand; lokale Vorbereitungen und Betriebsnachweise sind vom Online-Stand getrennt | Tatsächlich ausgeliefertes Quellpaket samt Build-Eingaben und Fremdhinweisen zusammenführen |
@@ -31,4 +32,8 @@ Für die Browser-Integration ist `@nextcloud/files` als **AGPL-3.0-or-later** er
 
 ## Nächste überprüfbare Lieferung
 
-Die nächste Quelllieferung soll den aktuellen Stand der nativen Plattform-App mit allen für die GitHub-Brücke benötigten Klassen und Einbauänderungen zusammenführen. Dazu gehören eine sichere Beispielkonfiguration, erhaltene Fremdhinweise, vollständige Build-/Einbauangaben und die praktische Abnahme. Erst danach lässt sich ein vollständiges installierbares App-Paket ausweisen.
+Das native [App-Quellpaket](../components/nextcloud/platform/README.md) führt die benötigten Klassen und GitHub-Einbauänderungen nun zusammen. Eigener AGPL-Lizenztext, erhaltene Fremdhinweise, inaktive Beispielkonfiguration, Entwicklungsprüfungen und reproduzierbare Quell-/App-Archive sind enthalten.
+
+Beim Vergleich der 23 Basisdateien mit dem erhaltenen ui.7-Einbaubeleg stimmen 21 Originaldateien exakt überein. Die Gateway-Änderung ist durch das GitHub-Paket erklärt. Der Hash von `appinfo/info.xml` weicht ab; die bekannte Quelldatei bleibt erhalten und die Abweichung ist im Herkunftsnachweis offen dokumentiert. Eine frische Byteprüfung der laufenden Installation und eine praktische Nextcloud-Testinstallation wurden nicht durchgeführt.
+
+Die nächste App-Abnahme klärt diese Metadatendatei und prüft Migrationen, Abhängigkeitsauflösung, HTTP/CSRF, Widerruf und die benötigten externen App-Schnittstellen in einer getrennten Umgebung. Bis dahin ist das Quellpaket kein freigegebenes Produktionsupdate und kein App-Store-Release. Die weitere Connector-Quellübernahme bleibt als eigener Arbeitsumfang offen.
