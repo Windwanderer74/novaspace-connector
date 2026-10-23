@@ -1,0 +1,494 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-23",
+  "kind": "external-startup-source-evidence",
+  "upstream": {
+    "repository": "street1983nk/nextcloud-mcp-connector",
+    "commit": "ef6c481db897e1409b9e83dc0602ccbb3f73cf6b",
+    "name": "nextcloud-mcp-connector",
+    "version": "0.1.13",
+    "requiresPython": ">=3.13",
+    "declaredLicense": "AGPL-3.0-or-later",
+    "scripts": {
+      "nc-mcp": "mcp_connector.entry_stdio:main",
+      "nc-mcp-exapp": "mcp_connector.entry_exapp:main"
+    }
+  },
+  "files": [
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/street1983nk/nextcloud-mcp-connector/blob/ef6c481db897e1409b9e83dc0602ccbb3f73cf6b/pyproject.toml",
+      "gitBlobSha": "73f25f76a8c7b6958a7eb4bc267b0561553441a5",
+      "sha256": "757a01286f504f70a2146e48d473b567e74920bdfb8304e81d775843179716c5"
+    },
+    {
+      "path": "uv.lock",
+      "url": "https://github.com/street1983nk/nextcloud-mcp-connector/blob/ef6c481db897e1409b9e83dc0602ccbb3f73cf6b/uv.lock",
+      "gitBlobSha": "fc4f9572263b1c36e8da308ca1f970a82c0ed972",
+      "sha256": "4d56fd176a1f31cb4618014e730549932d10420760c8f0cb0935ac63d4384368"
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/street1983nk/nextcloud-mcp-connector/blob/ef6c481db897e1409b9e83dc0602ccbb3f73cf6b/LICENSE",
+      "gitBlobSha": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e",
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "path": "src/mcp_connector/entry_stdio.py",
+      "url": "https://github.com/street1983nk/nextcloud-mcp-connector/blob/ef6c481db897e1409b9e83dc0602ccbb3f73cf6b/src/mcp_connector/entry_stdio.py",
+      "gitBlobSha": "18c12b640f2559d5c2227c395ac19d81ea562cc3",
+      "sha256": "dcd46e8f260c9707b135a1a6ea2b22294c6c1d651c70540d107727ae11e7c3e8"
+    }
+  ],
+  "declaredDirectDependencies": [
+    "mcp[cli]>=2.0,<3",
+    "cryptography>=50,<51",
+    "httpx>=0.28,<0.29",
+    "lxml>=6.1,<7",
+    "icalendar>=7.2,<8",
+    "vobject>=0.9.9,<1",
+    "pydantic>=2.12,<3",
+    "tzdata>=2025.2"
+  ],
+  "upstreamLock": {
+    "requiresPython": ">=3.13",
+    "packageCount": 60,
+    "scope": "Full upstream lock, including the project, development dependencies and platform-specific alternatives; not an inventory of the installed Windows environment.",
+    "packages": [
+      {
+        "name": "annotated-doc",
+        "version": "0.0.5",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "anyio",
+        "version": "4.14.2",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "click",
+        "version": "8.4.2",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "colorama",
+        "version": "0.4.6",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.10.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "httpx2",
+        "version": "2.10.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "httpx2-jsfetch",
+        "version": "1.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "icalendar",
+        "version": "7.2.2",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "idna",
+        "version": "3.18",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "lxml",
+        "version": "6.1.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "lxml-stubs",
+        "version": "0.5.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "mcp",
+        "version": "2.0.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "mcp-types",
+        "version": "2.0.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "nextcloud-mcp-connector",
+        "version": "0.1.13",
+        "source": {
+          "editable": "."
+        }
+      },
+      {
+        "name": "nodeenv",
+        "version": "1.10.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.44.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pluggy",
+        "version": "1.6.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pycparser",
+        "version": "3.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pydantic",
+        "version": "2.13.4",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pydantic-core",
+        "version": "2.46.4",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pygments",
+        "version": "2.20.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pyjwt",
+        "version": "2.13.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pyright",
+        "version": "1.1.411",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pytest",
+        "version": "9.1.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "python-dateutil",
+        "version": "2.9.0.post0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.2",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.32",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pytz",
+        "version": "2026.3.post1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "pywin32",
+        "version": "312",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "respx",
+        "version": "0.23.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.6.3",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "ruff",
+        "version": "0.16.3",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "shellingham",
+        "version": "1.5.4",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "six",
+        "version": "1.17.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.4.8",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "starlette",
+        "version": "1.6.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.4",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "typer",
+        "version": "0.27.1",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.3",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.52.3",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "vobject",
+        "version": "0.9.9",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      },
+      {
+        "name": "vulture",
+        "version": "2.16",
+        "source": {
+          "registry": "https://pypi.org/simple"
+        }
+      }
+    ]
+  },
+  "verified": {
+    "publicFilesFetchedAtDocumentedInstallationCommit": true,
+    "returnedGitBlobHashesVerifiedLocally": true,
+    "personalWindowsWrapperSource": false,
+    "installedWindowsDependencyInventory": false,
+    "freshWindowsOrModelAcceptance": false
+  },
+  "distribution": "Evidence and immutable upstream links only; upstream Python sources and the personal DPAPI wrapper are not bundled here.",
+  "remaining": [
+    "Obtain and review the exact personal start_nextcloud.py source without reading credentials.",
+    "Reconcile the actual Windows package inventory and direct_url metadata with the documented installation commit.",
+    "Review notices for dependencies if a Python runtime distribution is later bundled.",
+    "Prepare and separately accept an independent first-installation path."
+  ]
+}
