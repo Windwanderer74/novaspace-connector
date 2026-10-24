@@ -24,7 +24,9 @@ Die Entwicklung umfasst einen Online-Anschluss und einen persönlichen Anschluss
 
 ## Entwicklungsstand
 
-Stand dieser Projektvorstellung: **23. Oktober 2026**. Der Online-Anschluss ist im vorhandenen Arbeitsumfeld in Version **1.31.1** eingebaut. Der persönliche LM-Studio-Anschluss hat einen eigenen Versions- und Einbaustand; Online-Aktualisierungen aktualisieren ihn nicht automatisch.
+Stand: **24. Oktober 2026**. Im vorhandenen Arbeitsumfeld sind der Online-Anschluss **1.32.0**, der persönliche LM-Studio-Kern **1.32.0-local.1** und die Themenauswahl **0.1.11** installiert. Der Windows-Installer wurde mit Abschlusscode 0 beendet; nach dem Neustart sind die Konnektoren laut Nutzerrückmeldung sichtbar. Der kurze Modell-Funktionstest und die vollständige Bedienungsabnahme stehen noch aus.
+
+Paket 1 steht bei **20 von 32 technisch belegten Bedingungen**. Die öffentlichen Quellsnapshots unten bleiben bei ihren jeweils angegebenen älteren Versionen. [Zwischenupdate 1.32: Einbau, Prüfungen und offene Schritte](docs/updates/1.32.0.md).
 
 Der weitere Ausbau läuft in drei Lieferpaketen:
 
@@ -63,5 +65,5 @@ Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernom
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This repository includes the native GitHub bridge, assembled native app source and a sanitized online/browser source snapshot for version 1.31.1 under AGPL-3.0-or-later, retaining third-party notices. Build instructions and scoped test results are included. Independent hosting/authentication, production updates and the full LM Studio distribution remain separate work; see the component documentation and LICENSING.md.
+**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This repository includes the native GitHub bridge, assembled native app source and a sanitized online/browser source snapshot for version 1.31.1 under AGPL-3.0-or-later, retaining third-party notices. Build instructions and scoped test results are included. The existing installation has since been updated to online 1.32.0, personal core 1.32.0-local.1 and topic selection 0.1.11; model/UI acceptance and publication of matching sanitized source snapshots remain open. See [the dated update](docs/updates/1.32.0.md), component documentation and LICENSING.md.
 

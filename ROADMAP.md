@@ -1,14 +1,15 @@
 # Entwicklungsübersicht · Nextcloud Connector von Nova Space
 
-Stand: **23. Oktober 2026**
+Stand: **24. Oktober 2026**
 
 Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen. Diese Übersicht macht den vorhandenen Betrieb, vorbereitete Erweiterungen und die verbleibenden Arbeitsschritte nachvollziehbar.
 
 ## Aktueller Stand
 
-- Der Online-Anschluss ist im vorhandenen Arbeitsumfeld in Version **1.31.1** eingebaut.
-- Der persönliche LM-Studio-Anschluss hat einen eigenen Versions- und Einbaustand. Ein Online-Update aktualisiert ihn nicht automatisch.
-- Ein Entwicklungsstand **1.32** mit zusätzlichen Funktionen ist technisch vorbereitet. Er ist noch kein gemeinsam ausgeliefertes oder praktisch abgenommenes Release.
+- Im vorhandenen Arbeitsumfeld ist der Online-Anschluss **1.32.0** eingebaut; authentifizierte Versionsabfrage und Projektzugriff sind belegt.
+- Der persönliche Kern **1.32.0-local.1** und die Themenauswahl **0.1.11** wurden unter Windows mit Abschlusscode 0 installiert. Der Nutzer hat LM Studio neu gestartet und meldet die neuen Konnektoren als sichtbar.
+- Die native Apphilfe/Policy wurde auf **0.4.0-ui.8** aktualisiert; Sicherung und genau zwei erwartete Dateiänderungen sind geprüft.
+- Dieser **installierte Zwischenstand** ersetzt keine vollständige Paket-, Modell- oder Bedienungsabnahme. Die nachstehend veröffentlichten Quellsnapshots behalten ihre älteren Versionsstände; der vollständige öffentliche 1.32-Quellabgleich steht aus. [Einbaunachweis und nächste Schritte](docs/updates/1.32.0.md).
 - Projekt- und Profilvorstellung sowie vier zugeordnete Entwicklungsaufgaben sind veröffentlicht.
 - Der [Online-Quellstand 1.31.1](components/online/connector/README.md) ist als bereinigter AGPL-Snapshot mit gemeinsamen Bibliotheken und Browser-Erweiterung aufbereitet. Worker und Browser-Bündel lassen sich bauen; 503 JavaScript-Prüfungen, zwei Prüfungen der gebauten Ausgabe und 16 Python-Prüfungen bestehen. Sichere Konfigurationsbeispiele, gesperrte historische Wartungsskripte, Herkunft und Fremdhinweise sind enthalten. Die laufende Installation wird dadurch nicht aktualisiert.
 - Der [persönliche Quellstand](components/local/lmstudio/README.md) von Kern 1.31.0-local.1/Themen 0.1.10 ist aus dem vollständig hashgeprüften Original-ZIP übernommen: 200 Dateien im bereinigten Quellarchiv, beide Komponenten bauen, 41 JavaScript- und 16 Python-Prüfungen bestehen. Die ältere externe Python-Grundlage 0.1.13 ist nun am dokumentierten Installationscommit mit AGPL-Lizenz und Upstream-Lockfile [zugeordnet](docs/LEGACY_STARTUP_SOURCE.md). Der persönliche Windows-DPAPI-Wrapper, die installierte Paketinventur und ein unabhängiger Erstinstallationspfad bleiben offen.
@@ -23,7 +24,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 |---|---|---|
 | Produktweg und verständliche Einrichtung | Zwei von acht Produktbedingungen belegen interne Grundlagen; die allgemeine Produktabnahme ist offen. | [Produktweg](https://github.com/Windwanderer74/novaspace-connector/issues/1) |
 | Drei Lieferpakete | Alltag/Planung, Kommunikation/Daten und Fachfunktionen/Office sind abgegrenzt. Noch kein Paket ist als Ganzes abgeschlossen. | [Lieferplan](https://github.com/Windwanderer74/novaspace-connector/issues/2) |
-| Paket 1: Alltag und Planung | Acht Basisbedingungen und drei technische Vorbereitungsergebnisse sind belegt; 21 der 32 Abschlussbedingungen sind offen. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
+| Paket 1: Alltag und Planung | 20 von 32 technischen Bedingungen sind belegt; 12 Bedingungen einschließlich restlicher Facharbeit und vollständiger Abnahme bleiben offen. Der installierte Zwischenstand schließt das Paket nicht ab. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
 | Quellübernahme und Entwicklungsablauf | Native Module und bereinigter Online-/Browser-Quellstand 1.31.1 sind mit Lizenz, Herkunft, Bauanleitung und Prüfungen veröffentlicht. Native Neuinstallation auf zwei dokumentierten Nextcloud-Versionen ist belegt. Älterer DPAPI-Startweg, weitere native Apps, Historienprüfung, Updates und erfolgreiche externe Zusatz-App-Abläufe bleiben offen. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
 
 Die Zählungen beschreiben definierte Bedingungen. Sie sind keine Schätzung des verbleibenden Zeitaufwands oder der gesamten Produktreife.
@@ -42,7 +43,9 @@ Der erste praktische Weg ist ein **Abgleich auf ausdrücklichen Auftrag**. Eine 
 
 ## Nächste Schritte
 
-- Den älteren externen Windows-DPAPI-Startweg des persönlichen Anschlusses mit passendem Quell-/Lizenznachweis aufarbeiten und später den unabhängigen Erstinstallationspfad prüfen. Der persönliche Lieferstand 1.31.0-local.1/Themen 0.1.10 ist als eigener Quellsnapshot zusammengeführt; Online 1.31.1 und vorbereitete Entwicklung 1.32 bleiben getrennt.
+- Zuerst den installierten Zwischenstand 1.32 in einem neuen LM-Studio-Chat mit Konto-, Fähigkeits- und Hilfeabfrage prüfen; danach die noch offene Modell-/Bedienungsabnahme fortführen.
+- Die zu 1.32 gehörenden öffentlichen Quellsnapshots mit sicheren Beispielen, Herkunft und Fremdhinweisen gesondert nachführen. Die bisherigen öffentlichen Online-/LM-Studio-Snapshots bleiben bis dahin unverändert auf 1.31.1 beziehungsweise 1.31.0-local.1/Themen 0.1.10.
+- Den älteren externen Windows-DPAPI-Startweg des persönlichen Anschlusses mit passendem Quell-/Lizenznachweis aufarbeiten und später den unabhängigen Erstinstallationspfad prüfen.
 - Einen konkreten Updatepfad und erfolgreiche Abläufe mit den tatsächlich gewählten externen Zusatz-Apps gesondert abnehmen; weitere PHP-/Datenbank-/Webserverkombinationen bei Bedarf prüfen.
 - Für weitere Komponenten die tatsächlich benötigten Abhängigkeiten und übernehmbare Versionsgeschichte vollständig abgrenzen; die [Lizenzzuordnung](LICENSING.md) dateigenau fortführen.
 - Den ersten Abgleich der zugeordneten Aufgaben prüfen und sein Ergebnis nachvollziehbar festhalten.

@@ -1,12 +1,20 @@
 # Quellaufnahme und Veröffentlichungsstand
 
-Stand: **23. Oktober 2026**. Führende Arbeit: [Aufgabe #4](https://github.com/Windwanderer74/novaspace-connector/issues/4).
+Stand: **24. Oktober 2026**. Führende Arbeit: [Aufgabe #4](https://github.com/Windwanderer74/novaspace-connector/issues/4).
+
+## Aktueller Betrieb und veröffentlichte Quellen
+
+Im bestehenden Arbeitsumfeld sind inzwischen Online **1.32.0**, persönlicher Kern **1.32.0-local.1**, Themenauswahl **0.1.11** und native Apphilfe/Policy **0.4.0-ui.8** eingebaut. Der Windows-Installer endete mit Abschlusscode 0; Neustart und sichtbare Konnektoren sind vom Nutzer bestätigt. Der Modell-Funktionstest und die vollständige Bedienungsabnahme stehen noch aus.
+
+Diese Statusfortschreibung aktualisiert die unten beschriebenen Quellpakete nicht. Deren öffentliche Snapshots bleiben Online **1.31.1** und persönlich **1.31.0-local.1 / Themen 0.1.10**. Passende bereinigte 1.32-Quellen und ein öffentliches Downloadpaket sind noch gesondert nachzuführen. [Datierter Einbau- und Prüfstand](updates/1.32.0.md).
+
+Die folgenden Abschnitte dokumentieren die bisherigen Quellaufnahmen und die damaligen Prüfgrenzen. Aussagen über einen damals nicht vorgenommenen Einbau beziehen sich auf diese historischen Quelllieferungen.
 
 ## Erhaltener Ausgangsstand
 
 Der aufgenommene Quellbestand enthält 461 versionierte Dateien und 93 erreichbare Commits bis `ca1fb50642c0b3cab7c5f9d898e36fba7befdf38`. Der Arbeitsbaum war bei der Aufnahme unverändert. Dieser Checkpoint entspricht dem getrennten Online-Lieferstand **1.31.1**.
 
-Die vorbereitete Entwicklung **1.32** bleibt im erhaltenen Checkpoint `c7fe8522131d72cf057586888dc28682096895aa` getrennt. Diese Übersicht erklärt sie nicht zu einem ausgelieferten oder abgenommenen Release.
+Der damalige vorbereitete Entwicklungsstand **1.32** bleibt im erhaltenen Checkpoint `c7fe8522131d72cf057586888dc28682096895aa` getrennt. Er ist ein historischer Vorbereitungsstand und kein Nachweis für die inzwischen aktualisierte Installation oder die noch ausstehende Gesamtabnahme.
 
 Das öffentliche Repository erhält ausgewählte, geprüfte Quellstände mit Herkunftsnachweis. Die vollständige bisherige Historie wird erst nach einer eigenständigen Veröffentlichungsprüfung übernommen. Interne Installationskonfigurationen und generierte Betriebspakete werden nicht ungeprüft als allgemeine App-Pakete ausgegeben.
 
