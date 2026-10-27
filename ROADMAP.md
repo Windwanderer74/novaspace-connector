@@ -6,10 +6,10 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 
 ## Aktueller Stand
 
-- Online1.35.0, persönlich1.35.0-local.1, Themenauswahl0.1.12 und Projekte0.2.12 sind im bestehenden Arbeitsumfeld eingebaut. Der Windows-Installer endet mitCode0; lesende API und persönlicher LM-Studio-Konto-/Versions-/Hilfe-/Ordnerzugriff sind dokumentiert.
-- Passende aufbereitete Online-, persönliche und Projekt-App-Quellen mit Herkunft, Bauanleitung, Lizenzzuordnung und Prüfberichten werden in diesem Snapshot veröffentlicht. [Update1.35](docs/updates/1.35.0.md).
-- Der gemeinsame Projektfluss nutzt denselben nativen Kern wie der Browser. Eine erste gemeinsame Projektanlage im persönlichen Anschluss wurde erfolgreich zurückgemeldet. Diese begrenzte Pilotabnahme beruht auf der Ergebnisrückmeldung des Clients; weitere Inhalts- und Wiederaufnahmeprüfungen bleiben offen. Die allgemeine Modell-/UX-Matrix bleibt pausiert.
-- Paket1 bleibt21/32. Noch kein Lieferpaket ist als Ganzes abgenommen. Älterer persönlicher DPAPI-Wrapper, unabhängige Erstinstallation und weitere Betriebs-/Bedienungsabnahmen bleiben offen.
+- Online1.35.1, persönlich1.35.1-local.1, Themenauswahl0.1.13 und Projekte0.2.13 sind im bestehenden Arbeitsumfeld eingebaut. Der Windows-Installer endet mitCode0; lesende API und persönlicher LM-Studio-Konto-/Versions-/Hilfe-/Ordnerzugriff sind dokumentiert.
+- Passende aufbereitete Online-, persönliche und Projekt-App-Quellen mit Herkunft, Bauanleitung, Lizenzzuordnung und Prüfberichten werden in diesem Snapshot veröffentlicht. [Update1.35](docs/updates/1.35.1.md).
+- Der gemeinsame Projektfluss nutzt denselben nativen Kern wie der Browser. Der vereinbarte Projekt-Grundpilot ist als Beta-Arbeitsblock abgeschlossen: Projekt- und Aufgabenanlage, Prüfung eines vollständigen Vorgangs sowie der Browser-Rückweg zum persönlichen Anschluss sind im dokumentierten Umfang bestätigt. Persönliche Nachweise beruhen auf Client- und Nutzerrückmeldungen; allgemeine Modellabnahme und eine echte Teilvorgang-Reparatur bleiben getrennt. Die allgemeine Modell-/UX-Matrix bleibt pausiert.
+- Paket1 bleibt22/32. Noch kein Lieferpaket ist als Ganzes abgenommen. Älterer persönlicher DPAPI-Wrapper, unabhängige Erstinstallation und weitere Betriebs-/Bedienungsabnahmen bleiben offen.
 - Die getrennt veröffentlichten älteren nativen Plattform-/GitHub-Module behalten ihre eigenen Versions- und Integrationsnachweise. Diese Veröffentlichung überträgt deren frühere Integrationsprüfungen nicht pauschal auf die neue Projekt-App.
 
 ## Arbeitspakete und Aufgaben
@@ -18,7 +18,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 |---|---|---|
 | Produktweg und verständliche Einrichtung | Zwei von acht Produktbedingungen belegen interne Grundlagen; die allgemeine Produktabnahme ist offen. | [Produktweg](https://github.com/Windwanderer74/novaspace-connector/issues/1) |
 | Drei Lieferpakete | Alltag/Planung, Kommunikation/Daten und Fachfunktionen/Office sind abgegrenzt. Noch kein Paket ist als Ganzes abgeschlossen. | [Lieferplan](https://github.com/Windwanderer74/novaspace-connector/issues/2) |
-| Paket 1: Alltag und Planung | 21 von 32 technischen Bedingungen sind belegt; 11 Bedingungen einschließlich restlicher Facharbeit und vollständiger Abnahme bleiben offen. Der installierte Zwischenstand schließt das Paket nicht ab. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
+| Paket 1: Alltag und Planung | 22 von 32 technischen Bedingungen sind belegt; 11 Bedingungen einschließlich restlicher Facharbeit und vollständiger Abnahme bleiben offen. Der installierte Zwischenstand schließt das Paket nicht ab. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
 | Quellübernahme und Entwicklungsablauf | Native Module und aufbereitete Online-/persönliche/Projekt-Quellen1.35 sind mit Lizenz, Herkunft, Bauanleitung und Prüfberichten veröffentlicht. Native Neuinstallation auf zwei dokumentierten Nextcloud-Versionen ist belegt. Älterer DPAPI-Startweg, weitere native Apps, Historienprüfung, Updates und erfolgreiche externe Zusatz-App-Abläufe bleiben offen. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
 
 Die Zählungen beschreiben definierte Bedingungen. Sie sind keine Schätzung des verbleibenden Zeitaufwands oder der gesamten Produktreife.
@@ -39,11 +39,13 @@ Der erste praktische Weg ist ein **Abgleich auf ausdrücklichen Auftrag**. Eine 
 
 ## Nächste Schritte
 
-1. Nach der ersten zurückgemeldeten Anlageprobe die gemeinsame Inhaltsbearbeitung an ausdrücklich gewählten Ressourcen prüfen.
-2. Wiederaufnahme gesondert prüfen. Bei unklarem Ausgang denselben Vorgang lesen; keine automatische Hintergrundsynchronisation zugesagt.
-3. Den bereits als Beta-Zwischenstand angekündigten Projektweg mit Bild-/Videomaterial verständlich vorstellen.
-4. Den älteren externen DPAPI-Startweg und einen unabhängigen Erstinstallations-/Updatepfad weiter aufarbeiten. Die allgemeine Modell-/UX-Matrix bleibt bis zur vereinbarten Wiederaufnahme pausiert.
-5. Die übrigen definierten Bedingungen von Paket1 weiterbearbeiten. Die aktuellen Zählungen sind keine Schätzung des gesamten verbleibenden Zeitaufwands.
+1. Nach dem abgeschlossenen Projekt-Betablock und technischen Notizabgleich den Kalenderrest bearbeiten: Einladungen/Serienantworten, Verwaltung und Verknüpfungen.
+2. Den vollständigen Datei-/Mindmap-Masterabgleich getrennt vom begrenzten Projektpilot festhalten; vorhandene Werkzeuge weiterverwenden.
+3. Konsistenz, gemeinsame Auslieferung und fachliche/Bedienungsabnahme am vollständigen Paketstand abschließen. Die allgemeine Modell-/UX-Matrix bleibt bis zum vereinbarten Auftrag pausiert.
+4. Älteren externen DPAPI-Startweg und unabhängigen Erstinstallations-/Updatepfad weiter aufarbeiten.
+5. Bild-/Videomaterial für eine verständliche Vorstellung als eigenen Kommunikationsschritt vorbereiten.
+
+Die mehrfach gemeldeten Beschreibungs-Aufrufversuche sind als spätere Betriebs-/Bedienungsbeobachtung erfasst. Ursache und möglicher Nutzen eines klareren Systemprompts sind offen; sie blockieren den bewusst begrenzten Projekt-Betaabschluss nicht. [Aktueller Stand und Grenzen](docs/updates/1.35.1.md).
 
 ## Lizenzrichtung und Bereitstellung
 

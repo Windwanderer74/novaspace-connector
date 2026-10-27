@@ -1,3 +1,13 @@
+# Quellstand 1.35.1 · Fortschreibung 27. Oktober 2026
+
+Online1.35.1, persönlicher Kern1.35.1-local.1/Themen0.1.13 und native Projekte0.2.13 mit Browserworkflow1.6.2 sind als zusammengehörige aufbereitete AGPL-Quellen nachgeführt. Andere native Komponenten behalten ihren gesonderten historischen Stand.
+
+[Update1.35.1](updates/1.35.1.md) beschreibt den abgeschlossenen begrenzten Projekt-Betablock, den technischen Notizabgleich, Einbau und offene Grenzen. Quellprüfungen und praktische Client-/Nutzerrückmeldungen bleiben getrennt ausgewiesen. Der vollständige Paketabschluss steht noch aus; Paket1 jetzt22/32.
+
+Die aktuelle dateigenaue Herkunft und alle Manifest-/Prüfberichtshashes stehen in [PUBLICATION_1_35_1.json](PUBLICATION_1_35_1.json). Die vollständigen früheren Nachweise bleiben unten und im Vorgängermanifest erhalten.
+
+--- Historischer Stand 1.35.0 ---
+
 # Quellstand1.35 · Fortschreibung27. Oktober2026
 
 Online1.35.0, persönlich1.35.0-local.1/Themen0.1.12 und native Projekte0.2.12 sind als aufbereitete eigene AGPL-Quellen aufgenommen. Der genaue Umfang, Eingangs- und Veröffentlichungshashes stehen in den Komponenten-SOURCE_PROVENANCE.json-Dateien. Beispiele ersetzen Betriebsadressen; private Betriebsberichte, Zugangsdaten, erzeugte Bündel und vollständige private Historie gehören nicht zu dieser Quellveröffentlichung.

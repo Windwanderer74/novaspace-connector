@@ -2,11 +2,11 @@
   "schemaVersion": 2,
   "date": "2026-10-27",
   "component": "personal",
-  "version": "1.35.0-local.1",
-  "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+  "version": "1.35.1-local.1",
+  "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
   "edition": "sanitized AGPL source; no deployment or independent first-install claim",
   "historyImported": false,
-  "originalPersonalArchiveSha256": "8b6936a5ad072864efda2ce3ebc3a26f5607ee2c5c2417b04f2ec8af0aa8c5e5",
+  "originalPersonalArchiveSha256": "9733d3ca988e8bc398b57a42b959e8acfaca47923e0b1e40e41e3c6211511d9d",
   "privateEvidenceIdsPublished": false,
   "files": [
     {
@@ -127,6 +127,26 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "nextcloud-local-candidate/browser/deck-mindmap-client.ts",
+      "sourcePath": "nextcloud-local-candidate/browser/deck-mindmap-client.ts",
+      "sourceSha256": "417f7f6de7be40074db92ead0aa4e2a20b904c1af57f2dff6b4a98f32aab84bd",
+      "publishedSha256": "4421d639540752aa00c5356e452ab00daee454f61fe548a303b4e800b36da74e",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/browser/task-content-client.ts",
+      "sourcePath": "nextcloud-local-candidate/browser/task-content-client.ts",
+      "sourceSha256": "7409ce17082de400309568d5e669e8603e9a052f3aa71f1998717dc2abf981ce",
+      "publishedSha256": "25655737abacd855c1d6f55df59c97a79931774ffe39693ee04a9b853670b1d2",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "nextcloud-local-candidate/build.mjs",
       "sourcePath": "nextcloud-local-candidate/build.mjs",
       "sourceSha256": "f8b870c545d56ad6e5c31deb4b157f284d745cf2d22fdced04a5fc93af0cb5a6",
@@ -147,8 +167,8 @@
     {
       "path": "nextcloud-local-candidate/install.py",
       "sourcePath": "nextcloud-local-candidate/install.py",
-      "sourceSha256": "94e76572b71f2e598b4e761bc7a6f577f777f5b45d0892e0bec6ba841b706aec",
-      "publishedSha256": "a1e016decc30db18c93bb27421b7d6bce8e005bb69fdb8f0a16850b131bd351a",
+      "sourceSha256": "a5e98ec70603436868d86f0de92894cc6e1d7b01b2bcbd6e0201a00358eeab02",
+      "publishedSha256": "7bd23eb8082321b3dcfd08bcc49de235adbc0b6e5fe97d87bf9e633bdd56b2a1",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained",
@@ -289,8 +309,8 @@
     {
       "path": "nextcloud-local-candidate/lib/connector-version.ts",
       "sourcePath": "nextcloud-local-candidate/lib/connector-version.ts",
-      "sourceSha256": "98a66303feda94a898cb74c3f0a882bd4f71507db1dc36ee36a293038f75ecdb",
-      "publishedSha256": "f30d71da32b86f8cb2eabb681fb74de751f06c37addb5799ddc70a9a656cdc47",
+      "sourceSha256": "10cee55874bc4c274a5211c488ea7426847606b61552e306d2425effd78edf82",
+      "publishedSha256": "c34e54227a534ab2df01c161bdfd83ba59d54235aa9206c0a9aad7f6c427db89",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1241,8 +1261,8 @@
     {
       "path": "nextcloud-local-candidate/lib/shared-task-content.ts",
       "sourcePath": "nextcloud-local-candidate/lib/shared-task-content.ts",
-      "sourceSha256": "858699cab3eec6ff264c03249ca5e26caf4bc09caa284ee1847417ef63d66b6a",
-      "publishedSha256": "9ae1f4f1bcd66cb6a64e341a9031c1d8bf238cce2383c05873a5a69296c014a4",
+      "sourceSha256": "7b261d0d8e6d260bfd690ebaebdf0a659890e91e5a325ae5dbd56c71d7d94989",
+      "publishedSha256": "dffbfc4e917e89dc8eee127a69c8deb63b0a810aaf88f8f99632ef7cefc2d01a",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1352,8 +1372,8 @@
     {
       "path": "nextcloud-local-candidate/src/local.ts",
       "sourcePath": "nextcloud-local-candidate/src/local.ts",
-      "sourceSha256": "8a7f84f7c9c0c24b0b5a610833e127e5de1251eac681a4993997f7cf1bcdaa45",
-      "publishedSha256": "0db4e0e22bb17906691bc43cfe3ced1ae47ced995d5ebc815318f6a41ef451ca",
+      "sourceSha256": "1ffc7fee6ea70727c567f7f345fd52e28cf4a9ad2aa6d2979c7fea525ae11bb4",
+      "publishedSha256": "8cdd864fdd55ed6d4e2a1947110c7be130722a93af82c7e7a25e2cbdf33d7221",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1393,8 +1413,8 @@
     {
       "path": "nextcloud-local-candidate/tests/calendar-invitations-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/calendar-invitations-local.test.mjs",
-      "sourceSha256": "fc63fe12210caf87f078d67bb161cd4f7a90c5a7fdc92e613790d5f9b106c623",
-      "publishedSha256": "3451206789940d3368c3f6cfeac410fabdabe64e0b857c81455c353b9196cf61",
+      "sourceSha256": "13d7581ce69d37192d5155952a18818befa4b603130d77a2e2fc799c1fa25f09",
+      "publishedSha256": "10dd08eefb9f37f7f6513e2d2ce499ba3099e759d00b9a3f44e1e4f09cc21fc1",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1403,8 +1423,8 @@
     {
       "path": "nextcloud-local-candidate/tests/calendar-occurrences-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/calendar-occurrences-local.test.mjs",
-      "sourceSha256": "84496c833e5c4357a015250ccc299c1b21ef0626505fd28167a60724112f7e64",
-      "publishedSha256": "223371713d55bfd89fb24cf9a442a18fc457730966e8c421d15389bb5d0e32ee",
+      "sourceSha256": "a56c2d1a3743a4eb4b58f89ce098dc03f57543a7e0c37846087b83fcb8a92fae",
+      "publishedSha256": "9dcf0ee554587fcac93ec00a8686182d182f7762f738faf1619275909bf06bac",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1433,8 +1453,8 @@
     {
       "path": "nextcloud-local-candidate/tests/contact-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/contact-local.test.mjs",
-      "sourceSha256": "f20fba974d5a6f4d94c5704a6f4f7cc3af5c3feede3163531e78305b1fc4659c",
-      "publishedSha256": "210be0a2fdcb18a8e187c986f5afb03e1b62f4d52d1d9b80d005ac7ae7d7c5c6",
+      "sourceSha256": "f1e26c7abdb5a83da0e5eb153f8f060ff4c93ce9ba7414844d897d4675c0cf1f",
+      "publishedSha256": "19dc58f95b9c8179cf8957ffb6ed661e6e6cb1609eff1f05acfb438d5d6ca304",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1453,8 +1473,8 @@
     {
       "path": "nextcloud-local-candidate/tests/deck-mindmap-workflow.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/deck-mindmap-workflow.test.mjs",
-      "sourceSha256": "8df9d45de49d04c230c49db7169170e90c3e2f2ac5e3a334d65b41263b95ac8c",
-      "publishedSha256": "8b81d1869feb83260a753cb5951808a2fa29123c33d0a062061ca0ec7e7431bf",
+      "sourceSha256": "4d18d5c593b63148892cd55a147744c31d053b60eb168b6aece24bd31d028539",
+      "publishedSha256": "caeb97322b7944f54266772cebb2e2ed0ebac2fcf9ff43c0ea4ba2eb4048f0f9",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1463,8 +1483,8 @@
     {
       "path": "nextcloud-local-candidate/tests/deck-shares-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/deck-shares-local.test.mjs",
-      "sourceSha256": "f816cdad3d33bc3d5a3a7d0f0643fc088eb9e618376c3ce06087016a219405d0",
-      "publishedSha256": "4db355c60cde5376e78d99d860f40ef668e5751b4f36dd1259c12de1e375e5f4",
+      "sourceSha256": "0a52087e1a53ae7829729471d6cfa1026eb8fc3bf850a6cafcfe21900a567953",
+      "publishedSha256": "965a3d60ff2e10e17ce47a6db9acf07620c82b3b05f757f94f18bcd5564a2dac",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1483,8 +1503,8 @@
     {
       "path": "nextcloud-local-candidate/tests/local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/local.test.mjs",
-      "sourceSha256": "70b2daba9e57b532cca0620cd0f5a49743c880068dc4c94f4d89a66df1310bf9",
-      "publishedSha256": "bf8908ac07967602f62c1f120337c418b36c239d41d3234a0a93222a42f0fef4",
+      "sourceSha256": "aee823aa7bf29187176f11c839cd4b27552eb556a73446ea9a523763b99da123",
+      "publishedSha256": "5e759e0b04dfd7b6777b87abad945924a2f626b7aa5d6d13a07d76eae852f601",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1524,10 +1544,20 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "nextcloud-local-candidate/tests/shared-task-content.test.mjs",
+      "sourcePath": "nextcloud-local-candidate/tests/shared-task-content.test.mjs",
+      "sourceSha256": "bd6f113f80e923f7d23ba944d9667d51188ef3b935e96017c5afa862469e86e8",
+      "publishedSha256": "6163eda5a66e9404c8f8d49f9512b8bbc04fdbc3dc3a6b382dadd836c79e1e1d",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "nextcloud-local-candidate/tests/task-lists-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/task-lists-local.test.mjs",
-      "sourceSha256": "26a6cab6ce0a7a67e12faf482f00a9ee88039506c7a77a5200ec1a87206c46ac",
-      "publishedSha256": "320aff2df6413c9c5181ddd542944ae2abe414297ebc260d179f4bd3447dfd9c",
+      "sourceSha256": "83af31df53cb253a3ae4407840eaa659432e6387f1012556cf70bafd42a65b38",
+      "publishedSha256": "e7dc95914a733af6fc381bb28267452a07d4d5a2187a9964cc39ea2acc002bf8",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1680,8 +1710,8 @@
     {
       "path": "topics-candidate/install_topics.py",
       "sourcePath": "topics-candidate/install_topics.py",
-      "sourceSha256": "9f2d0fbd12d0dd1757b92a0a028473b981b6260d61bb27ed59320a140feec59e",
-      "publishedSha256": "ac3990eb74ded3d422d37b12501cc651f56ba79062c999ee447d5a4f7dc7e984",
+      "sourceSha256": "e221bd0f6073cb741bc92d9b1824554a03dd0dc4b62addc35b9fa9fee7aeea29",
+      "publishedSha256": "d9ab2628b267d51b10925dd5018e97f208ee7d311b4c9f8cdcdaa19b0bebae96",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained",
@@ -1692,8 +1722,8 @@
     {
       "path": "topics-candidate/manifest.json",
       "sourcePath": "topics-candidate/manifest.json",
-      "sourceSha256": "a2b175097af3450cd6d419f01596ad42a35a07ff77a107c0d2c7da2b3e1a9dbe",
-      "publishedSha256": "a2b175097af3450cd6d419f01596ad42a35a07ff77a107c0d2c7da2b3e1a9dbe",
+      "sourceSha256": "be48772ae29b4ada86333816d854d69d2b526767e5c9b2171ef84f3a7c1155ee",
+      "publishedSha256": "be48772ae29b4ada86333816d854d69d2b526767e5c9b2171ef84f3a7c1155ee",
       "changes": [],
       "license": "AGPL-3.0-or-later"
     },
@@ -1730,8 +1760,8 @@
     {
       "path": "topics-candidate/source/localMcp.ts",
       "sourcePath": "topics-candidate/source/localMcp.ts",
-      "sourceSha256": "4e1e564983a4036c6cf28f9bb4aeee54a96d53292bf5dd6126451f22939f66f0",
-      "publishedSha256": "e3ece16634dd50cb7981d8c9d88e72537e99fa2a06e6a372c500196adff8e958",
+      "sourceSha256": "c4bc0b016c638cceb580e03ef2a5bd7046ce8eb5f4b73cbb3389df915c06ee73",
+      "publishedSha256": "4013ac87f89c5adca5508f917e90197663735ef282b136e4c00c9616f8d330f9",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1821,8 +1851,8 @@
     {
       "path": "topics-candidate/tests/local-mcp.test.cjs",
       "sourcePath": "topics-candidate/tests/local-mcp.test.cjs",
-      "sourceSha256": "752f135363164f3a17044dc90fbd2fb3509eed07de7db9a96309c4d43d506173",
-      "publishedSha256": "738068f365c82c9f76f65bca2ed86f3880c670bb8355a70327ab191eae1c0493",
+      "sourceSha256": "f23b87676541743b77496ad357d9554872d85ed2ee045f1453b84a709985b9bf",
+      "publishedSha256": "45e13b9962bdfbd5dc418c95717735319efc91c87eed5f23627001538915b6d0",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1861,8 +1891,8 @@
     {
       "path": "update_connector.py",
       "sourcePath": "update_connector.py",
-      "sourceSha256": "1a62643cbf8c77dfbc5919bc679afb4ae35385cae33d6b4f2db91f1d9edc7eb6",
-      "publishedSha256": "9a9adbc6e21c524b0b4c50c77306f441860b73fa1d34b2db0e643aa8223d00aa",
+      "sourceSha256": "ccd31eb493ed776504c7dbf938b1a1c3433d5ff7a6cc105775a2c9a7b93f8fe4",
+      "publishedSha256": "5acf9341cb4b48ee12957334d40ba9a133a3bc4cb7896c4babeca50b0e48f769",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained",

@@ -33,6 +33,6 @@ Die drei direkten historischen Installer (`update_connector.py`, `nextcloud-loca
 
 ## Was die Prüfungen belegen
 
-73 lokale JavaScript-Prüfungen kontrollieren Werkzeugverträge, Scopes, Konto, Projektfunktionen, gemeinsamen Aufgabeninhalt und stdio. 29 Themen-/SDK-Prüfungen verwenden die echte SDK-Klasse, alle262144 Kombinationen und echte lokale MCP-Kindprozesse mit synthetischen HTTP-Antworten. Drei Launcher-, neun Themeninstaller- und neun Koordinatorprüfungen simulieren ihre Umgebung. Alle drei direkten historischen Installer sind standardmäßig gesperrt.
+84 lokale JavaScript-Prüfungen kontrollieren Werkzeugverträge, Scopes, Konto, Projektfunktionen, gemeinsamen Aufgabeninhalt und stdio. 29 Themen-/SDK-Prüfungen verwenden die echte SDK-Klasse, alle262144 Kombinationen und echte lokale MCP-Kindprozesse mit synthetischen HTTP-Antworten. Drei Launcher-, neun Themeninstaller- und neun Koordinatorprüfungen simulieren ihre Umgebung. Alle drei direkten historischen Installer sind standardmäßig gesperrt.
 
 Zwei ursprüngliche Kerninstaller-Tests benötigen ausgeschlossene vorherige Binärfixtures; sie bleiben von dieser öffentlichen Neuausführung ausgeschlossen. Der ursprüngliche erfolgreiche Windows-Einbau und der persönliche gezielte Lesetest sind getrennte Betriebsnachweise. Bilder, Prompt-Gesamtlaufzeit, Projektanlage-/Wiederaufnahme und ein unabhängiger Erstinstallationspfad sind damit nicht pauschal abgenommen. Die genaue Quellprüfung steht in TEST_RESULTS.json.

@@ -17,7 +17,7 @@ test('Local source loader binds receipt/account/code and excludes tokens and plu
  writeFileSync(join(home,'.lmstudio/mcp.json'),JSON.stringify({mcpServers:{'nextcloud-pilot-next2':entry}}));
  const local={baseUrl:'https://cloud.example.invalid',expectedUser:'Soul'};
  writeFileSync(join(installed,'local.json'),JSON.stringify(local));
- writeFileSync(join(installed,'installation.json'),JSON.stringify({version:'1.35.0-local.1',expectedUser:'Soul',installedEntry:entry}));
+ writeFileSync(join(installed,'installation.json'),JSON.stringify({version:'1.35.1-local.1',expectedUser:'Soul',installedEntry:entry}));
  writeFileSync(join(installed,'SHA256SUMS.json'),JSON.stringify({'start_local.py':hash(script),'dist/nextcloud-local.cjs':hash(join(installed,'dist/nextcloud-local.cjs'))}));
  const source=api.loadSourceSettings(home,'win32');assert.equal(source.expectedUser,'Soul');assert.equal(source.parameters.command,'python.exe');
  assert.deepEqual(source.parameters.env,{PYTHONUTF8:'1',NC_MCP_TALK_SEND:'false'});

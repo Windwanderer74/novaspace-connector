@@ -16,7 +16,7 @@ async function rpc(factory,method,params){
  const r=await h.fetch(new Request('https://test.invalid/mcp',{method:'POST',headers:{'content-type':'application/json',accept:'application/json,text/event-stream','mcp-protocol-version':'2025-06-18'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params})}));
  const body=await r.text();const envelope=r.headers.get('content-type')?.includes('text/event-stream')?body.split('\n').filter(s=>s.startsWith('data:')).map(s=>JSON.parse(s.slice(5))).find(s=>s.id===1):JSON.parse(body);return envelope.result;
 }
-test('Shared 1.35.0 tools retain exact schemas; hosted transfer routes excluded',async()=>{
+test('Shared 1.35.1 tools retain exact schemas; hosted transfer routes excluded',async()=>{
  const ref=await rpc(()=>api.createDeckMcpServer(),'tools/list',{});
  const local=await rpc(()=>api.localServer([...api.ALL_SCOPES]),'tools/list',{});
  assert.equal(local.tools.length,ref.tools.length-api.HOSTED_ONLY.size-api.ACCOUNT_BOUND.size+1);
@@ -112,7 +112,7 @@ test('Inventory read-only selection rejects creation before accessing Nextcloud'
 
 test('Local guide is always available and capabilities do not claim cloud delegation',async()=>{
  const help=await rpc(()=>api.localServer(['calendar:read'],[]),'tools/call',{name:'novaspace_connector_help',arguments:{}});
- assert.equal(help.structuredContent.version,'1.35.0-local.1');
+ assert.equal(help.structuredContent.version,'1.35.1-local.1');
  assert.ok(help.structuredContent.limits.some(v=>v.includes('Inventory')));
  api.configureCredentials(config(),{NC_MCP_URL:config().baseUrl,NC_MCP_USER:'Soul',NC_MCP_APP_PASSWORD:'fixture'});
  globalThis.fetch=async(url)=>String(url).includes('/cloud/capabilities')?Response.json({ocs:{meta:{status:'ok',statuscode:100},data:{version:{string:'test'},capabilities:{}}}}):String(url).includes('/novaspace_platform/')?new Response('',{status:404}):new Response('<d:multistatus xmlns:d="DAV:"><d:response><d:href>/remote.php/dav/</d:href><d:propstat><d:prop><d:current-user-principal><d:href>/remote.php/dav/principals/users/Soul/</d:href></d:current-user-principal></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response></d:multistatus>',{status:207});

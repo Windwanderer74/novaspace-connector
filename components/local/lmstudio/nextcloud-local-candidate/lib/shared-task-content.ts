@@ -50,7 +50,7 @@ export function mapTaskContent(map: Mindmap, nodeId: string): TaskContent {
   const suffix = state.total ? ` · ${state.completed}/${state.total} · ${state.percent} %` : undefined;
   let title=data.text;
   if (suffix && title.endsWith(suffix)) title=title.slice(0,-suffix.length);
-  else if (!state.total) for (const tail of [' · keine Bedingungen',' · keine Punkte']) if (title.endsWith(tail)) {title=title.slice(0,-tail.length);break;}
+  else if (!state.total) for (const tail of [' · keine Bedingungen',' · keine Punkte',' · noch keine Ziele']) if (title.endsWith(tail)) {title=title.slice(0,-tail.length);break;}
   const content=data.nfTaskContent;
   if (content !== undefined && (!record(content) || content.version !== 1 || typeof content.description !== 'string')) throw Error('Ungültige gemeinsame Aufgabenbeschreibung.');
   return {version:1,title:taskTitle(title),description:taskDescription(content?.description ?? '')};

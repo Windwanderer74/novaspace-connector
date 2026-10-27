@@ -1,8 +1,8 @@
-# Native Projekt-App 0.2.12 · Quellfassung
+# Native Projekt-App 0.2.13 · Quellfassung
 
 Die App `novaspace_capsules` verbindet Deck und Mindmap über einen gemeinsamen
 Anlage- und Arbeitsplan-Kern. Dieser Snapshot gehört zum Connector-Zwischenstand
-1.35 und steht für die eigenen Dateien unter **AGPL-3.0-or-later**.
+1.35.1 und steht für die eigenen Dateien unter **AGPL-3.0-or-later**.
 
 `app/` enthält den vollständig zusammengeführten 23-Dateien-Appbaum. Die
 Herkunft jeder Datei ist in [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json)
@@ -33,5 +33,5 @@ Betriebsbelege. Es ist kein freigegebenes App-Store- oder allgemeines
 Produktionsupdate. Abhängigkeiten, Prüfungen und Grenzen stehen in [BUILD.md](BUILD.md).
 Die allgemeine native Plattformbasis ist eine gesonderte Komponente.
 
-Im ursprünglichen Arbeitsumfeld sind Einbau0.2.12 und lesende API-Aufrufe bestätigt.
-Die praktische Connector-Projektanlage ist weiterhin eine getrennte offene Probe.
+Im ursprünglichen Arbeitsumfeld sind Einbau0.2.13 und lesende API-Aufrufe bestätigt.
+Der begrenzte Projekt-Betaablauf ist anhand getrennter technischer und praktischer Nachweise bestätigt. Eine tatsächlich teilweise gespeicherte Anlage wurde nicht zusätzlich live provoziert; allgemeine Modell- und Erstinstallationsabnahme bleiben getrennt.

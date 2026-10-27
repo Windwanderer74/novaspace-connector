@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-27",
+  "publicBaseCommit": "658498cb3f2bcdbf9872f38e0c66b9d4b99eb969",
+  "sourceCheckpoint": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
+  "components": {
+    "components/online/connector": {
+      "manifestSha256": "fd92e76f0adcd7dbc8fbbd06497dc5d9e3ba34a4302f192f5648a39862674866",
+      "provenanceSha256": "c95742815d0abab95b5aff417202244bf1a2904d390ad9448389417a6ac7e2b1",
+      "testReportSha256": "fe1f4a43d2093ae103552736904712a4b4324741f212759d046d2769579bc79e"
+    },
+    "components/local/lmstudio": {
+      "manifestSha256": "52739c233bcf475a8d6d62f11dccdea48a678da92977c8b370c3b4ff85e847b7",
+      "provenanceSha256": "a5066f5ba34a15b4a2c545995ee4308b652ac486b68ec1e7a53bef50fec151e1",
+      "testReportSha256": "bcb9484861a111c01a64a0d1421d920f4ae878822cf93a6098884c5aa7f7170d"
+    },
+    "components/nextcloud/projects": {
+      "manifestSha256": "53d6681e8aa79ddce61558f36ed58ff7b16a615eaf2411224880881388a7b161",
+      "provenanceSha256": "99d43b1b9ea1f477882e798fba9eec4aec9766a3f8a71ec2af259a9b5c673dc2",
+      "testReportSha256": "f88d6c95b850108444bd1064dfb9f54a14daadf7f6039e0674cf59b8be343e5e"
+    }
+  },
+  "historicalOtherNativeComponentsUnchanged": true,
+  "technicalPackage1": {
+    "completed": 22,
+    "total": 32
+  },
+  "projectBetaBlock": "accepted with recorded scope boundaries",
+  "notesFilesTechnicalReconciliation": "complete using existing tools",
+  "practicalEvidenceBasis": "separate operator and client reports, no private IDs or receipts published",
+  "partialCreationRecoveryLiveAccepted": false,
+  "generalModelMatrixPaused": true
+}

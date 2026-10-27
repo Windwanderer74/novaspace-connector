@@ -7,7 +7,7 @@ export const ALL_SCOPES = ONLINE_SCOPES.filter(s => !s.startsWith('github:'));
 import { nextcloudIdentity } from '../lib/nextcloud-read';
 import { setDeckRuntimeConfig } from '../lib/runtime-config';
 
-export const VERSION = '1.35.0-local.1';
+export const VERSION = '1.35.1-local.1';
 export const GROUPS = ['deck','files','calendar','tables','mindmap','communication','inventory','notes','tasks','contacts'] as const;
 export const HOSTED_ONLY = new Set(['files_prepare_upload','files_download','files_prepare_pdf_workspace']);
 export const ACCOUNT_BOUND = new Set(['tables_pilot_version','tables_pilot_update','documents_register_status','documents_read_record','documents_find_record','documents_create_record','documents_update_record','tables_write_status','tables_read_structure_version','tables_read_row_version','tables_find_operation','tables_create_table','tables_create_column','tables_update_table','tables_update_column','tables_create_row','tables_update_row','tables_share_soul','inventory_update_item','inventory_action_history','github_connection_status','github_list_repositories','github_read_presentation','github_write_presentation','github_deck_sync_status','github_deck_sync_run']);
@@ -93,7 +93,7 @@ export function localServer(scopes: string[], groups: string[] = [...GROUPS]) {
     inputSchema:z.object({}).strict(), annotations:{readOnlyHint:true,openWorldHint:false},
     securitySchemes:[{type:'oauth2',scopes:['calendar:read']}]
   } as any, async () => {
-    const data={connector:'NovaSpace Connector',version:VERSION,onlineBaseVersion:'1.35.0',
+    const data={connector:'NovaSpace Connector',version:VERSION,onlineBaseVersion:'1.35.1',
       guideUrl:'https://connector.example.invalid/anleitung',
       steps:['In einem neuen LM-Studio-Chat novaforge/themenauswahl aktivieren.','Nur benötigte Themen einschalten; den direkten MCP-Anschluss nicht zusätzlich im selben Chat wählen.','Mit nextcloud_account eigenes Konto und mit nextcloud_capabilities den lokalen Stand lesen.','Vor Änderungen das Ziel lesen und nach Änderungen das Ergebnis zurücklesen.'],
       deckWorkFunctions:['Boards anlegen, benennen, färben oder archivieren.','Listen anlegen, benennen und mit numerischen Sortierwerten ordnen; native Verwaltungsrechte nötig.','Kommentare lesen, ausdrücklich beauftragt verfassen und nur eigene bearbeiten.','Erwähnungen können benachrichtigen; bei unklarer Übermittlung lesen und nicht automatisch erneut senden.','Keine atomare Deck-Versionsbedingung; Vorhandene Dateien mit explizitem files:share als Lesefreigabe an Karten verknüpfen und abtrennen; Original bleibt bestehen. Notizdateien und eigene Bildanhänge prüfen, ausgewählte Bilder bis10MiB kopieren; Text separat gezielt ergänzen.'],

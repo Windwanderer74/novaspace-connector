@@ -1,12 +1,12 @@
-# Persönlicher LM-Studio-Anschluss – Quellstand 1.35
+# Persönlicher LM-Studio-Anschluss – Quellstand 1.35.1
 
-Dieses Paket enthält die bereinigten eigenen Nextcloud-Quellen des persönlichen Kerns **1.35.0-local.1** und der Themenauswahl **0.1.12**, Revision 12, unter **AGPL-3.0-or-later**. Es stammt aus dem tatsächlich ausgelieferten Original-ZIP; dessen Hash und alle drei Dateimanifeste wurden vor der Aufarbeitung vollständig geprüft.
+Dieses Paket enthält die bereinigten eigenen Nextcloud-Quellen des persönlichen Kerns **1.35.1-local.1** und der Themenauswahl **0.1.13**, Revision 13, unter **AGPL-3.0-or-later**. Es stammt aus dem tatsächlich ausgelieferten Original-ZIP; dessen Hash und alle drei Dateimanifeste wurden vor der Aufarbeitung vollständig geprüft.
 
 | Bestandteil | Belegter Stand |
 |---|---|
-| Gemeinsamer Ausgangskern | Online 1.35.0, 200 Werkzeugverträge, Quellcheckpoint `b1dc8a5389a01ba21deb73f6857f03b06774081a` |
-| Persönlicher Kern | 1.35.0-local.1, 172 Werkzeuge; gehostete Transferwege und kontogebundene Cloud-Funktionen ausgeschlossen |
-| Themenauswahl | 0.1.12, 171 explizit auswählbare Werkzeuge; 18 kombinierbare Themen-/Zusatzschalter |
+| Gemeinsamer Ausgangskern | Online 1.35.1, 200 Werkzeugverträge, Quellcheckpoint `96e68f12cdfc9ea9482cd646983fbdd5f809f2b7` |
+| Persönlicher Kern | 1.35.1-local.1, 172 Werkzeuge; gehostete Transferwege und kontogebundene Cloud-Funktionen ausgeschlossen |
+| Themenauswahl | 0.1.13, 171 explizit auswählbare Werkzeuge; 18 kombinierbare Themen-/Zusatzschalter |
 | SDK-Laufzeit | LM Studio SDK 1.5.0, eigener unveränderter Apache-2.0-Lizenztext und gesperrte Abhängigkeiten |
 | Einbau des Originalpakets | Durch die vom Nutzer bereitgestellte Windows-Abschlussausgabe mit Code 0 belegt; gezielter persönlicher Konto-/Versions-/Hilfe-/Ordnerlesetest vom Nutzer zurückgemeldet; keine allgemeine Modellabnahme durch diese Quellveröffentlichung |
 

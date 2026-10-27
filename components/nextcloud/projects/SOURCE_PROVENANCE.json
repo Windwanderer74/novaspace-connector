@@ -2,8 +2,8 @@
   "schemaVersion": 2,
   "date": "2026-10-27",
   "component": "native-projects",
-  "version": "0.2.12",
-  "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+  "version": "0.2.13",
+  "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
   "edition": "sanitized AGPL source; no deployment or independent first-install claim",
   "historyImported": false,
   "originalPersonalArchiveSha256": null,
@@ -19,9 +19,9 @@
     },
     {
       "path": "app/appinfo/info.xml",
-      "sourcePath": "ops/project-capsules/update-0.2.12/appinfo/info.xml",
-      "sourceSha256": "291da6e63ac46e5ae5803032846bf01496c16dcdb245de1f3758a3bd75f4fead",
-      "publishedSha256": "291da6e63ac46e5ae5803032846bf01496c16dcdb245de1f3758a3bd75f4fead",
+      "sourcePath": "ops/project-capsules/update-0.2.13/appinfo/info.xml",
+      "sourceSha256": "13cc2bc30eae5d1e665b0c1d2a7678087a949ba2599b9fe727c4d76f9d9c700b",
+      "publishedSha256": "13cc2bc30eae5d1e665b0c1d2a7678087a949ba2599b9fe727c4d76f9d9c700b",
       "changes": [],
       "license": "AGPL-3.0-or-later"
     },
@@ -430,11 +430,11 @@
     {
       "path": "tests/project-connector-entry.test.mjs",
       "sourcePath": "tests/project-connector-entry.test.mjs",
-      "sourceSha256": "9970f7d4012d491961f028f1f713dbef6d33c4699e2e0c6e0a052016e84cd4ad",
-      "publishedSha256": "681d1d564f17144c01a26de5a12ee59d5c82a3fb16f5c3dd91902e45d36652b7",
+      "sourceSha256": "1f04449d0ccd25dc77bd8a28ffc6bd203ed422f3546e9057c69a9c2bfb8fd99a",
+      "publishedSha256": "574f096d472a852dbbbf4e36b4d5670386dcbdbc2175158dba44f1ef9b93d570",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained",
-        "Resolve component root; private hosting-package test omitted from public source checks"
+        "Public fixture root; private host test omitted; metadata assertion compares 0.2.12 to 0.2.13"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -443,6 +443,14 @@
       "sourcePath": "LICENSE",
       "sourceSha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6",
       "publishedSha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.13/appinfo/info.xml",
+      "sourcePath": "ops/project-capsules/update-0.2.13/appinfo/info.xml",
+      "sourceSha256": "13cc2bc30eae5d1e665b0c1d2a7678087a949ba2599b9fe727c4d76f9d9c700b",
+      "publishedSha256": "13cc2bc30eae5d1e665b0c1d2a7678087a949ba2599b9fe727c4d76f9d9c700b",
       "changes": [],
       "license": "AGPL-3.0-or-later"
     }

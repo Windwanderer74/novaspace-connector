@@ -180,6 +180,22 @@ test('Actual MCP schema accepts shared edits and explicit resumption, retaining 
  reset();let r=await call({title:'MCP name',taskDescription:'MCP text'});assert.equal(r.isError,undefined,JSON.stringify(r));assert.equal(r.structuredContent.taskContent.description,'MCP text');
  work().text='Map name';r=await call({syncTaskContent:true});assert.equal(r.isError,undefined,JSON.stringify(r));assert.equal(card.title,'◑ Map name');
 });
+test('Actual MCP edits a native empty-goals capsule without a false conflict or duplicate task',async()=>{
+ reset();
+ card={...card,title:'○ Work',description:marker+'\n<!-- nf-conditions:{"version":1,"lists":[{"id":"pilot","title":"Goals"}]} -->\nOriginal native history\n'+list([])};
+ map=api.projectDeckChecklist(baseMap,'block',{boardId:5,cardId:77,checklistId:'pilot'},[],work().hyperlink,false,[{id:'pilot',title:'Goals',items:[]}]).map;
+ work().text='Work · noch keine Ziele';work().note='Keep native planning note';
+ const other=structuredClone(map.root.children[1]);
+ const r=await call({title:'Shared empty task',taskDescription:'Description without invented goals'});
+ assert.equal(r.isError,undefined,JSON.stringify(r));assert.equal(r.structuredContent.mindmap.verified,true);
+ assert.equal(card.title,'○ Shared empty task');assert.equal(work().nfDeckSync.content.title,'Shared empty task');
+ assert.equal(work().nfTaskContent.description,'Description without invented goals');assert.equal(work().note,'Keep native planning note');
+ assert.match(card.description,/Original native history/);assert.equal(work().nfDeckSync.total,0);assert.equal(work().nfDeckSync.completed,0);
+ assert.equal(work().id,'block');assert.equal(map.root.children[0].children.length,1);assert.equal(map.root.children[0].children[0].children.length,0);
+ assert.deepEqual(map.root.children[1],other);
+ const count=writes().length;const again=await call({syncTaskContent:true});
+ assert.equal(again.isError,undefined,JSON.stringify(again));assert.equal(again.structuredContent.mindmap.unchanged,true);assert.equal(writes().length,count);
+});
 test('Actual MCP schema rejects ambiguous/invalid modes and every missing write/read scope without writes',async()=>{
  for(const args of [{description:'Body',taskDescription:'Shared'},{taskDescription:'x'.repeat(16001)},{taskDescription:'Missing card guard',expectedVersion:undefined},{taskDescription:'Missing map guard',expectedMapEtag:undefined},{syncTaskContent:false},{}]){reset();const r=await call(args);assert.equal(r.isError,true);assert.equal(requests.length,0);}
  for(const missing of scopes){reset();const r=await call({taskDescription:'No permission'},scopes.filter(s=>s!==missing));assert.equal(r.isError,true,missing);assert.equal(writes().length,0);}

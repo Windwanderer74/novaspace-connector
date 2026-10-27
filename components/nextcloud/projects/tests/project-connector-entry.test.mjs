@@ -52,6 +52,6 @@ echo 'NovaSpace tatsächlicher API-Kontokontext: '.$apiChecks." Prüfungen besta
  const out=await php('service',candidate+extra);assert.match(out,/60 Prüfungen bestanden/);assert.match(out,/10 Prüfungen bestanden/);
 });
 test('Candidate keeps the prior version metadata except the intended native version bump',async()=>{
- const oldXml=await readFile(root+'/update-0.2.11/appinfo/info.xml','utf8');
- assert.equal(await readFile(root+'/update-0.2.12/appinfo/info.xml','utf8'),oldXml.replace('<version>0.2.11</version>','<version>0.2.12</version>'));
+ const oldXml=await readFile(root+'/update-0.2.12/appinfo/info.xml','utf8');
+ assert.equal(await readFile(root+'/update-0.2.13/appinfo/info.xml','utf8'),oldXml.replace('<version>0.2.12</version>','<version>0.2.13</version>'));
 });

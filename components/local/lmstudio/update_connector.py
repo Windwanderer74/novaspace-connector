@@ -60,7 +60,7 @@ def main():
     # The new selection remains compatible with the old core if the second step fails.
     subprocess.run([sys.executable, str(topics), *common], check=True, timeout=240)
     subprocess.run([sys.executable, str(core), *common, *core_scopes], check=True, timeout=240)
-    print('OK: Themenauswahl 0.1.12 und persoenlicher MCP-Kern 1.35.0-local.1 eingetragen.')
+    print('OK: Themenauswahl 0.1.13 und persoenlicher MCP-Kern 1.35.1-local.1 eingetragen.')
     print('Bisherige Freigaben erhalten. Zusaetzlich files:share bewusst freigegeben.' if args.enable_file_sharing else 'Vorhandene Freigaben unveraendert; Dateifreigabeaenderungen nicht neu erlaubt.')
     if args.enable_calendar_replies: print('Zusaetzlich calendar:schedule bewusst freigegeben.')
     if args.enable_deck_sharing: print('Zusaetzlich deck:share bewusst freigegeben.')
