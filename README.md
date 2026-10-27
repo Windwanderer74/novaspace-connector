@@ -23,6 +23,8 @@ Der Connector prüft das verbundene Konto und die verfügbaren Rechte. Bei unter
 
 Die Entwicklung umfasst einen Online-Anschluss und einen persönlichen Anschluss für LM Studio. Die Themenauswahl stellt passende Fachbereiche zusammen. Automatisierte Prüfungen und praktische Erprobung werden getrennt dokumentiert.
 
+Die Themenauswahl bietet **18 Schalter und damit 262.144 mögliche Themenkonfigurationen**. Alle Kombinationen werden automatisiert auf ihre Werkzeugauswahl geprüft. Das zählt Schalterbelegungen; verschiedene Belegungen können dieselben Werkzeuge ergeben. Es sind keine 262.144 praktischen Modelltests. [Prüfumfang](components/local/lmstudio/TEST_RESULTS.json).
+
 ## Entwicklungsstand
 
 Stand: **27. Oktober 2026**. Online **1.35.0**, persönlicher LM-Studio-Kern **1.35.0-local.1**, Themenauswahl **0.1.12** und native Projekt-App **0.2.12** sind im bestehenden Arbeitsumfeld eingebaut. Authentifizierte Version und lesende Projekt-API sind bestätigt. Nach dem erfolgreichen Windows-Einbau zeigt der persönliche LM-Studio-Lesetest Konto, Version, Hilfe und Projektordner erfolgreich.
