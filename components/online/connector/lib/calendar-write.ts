@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { davFetch, readBody, parseDav, safeDavPath, nextcloudAccount } from "./nextcloud-read";
 import { realDate } from './groupware-codec';
+import ICAL from 'ical.js';
+import {namedEventRange,changeEventAlarms,type AlarmEdit,type NewAlarm} from './calendar-event-options';
+import {planningInstant} from './calendar-planning';
 
 const MAX_EVENT = 256 * 1024;
 const xml = (s: string) => s.replace(/[<>&"']/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&apos;" })[c]!);
@@ -18,7 +21,7 @@ function strongEtag(etag: string) {
 function times(start: string, end: string) {
   const pattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/;
   if (!pattern.test(start) || !pattern.test(end)) throw new Error("Start und Ende benötigen Sekunden und einen ausdrücklichen UTC-Offset, z. B. +02:00 für Berlin im Sommer.");
-  const a = new Date(start), b = new Date(end);
+  const a = new Date(planningInstant(start)), b = new Date(planningInstant(end));
   if (!Number.isFinite(+a) || !Number.isFinite(+b) || +b <= +a) throw new Error("Das Terminende muss nach dem Beginn liegen.");
   return [stamp(a), stamp(b)];
 }
@@ -151,38 +154,54 @@ async function mutation(path: string, method: "PUT" | "DELETE", etag: string | n
   if (!(method === "PUT" ? [201, 204] : [204, 200]).includes(response.status)) throw new Error(`Kalender-Schreibzugriff: HTTP ${response.status} für ${path}. Bei unklarem Ergebnis zuerst genau dieses Ereignis lesen.`);
 }
 
-async function verify(t: Awaited<ReturnType<typeof target>>, path: string, deleted = false) {
+async function verify(t: Awaited<ReturnType<typeof target>>, path: string, deleted = false, expected?:string) {
   try {
     const actual = await readAt(t.calendar, path);
-    return { account: t.account, calendarPath: t.calendar, writeAccepted: true, verified: deleted ? !actual.found : actual.found, ...actual };
+    const canonical=(c:ICAL.Component):string=>JSON.stringify([c.name,c.getAllProperties().map(p=>JSON.stringify(p.toJSON())).sort(),c.getAllSubcomponents().map(canonical).sort()]);
+    const matches=actual.found&&(!expected||canonical(ICAL.Component.fromString(actual.calendarData))===canonical(ICAL.Component.fromString(expected)));
+    return { account: t.account, calendarPath: t.calendar, writeAccepted: true, verified: (await nextcloudAccount()).uid===t.account&&(deleted ? !actual.found : matches), ...actual };
   } catch {
     return { account: t.account, calendarPath: t.calendar, eventPath: path, writeAccepted: true, verified: false, note: "Schreibantwort erfolgreich, Rücklesen fehlgeschlagen. Genau diese Kennung mit calendar_read_event prüfen; nicht erneut anlegen." };
   }
 }
 
-export type EventInput = { title: string; start?: string; end?: string; startDate?:string;endDate?:string;description?: string; location?: string; reminderMinutes?: number | null };
+export type EventInput = { title: string; start?: string; end?: string; startDate?:string;endDate?:string;timeZone?:string;description?: string; location?: string; reminderMinutes?: number | null;url?:string;status?:'CONFIRMED'|'TENTATIVE'|'CANCELLED';classification?:'PUBLIC'|'PRIVATE'|'CONFIDENTIAL';transparency?:'OPAQUE'|'TRANSPARENT';categories?:string[];reminderEdits?:AlarmEdit[];addReminders?:NewAlarm[] };
+
+function extraProperties(input:Partial<EventInput>){
+ const m=new Map<string,string>();for(const [field,name,allowed] of [['status','STATUS',['CONFIRMED','TENTATIVE','CANCELLED']],['classification','CLASS',['PUBLIC','PRIVATE','CONFIDENTIAL']],['transparency','TRANSP',['OPAQUE','TRANSPARENT']]] as const){const v=input[field];if(v!==undefined){if(!(allowed as readonly string[]).includes(v))throw Error('Ungültige Terminzusatzangabe.');m.set(name,`${name}:${v}`);}}
+ if(input.url!==undefined){if(input.url!==''&&(!/^https?:\/\//i.test(input.url)||/[\x00-\x20\x7f]/.test(input.url)||input.url.length>2048))throw Error('Termin-URL muss HTTP(S) ohne Steuer-/Leerzeichen sein.');if(input.url){const u=new URL(input.url);if(u.username||u.password)throw Error('Keine Zugangsdaten in Termin-URL.');}m.set('URL',input.url?`URL:${input.url}`:'');}
+ if(input.categories!==undefined){if(input.categories.length>20||input.categories.some(s=>!s.trim()||s.length>100||/[\r\n\x00-\x1f\x7f]/.test(s))||new Set(input.categories).size!==input.categories.length)throw Error('Höchstens20 eindeutige Kategorien.');m.set('CATEGORIES',input.categories.length?`CATEGORIES:${input.categories.map(escapeText).join(',')}`:'');}return m;
+}
 
 export async function createCalendarEvent(calendarPath: string, eventId: string, input: EventInput) {
   if (!/^[A-Za-z0-9][A-Za-z0-9_-]{7,79}$/.test(eventId)) throw new Error("Eine stabile Ereigniskennung mit 8–80 Buchstaben/Ziffern, Bindestrichen oder Unterstrichen ist erforderlich.");
-  const range=eventRange(input);
+  let range=eventRange(input);
   const t = await target(calendarPath), path = t.calendar + eventId + ".ics";
+  let zone:string[]=[];if(input.timeZone!==undefined){if(!input.start||!input.end||input.startDate!==undefined||input.endDate!==undefined)throw Error('Benannte Zeitzone nur zusammen mit Start/Ende.');const r=await namedEventRange(t.calendar,input.start,input.end,input.timeZone);range=r.range;zone=r.zone;}
+  if(input.reminderEdits!==undefined)throw Error('Alarmindizes gelten nur beim Bearbeiten.');
+  if(input.reminderMinutes!==undefined&&input.addReminders!==undefined)throw Error('Eine Erinnerungsvariante wählen.');
   const now = stamp(new Date());
-  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//NOVAFORGE//Nextcloud Connector//DE", "CALSCALE:GREGORIAN", "BEGIN:VEVENT", `UID:${eventId}@novaforge`, `DTSTAMP:${now}`, `CREATED:${now}`, `LAST-MODIFIED:${now}`, "SEQUENCE:0", ...range, `SUMMARY:${escapeText(input.title)}`, `DESCRIPTION:${escapeText(input.description ?? "")}`, `LOCATION:${escapeText(input.location ?? "")}`, "STATUS:CONFIRMED", "TRANSP:OPAQUE"];
+  const extras=extraProperties({...input,status:input.status??'CONFIRMED',transparency:input.transparency??'OPAQUE'});
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//NOVAFORGE//Nextcloud Connector//DE", "CALSCALE:GREGORIAN", ...zone,"BEGIN:VEVENT", `UID:${eventId}@novaforge`, `DTSTAMP:${now}`, `CREATED:${now}`, `LAST-MODIFIED:${now}`, "SEQUENCE:0", ...range, `SUMMARY:${escapeText(input.title)}`, `DESCRIPTION:${escapeText(input.description ?? "")}`, `LOCATION:${escapeText(input.location ?? "")}`, ...[...extras.values()].filter(Boolean)];
   if (input.reminderMinutes != null) lines.push("BEGIN:VALARM", "ACTION:DISPLAY", `TRIGGER:-PT${input.reminderMinutes}M`, "DESCRIPTION:Terminerinnerung", "END:VALARM");
   lines.push("END:VEVENT", "END:VCALENDAR");
-  await mutation(path, "PUT", null, serialize(lines));
-  return verify(t, path);
+  const body=serialize(changeEventAlarms(lines,[],input.addReminders));await mutation(path, "PUT", null, body);
+  return verify(t, path,false,body);
 }
 
 export async function updateCalendarEvent(calendarPath: string, eventPath: string, etag: string, patch: Partial<EventInput>) {
   strongEtag(etag);
   if (!Object.keys(patch).length) throw new Error("Mindestens eine Änderung ist erforderlich.");
-  const range = ['start','end','startDate','endDate'].some(k=>Object.hasOwn(patch,k)) ? eventRange(patch) : undefined;
+  let range = ['start','end','startDate','endDate'].some(k=>Object.hasOwn(patch,k)) ? eventRange(patch) : undefined;
+  if(patch.timeZone!==undefined&&(!patch.start||!patch.end||patch.startDate!==undefined||patch.endDate!==undefined))throw Error('Benannte Zeitzone nur zusammen mit Start/Ende.');
+  if(patch.reminderMinutes!==undefined&&(patch.reminderEdits!==undefined||patch.addReminders!==undefined))throw Error('Eine Erinnerungsvariante wählen.');
   const t = await target(calendarPath, eventPath), current = await readAt(t.calendar, t.path!);
   if (!current.found) throw new Error("Ereignis nicht gefunden.");
   if (current.etag !== etag) throw new Error("Versionskonflikt: Ereignis wurde inzwischen geändert. Neu lesen und neu entscheiden.");
   const parsed = editable(current.calendarData);
-  const replacements = new Map<string, string>();
+  let zone:string[]=[];if(patch.timeZone!==undefined){const r=await namedEventRange(t.calendar,patch.start!,patch.end!,patch.timeZone,current.calendarData);range=r.range;zone=r.zone;}
+  const replacements = extraProperties(patch);
+  for(const name of replacements.keys())if(parsed.eventIndices.filter(i=>key(parsed.lines[i])===name).length>1)throw Error('Zu ändernde Termineigenschaft ist mehrfach vorhanden.');
   for (const [field, name] of [["title", "SUMMARY"], ["description", "DESCRIPTION"], ["location", "LOCATION"]] as const) if (patch[field] !== undefined) replacements.set(name, `${name}:${escapeText(patch[field])}`);
   if (range) { replacements.set("DTSTART", range[0]); replacements.set("DTEND", range[1]); replacements.set("DURATION", ""); }
   const oldSequence = parsed.eventIndices.map(i => parsed.lines[i]).find(l => key(l) === "SEQUENCE");
@@ -194,7 +213,7 @@ export async function updateCalendarEvent(calendarPath: string, eventPath: strin
     if (i === parsed.eventEnd) for (const replacement of replacements.values()) if (replacement) lines.push(replacement);
     const line = parsed.lines[i], name = key(line);
     if (indices.has(i) && replacements.has(name)) { const replacement = replacements.get(name)!; if (replacement) lines.push(replacement); replacements.delete(name); }
-    else lines.push(line);
+    else {if(line.toUpperCase()==='BEGIN:VEVENT')lines.push(...zone);lines.push(line);}
   }
   let changed=lines;
   if(patch.reminderMinutes!==undefined) {
@@ -214,8 +233,9 @@ export async function updateCalendarEvent(calendarPath: string, eventPath: strin
       changed=[...lines.slice(0,end),'BEGIN:VALARM','ACTION:DISPLAY',trigger,'DESCRIPTION:Terminerinnerung','END:VALARM',...lines.slice(end)];
     }
   }
-  await mutation(t.path!, "PUT", etag, serialize(changed));
-  return verify(t, t.path!);
+  changed=changeEventAlarms(changed,patch.reminderEdits,patch.addReminders);
+  const body=serialize(changed);await mutation(t.path!, "PUT", etag, body);
+  return verify(t, t.path!,false,body);
 }
 
 export async function deleteCalendarEvent(calendarPath: string, eventPath: string, etag: string) {

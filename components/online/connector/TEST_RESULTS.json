@@ -1,47 +1,40 @@
 {
-  "schemaVersion": 1,
-  "date": "2026-10-23",
-  "edition": "sanitized online/browser source snapshot 1.31.1",
-  "upstreamCommit": "ca1fb50642c0b3cab7c5f9d898e36fba7befdf38",
+  "schemaVersion": 2,
+  "date": "2026-10-27",
+  "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+  "edition": "sanitized AGPL source snapshot",
   "runtime": {
     "os": "Linux x86_64",
-    "node": "24.19.0",
+    "node": "24.22.1",
     "npm": "11.9.0",
-    "phpSyntaxOnly": "8.3.6"
+    "python": "3.12.14",
+    "phpProtocolAndSyntax": "8.5.10 via PHP-WASM CLI; not a Nextcloud installation"
   },
+  "liveChangesBySourceChecks": false,
+  "modelOrFreshInstallAcceptanceBySourceChecks": false,
+  "version": "1.35.0",
   "checks": {
     "lockedInstall": {
-      "command": "npm run install:ci",
       "passed": true,
       "installedPackages": 593
     },
     "unit": {
-      "command": "npm run test:unit",
-      "testFiles": 42,
-      "passed": 503,
-      "failed": 0
-    },
-    "browserBuild": {
-      "command": "npm run build:browser",
-      "passed": true,
-      "observedThirdPartyPackages": 17,
-      "ownSourceInputs": 14
-    },
-    "workerBuild": {
-      "command": "npm run build",
-      "passed": true
+      "passed": 730,
+      "failed": 0,
+      "testFiles": 59
     },
     "builtWorker": {
-      "command": "npm run test:built",
       "passed": 2,
       "failed": 0
     },
+    "browserBuild": {
+      "passed": true,
+      "thirdPartyPackages": 17
+    },
+    "workerBuild": {
+      "passed": true
+    },
     "python": {
-      "commands": [
-        "python3 tests/pdf-workbench.test.py",
-        "python3 tests/pdf-assembly.test.py",
-        "python3 tests/upload-original.test.py"
-      ],
       "passed": [
         7,
         4,
@@ -49,103 +42,15 @@
       ],
       "failed": 0
     },
-    "phpSyntax": {
-      "passed": 20,
-      "files": [
-        "ops/general-tables-bridge/appinfo/routes.php",
-        "ops/general-tables-bridge/lib/Controller/GeneralController.php",
-        "ops/general-tables-bridge/lib/Service/GeneralWriteService.php",
-        "ops/general-tables-install-test-0.3.0.php",
-        "ops/intake-bridge/appinfo/routes.php",
-        "ops/intake-bridge/lib/Controller/RegisterController.php",
-        "ops/intake-bridge/lib/Service/RegisterWriteService.php",
-        "ops/intake-install-test-0.2.1.php",
-        "ops/pdf-bridge-repair-0.1.1.php",
-        "ops/register-share-soul-0.1.0.php",
-        "ops/tables-http-test-0.1.0.php",
-        "ops/tables-pilot-bridge/appinfo/routes.php",
-        "ops/tables-pilot-bridge/installer-template.php",
-        "ops/tables-pilot-bridge/lib/Controller/PilotController.php",
-        "ops/tables-pilot-bridge/lib/Service/PilotWriteService.php",
-        "ops/tables-pilot-http-install-0.1.2.php",
-        "ops/tables-read-bridge/Controller.php",
-        "ops/tables-read-bridge/routes.php",
-        "ops/tables-read-bridge-install-0.1.0.php",
-        "ops/tables-write-pilot-0.1.1.php"
-      ],
-      "excludedUnexpandedTemplates": [
-        "ops/general-tables-bridge/installer-template.php",
-        "ops/intake-bridge/installer-template.php"
-      ]
-    },
-    "legacyDefaultDenied": {
-      "passed": 8,
-      "failed": 0,
-      "exitCode": 78,
-      "files": [
-        {
-          "path": "ops/general-tables-install-test-0.3.0.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        },
-        {
-          "path": "ops/intake-install-test-0.2.1.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        },
-        {
-          "path": "ops/pdf-bridge-repair-0.1.1.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        },
-        {
-          "path": "ops/register-share-soul-0.1.0.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        },
-        {
-          "path": "ops/tables-http-test-0.1.0.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        },
-        {
-          "path": "ops/tables-pilot-http-install-0.1.2.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        },
-        {
-          "path": "ops/tables-read-bridge-install-0.1.0.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        },
-        {
-          "path": "ops/tables-write-pilot-0.1.1.php",
-          "syntaxPassed": true,
-          "disabledExitCode": 78,
-          "blockedBeforeBootstrapAndPrompt": true
-        }
-      ]
+    "historicalCliDefaultGuards": {
+      "blocked": 8,
+      "bootstrapReached": false
     }
   },
-  "historicalTestCorrections": [
-    "Initial unit run: 501 passed / 2 failed from stale expected values. Discovery expected 152 but checkpoint supplies 158 tools, including six bounded GitHub operations.",
-    "Capabilities expected version 1.21.1 and deletion unavailable; checkpoint is 1.31.1 and trash deletion is implemented. Assertions corrected to the existing contract; application code unchanged for these corrections.",
-    "Affected tests: 25/25 passed; final complete isolated unit run: 503/503 passed."
-  ],
-  "limits": [
-    "No production installation modified, no prepared 1.32 code deployed.",
-    "No independent hosting authentication acceptance: trusted identity headers require the original hosting boundary or an explicitly trusted identity adapter.",
-    "Synthetic HTTP fixtures and ephemeral test keys; no successful live GitHub/Nextcloud operation is claimed by these tests.",
-    "Built Worker invoked in a Node process, not a fresh Cloudflare production environment.",
-    "Historical instance-bound maintenance scripts remain disabled by default; unexpanded generator templates are not standalone PHP programs.",
-    "Source edition is intentionally not byte-identical to the production archive; provenance records sanitization.",
-    "Full private Git history, LM Studio delivery, other native apps, deployment secrets, generated bundles and node_modules are excluded."
+  "boundaries": [
+    "Synthetic HTTP/temporary keys only; not live GitHub/Nextcloud writes",
+    "Native project fixtures have a separate component",
+    "Two stale discovery/version assertions updated to actual 200 tools/1.35.0; application unchanged",
+    "Not a fresh independent authentication/hosting or product acceptance"
   ]
 }

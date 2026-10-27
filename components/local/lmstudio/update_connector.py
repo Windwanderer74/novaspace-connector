@@ -17,9 +17,14 @@ def verify_package(root):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--expected-user', required=True, choices=['Soul', 'OtherUser'])
+    parser.add_argument('--expected-user', required=True, choices=['Soul', 'ExampleUser'])
     parser.add_argument('--install', action='store_true')
     parser.add_argument('--enable-file-sharing', action='store_true', help='Zusaetzlich bewusst Dateifreigaben verwalten erlauben')
+    parser.add_argument('--enable-calendar-replies', action='store_true', help='Eigene Kalenderantworten bewusst uebermitteln erlauben')
+    parser.add_argument('--enable-contact-sharing', action='store_true', help='Eigene Adressbuchfreigaben bewusst erlauben')
+    parser.add_argument('--enable-contact-management', action='store_true', help='Gesamte eigene Adressbuecher dauerhaft entfernen erlauben')
+    parser.add_argument('--enable-deck-trash', action='store_true', help='Ausgewaehlte Deckkarten/Listen bewusst im nativen Papierkorb verwalten')
+    parser.add_argument('--enable-deck-sharing', action='store_true', help='Boardfreigaben bewusst verwalten erlauben')
     parser.add_argument('--enable-file-trash', action='store_true', help='Zusaetzlich bewusst Papierkorbverwaltung erlauben')
     parser.add_argument('--enable-notes', action='store_true', help='Native Notizen bewusst lesen und bearbeiten erlauben')
     parser.add_argument('--enable-planning', action='store_true', help='Notizen, Aufgaben und Kontakte bewusst lesen und bearbeiten erlauben')
@@ -32,6 +37,11 @@ def main():
     core = root / 'nextcloud-local-candidate' / 'install.py'
     common = ['--expected-user', args.expected_user]
     core_scopes = ['--enable-scope', 'files:share'] if args.enable_file_sharing else []
+    if args.enable_calendar_replies: core_scopes += ['--enable-scope', 'calendar:schedule']
+    if args.enable_contact_sharing: core_scopes += ['--enable-scope', 'contacts:share']
+    if args.enable_contact_management: core_scopes += ['--enable-scope', 'contacts:manage']
+    if args.enable_deck_trash: core_scopes += ['--enable-scope', 'deck:trash']
+    if args.enable_deck_sharing: core_scopes += ['--enable-scope', 'deck:share']
     if args.enable_file_trash: core_scopes += ['--enable-scope', 'files:trash']
     if args.enable_notes: core_scopes += ['--enable-scope', 'notes:read', '--enable-scope', 'notes:write']
     if args.enable_planning:
@@ -50,8 +60,10 @@ def main():
     # The new selection remains compatible with the old core if the second step fails.
     subprocess.run([sys.executable, str(topics), *common], check=True, timeout=240)
     subprocess.run([sys.executable, str(core), *common, *core_scopes], check=True, timeout=240)
-    print('OK: Themenauswahl 0.1.10 und persoenlicher MCP-Kern 1.31.0-local.1 eingetragen.')
+    print('OK: Themenauswahl 0.1.12 und persoenlicher MCP-Kern 1.35.0-local.1 eingetragen.')
     print('Bisherige Freigaben erhalten. Zusaetzlich files:share bewusst freigegeben.' if args.enable_file_sharing else 'Vorhandene Freigaben unveraendert; Dateifreigabeaenderungen nicht neu erlaubt.')
+    if args.enable_calendar_replies: print('Zusaetzlich calendar:schedule bewusst freigegeben.')
+    if args.enable_deck_sharing: print('Zusaetzlich deck:share bewusst freigegeben.')
     if args.enable_file_trash: print('Zusaetzlich files:trash bewusst freigegeben.')
     if args.enable_planning: print('Zusaetzlich notes:read/write, tasks:read/write und contacts:read/write bewusst freigegeben.')
     elif args.enable_notes: print('Zusaetzlich notes:read/write bewusst freigegeben.')
@@ -61,9 +73,8 @@ def main():
     print('Erwartetes Konto:', args.expected_user)
 
 if __name__ == '__main__':
-    if os.environ.get('NOVASPACE_ENABLE_HISTORICAL_INSTALLERS') != 'I_REVIEWED_THE_SOURCE':
-        print('STOP: Historical update only. Read BUILD.md; no installation started.', file=sys.stderr)
-        raise SystemExit(78)
+    if __import__('os').environ.get('NOVASPACE_ENABLE_HISTORICAL_INSTALLERS') != 'I_REVIEWED_THE_SOURCE':
+        raise SystemExit('STOP: Historical installer disabled. Read BUILD.md; no configuration accessed.')
     try:
         main()
     except (Exception, KeyboardInterrupt) as error:

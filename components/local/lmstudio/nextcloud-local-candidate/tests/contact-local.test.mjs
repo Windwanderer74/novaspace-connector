@@ -17,7 +17,7 @@ const names=['contacts_read_addressbook_settings','contacts_create_addressbook',
 test('All six contact additions share the personal source and remain isolated to the contacts group',async()=>{
  const a=await rpc(['calendar:read'],['contacts'],'tools/list',{}),b=await rpc(['calendar:read'],['calendar','files','notes'],'tools/list',{});
  for(const name of names){assert.ok(a.tools.some(t=>t.name===name),name);assert.ok(!b.tools.some(t=>t.name===name),name);}
- assert.equal(a.tools.length,15);for(const t of a.tools)assert.ok(t.name.startsWith('contacts_')||['nextcloud_account','nextcloud_capabilities','novaspace_connector_help'].includes(t.name));
+ assert.equal(a.tools.length,30);for(const t of a.tools)assert.ok(t.name.startsWith('contacts_')||['nextcloud_account','nextcloud_capabilities','novaspace_connector_help'].includes(t.name));
 });
 test('Personal cross-app exchange enforces every extra scope before native access',async()=>{
  let calls=0;globalThis.fetch=async()=>{calls++;throw Error('Unexpected native request');};
@@ -27,5 +27,5 @@ test('Personal cross-app exchange enforces every extra scope before native acces
 });
 test('Local help describes own addressbooks, selected vCards, unchanged identities and no merge',async()=>{
  const r=await rpc(['calendar:read'],['contacts'],'tools/call',{name:'novaspace_connector_help',arguments:{}});
- assert.equal(r.structuredContent.version,'1.31.0-local.1');assert.equal(r.structuredContent.contactWorkFunctions.length,5);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/Original-UID/);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/keine Sammelimporte oder Dublettenverschmelzung/);
+ assert.equal(r.structuredContent.version,'1.35.0-local.1');assert.equal(r.structuredContent.contactWorkFunctions.length,5);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/Original-UID/);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/keine Sammelimporte oder Dublettenverschmelzung/);
 });

@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
 #!/usr/bin/env python3
+# SPDX-License-Identifier: AGPL-3.0-or-later
 """Join authenticated, version-bound PDF chunks. No network or source mutation.
 
 CLI stdin: ASCII JSON-byte-count + newline, followed by exactly that many bytes.

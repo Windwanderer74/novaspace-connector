@@ -1,0 +1,45 @@
+<?php
+// SPDX-License-Identifier: AGPL-3.0-or-later
+declare(strict_types=1);
+use OCA\NovaspaceCapsules\Service\CapsuleCore as Core;
+if (!class_exists(Core::class)) { require __DIR__ . '/../app/lib/Service/CapsuleCore.php'; }
+$checks = 0;
+$ok = static function (bool $value, string $name) use (&$checks): void { if (!$value) { throw new RuntimeException('CORE_TEST:' . $name); } ++$checks; };
+$fails = static function (callable $fn, string $name) use ($ok): void { try { $fn(); } catch (Throwable) { $ok(true, $name); return; } $ok(false, $name); };
+$source = '{"root":{"data":{"id":"root","text":"Projekt","nfSource":{"fileId":"7"},"custom":{},"numeric":{"0":"erhalten"}},"children":[{"data":{"id":"other","text":"Unbeteiligt","note":"äöß"},"children":[]}]},"theme":"fresh","customTop":{}}';
+$map = Core::parse($source); $p = ['boardId' => 30, 'fileId' => 8058, 'rootId' => 'root', 'afterCardId' => 549];
+$card = ['boardId' => 30, 'cardId' => 550, 'title' => 'Ein Ziel', 'description' => "Original\näöß\n", 'done' => null];
+$make = static fn(array $m, array $c = [], array $pr = []) => Core::prepare($m, array_replace($card, $c), array_replace($p, $pr), '/Projekt.km', 'https://example.invalid');
+$out = $make($map); $ok($out['state'] === 'pending' && count($out['map']['root']['children']) === 2, 'one-capsule');
+$ok($out['map']['root']['children'][0] === $map['root']['children'][0], 'other-node-preserved');
+$ok(Core::encode($map) === $source, 'unknown-object-types-and-numeric-keys-preserved');
+$ok(str_ends_with($out['description'], $card['description']), 'full-description-preserved');
+$node = $out['map']['root']['children'][1]; $ok($node['data']['nfDeckSync']['items'] === [] && $node['data']['nfDeckSync']['allChecked'] === false && $node['data']['progress'] === 1, 'empty-is-unplanned');
+$ok($node['data']['nfDeckSync']['lists'][0]['title'] === 'Ziele', 'positive-terms');
+$doneMap = Core::complete($out['map'], $out['nodeId']);
+$done = $make(Core::parse(Core::encode($doneMap)), ['title' => $out['title'], 'description' => $out['description']]);
+$ok($done['changed'] === false && $done['state'] === 'linked', 'repeat-does-not-duplicate');
+$resume = $make(Core::parse(Core::encode($out['map']))); $ok($resume['changed'] && !$resume['writePending'], 'resume-before-card-write');
+$resume2 = $make(Core::parse(Core::encode($out['map'])), ['description' => $out['description']]); $ok(!$resume2['writePending'] && $resume2['title'] === $out['title'], 'resume-after-description');
+$resume3 = $make(Core::parse(Core::encode($out['map'])), ['title' => $out['title'], 'description' => $out['description']]); $ok(!$resume3['writePending'], 'resume-after-card-write');
+$fails(fn() => $make($out['map'], ['description' => 'Zwischenzeitlich geändert']), 'conflicting-card-stops');
+$changed = $out['map']; $changed['root']['children'][1]['data']['note'] = 'Andere Notiz'; $fails(fn() => $make($changed), 'conflicting-note-stops');
+$fails(fn() => $make($map, ['cardId' => 549]), 'pre-existing-cards-excluded');
+$fails(fn() => $make($map, ['boardId' => 29]), 'other-board-excluded');
+$fails(fn() => $make($map, [], ['rootId' => 'different']), 'wrong-root-stops');
+$foreign = '<!-- nf-mindmap:{"version":1,"path":"/Other.km","fileId":"8","nodeId":"n","checklistId":"work"} -->';
+$ok($make($map, ['description' => $foreign])['state'] === 'existing-binding', 'foreign-binding-preserved');
+$fails(fn() => $make($map, ['description' => '<!-- nf-mindmap:broken -->']), 'malformed-binding-stops');
+$fails(fn() => $make($map, ['description' => $foreign . "\n" . $foreign]), 'ambiguous-binding-stops');
+$fails(fn() => $make($map, ['description' => '<!-- nf-checklist:work:start -->']), 'existing-goals-not-erased');
+$collision = $map; $collision['root']['children'][] = ['data' => ['id' => $out['nodeId'], 'text' => 'Eigener Knoten'], 'children' => []];
+$fails(fn() => $make($collision), 'node-id-collision-stops');
+$fails(fn() => Core::parse(str_repeat(' ', Core::MAX_BYTES + 1)), 'byte-limit');
+$fails(fn() => Core::parse('{"root":{"data":{"id":"a","text":"a"},"children":[{"data":{"id":"a","text":"b"}}]}}'), 'duplicate-id');
+$fails(fn() => Core::prepare($map, $card, $p, '/Projekt.km', 'https://user@example.invalid'), 'credential-origin-rejected');
+$ok(Core::apiAllowed('Soul', false, ''), 'native-browser-access');
+$ok(!Core::apiAllowed('ChatGPT', false, ''), 'technical-account-without-proof-denied');
+$ok(!Core::apiAllowed('Soul', true, ''), 'api-without-proof-denied');
+$ok(Core::apiAllowed('ChatGPT', true, 'files-read-write-v1'), 'checked-api-access');
+$ok(!Core::apiAllowed('ChatGPT', true, 'files-read-only'), 'wrong-proof-denied');
+echo 'NovaSpace Projektkapseln: ' . $checks . " Kernprüfungen bestanden.\n";

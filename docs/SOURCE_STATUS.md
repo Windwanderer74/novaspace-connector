@@ -1,3 +1,17 @@
+# Quellstand1.35 · Fortschreibung27. Oktober2026
+
+Online1.35.0, persönlich1.35.0-local.1/Themen0.1.12 und native Projekte0.2.12 sind als aufbereitete eigene AGPL-Quellen aufgenommen. Der genaue Umfang, Eingangs- und Veröffentlichungshashes stehen in den Komponenten-SOURCE_PROVENANCE.json-Dateien. Beispiele ersetzen Betriebsadressen; private Betriebsberichte, Zugangsdaten, erzeugte Bündel und vollständige private Historie gehören nicht zu dieser Quellveröffentlichung.
+
+[Update1.35](updates/1.35.0.md) beschreibt den bestätigten Einbau, die lesende API und den persönlichen LM-Studio-Lesetest. Die praktische Connector-Projektanlage und Wiederaufnahme bleiben offen. Komponentenberichte unterscheiden isolierte Quellprüfungen von Betriebsnachweisen.
+
+Der ältere öffentliche Plattform-/GitHub-Brücken-Snapshot wird hier nicht stillschweigend als aktueller Betriebsquellstand ausgegeben. Sein eigener bisheriger Integrationsnachweis bleibt auf die dort dokumentierten Versionen begrenzt. Der persönliche DPAPI-Wrapper und ein unabhängiger Erstinstallationsweg bleiben gesonderte Arbeit; der vorhandene Herkunftsnachtrag gilt weiterhin.
+
+---
+
+## Historische Quellaufnahmen bis25. Oktober2026
+
+Die folgenden unveränderten Angaben beschreiben frühere Snapshots und deren damalige Grenzen. Für den oben genannten aktuellen Umfang sind die neuen Komponentenberichte maßgeblich.
+
 # Quellaufnahme und Veröffentlichungsstand
 
 Stand: **24. Oktober 2026**. Führende Arbeit: [Aufgabe #4](https://github.com/Windwanderer74/novaspace-connector/issues/4).

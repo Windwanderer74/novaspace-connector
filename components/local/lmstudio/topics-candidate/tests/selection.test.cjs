@@ -15,8 +15,8 @@ function controller(selection,open){
  return {abort,ctl:{abortSignal:abort.signal,getPluginConfig:()=>({get:key=>key==='extraTools'?selection.extraTools??[]:key==='excludedTools'?selection.excludedTools??[]:selection.topics.includes(key)}),client:{plugins:{pluginTools:open}}}};
 }
 
-test('Catalogue has exactly 129 known tools; every tool is selectable',()=>{
- assert.equal(catalogue.length,129);assert.deepEqual(new Set(catalogue.map(t=>t.name)),api.KNOWN_TOOLS);
+test('Catalogue has exactly 171 known tools; every tool is selectable',()=>{
+ assert.equal(catalogue.length,171);assert.deepEqual(new Set(catalogue.map(t=>t.name)),api.KNOWN_TOOLS);
  assert.deepEqual(new Set(names({topics:[...api.MAIN_TOPICS,...api.EXTENSIONS]})),api.KNOWN_TOOLS);
 });
 test('Real SDK configuration reads per-chat switches and defaults; main registers both hooks',async()=>{
@@ -38,12 +38,12 @@ test('LM Studio SDK host accepts configuration from the shipped module; no secon
  host.port.callRpc=async(name,payload)=>{sent.push({name,payload})};
  await host.setConfigSchematics(api.configSchematics);
  assert.equal(sent.length,1);assert.equal(sent[0].name,'setConfigSchematics');
- assert.equal(sent[0].payload.schematics.fields.length,16);
+ assert.equal(sent[0].payload.schematics.fields.length,20);
  assert.equal(sent[0].payload.schematics.fields[0].typeParams.displayName,'Datei');
 });
-test('All 16384 topic combinations have a deduplicated union; source objects survive unchanged',()=>{
+test('All 262144 topic combinations have a deduplicated union; source objects survive unchanged',()=>{
  const topics=[...api.MAIN_TOPICS,...api.EXTENSIONS];
- for(let mask=0;mask<16384;mask++){
+ for(let mask=0;mask<262144;mask++){
   const selected=topics.filter((_,i)=>mask&(1<<i));
   const expected=new Set(api.BASE_TOOLS);
   for(const t of selected)for(const n of api.TOPIC_TOOLS[t])expected.add(n);
@@ -56,7 +56,7 @@ test('All 16384 topic combinations have a deduplicated union; source objects sur
  }
 });
 test('Calendar and mail do not pull in files, unrelated communications or Deck',()=>{
- assert.equal(names({topics:['calendar']}).length,21);
+ assert.equal(names({topics:['calendar']}).length,31);
  assert.equal(names({topics:['mail']}).length,7);
  for(const topic of ['calendar','mail'])assert.ok(names({topics:[topic]}).every(n=>n.startsWith(topic+'_')||api.BASE_TOOLS.includes(n)));
 });
@@ -81,14 +81,14 @@ test('SDK schemas, callbacks and provider identity retain their original referen
 });
 test('API profile carries an explicit allowed_tools list; empty selection has no integration',()=>{
  const request=api.chatRequest({topics:['deck']},'test','local-model',catalogue.map(t=>t.name));
- assert.equal(request.integrations[0].id,api.SOURCE_PLUGIN);assert.equal(request.integrations[0].allowed_tools.length,30);
+ assert.equal(request.integrations[0].id,api.SOURCE_PLUGIN);assert.equal(request.integrations[0].allowed_tools.length,36);
  assert.deepEqual(api.chatRequest({topics:[],excludedTools:api.BASE_TOOLS},'test','local-model',[]).integrations,[]);
 });
 test('Two chats use different selections; source session lives until normal disposal',async()=>{
  const sessions=[];const open=async id=>{assert.equal(id,api.SOURCE_PLUGIN);const s={tools:remote,closed:0,[Symbol.dispose](){this.closed++}};sessions.push(s);return s};
  const a=controller({topics:['mail']},open),b=controller({topics:['calendar']},open);
  const [at,bt]=await Promise.all([run(a.ctl),run(b.ctl)]);
- assert.equal(at.length,7);assert.equal(bt.length,21);assert.equal(sessions[0].closed,0);
+ assert.equal(at.length,7);assert.equal(bt.length,31);assert.equal(sessions[0].closed,0);
  a.abort.abort();assert.equal(sessions[0].closed,1);assert.equal(sessions[1].closed,0);
  b.abort.abort();assert.equal(sessions[1].closed,1);
 });

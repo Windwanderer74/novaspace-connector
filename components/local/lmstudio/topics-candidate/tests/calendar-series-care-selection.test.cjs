@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+const {test}=require('node:test');const assert=require('node:assert/strict');const api=require('../plugin.cjs');const catalog=require('../TOOL-MANIFEST.json');
+test('Calendar topic retains both whole-series contracts without changing source grants or exclusions',()=>{const selected=api.selectTools(catalog,{topics:['calendar'],excludedTools:['calendar_edit_series']});assert.equal(selected.find(t=>t.name==='calendar_prepare_series_edit'),catalog.find(t=>t.name==='calendar_prepare_series_edit'));assert.ok(!selected.some(t=>t.name==='calendar_edit_series'));assert.deepEqual(catalog.find(t=>t.name==='calendar_edit_series')._meta['novaforge/localScopes'],['calendar:write','calendar:read']);});

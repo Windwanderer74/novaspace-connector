@@ -7,6 +7,8 @@ import { inheritWorkPies, mindmapNodeIds } from './mindmap-editor-core';
 import { createNextcloudBrowserClient } from './nextcloud-browser-client';
 import { createWorkStep, workStepIntent } from '../lib/work-step-core';
 import { browserWorkStepClient } from './work-step-client';
+import { syncMindmapTaskEdits } from './task-content-client';
+import { taskContentEditor } from './task-content-editor-ui';
 
 (() => {
   if (!/\/apps\/files(?:\/|$)/.test(location.pathname)) return;
@@ -25,7 +27,7 @@ import { browserWorkStepClient } from './work-step-client';
       if (!doc || !win?.minder || doc.getElementById('nf-workplan-controls')) return;
       const minder = win.minder;
       const bar = doc.createElement('div'); bar.id = 'nf-workplan-controls'; bar.style.cssText = 'display:inline-flex;gap:8px;align-items:center;padding:4px 10px;background:#fff;color:#17232a;border:1px solid #bcc6cb;border-radius:5px;font:14px sans-serif';
-      const edit=doc.createElement('button');edit.textContent='Bedingungen bearbeiten';
+      const edit=doc.createElement('button');edit.textContent='Aufgabe bearbeiten';
       const activate = doc.createElement('button'), create = doc.createElement('button'), work = doc.createElement('button'), feedback = doc.createElement('span');
       work.textContent = 'Arbeitsschritt anlegen';
       activate.textContent = 'Arbeitsplan aktivieren'; create.textContent = 'Deckkarte aus Knoten'; feedback.setAttribute('role','status');
@@ -57,14 +59,27 @@ import { browserWorkStepClient } from './work-step-client';
           delete previous.theme;delete latest.theme;
           if (JSON.stringify(previous)!==JSON.stringify(latest) || candidate.theme!==latestTheme || previousTheme===latestTheme) throw Error('Mindmap wurde anderswo geändert. Bitte schließen und neu öffnen.');
         }
-        await client.saveMap(path,fresh.etag,fresh.fileId,text); base = await client.map(path);
+        const submitted=parseMindmap(text);
+        const synced=await syncMindmapTaskEdits(client,path,fresh.fileId,parseMindmap(base.text),submitted);
+        try { await client.saveMap(path,fresh.etag,fresh.fileId,serializeMindmap(synced.map)); }
+        catch(e) {throw Error(`${synced.written?'Deck ist gespeichert; Mindmap-Abgleich offen. ':''}${e instanceof Error?e.message:'Speichern nicht bestätigt.'}`);}
+        base = await client.map(path);
+        // Advance confirmed baselines without replacing newer typing or local notes.
+        changing=true;
+        try {minder.getRoot().traverse((live:any)=>{
+          let before,after;try{before=locateNode(submitted,live.getData('id')).node;after=locateNode(synced.map,live.getData('id')).node;}catch{return;}
+          if(!after.data.nfDeckSync)return;
+          for(const key of ['nfTaskContent','nfDeckSync','progress'])if(after.data[key]!==undefined)live.setData(key,after.data[key]);
+          if(live.getData('text')===before.data.text)live.setData('text',after.data.text);
+          live.render();
+        });}finally{changing=false;}
       };
       const owner = (window as any).OCA?.FilesMindMap;
       if (owner?.save) {
         const previous = owner.save;
         owner.save = function(text: string, success: Function, failure: Function) {
           if (!frame.isConnected || minder.getRoot().getData('nfDeckAutoNodes') !== 1) return previous.call(this,text,success,failure);
-          queue = queue.then(async () => { try { await persist(text); feedback.textContent = 'Arbeitsplan gespeichert.'; success('Gespeichert'); } catch (e: any) { feedback.textContent=e.message; failure(e.message); } });
+          queue = queue.then(async () => { try { await persist(serializeMindmap(parseMindmap(JSON.stringify(minder.exportJson())))); feedback.textContent = 'Arbeitsplan gespeichert.'; success('Gespeichert'); } catch (e: any) { feedback.textContent=e.message; failure(e.message); } });
         };
       }
       work.onclick = async () => {
@@ -156,7 +171,8 @@ import { browserWorkStepClient } from './work-step-client';
           const ref={boardId,stackId:stack.id,cardId},card=await client.card(ref);
           const dialog=doc.createElement('dialog');dialog.style.cssText='max-width:760px;width:90%;max-height:85vh;overflow:auto;padding:20px;background:white;color:#17232a';
           const close=doc.createElement('button');close.textContent='Schließen';close.onclick=()=>dialog.remove();
-          dialog.append(close,conditionEditor(doc,client,ref,card,async()=>{base=await client.map(path);const updated=parseMindmap(base.text);changing=true;await minder.importJson(updated);known=mindmapNodeIds(updated);changing=false;}));doc.body.append(dialog);dialog.showModal();
+          const refresh=async()=>{base=await client.map(path);const updated=parseMindmap(base.text);changing=true;try{await minder.importJson(updated);known=mindmapNodeIds(updated);}finally{changing=false;}};
+          dialog.append(close,taskContentEditor(doc,client,ref,refresh),conditionEditor(doc,client,ref,card,refresh));doc.body.append(dialog);dialog.showModal();
         }catch(e:any){feedback.textContent=e.message;}
       };
       if (minder.getRoot().getData('nfDeckAutoNodes')===1) activate.textContent='Arbeitsplan aktiv';

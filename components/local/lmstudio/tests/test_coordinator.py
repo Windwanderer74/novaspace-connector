@@ -30,4 +30,23 @@ class CoordinatorTests(unittest.TestCase):
         self.assertEqual(len(scopes),6)
         self.assertEqual(len(set(scopes)),6)
 
+class DeckShareScopeTests(unittest.TestCase):
+    run_check=CoordinatorTests.run_check
+    def test_calendar_response_requires_the_explicit_option(self):
+        self.assertEqual(self.run_check(['--enable-calendar-replies']),['calendar:schedule'])
+    def test_deck_share_requires_the_explicit_option(self):
+        self.assertEqual(self.run_check(['--enable-deck-sharing']),['deck:share'])
+
+class ContactManagementScopeTests(unittest.TestCase):
+    run_check=CoordinatorTests.run_check
+    def test_contact_sharing_requires_explicit_option(self):
+        self.assertEqual(self.run_check(['--enable-contact-sharing']),['contacts:share'])
+    def test_contact_management_requires_explicit_option(self):
+        self.assertEqual(self.run_check(['--enable-contact-management']),['contacts:manage'])
+
+class DeckTrashScopeTests(unittest.TestCase):
+    run_check=CoordinatorTests.run_check
+    def test_deck_trash_requires_explicit_option(self):
+        self.assertEqual(self.run_check(['--enable-deck-trash']),['deck:trash'])
+
 if __name__=='__main__':unittest.main()

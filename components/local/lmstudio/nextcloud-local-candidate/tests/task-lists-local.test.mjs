@@ -27,5 +27,5 @@ test('Personal metadata tools enforce each task scope before native access',asyn
 });
 test('Personal help explains ownership, pure lists and uncertainty in the new candidate version',async()=>{
  const r=await rpc(['calendar:read'],['tasks'],'tools/call',{name:'novaspace_connector_help',arguments:{}});
- assert.equal(r.structuredContent.version,'1.31.0-local.1');assert.equal(r.structuredContent.taskListFunctions.length,4);assert.match(JSON.stringify(r.structuredContent.taskListFunctions),/Technisches Konto/);assert.match(JSON.stringify(r.structuredContent.taskListFunctions),/Keine Listenlöschung/);assert.match(JSON.stringify(r.structuredContent.taskListFunctions),/nicht erneut anlegen/);
+ assert.equal(r.structuredContent.version,'1.35.0-local.1');assert.equal(r.structuredContent.taskListFunctions.length,4);assert.match(JSON.stringify(r.structuredContent.taskListFunctions),/Technisches Konto/);assert.match(JSON.stringify(r.structuredContent.taskListFunctions),/Keine Listenlöschung/);assert.match(JSON.stringify(r.structuredContent.taskListFunctions),/nicht erneut anlegen/);
 });

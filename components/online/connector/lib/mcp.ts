@@ -8,6 +8,7 @@ import {registerGeneralTablesWriteTools} from './mcp-tables-general-write';
 import { enforceConnectionPermissions } from './mcp-permissions';
 import { registerInventoryTools } from './mcp-inventory';
 import { registerMindmapTools } from './mcp-mindmap';
+import { registerProjectCreationTools } from './mcp-project-creation';
 import { registerFilesWriteTools } from "./mcp-files";
 import { registerFileContentTools } from "./mcp-file-content";
 import { registerTablesWriteTools } from "./mcp-tables-write";
@@ -33,6 +34,7 @@ import { registerAnnouncementsReadTools } from "./mcp-announcements";
 import { registerMailReadTools } from "./mcp-mail";
 import { registerTalkReadTools } from "./mcp-talk";
 import { CONNECTOR_VERSION } from "./connector-version";
+import { createProjectAwareCard, resumeProjectCapsuleCard } from './project-capsule-card';
 import { updateCardInMindmapWorkflow } from './deck-mindmap-workflow';
 
 const DEFAULT_BOARD_ID = 5;
@@ -226,7 +228,7 @@ export function createDeckMcpServer() {
   server.registerTool("create_card", {
     ...scopeMetadata(WRITE_SCOPE),
     title: "Deck-Karte anlegen",
-    description: "Legt eine neue Karte in einer Liste des NOVAFORGE-Boards an.",
+    description: "Legt eine neue Karte an. In nativ verbundenen NovaSpace-Projekten kann die Arbeitskapsel mit Zielliste ergänzt werden; dafür deck:read/files:read/files:write und schreibende Mindmap-Freigabe. Ohne diese Freigaben wird außerhalb des strengen Pilotboards30 keine Dateischreibbefugnis weitergegeben. Unverbundene Boards bleiben im bisherigen Modus. Bei unklarer Anlage dieselbe Karte lesen, nicht wiederholen.",
     inputSchema: z.object({
       boardId: z.number().int().positive().default(DEFAULT_BOARD_ID),
       stackId: z.number().int().positive(),
@@ -238,23 +240,42 @@ export function createDeckMcpServer() {
   }, async (input, context) => {
     const authError = requireScope(context, WRITE_SCOPE);
     if (authError) return authError;
-    return result({ card: await createCard(input), url: deckBoardUrl(input.boardId) });
+    const outcome = await createProjectAwareCard(input, context);
+    if (outcome.denial) return outcome.denial;
+    return result({ card: outcome.card, url: deckBoardUrl(input.boardId) });
+  });
+
+  server.registerTool('mindmap_resume_project_card', {
+    ...scopeMetadata(WRITE_SCOPE), title: 'Vorhandene Projektkapsel-Zuordnung fortsetzen',
+    description: 'Prüft genau eine vorhandene neue Karte im MCP-Pilotboard30 und vervollständigt ihre offene Mindmap-Zuordnung. Keine Kartenanlage und keine automatische Wiederholung. Board/Liste/Karte vorher frisch lesen. Benötigt deck:read/deck:write/files:read/files:write sowie schreibende Mindmap-Freigabe und native Erweiterung ab0.1.1. Bei unklarem Ergebnis dieselbe Karte lesen.',
+    inputSchema: z.object({ boardId: z.literal(30), stackId: z.number().int().positive(), cardId: z.number().int().min(550) }),
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  }, async (input, context) => {
+    const outcome = await resumeProjectCapsuleCard(input, context);
+    if (outcome.denial) return outcome.denial;
+    return result(outcome.result!);
   });
 
   server.registerTool("update_card", {
     ...scopeMetadata(WRITE_SCOPE),
     title: "Deck-Karte bearbeiten",
-    description: "Ändert gezielt Titel, Beschreibung, Fälligkeit, Erledigtstatus oder Archivstatus einer Karte und liest zurück. Bei ausdrücklich gespeicherter nf-mindmap-Zuordnung werden im selben Arbeitsaufruf das Kreissymbol im Titel und die zugeordnete Mindmap aktualisiert; hierfür zusätzlich deck:read/files:read/files:write erforderlich. Neue Checkbox-Zeilen im gewählten Bereich bekommen interne Kennungen. Bei mindmap.pending ist Deck bereits gespeichert: nur den Abgleich prüfen, die Kartenänderung nicht wiederholen. Andere Karten bleiben im bisherigen Modus. archived und done sind getrennt; unangegebene Felder bleiben erhalten. Vor Änderungen frisch lesen.",
+    description: "Ändert gezielt Titel, Kartenbeschreibung, Fälligkeit, Erledigtstatus oder Archivstatus und liest zurück. Bei bestätigter nf-mindmap-Zuordnung ist title der gemeinsame Aufgabenname; taskDescription ändert nur die gemeinsame Aufgabenbeschreibung und erhält übrige Kartenprosa, Bedingungen und eigene Mindmap-Notizen. Dafür expectedVersion aus deck_read_card und expectedMapEtag aus mindmap_read angeben; beide Guards auch bei title oder vollständiger description empfohlen. Nicht mit description (vollständiger Kartentext) kombinieren. syncTaskContent=true gleicht das vorhandene gespeicherte Paar ab, auch nach offenem Mindmap-Abgleich, ohne eine frühere Änderung erneut zu beauftragen. Gemeinsamer Browser-Abgleichskern, Konfliktstopp und feste Kennungen; zusätzlich deck:read/files:read/files:write erforderlich. Widersprüchliche gespeicherte oder angeforderte Änderungen stoppen vor Schreiben. Neue Checkbox-Zeilen bekommen interne Kennungen. Bei mindmap.pending ist Deck bereits gespeichert: frisch lesen und nur den Abgleich fortsetzen. Andere Karten bleiben im bisherigen Modus; taskDescription/syncTaskContent benötigen die Zuordnung. archived und done sind getrennt. Vor Änderungen frisch lesen. Deck bietet keine atomare Versionsbedingung; Mindmap wird mit If-Match geschrieben.",
     inputSchema: z.object({
       boardId: z.number().int().positive().default(DEFAULT_BOARD_ID),
       stackId: z.number().int().positive(),
       cardId: z.number().int().positive(),
       title: z.string().min(1).max(255).optional(),
       description: z.string().optional(),
+      taskDescription: z.string().max(16000).optional().describe('Nur gemeinsame Aufgabenbeschreibung; leere Zeichenfolge leert sie. Keine Mindmap-Planungsnotiz und kein vollständiger Kartentext.'),
+      syncTaskContent: z.literal(true).optional().describe('Vorhandenen gemeinsamen Aufgabeninhalt gezielt abgleichen; keine frühere Bearbeitung wiederholen.'),
+      expectedVersion: z.string().regex(/^[a-f0-9]{64}$/).optional().describe('Frische version aus deck_read_card; für taskDescription erforderlich, für andere Bearbeitungen zusätzlich nutzbar.'),
+      expectedMapEtag: z.string().max(255).regex(/^"[^"\x00-\x20\x7f]+"$/).optional().describe('Frischer etag aus mindmap_read der bestätigten Zuordnung; für taskDescription erforderlich.'),
       duedate: z.iso.datetime({ offset: true }).nullable().optional(),
       done: z.iso.datetime({ offset: true }).nullable().optional().describe("Zeitpunkt für geprüft/erledigt; null hebt den Status auf"),
       archived: z.boolean().optional().describe("Archivstatus unabhängig von done: true archivieren, false wieder aktivieren; bekannte Kartenkennung beibehalten"),
-    }).refine((value) => value.title !== undefined || value.description !== undefined || value.duedate !== undefined || value.done !== undefined || value.archived !== undefined, { message: "Mindestens ein zu änderndes Feld ist erforderlich." }),
+    }).refine((value) => value.description === undefined || value.taskDescription === undefined, { message: 'description und taskDescription nicht kombinieren.' })
+      .refine((value) => value.taskDescription === undefined || (value.expectedVersion !== undefined && value.expectedMapEtag !== undefined), { message: 'taskDescription benötigt expectedVersion und expectedMapEtag aus frischer Karten-/Mindmap-Lesung.' })
+      .refine((value) => value.title !== undefined || value.description !== undefined || value.taskDescription !== undefined || value.syncTaskContent || value.duedate !== undefined || value.done !== undefined || value.archived !== undefined, { message: "Mindestens ein zu änderndes Feld oder gezielter Inhaltsabgleich ist erforderlich." }),
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
   }, async (input, context) => {
     const authError = requireScope(context, WRITE_SCOPE);
@@ -291,5 +312,6 @@ export function createDeckMcpServer() {
   registerTablesWriteTools(server);
   registerGeneralTablesWriteTools(server);
   registerMindmapTools(server);
+  registerProjectCreationTools(server);
   return server;
 }

@@ -123,6 +123,7 @@ async function allComments(cardId: number) {
   }
   throw new Error('Kommentarbestand nicht vollständig gelesen.');
 }
+export async function readDeckMoveComments(cardId: number) { return allComments(cardId); }
 export async function listDeckComments(a: CardRef & { limit: number; offset: number; expectedSnapshot?: string }) {
   const card = await readPlanningCard(a.boardId, a.stackId, a.cardId);
   const comments = await allComments(a.cardId), snapshot = await planningVersion(comments);

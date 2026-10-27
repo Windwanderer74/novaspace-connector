@@ -79,7 +79,7 @@ export function canonicalWorkflowMetadata(description:string) {
 
 export type ConditionListDefinition = { id: string; title: string };
 const conditionMarker = (lists: ConditionListDefinition[]) => `<!-- nf-conditions:${JSON.stringify({ version: 1, lists })} -->`;
-function outsideMarkers(description: string, prefix: string) {
+export function outsideMarkers(description: string, prefix: string) {
   const found: {raw:string; start:number; end:number}[] = []; let fence: {char:string; size:number}|null=null, offset=0;
   for (const line of description.split('\n')) {
     const code=/^ {0,3}(`{3,}|~{3,})(.*)$/.exec(line);

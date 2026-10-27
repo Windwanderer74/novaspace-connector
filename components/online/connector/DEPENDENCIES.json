@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "date": "2026-10-23",
   "scope": "Lock inventory is not a shipped-module claim. Browser inputs were observed in the actual esbuild metafile. Direct dependencies/build tools are recorded separately; Worker tree-shaking is not exhaustively classified.",
-  "packageLockSha256": "96fcf595c132a4bb77db9e5123c0aa1a4193561b8fba6f216d947212038a2233",
+  "packageLockSha256": "8a7981b12c66ff376842ea1707c5c0d557cd9ee5a1276e8672a74484c5f82dfb",
   "lockedPackages": [
     {
       "path": "node_modules/@alloc/quick-lru",
@@ -7153,17 +7153,23 @@
     "browser/condition-editor-ui.ts",
     "browser/deck-mindmap-client.ts",
     "browser/deck-mindmap-ui.ts",
+    "browser/linked-card-notes.ts",
     "browser/mindmap-editor-core.ts",
     "browser/mindmap-editor-ui.ts",
     "browser/nextcloud-browser-client.ts",
     "browser/source-capsule-client.ts",
     "browser/source-capsule-ui.ts",
+    "browser/task-content-client.ts",
+    "browser/task-content-editor-ui.ts",
     "browser/work-step-client.ts",
+    "lib/deck-card-snapshot.ts",
     "lib/mindmap-core.ts",
     "lib/mindmap-deck-core.ts",
     "lib/mindmap-workflow-core.ts",
+    "lib/shared-task-content.ts",
     "lib/source-capsule-core.ts",
+    "lib/text-file-limits.ts",
     "lib/work-step-core.ts"
   ],
-  "browserMetafileSha256": "d8619852b9378bf061d92110476c54ab39ea2ecdad302c0337c0d2667efb22eb"
+  "browserMetafileSha256": "d7195a84731736e466caaf7c59452bff402191cc1cd199d824447cb6c16aa235"
 }

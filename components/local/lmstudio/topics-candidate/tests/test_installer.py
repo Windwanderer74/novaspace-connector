@@ -30,7 +30,7 @@ class InstallerTests(unittest.TestCase):
         self.assertEqual(module.verified_source(self.mcp,'Soul')['version'],'1.21.0-local.1')
         self.assertEqual(json.loads(self.mcp)['mcpServers']['other']['command'],'keep')
     def test_account_cannot_be_substituted(self):
-        with self.assertRaises(RuntimeError):module.verified_source(self.mcp,'OtherUser')
+        with self.assertRaises(RuntimeError):module.verified_source(self.mcp,'ExampleUser')
     def test_changed_entry_and_old_version_rejected(self):
         for change in [{'version':'1.7.1-local.1'},{'installedEntry':{}}]:
             old=dict(self.receipt);self.receipt.update(change);self.write()
@@ -68,7 +68,7 @@ class InstallerTests(unittest.TestCase):
     def test_new_core_receipt_keeps_the_same_expected_user(self):
         self.receipt['version']='1.22.0-local.1';self.write()
         self.assertEqual(module.verified_source(self.mcp,'Soul')['version'],'1.22.0-local.1')
-        with self.assertRaises(RuntimeError):module.verified_source(self.mcp,'OtherUser')
+        with self.assertRaises(RuntimeError):module.verified_source(self.mcp,'ExampleUser')
 
     def test_actual_012_bundle_pin_is_supported(self):
         import hashlib

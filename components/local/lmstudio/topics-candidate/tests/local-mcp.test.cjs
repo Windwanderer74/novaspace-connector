@@ -17,7 +17,7 @@ test('Local source loader binds receipt/account/code and excludes tokens and plu
  writeFileSync(join(home,'.lmstudio/mcp.json'),JSON.stringify({mcpServers:{'nextcloud-pilot-next2':entry}}));
  const local={baseUrl:'https://cloud.example.invalid',expectedUser:'Soul'};
  writeFileSync(join(installed,'local.json'),JSON.stringify(local));
- writeFileSync(join(installed,'installation.json'),JSON.stringify({version:'1.31.0-local.1',expectedUser:'Soul',installedEntry:entry}));
+ writeFileSync(join(installed,'installation.json'),JSON.stringify({version:'1.35.0-local.1',expectedUser:'Soul',installedEntry:entry}));
  writeFileSync(join(installed,'SHA256SUMS.json'),JSON.stringify({'start_local.py':hash(script),'dist/nextcloud-local.cjs':hash(join(installed,'dist/nextcloud-local.cjs'))}));
  const source=api.loadSourceSettings(home,'win32');assert.equal(source.expectedUser,'Soul');assert.equal(source.parameters.command,'python.exe');
  assert.deepEqual(source.parameters.env,{PYTHONUTF8:'1',NC_MCP_TALK_SEND:'false'});
@@ -35,7 +35,7 @@ function source(expectedUser='Soul',inventory=false){
 test('Real child process serves combined tools and account; MCP scope guard still rejects writes',async()=>{
  const abort=new AbortController();const session=await api.connectLocalMcp(source(),{topics:['files','deck','mindmap']},abort.signal);
  try{
-  assert.equal(session.tools.length,56);assert.equal(new Set(session.tools.map(t=>t.name)).size,56);
+  assert.equal(session.tools.length,67);assert.equal(new Set(session.tools.map(t=>t.name)).size,67);
   const ctx={signal:abort.signal,status(){},warn(){},callId:1};
   const account=await session.tools.find(t=>t.name==='nextcloud_account').implementation({},ctx);
   assert.equal(account.structuredContent.uid,'Soul');
@@ -45,7 +45,7 @@ test('Real child process serves combined tools and account; MCP scope guard stil
  }finally{session[Symbol.dispose]();}
 });
 test('Live stdio account mismatch closes the source and rejects loading',async()=>{
- const abort=new AbortController();await assert.rejects(api.connectLocalMcp(source('OtherUser'),{topics:['deck']},abort.signal));
+ const abort=new AbortController();await assert.rejects(api.connectLocalMcp(source('ExampleUser'),{topics:['deck']},abort.signal));
 });
 test('Already aborted local session never starts',async()=>{
  const a=new AbortController();a.abort();await assert.rejects(api.connectLocalMcp(source(),{topics:['deck']},a.signal));

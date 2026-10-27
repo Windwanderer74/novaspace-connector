@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { XMLParser, XMLValidator } from "fast-xml-parser";
 import { getDeckRuntimeConfig } from "./runtime-config";
+import { textFileMaxBytes } from './text-file-limits';
 
 const MAX_XML = 2 * 1024 * 1024;
-const MAX_TEXT = 128 * 1024;
 type Node = Record<string, any>; // DAV elements are validated structurally below.
 const list = (value: any): any[] => value === undefined ? [] : Array.isArray(value) ? value : [value];
 const value = (input: any): string => typeof input === "string" ? input : typeof input?.["#text"] === "string" ? input["#text"] : "";
@@ -250,7 +250,7 @@ export async function readTextSnapshot(account: Awaited<ReturnType<typeof nextcl
   if (response.status !== 200) { await response.body?.cancel(); throw new Error(`Datei-Rücklesen: HTTP ${response.status}.`); }
   const contentEtag = response.headers.get("etag");
   if (!contentEtag || (!contentEtag.startsWith('W/') && contentEtag !== before.etag)) { await response.body?.cancel(); throw new Error("Unerwartete Versionskennung der Textantwort."); }
-  const text = await readBody(response, MAX_TEXT);
+  const text = await readBody(response, textFileMaxBytes(path));
   if (text.includes("\0")) throw new Error("Die Datei enthält Binärdaten.");
   const after = await fileMetadata(account, path);
   if (!after || after.type !== "file" || after.fileId !== before.fileId || after.etag !== before.etag) throw new Error("Dateiidentität oder Version während des Lesens geändert. Neu lesen.");

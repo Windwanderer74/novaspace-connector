@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-27",
+  "component": "native-projects",
+  "version": "0.2.12",
+  "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+  "edition": "sanitized AGPL source; no deployment or independent first-install claim",
+  "historyImported": false,
+  "originalPersonalArchiveSha256": null,
+  "privateEvidenceIdsPublished": false,
+  "files": [
+    {
+      "path": "app/LICENSE",
+      "sourcePath": "ops/project-capsules/app/LICENSE",
+      "sourceSha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6",
+      "publishedSha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/appinfo/info.xml",
+      "sourcePath": "ops/project-capsules/update-0.2.12/appinfo/info.xml",
+      "sourceSha256": "291da6e63ac46e5ae5803032846bf01496c16dcdb245de1f3758a3bd75f4fead",
+      "publishedSha256": "291da6e63ac46e5ae5803032846bf01496c16dcdb245de1f3758a3bd75f4fead",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/appinfo/routes.php",
+      "sourcePath": "ops/project-capsules/update-0.2.12/appinfo/routes.php",
+      "sourceSha256": "d21add043d51696410485ed82f9269fcfbf55a1ac1855dabd43620e7e9a0d6b3",
+      "publishedSha256": "5f5622e036d7ea057bfa1009c1bc3d2a4756db779f11c18aed347f0609a9c1f2",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/css/pilot.css",
+      "sourcePath": "ops/project-capsules/update-0.2.0/css/pilot.css",
+      "sourceSha256": "0cb300acfc7253fc2be1dbcf95d54e200de4b1abdfdea85f52d7bbc657ce7b48",
+      "publishedSha256": "38fcd68a1980615d281ce4da9fe937bb9f0865aa8e51af8d9abc2ed9dbb8870b",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/css/projects.css",
+      "sourcePath": "ops/project-capsules/update-0.2.8/css/projects.css",
+      "sourceSha256": "3abba801275a2102cdb0ec90bcd947e521d0378235dab62d2281426dd399721c",
+      "publishedSha256": "3190fa864a6e8bdb48277e971df3924dd724e076f52bf6eac98d5931150439b3",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/js/pilot.js",
+      "sourcePath": "ops/project-capsules/update-0.2.10/js/pilot.js",
+      "sourceSha256": "2d8647ac4773487be05ee61ef8352becd5bbf5af6c92aaea4a0f7da01cfc1cdf",
+      "publishedSha256": "2d8647ac4773487be05ee61ef8352becd5bbf5af6c92aaea4a0f7da01cfc1cdf",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/js/projects.js",
+      "sourcePath": "ops/project-capsules/update-0.2.10/js/projects.js",
+      "sourceSha256": "59e1c995a51c1c5f1c5fbdc744a1dc8f164989fef86b0f5a8d5f9ef73faeae93",
+      "publishedSha256": "59e1c995a51c1c5f1c5fbdc744a1dc8f164989fef86b0f5a8d5f9ef73faeae93",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/AppInfo/Application.php",
+      "sourcePath": "ops/project-capsules/update-0.2.3/lib/AppInfo/Application.php",
+      "sourceSha256": "ff3bc21da9002127b936b63b47e3add067ba084104e095e18c0800246e3b4249",
+      "publishedSha256": "a9ef646b05a024d14b5967d89682f78bb6b7c50d8f211e78a5a55e8f591b618b",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Controller/CreationController.php",
+      "sourcePath": "ops/project-capsules/update-0.2.12/lib/Controller/CreationController.php",
+      "sourceSha256": "ac562c6dd347098c9d9da47885fdb7c468c8ef40522f5b7ec4b57fc36556e3f6",
+      "publishedSha256": "2887b84da44a400b71c44e8ff3903fe0b5bfba2063c6359b4b653493bdaeb9c1",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Controller/OverviewController.php",
+      "sourcePath": "ops/project-capsules/update-0.2.10/lib/Controller/OverviewController.php",
+      "sourceSha256": "f2f1bd232f26f5dfd559d6785485076f2f873cc2cbd4b3408774870e8fd77b77",
+      "publishedSha256": "08d108ae66cec1c34b6029b5c8c1da7988ea42af7761fde9408bc6e89a37e1f0",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Controller/ProjectController.php",
+      "sourcePath": "ops/project-capsules/update-0.1.1/lib/Controller/ProjectController.php",
+      "sourceSha256": "22cfa952058df243a66ea19598d9bdf11f15d417a6d98c5fba217d982a709fe2",
+      "publishedSha256": "d97d5b2e305a2eaa8f1733b5472ea686d053300dec0a2a9f9b9eeb6e0c30ebc2",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Listener/AssetsListener.php",
+      "sourcePath": "ops/project-capsules/update-0.2.0/lib/Listener/AssetsListener.php",
+      "sourceSha256": "6aa1230170b525c26941ccd268d4b324e035bce2a369904fdefe3dd5699687eb",
+      "publishedSha256": "896331998f5572b39dbaccb356a34d6454754ff43208764b63ff9c3e23b38d08",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Listener/CardCreatedListener.php",
+      "sourcePath": "ops/project-capsules/app/lib/Listener/CardCreatedListener.php",
+      "sourceSha256": "5374b56df8391e8fb50e34376140488463886b51fd23e5253fae8550cde60c22",
+      "publishedSha256": "d8ee8271ac8a40b3c61e9cd8a4ab39f9c7254ba553fd7533cfb93f81c9773267",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Listener/ProjectMenuListener.php",
+      "sourcePath": "ops/project-capsules/update-0.2.6/lib/Listener/ProjectMenuListener.php",
+      "sourceSha256": "cf9c5d581855e5d33382bf4e0ce815a72f7bc8d94ad4d0eb29f907b8c0484007",
+      "publishedSha256": "7d50a9878b91acd23f8e2a19d7f49e6d4b6d7467e4d5b45c7e9a1847d3934c5b",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/CapsuleCore.php",
+      "sourcePath": "ops/project-capsules/app/lib/Service/CapsuleCore.php",
+      "sourceSha256": "11c382ce10bcaf30bc63a6d367481e574df498e0e98f7137ee5699a185fbfcd4",
+      "publishedSha256": "199ccf063ad2d34f8a19361ec5cab00b88eac29c0c6a7042f9a2548aab0d90e3",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/CapsuleService.php",
+      "sourcePath": "ops/project-capsules/update-0.2.1/lib/Service/CapsuleService.php",
+      "sourceSha256": "76d429100dc7d891eebf93e429779919670c2f0a9e5cd7379e9843c3370ca1a7",
+      "publishedSha256": "f8ee168a48a5638feabf5c6a816b62673a1d5350817bf15d3d932259ad6e2a0b",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/DeckCardUpdate.php",
+      "sourcePath": "ops/project-capsules/app/lib/Service/DeckCardUpdate.php",
+      "sourceSha256": "1e37ce384536f23a5ed8adf10870e108aa0ca4ef411124541851fab5cbc407c1",
+      "publishedSha256": "76367540d30ac90002b26d4319da05d57c85cf59941b20f465179684cdf0901f",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/MapWriteGuard.php",
+      "sourcePath": "ops/project-capsules/update-0.1.2/lib/Service/MapWriteGuard.php",
+      "sourceSha256": "7ba9603d16f76c362928ecb92fa49fad0de1486615ed86e8b7ad388766140873",
+      "publishedSha256": "eea961d5e43ebb84acda1190a5d785f04cb847d3fa35c62b2dcf01ffdde562a9",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/ProjectCreation.php",
+      "sourcePath": "ops/project-capsules/update-0.2.9/lib/Service/ProjectCreation.php",
+      "sourceSha256": "c3d3230c079b56098ed62c5ad45d93cc3ef15d3d53008af3133d24c44becbf0e",
+      "publishedSha256": "b07a1e59e51bbfc9144c289917961afc646a87b1a4c97d12819890c0d4cf9908",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/ProjectCreationService.php",
+      "sourcePath": "ops/project-capsules/update-0.2.12/lib/Service/ProjectCreationService.php",
+      "sourceSha256": "9c33bc0b55f22003a69dfcade657c9fbb0682980038afff6fdad9b4303eb766e",
+      "publishedSha256": "677ddad48d7a3d120293cc4149b3a698ccddcaa803b39b9a5946564b3bfd6465",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/ProjectFolders.php",
+      "sourcePath": "ops/project-capsules/update-0.2.8/lib/Service/ProjectFolders.php",
+      "sourceSha256": "d7bdad430d226bc9066b1c09cc7fe77aea233a85f7a62ce96e27989dd7f94e06",
+      "publishedSha256": "806ec21beee72310276a5ed804706fe6fc19f3e60cbf28408a6353caba0dbaf6",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/lib/Service/ProjectOverviewService.php",
+      "sourcePath": "ops/project-capsules/update-0.2.7/lib/Service/ProjectOverviewService.php",
+      "sourceSha256": "c4a469c6c7a3028ced0d8728039ea4329de1e75c04a2b81755ff1e265edb0533",
+      "publishedSha256": "4b3d20a817c8f8e5dad745aae13206a5d01a90fb1cdb99261c1ef95ef7359f89",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "app/templates/projects.php",
+      "sourcePath": "ops/project-capsules/update-0.2.7/templates/projects.php",
+      "sourceSha256": "e1f220b9e4b1d36997975615d2569539f9e19e761526054092ff6d04db6c610a",
+      "publishedSha256": "e11c27648d2d934118824f40a7a9a6ea1c45cdb3bf1c3582f833aa9badfde428",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.1.2/lib/Service/MapWriteGuard.php",
+      "sourcePath": "ops/project-capsules/update-0.1.2/lib/Service/MapWriteGuard.php",
+      "sourceSha256": "7ba9603d16f76c362928ecb92fa49fad0de1486615ed86e8b7ad388766140873",
+      "publishedSha256": "eea961d5e43ebb84acda1190a5d785f04cb847d3fa35c62b2dcf01ffdde562a9",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.8/lib/Service/ProjectFolders.php",
+      "sourcePath": "ops/project-capsules/update-0.2.8/lib/Service/ProjectFolders.php",
+      "sourceSha256": "d7bdad430d226bc9066b1c09cc7fe77aea233a85f7a62ce96e27989dd7f94e06",
+      "publishedSha256": "806ec21beee72310276a5ed804706fe6fc19f3e60cbf28408a6353caba0dbaf6",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.8/appinfo/routes.php",
+      "sourcePath": "ops/project-capsules/update-0.2.8/appinfo/routes.php",
+      "sourceSha256": "22cd3259cb828446e397c5a90540262c0eef564739c1317cda6320e0e8ead838",
+      "publishedSha256": "3417ba4011040dbd650719ac349d91dffb7a096e33f5d0730299f406476bfc63",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.9/lib/Service/ProjectCreation.php",
+      "sourcePath": "ops/project-capsules/update-0.2.9/lib/Service/ProjectCreation.php",
+      "sourceSha256": "c3d3230c079b56098ed62c5ad45d93cc3ef15d3d53008af3133d24c44becbf0e",
+      "publishedSha256": "b07a1e59e51bbfc9144c289917961afc646a87b1a4c97d12819890c0d4cf9908",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.9/lib/Service/ProjectCreationService.php",
+      "sourcePath": "ops/project-capsules/update-0.2.9/lib/Service/ProjectCreationService.php",
+      "sourceSha256": "a76fcd15aac78f367a58b1cd764db75ad9f5c6b6ac9887eac2b3f641a6446e0d",
+      "publishedSha256": "912e97d80ad98fbd8f2a80248338dd72c155d1927c28384b07ca14f1ac29bdcc",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.11/appinfo/info.xml",
+      "sourcePath": "ops/project-capsules/update-0.2.11/appinfo/info.xml",
+      "sourceSha256": "7f3586c80b928a9a269e5b6e7f288e2fbbd019312a29cc5ae9da144a836b84d4",
+      "publishedSha256": "7f3586c80b928a9a269e5b6e7f288e2fbbd019312a29cc5ae9da144a836b84d4",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.12/lib/Service/ProjectCreationService.php",
+      "sourcePath": "ops/project-capsules/update-0.2.12/lib/Service/ProjectCreationService.php",
+      "sourceSha256": "9c33bc0b55f22003a69dfcade657c9fbb0682980038afff6fdad9b4303eb766e",
+      "publishedSha256": "677ddad48d7a3d120293cc4149b3a698ccddcaa803b39b9a5946564b3bfd6465",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.12/lib/Controller/CreationController.php",
+      "sourcePath": "ops/project-capsules/update-0.2.12/lib/Controller/CreationController.php",
+      "sourceSha256": "ac562c6dd347098c9d9da47885fdb7c468c8ef40522f5b7ec4b57fc36556e3f6",
+      "publishedSha256": "2887b84da44a400b71c44e8ff3903fe0b5bfba2063c6359b4b653493bdaeb9c1",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.12/appinfo/routes.php",
+      "sourcePath": "ops/project-capsules/update-0.2.12/appinfo/routes.php",
+      "sourceSha256": "d21add043d51696410485ed82f9269fcfbf55a1ac1855dabd43620e7e9a0d6b3",
+      "publishedSha256": "5f5622e036d7ea057bfa1009c1bc3d2a4756db779f11c18aed347f0609a9c1f2",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "update-0.2.12/appinfo/info.xml",
+      "sourcePath": "ops/project-capsules/update-0.2.12/appinfo/info.xml",
+      "sourceSha256": "291da6e63ac46e5ae5803032846bf01496c16dcdb245de1f3758a3bd75f4fead",
+      "publishedSha256": "291da6e63ac46e5ae5803032846bf01496c16dcdb245de1f3758a3bd75f4fead",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/core.php",
+      "sourcePath": "ops/project-capsules/tests/core.php",
+      "sourceSha256": "bb62e45aeee7dc05b5d2396147a95729688806248214d73768bcbe29ad36583f",
+      "publishedSha256": "d280bfc22c199d836a0199a4ba9dd9f001caf0fd5a7ce5123a0ab07efeae5ea3",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/deck-update.php",
+      "sourcePath": "ops/project-capsules/tests/deck-update.php",
+      "sourceSha256": "ed7a9bed453100be307cab23a0853c37e3b3addd8d0463f9c2410867f020142b",
+      "publishedSha256": "8a55bc17ea096c4e530f54707dc28c189b6c663c75d35bcfed5bd8bb8958396c",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/map-write-guard.php",
+      "sourcePath": "ops/project-capsules/tests/map-write-guard.php",
+      "sourceSha256": "be9b4007aae8c43a5715e771b6e5c8c929392ba72593c6d190073b0f169e8b2b",
+      "publishedSha256": "6e753bcbe4bf130d49079c5d796b42bc47a87aefebb869af05a0d6644e1144ed",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-create.php",
+      "sourcePath": "ops/project-capsules/tests/project-create.php",
+      "sourceSha256": "4cf148b8cb3c2c6d2a4e31ceb1adf8a556bd0c9af53f51ac19196605a2745499",
+      "publishedSha256": "2b1c138e56a1819f7a4e19dd7a6545b6296f54cb2d9198ecedcc826a4f3d2085",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-framework.php",
+      "sourcePath": "ops/project-capsules/tests/project-framework.php",
+      "sourceSha256": "e9061ab08655bb4c3d34ca9133f28ecbcdaaa267f3f27edb6115f67bb5831b10",
+      "publishedSha256": "a363e0b9948993ba802d62a3112ba9160bdcef70c4f4b595c1fea1f38e856d6f",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-theme.php",
+      "sourcePath": "ops/project-capsules/tests/project-theme.php",
+      "sourceSha256": "af2cc5f2ae215c582cae3181692eb34a836f1f273fe6a54197ea00054fec164c",
+      "publishedSha256": "cd50b78cfed208b1ee4d10b15cc379b1373906da84ccf876af212a99c0d97af2",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-storage.php",
+      "sourcePath": "ops/project-capsules/tests/project-storage.php",
+      "sourceSha256": "1cb1006416e56b47908daeecdb65b0c752478303b91c64f7ada030fdbcc16193",
+      "publishedSha256": "f99f63675b179c2a304081f70bf3cfae9bfd611ac735590aab23995972991ca7",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-ready-workplan.php",
+      "sourcePath": "ops/project-capsules/tests/project-ready-workplan.php",
+      "sourceSha256": "fc7e23764bdaec41e99e8d0502c2801e1adb6066f0fb21156ef8451af32de14c",
+      "publishedSha256": "f75471e5f398c2c725c1283e4871adcdd2cd818d7efa0ff420d99ca33ee689dd",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-connector-entry.php",
+      "sourcePath": "ops/project-capsules/tests/project-connector-entry.php",
+      "sourceSha256": "0673a5477cdc823c3d310a2f906d0d56ffa8081cf00b3c81e2a28dda74edec1b",
+      "publishedSha256": "7fd86704689b4d2ebbc9fd8c1e0401a0773fe73e9cb5d179fd6e666865c0f3ee",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-ready-workplan-service.php",
+      "sourcePath": "ops/project-capsules/tests/project-ready-workplan-service.php",
+      "sourceSha256": "4f4cd624801d0b8adbe605ed55f5b48cc019d32b1b590fe0f58291cb94bf6855",
+      "publishedSha256": "855a35354891db5a6069ede39d5223a6d73a7b90191dd5ccff9f38e8ca22f0ac",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/project-connector-entry.test.mjs",
+      "sourcePath": "tests/project-connector-entry.test.mjs",
+      "sourceSha256": "9970f7d4012d491961f028f1f713dbef6d33c4699e2e0c6e0a052016e84cd4ad",
+      "publishedSha256": "681d1d564f17144c01a26de5a12ee59d5c82a3fb16f5c3dd91902e45d36652b7",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained",
+        "Resolve component root; private hosting-package test omitted from public source checks"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "LICENSE",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6",
+      "publishedSha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    }
+  ],
+  "excluded": [
+    "Credentials, runtime configuration and private receipts",
+    "Generated binaries, historical private hosting installers and full private Git history"
+  ],
+  "additionalFilesPolicy": "Own publication/build/docs helpers: AGPL-3.0-or-later; existing third-party notices and dependency locks retained."
+}

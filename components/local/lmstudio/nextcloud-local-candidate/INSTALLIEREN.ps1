@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 param(
-  [ValidateSet('Soul','OtherUser')][string]$Konto = 'Soul',
+  [ValidateSet('Soul','ExampleUser')][string]$Konto = 'Soul',
   [switch]$Zurueck,
   [switch]$ErsterAusbau,
   [ValidateSet('deck','files','calendar','tables','mindmap','communication')][string[]]$Bereiche

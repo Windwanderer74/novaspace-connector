@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import {
   GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE,
-  TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE,
+  DECK_SHARE_SCOPE, DECK_TRASH_SCOPE,
+  TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, CONTACTS_SHARE_SCOPE, CONTACTS_MANAGE_SCOPE,
   NOTES_READ_SCOPE,
   NOTES_WRITE_SCOPE,
   allowedUserEmail,
   CALENDAR_READ_SCOPE,
   CALENDAR_WRITE_SCOPE,
+  CALENDAR_SCHEDULE_SCOPE,
   canonicalResource,
   createAuthorizationCode,
   FILES_READ_SCOPE,
@@ -92,16 +94,21 @@ export async function GET(request: Request) {
     "tasks:read": "Sichtbare native Aufgabenlisten und VTODO-Aufgaben lesen",
     "tasks:write": "Eigenständige Aufgaben anlegen, bearbeiten, erledigen und gezielt löschen; zusätzliche Aufgabenleserechte nötig",
     "contacts:read": "Sichtbare CardDAV-Adressbücher und Kontakte lesen",
-    "contacts:write": "Kontakte anlegen, versionsgebunden bearbeiten und gezielt löschen; zusätzliche Kontaktleserechte nötig; keine Adressbuchfreigaben",
+    "contacts:share": "Zusatz: eigene Adressbücher ausdrücklich für lokale Nutzer/Gruppen zum Lesen/Bearbeiten freigeben oder Freigaben aufheben; betrifft bestehende/künftige Kontakte; native Benachrichtigungen möglich",
+    "contacts:manage": "Zusatz: gesamtes eigenes Adressbuch nach Umfangsvorschau dauerhaft entfernen, einschließlich aller Kontakte und Freigaben; kein zugesagter Wiederherstellungsweg",
+    "contacts:write": "Kontakte anlegen, versionsgebunden bearbeiten, ausgewählte Werte nach Vergleich zusammenführen und gezielt löschen; zusätzliche Kontaktleserechte nötig; Adressbuchfreigaben und vollständiges Entfernen brauchen eigene Zusatzrechte",
     "notes:read": "Native Notizen einschließlich Inhalt, Kategorie und Favorit lesen",
     "notes:write": "Native Notizen anlegen und versionsgebunden bearbeiten; keine Löschung; zusätzlich Notizleserechte nötig",
     "deck:read": "Deck-Boards, Listen und Karten lesen",
     "deck:write": "Deck-Karten anlegen, bearbeiten und verschieben",
+    "calendar:schedule": "Eigene Antwort auf eine einzelne Kalendereinladung übermitteln; kann native Mitteilung/E-Mail an den vorhandenen Organisator auslösen. Zusätzlich Kalender-Schreib-/Leserecht erforderlich",
     "calendar:read": "Verbundenes Nextcloud-Konto, Kalender und Termine lesen",
     "calendar:write": "Einzelne Kalendertermine anlegen, bearbeiten und löschen (einschließlich Prüfen und Zurücklesen)",
     "files:write": "NovaSpace-Ordner und Textdateien anlegen, Dateien/Ordner ohne Überschreiben kopieren sowie Textdateien aktualisieren (einschließlich Prüfen und Zurücklesen; keine Löschung)",
     "files:read": "NovaSpace-Ordner, Dateinamen, unterstützte Textdateien und eigene Dateifreigaben lesen",
     "files:trash": "Eigene Dateien/Ordner im persönlichen Heimspeicher in den Papierkorb löschen und gezielt wiederherstellen; keine endgültige Papierkorblöschung",
+    "deck:trash": "Zusatz: ausgewählte Karten oder ganze Listen in den nativen Deck-Papierkorb legen und gezielt wiederherstellen; native Bereinigungsgrenzen und historische Mindmapfolgen bestätigen; Deck-Leserecht erforderlich",
+    "deck:share": "Boardfreigaben für ausdrücklich gewählte lokale Nutzer/Gruppen anlegen, ändern oder aufheben; kann Zugriff erweitern und Benachrichtigungen auslösen. Aufheben einer Nutzerfreigabe entfernt deren Kartenzuständigkeiten; zusätzlich Deck-Leserecht nötig",
     "files:share": "Dateifreigaben für ausdrücklich gewählte Nutzer/Gruppen oder geschützte Links anlegen, ändern und aufheben; kann weitere Zugriffe auf Inhalte ermöglichen; zusätzlich Dateileserechte nötig",
     "files:organize": "Dateien und Ordner umbenennen und verschieben, ohne vorhandene Ziele zu überschreiben; keine eigenständigen Löschaktionen",
     "files:pdfread": "PDF-Textschichten seitenweise lesen und die PDF-Brücke prüfen; keine OCR oder Dateiänderung",
@@ -121,7 +128,8 @@ export async function GET(request: Request) {
   const permissions = requested.map(scope => `<li>${escapeHtml(scopeDescriptions[scope] ?? scope)}</li>`).join("");
   // Older connector registrations still request Deck scopes only. Offer the
   // additional permissions explicitly; never add them without checked consent.
-  const optionalScopes = [GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].filter(scope => !requested.includes(scope));
+  const optionalScopes = [GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, DECK_SHARE_SCOPE, DECK_TRASH_SCOPE, CALENDAR_SCHEDULE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, CONTACTS_SHARE_SCOPE, CONTACTS_MANAGE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].filter(scope => !requested.includes(scope));
+
   const optionalPermissions = optionalScopes.length ? `<fieldset style="border:1px solid #475569;border-radius:10px;padding:16px;margin:20px 0"><legend>Zusätzliche Zugriffe auswählen</legend><p>Aktiviere die gewünschten Bereiche. Kalender-Schreibzugriff erlaubt auch das Löschen einzelner Termine in deinen freigegebenen Kalendern.</p>${optionalScopes.map(scope => `<label style="display:block;margin:16px 0"><input type="checkbox" name="additional_scope" value="${scope}"> ${escapeHtml(scopeDescriptions[scope])}</label>`).join("")}<p>Ohne Auswahl bleibt es bei den oben aufgeführten Rechten. Diese Zustimmung allein legt noch keine Termine, Ordner oder Dateien an.</p></fieldset>` : "";
   const hidden = [
     ["response_type", "code"], ["client_id", input.clientId], ["redirect_uri", input.redirectUri],
@@ -156,7 +164,8 @@ export async function POST(request: Request) {
   }
 
   const additionalScopes = form.getAll("additional_scope");
-  if (additionalScopes.some(scope => typeof scope !== "string" || ![GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].includes(scope))) {
+  if (additionalScopes.some(scope => typeof scope !== "string" || ![GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, DECK_SHARE_SCOPE, DECK_TRASH_SCOPE, CALENDAR_SCHEDULE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, CONTACTS_SHARE_SCOPE, CONTACTS_MANAGE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].includes(scope))) {
+
     return html("<h1>Ungültige zusätzliche Berechtigung</h1>", 400);
   }
   const grantedScope = normalizeScope([input.scope, ...additionalScopes].join(" "));

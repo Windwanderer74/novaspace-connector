@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /** NOVAFORGE Tables read-only bridge installer 0.1.0. No overwrite. */
 declare(strict_types=1);
-// Public source edition: historical installation-specific maintenance script.
+// Historical installation-specific source: default disabled before bootstrap or input.
 if (getenv('NOVASPACE_ENABLE_LEGACY_INSTANCE_SCRIPTS') !== 'I_REVIEWED_THE_SOURCE') { fwrite(STDERR, "STOP: Historical instance-bound script. Read LEGACY_OPS.md before enabling.\n"); exit(78); }
 
 if (PHP_SAPI !== 'cli' || !is_file(getcwd().'/lib/base.php')) { fwrite(STDERR,"STOPP: Im Nextcloud-Hauptordner per PHP CLI ausführen.\n"); exit(1); }

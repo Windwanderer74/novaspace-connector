@@ -1,6 +1,6 @@
 # Aufbau und Prüfung
 
-Geprüfter Aufbau: Linux x86_64, Node.js 24.19.0 und npm 11.9.0. Das bestehende Manifest verlangt mindestens Node.js 22.13.0; einzelne gesperrte Abhängigkeiten können höhere Anforderungen stellen. Für die hier dokumentierte Wiederholung Node 24 verwenden. Python 3 ist für Paketierung und die gesonderten Python-Prüfungen nötig. Die Bash-Hilfen verwenden GNU `timeout` und `flock`.
+Geprüfter Aufbau: Linux x86_64, Node.js 24.22.1 und npm 11.9.0. Das bestehende Manifest verlangt mindestens Node.js 22.13.0; einzelne gesperrte Abhängigkeiten können höhere Anforderungen stellen. Für die hier dokumentierte Wiederholung Node 24 verwenden. Python 3 ist für Paketierung und die gesonderten Python-Prüfungen nötig. Die Bash-Hilfen verwenden GNU `timeout` und `flock`.
 
 Im Verzeichnis dieser Komponente ausführen:
 
@@ -32,4 +32,4 @@ Die vorhandene Anmeldung setzt die von der Hosting-Plattform geprüften `oai-aut
 
 Die JavaScript-Prüfungen verwenden synthetische Daten, Ersatzantworten für HTTP und temporär erzeugte Testschlüssel; sie führen keine gewollten echten Nextcloud- oder GitHub-Änderungen aus. Die Prüfung der gebauten Ausgabe ruft den erzeugten Worker im lokalen Node-Prozess auf. Das ist weder ein Cloudflare-Laufzeittest noch ein produktiver End-to-End-Test. Die native App hat einen [eigenen Integrationsnachweis](../../nextcloud/platform/INTEGRATION_RESULTS.json).
 
-Die festen technischen Kontobezeichnungen und Pilotgrenzen einiger Adapter stammen aus dem Ausgangsstand. Sie sind dokumentierter bestehender Code, keine allgemeine Mehrmandanten-Konfiguration. [LEGACY_OPS.md](LEGACY_OPS.md) beschreibt die besonders installationsgebundenen Programme. Bestehende Produktionsabnahmen werden durch diese Quellprüfung nicht ersetzt. Ein frischer Online-Betrieb, ein Update der laufenden Installation, echte externe GitHub-Schreibvorgänge und der vollständige LM-Studio-Anschluss bleiben gesonderte Lieferungen.
+Die festen technischen Kontobezeichnungen und Pilotgrenzen einiger Adapter stammen aus dem Ausgangsstand. Sie sind dokumentierter bestehender Code, keine allgemeine Mehrmandanten-Konfiguration. [LEGACY_OPS.md](LEGACY_OPS.md) beschreibt die besonders installationsgebundenen Programme. Bestehende Produktionsabnahmen werden durch diese Quellprüfung nicht ersetzt. Ein frischer Online-Betrieb, ein Update der laufenden Installation, echte externe GitHub-Schreibvorgänge bleiben eigene Abnahmen. Persönliche Quellen1.35 und die Projekt-App0.2.12 werden als eigene Komponenten veröffentlicht.

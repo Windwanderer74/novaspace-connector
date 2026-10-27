@@ -9,13 +9,13 @@
   // Match every numeric board ID, including boards created in the future.
   const boardPath = /\/apps\/deck\/(?:board\/|#\/board\/)(\d+)(?:\/|#|$)/;
   if (!/\/apps\/deck(?:\/|$)/.test(location.pathname)) return;
-  const tagGuide = 'https://docs.example.invalid/guide';
+  const tagGuide = 'https://docs.example.invalid/guides/deck';
   const knownTutorialBoards = new Set(['5', '8', '9', '10', '14', '16', '18']);
   const columnGuides = {
-    Neu: 'https://docs.example.invalid/guide',
-    Wartend: 'https://docs.example.invalid/guide',
-    'In Arbeit': 'https://docs.example.invalid/guide',
-    'Zu prüfen': 'https://docs.example.invalid/guide',
+    Neu: 'https://docs.example.invalid/guides/deck#h-neu',
+    Wartend: 'https://docs.example.invalid/guides/deck#h-wartend',
+    'In Arbeit': 'https://docs.example.invalid/guides/deck#h-in-arbeit',
+    'Zu prüfen': 'https://docs.example.invalid/guides/deck#h-zu-prufen',
   };
   const texts = {
     Neu: 'Hier starten neue Deckkarten, deren Bearbeitung noch nicht begonnen hat.',

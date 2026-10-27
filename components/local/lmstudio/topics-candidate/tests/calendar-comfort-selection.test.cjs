@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+const {test}=require('node:test');const assert=require('node:assert/strict');const api=require('../plugin.cjs');const catalog=require('../TOOL-MANIFEST.json');
+test('Calendar theme preserves all new original tool objects and exclusions without new scope or switch',()=>{const selected=api.selectTools(catalog,{topics:['calendar'],excludedTools:['calendar_copy_event']});for(const name of ['calendar_search_events','calendar_prepare_copy'])assert.equal(selected.find(t=>t.name===name),catalog.find(t=>t.name===name));assert.ok(!selected.some(t=>t.name==='calendar_copy_event'));const copy=catalog.find(t=>t.name==='calendar_copy_event');assert.deepEqual(copy._meta['novaforge/localScopes'],['calendar:write','calendar:read']);});

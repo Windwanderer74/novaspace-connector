@@ -17,7 +17,7 @@ function fixture(path = ':memory:', initialize = true) {
   const db = new DatabaseSync(path);
   if (initialize) db.exec(schema);
   const store = new PlatformReferenceStore(db);
-  const auth = new Map(); const notes = new Map([['1', { owner: 'Soul', text: 'before' }], ['2', { owner: 'OtherUser', text: 'before' }]]);
+  const auth = new Map(); const notes = new Map([['1', { owner: 'Soul', text: 'before' }], ['2', { owner: 'Basti', text: 'before' }]]);
   let calls = 0; let currentTime = NOW;
   const base = { tenantId: 'novaspace', ownerUid: 'Soul', authSubject: 'account:Soul', audience: 'https://connector.example.test/platform', scopes: ['notes:write'], revision: 1, revokedAt: null };
   function connect(id, channel, extra = {}) {
@@ -28,8 +28,8 @@ function fixture(path = ':memory:', initialize = true) {
   }
   if (initialize) {
     connect('cloud', 'cloud_connector'); connect('local', 'local_connector'); connect('web', 'web');
-    connect('basti', 'cloud_connector', { ownerUid: 'OtherUser', authSubject: 'account:OtherUser' });
-    connect('other-tenant', 'cloud_connector', { tenantId: 'another-tenant', ownerUid: 'OtherUser', authSubject: 'account:OtherUser' });
+    connect('basti', 'cloud_connector', { ownerUid: 'Basti', authSubject: 'account:Basti' });
+    connect('other-tenant', 'cloud_connector', { tenantId: 'another-tenant', ownerUid: 'Basti', authSubject: 'account:Basti' });
   }
   const operation = {
     requiredScopes: ['notes:write'],
@@ -71,8 +71,8 @@ test('Tenant and user history queries preserve separation', async t => {
   await f.execute('basti', { requestId: REQUEST.slice(0,-1)+'c', resource: { type:'note',id:'2' } });
   await f.execute('other-tenant', { resource: { type:'note',id:'2' } });
   assert.deepEqual(f.store.history('novaspace','Soul').map(e=>e.actor.ownerUid), ['Soul']);
-  assert.equal(f.store.history('novaspace','OtherUser').length,1);
-  assert.equal(f.store.history('another-tenant','OtherUser').length,1);
+  assert.equal(f.store.history('novaspace','Basti').length,1);
+  assert.equal(f.store.history('another-tenant','Basti').length,1);
 });
 test('Another user cannot mutate Soul resource despite matching write scope', async t => {
   const f=fixture();t.after(()=>f.db.close());const out=await f.execute('basti');
@@ -82,11 +82,11 @@ test('Another user cannot mutate Soul resource despite matching write scope', as
 test('Body identity/connection/owner overrides and unknown command fields fail before mutation', async t => {
   const f=fixture();t.after(()=>f.db.close());
   for(const extra of [{actor:{ownerUid:'Soul'}},{ownerUid:'Soul'},{connectionId:'web'},{channel:'web'}]) await assert.rejects(f.execute('basti',extra),/INVALID_COMMAND/);
-  assert.equal(f.calls(),0);assert.equal(f.store.history('novaspace','OtherUser').length,0);
+  assert.equal(f.calls(),0);assert.equal(f.store.history('novaspace','Basti').length,0);
 });
 test('Unknown, wrong-subject, client, audience, connection and revision bindings are rejected', async t => {
   const f=fixture();t.after(()=>f.db.close());const original={...f.auth.get('test-cloud')};
-  for(const extra of [{connectionId:'missing'},{subject:'account:OtherUser'},{clientId:'another-client'},{audience:'https://evil.example'},{revision:2}]) {
+  for(const extra of [{connectionId:'missing'},{subject:'account:Basti'},{clientId:'another-client'},{audience:'https://evil.example'},{revision:2}]) {
     f.auth.set('test-cloud',{...original,...extra});await assert.rejects(f.execute(),/CONNECTION_/);
   }assert.equal(f.calls(),0);
 });
@@ -100,7 +100,7 @@ test('Both credential and connection scopes are required; an expanded token cann
 test('Expired credentials and revoked connections fail on the next request', async t => {
   const f=fixture();t.after(()=>f.db.close());
   f.clock(NOW+60000);await assert.rejects(f.execute(),/CREDENTIAL_EXPIRED/);f.clock(NOW);
-  assert.equal(f.store.revoke('novaspace','OtherUser','cloud',new Date(NOW).toISOString()),false);
+  assert.equal(f.store.revoke('novaspace','Basti','cloud',new Date(NOW).toISOString()),false);
   assert.equal(f.store.revoke('novaspace','Soul','cloud',new Date(NOW).toISOString()),true);
   await assert.rejects(f.execute(),/CONNECTION_REVOKED/);assert.equal(f.calls(),0);
 });
@@ -125,7 +125,7 @@ test('Request reuse with different input, object, action or connection conflicts
   assert.equal(f.calls(),1);
 });
 test('Replay checks current resource rights before returning event details', async t => {
-  const f=fixture();t.after(()=>f.db.close());await f.execute();f.notes.get('1').owner='OtherUser';
+  const f=fixture();t.after(()=>f.db.close());await f.execute();f.notes.get('1').owner='Basti';
   await assert.rejects(f.execute(),/RESOURCE_FORBIDDEN/);assert.equal(f.calls(),1);
 });
 test('Concurrent duplicate requests execute the native mutation once', async t => {
@@ -192,7 +192,7 @@ test('Durable reservation survives reopening the database and still prevents ano
 });
 test('Native adapter rechecks an object moved to another owner after preliminary authorization', async t => {
   const f=fixture();t.after(()=>f.db.close());const original=f.operation.allowed;
-  f.operation.allowed=async(...args)=>{const allowed=await original(...args);f.notes.get('1').owner='OtherUser';return allowed;};
+  f.operation.allowed=async(...args)=>{const allowed=await original(...args);f.notes.get('1').owner='Basti';return allowed;};
   const out=await f.execute();assert.equal(out.entry.state,'failed');assert.equal(f.notes.get('1').text,'before');
 });
 test('A credential expiring after reservation is denied before mutation', async t => {

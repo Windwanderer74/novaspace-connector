@@ -24,6 +24,9 @@ globalThis.fetch=async(url,init)=>{
   if(fault==='ignore-archive')delete update.archived;
   if(fault==='change-due')update.duedate=null;
   if(fault==='change-done')update.done='2026-09-17T20:00:00Z';
+  if(fault==='change-type')update.type='other';
+  if(fault==='change-owner')update.owner='other';
+  if(fault==='change-order')update.order=999;
   card={...card,...update};
  }
  return Response.json(card);
@@ -43,7 +46,7 @@ test('Done/open and archive/reactivate are independent and preserve task, due da
  assert.equal(requests.filter(r=>r.init.method==='PUT').length,6);
 });
 test('Readback rejects ignored archive changes and altered omitted fields',async()=>{
- for(const error of ['ignore-archive','change-due','change-done']){
+ for(const error of ['ignore-archive','change-due','change-done','change-type','change-owner','change-order']){
   reset();fault=error;const r=await call('update_card',{...ids,archived:true});assert.equal(r.isError,true);assert.match(JSON.stringify(r),/nicht bestätigt/);
  }
 });

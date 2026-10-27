@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+  <id>novaspace_capsules</id><name>NovaSpace Projekte</name>
+  <summary>Deck und Mindmap als gemeinsamen Arbeitsraum verbinden</summary>
+  <description>Begrenzter Pilot für den Board-Mindmap-Wechsel und neue Arbeitskapseln mit Ziellisten. Bestehende Karten und andere Bindungen bleiben erhalten.</description>
+  <version>0.2.11</version><licence>agpl</licence><author>NovaSpace</author>
+  <namespace>NovaspaceCapsules</namespace><category>integration</category>
+  <dependencies><php min-version="8.3"/><nextcloud min-version="34" max-version="35"/></dependencies>
+</info>

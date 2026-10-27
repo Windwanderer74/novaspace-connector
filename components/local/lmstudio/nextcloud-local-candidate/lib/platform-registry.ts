@@ -48,8 +48,8 @@ function config() {
   if (u.protocol !== 'https:' || u.username || u.password || u.search || u.hash) throw new Error('Ungültige native Adresse.');
   return { base: u.origin + u.pathname.replace(/\/$/, ''), login, password, privateJwk };
 }
-export async function createGatewayAssertion(principal: GatewayPrincipal, purpose: 'setup' | 'status' | 'inventory', bodyHash?: string) {
-  if ((purpose === 'inventory') !== (typeof bodyHash === 'string' && /^[0-9a-f]{64}$/.test(bodyHash))) throw new Error('Ungültige Befehlsbindung.');
+export async function createGatewayAssertion(principal: GatewayPrincipal, purpose: 'setup' | 'status' | 'inventory' | 'github', bodyHash?: string) {
+  if ((['inventory', 'github'].includes(purpose)) !== (typeof bodyHash === 'string' && /^[0-9a-f]{64}$/.test(bodyHash))) throw new Error('Ungültige Befehlsbindung.');
   const { base, privateJwk } = config();
   const jwk = JSON.parse(privateJwk) as JsonWebKey & { kid: string };
   if (jwk.kty !== 'RSA' || jwk.alg !== 'RS256' || !/^[0-9a-f]{64}$/.test(jwk.kid)) throw new Error('Signierkonfiguration ungültig.');

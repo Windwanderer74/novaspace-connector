@@ -6,7 +6,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {spawn} from 'node:child_process';
 import {createMcpHandler} from '@modelcontextprotocol/server';
 await mkdir('.sites-runtime/test',{recursive:true});
-await build({stdin:{contents:`export * from './src/local'; export { ALL_SCOPES } from './lib/oauth'; export { createDeckMcpServer } from './lib/mcp'; export {setDeckRuntimeConfig} from './lib/runtime-config';`,resolveDir:process.cwd(),loader:'ts'},bundle:true,platform:'node',format:'esm',packages:'external',outfile:'.sites-runtime/test/local.mjs'});
+await build({stdin:{contents:`export * from './src/local'; export { ALL_SCOPES } from './src/local'; export { createDeckMcpServer } from './lib/mcp'; export {setDeckRuntimeConfig} from './lib/runtime-config';`,resolveDir:process.cwd(),loader:'ts'},bundle:true,platform:'node',format:'esm',packages:'external',outfile:'.sites-runtime/test/local.mjs'});
 const api=await import('../.sites-runtime/test/local.mjs');
 const nativeFetch=globalThis.fetch;
 after(()=>{globalThis.fetch=nativeFetch});
@@ -16,7 +16,7 @@ async function rpc(factory,method,params){
  const r=await h.fetch(new Request('https://test.invalid/mcp',{method:'POST',headers:{'content-type':'application/json',accept:'application/json,text/event-stream','mcp-protocol-version':'2025-06-18'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params})}));
  const body=await r.text();const envelope=r.headers.get('content-type')?.includes('text/event-stream')?body.split('\n').filter(s=>s.startsWith('data:')).map(s=>JSON.parse(s.slice(5))).find(s=>s.id===1):JSON.parse(body);return envelope.result;
 }
-test('Shared 1.31.0 tools retain exact schemas; hosted transfer routes excluded',async()=>{
+test('Shared 1.35.0 tools retain exact schemas; hosted transfer routes excluded',async()=>{
  const ref=await rpc(()=>api.createDeckMcpServer(),'tools/list',{});
  const local=await rpc(()=>api.localServer([...api.ALL_SCOPES]),'tools/list',{});
  assert.equal(local.tools.length,ref.tools.length-api.HOSTED_ONLY.size-api.ACCOUNT_BOUND.size+1);
@@ -27,7 +27,7 @@ test('Shared 1.31.0 tools retain exact schemas; hosted transfer routes excluded'
 });
 test('Local configuration rejects foreign hosts, missing identities and unknown scopes',()=>{
  for(const patch of [{baseUrl:'https://evil.test'},{expectedUser:''},{scopes:['*']},{scopes:[]}]) assert.throws(()=>api.validateConfig({...config(),...patch}));
- assert.throws(()=>api.configureCredentials(config(),{NC_MCP_URL:'https://cloud.example.invalid',NC_MCP_USER:'OtherUser',NC_MCP_APP_PASSWORD:'test'}));
+ assert.throws(()=>api.configureCredentials(config(),{NC_MCP_URL:'https://cloud.example.invalid',NC_MCP_USER:'ExampleUser',NC_MCP_APP_PASSWORD:'test'}));
 });
 test('Read-only local grants reject all write families before network access',async()=>{
  let count=0;globalThis.fetch=async()=>{count++;throw Error('Unexpected network')};
@@ -44,7 +44,7 @@ test('Explicit local Deck grant reaches update and verified readback without HTT
  assert.equal(r.isError,undefined,JSON.stringify(r));assert.equal(r.structuredContent.card.archived,true);assert.equal(r.structuredContent.card.description,'History');assert.equal(count,4);
 });
 test('Returned DAV identity must match selected user; Soul cannot be silently replaced by Basti or ChatGPT',async()=>{
- for(const uid of ['Soul','OtherUser','ChatGPT']){
+ for(const uid of ['Soul','ExampleUser','ChatGPT']){
  globalThis.fetch=async()=>new Response(`<d:multistatus xmlns:d="DAV:"><d:response><d:href>/remote.php/dav/</d:href><d:propstat><d:prop><d:current-user-principal><d:href>/remote.php/dav/principals/users/${uid}/</d:href></d:current-user-principal></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response></d:multistatus>`,{status:207});
  if(uid==='Soul')assert.equal((await api.verifyIdentity('Soul')).uid,'Soul');else await assert.rejects(api.verifyIdentity('Soul'));
  }
@@ -66,7 +66,7 @@ test('Bundled artifact starts over real stdio and serves initialize, tools/list 
  await done;
  const init=await call(1,'initialize',{protocolVersion:'2025-06-18',capabilities:{},clientInfo:{name:'test',version:'1'}});assert.equal(init.result.serverInfo.version,api.VERSION);
  child.stdin.write(JSON.stringify({jsonrpc:'2.0',method:'notifications/initialized'})+'\n');
- const list=await call(2,'tools/list',{});assert.equal(list.result.tools.length,130);
+ const list=await call(2,'tools/list',{});assert.equal(list.result.tools.length,172);
  const denied=await call(3,'tools/call',{name:'create_card',arguments:{boardId:5,stackId:19,title:'x'}});assert.equal(denied.result.isError,true);
  }finally{clearTimeout(timer);child.kill();}
 });
@@ -85,7 +85,7 @@ test('All scopes in compound permissions are enforced before network access',asy
 });
 
 test('Personal Inventory reads bind both Soul and Basti to their own native identity', async()=>{
- for(const uid of ['Soul','OtherUser']){
+ for(const uid of ['Soul','ExampleUser']){
   const selected=api.validateConfig({...config(),expectedUser:uid,groups:['inventory'],scopes:['calendar:read','inventory:read']});
   api.configureCredentials(selected,{NC_MCP_URL:selected.baseUrl,NC_MCP_USER:uid,NC_MCP_APP_PASSWORD:'fixture'});
   const seen=[];
@@ -112,7 +112,7 @@ test('Inventory read-only selection rejects creation before accessing Nextcloud'
 
 test('Local guide is always available and capabilities do not claim cloud delegation',async()=>{
  const help=await rpc(()=>api.localServer(['calendar:read'],[]),'tools/call',{name:'novaspace_connector_help',arguments:{}});
- assert.equal(help.structuredContent.version,'1.31.0-local.1');
+ assert.equal(help.structuredContent.version,'1.35.0-local.1');
  assert.ok(help.structuredContent.limits.some(v=>v.includes('Inventory')));
  api.configureCredentials(config(),{NC_MCP_URL:config().baseUrl,NC_MCP_USER:'Soul',NC_MCP_APP_PASSWORD:'fixture'});
  globalThis.fetch=async(url)=>String(url).includes('/cloud/capabilities')?Response.json({ocs:{meta:{status:'ok',statuscode:100},data:{version:{string:'test'},capabilities:{}}}}):String(url).includes('/novaspace_platform/')?new Response('',{status:404}):new Response('<d:multistatus xmlns:d="DAV:"><d:response><d:href>/remote.php/dav/</d:href><d:propstat><d:prop><d:current-user-principal><d:href>/remote.php/dav/principals/users/Soul/</d:href></d:current-user-principal></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response></d:multistatus>',{status:207});

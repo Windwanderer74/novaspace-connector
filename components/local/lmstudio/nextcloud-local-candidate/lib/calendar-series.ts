@@ -206,4 +206,4 @@ export async function excludeCalendarOccurrence(a:Guard&{originalStart:string}){
 
 // The exchange adapter shares bounded parsing, simple-series validation,
 // owned-calendar checks and exact-object write/readback without duplicating them.
-export const calendarObjectInternals = {structure, editable, boundedOccurrences, owned, commit, canonical};
+export const calendarObjectInternals = {structure, editable, boundedOccurrences, owned, commit, canonical, ruleString};

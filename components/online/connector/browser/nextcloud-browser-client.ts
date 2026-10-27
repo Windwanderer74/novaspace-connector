@@ -24,10 +24,16 @@ export function createNextcloudBrowserClient(uid: string, requesttoken: string) 
     return { etag, fileId };
   };
   const client: Client = {
+    locateCard: async (boardId,cardId) => {
+      const stacks=await (await request(`${api}/boards/${boardId}/stacks`)).json();
+      const matches=stacks.filter((s:any)=>!s.deletedAt && s.cards?.some((c:any)=>c.id===cardId && !c.deletedAt));
+      if(matches.length!==1) throw Error('Deckkarte ist in diesem Board nicht eindeutig vorhanden.');
+      return {boardId,stackId:matches[0].id,cardId};
+    },
     card: async r => (await request(cardPath(r))).json(),
     saveCard: async (r, current, title, description) => {
       const owner = typeof current.owner === 'string' ? current.owner : (current.owner as { uid?: string; primaryKey?: string } | undefined)?.uid ?? (current.owner as { primaryKey?: string } | undefined)?.primaryKey ?? '';
-      await request(cardPath(r), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, description, type: current.type ?? 'plain', owner, order: current.order ?? 999, duedate: current.duedate ?? null, archived: current.archived ?? false, done: current.done ?? null }) });
+      await request(cardPath(r), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, description, type: current.type ?? 'plain', owner, order: current.order ?? 999, duedate: current.duedate ?? null, startdate: current.startdate ?? null, color: current.color ?? null, archived: current.archived ?? false, done: current.done ?? null }) });
       const saved = await client.card(r);
       if (saved.title !== title || saved.description !== description) throw new Error('Kartenrücklesung nicht bestätigt.');
       return saved;

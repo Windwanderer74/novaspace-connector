@@ -46,6 +46,7 @@ async function uidMatches(book:string,uid:string){
  }
  return matches.sort((a,b)=>a.contactPath.localeCompare(b.contactPath));
 }
+export {uidMatches as contactUidMatches};
 export type ContactImportRef=FileRef&{addressBookPath:string;contactId:string;expectedAccount:string};
 async function prepare(a:ContactImportRef){
  if(!/^[A-Za-z0-9][A-Za-z0-9_-]{7,79}$/.test(a.contactId))throw Error('Stabile Kontaktkennung8–80 Zeichen erforderlich.');

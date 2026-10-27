@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { getDeckRuntimeConfig } from "./runtime-config";
+import { sameCard } from './deck-card-snapshot';
 
 const API_PREFIX = "/index.php/apps/deck/api/v1.0";
 
@@ -35,6 +36,8 @@ export type DeckCard = {
   archived?: boolean;
   done?: string | null;
   duedate?: string | null;
+  startdate?: string | null;
+  color?: string | null;
   deletedAt?: number;
   lastModified?: number;
 };
@@ -57,6 +60,7 @@ function sameTimestamp(actual: string | null | undefined, expected: string | nul
 type RequestOptions = {
   method?: "GET" | "POST" | "PUT";
   body?: unknown;
+  projectCapsuleFiles?: boolean;
 };
 
 function config() {
@@ -92,6 +96,7 @@ async function nextcloudRequest<T>(path: string, options: RequestOptions = {}): 
       "Content-Type": "application/json",
       "OCS-APIRequest": "true",
       Authorization: `Basic ${btoa(`${login}:${password}`)}`,
+      ...(options.projectCapsuleFiles ? { 'X-NovaSpace-Project-Access': 'files-read-write-v1' } : {}),
     },
     body: options.body === undefined ? undefined : JSON.stringify(options.body),
   });
@@ -137,9 +142,11 @@ export async function createCard(input: {
   title: string;
   description?: string;
   duedate?: string | null;
+  projectCapsuleFiles?: boolean;
 }): Promise<DeckCard> {
   return deckRequest<DeckCard>(`/boards/${input.boardId}/stacks/${input.stackId}/cards`, {
     method: "POST",
+    projectCapsuleFiles: input.projectCapsuleFiles,
     body: {
       title: input.title,
       type: "plain",
@@ -147,6 +154,13 @@ export async function createCard(input: {
       description: input.description ?? "",
       duedate: input.duedate ?? null,
     },
+  });
+}
+
+/** Only the checked project workflow calls this; it never creates a card. */
+export async function resumeNativeProjectCard(boardId: number, cardId: number): Promise<Record<string, unknown>> {
+  return nextcloudRequest(`/index.php/apps/novaspace_capsules/api/boards/${boardId}/cards/${cardId}/resume`, {
+    method: 'POST', projectCapsuleFiles: true,
   });
 }
 
@@ -159,8 +173,9 @@ export async function updateCard(input: {
   duedate?: string | null;
   done?: string | null;
   archived?: boolean;
-}): Promise<DeckCard> {
+}, expected?: DeckCard): Promise<DeckCard> {
   const current = await getCard(input.boardId, input.stackId, input.cardId);
+  if (expected && !sameCard(expected, current)) throw new Error('Karte wurde vor dem Speichern geändert. Keine Änderung ausgeführt.');
   await deckRequest<DeckCard>(
     `/boards/${input.boardId}/stacks/${input.stackId}/cards/${input.cardId}`,
     {
@@ -172,6 +187,8 @@ export async function updateCard(input: {
         owner: ownerId(current.owner),
         order: current.order ?? 999,
         duedate: input.duedate !== undefined ? input.duedate : current.duedate ?? null,
+        ...(Object.hasOwn(current,'startdate') ? {startdate:current.startdate} : {}),
+        ...(Object.hasOwn(current,'color') ? {color:current.color} : {}),
         archived: input.archived ?? current.archived ?? false,
         done: input.done !== undefined ? input.done : current.done ?? null,
       },
@@ -183,7 +200,12 @@ export async function updateCard(input: {
     verified.id !== current.id || verified.stackId !== current.stackId ? "identity" : null,
     verified.title !== (input.title ?? current.title) ? "title" : null,
     (verified.description ?? "") !== (input.description ?? current.description ?? "") ? "description" : null,
+    (verified.type ?? 'plain') !== (current.type ?? 'plain') ? 'type' : null,
+    ownerId(verified.owner) !== ownerId(current.owner) ? 'owner' : null,
+    (verified.order ?? 999) !== (current.order ?? 999) ? 'order' : null,
     !sameTimestamp(verified.duedate, input.duedate !== undefined ? input.duedate : current.duedate ?? null) ? "duedate" : null,
+    Object.hasOwn(current,'startdate') && !sameTimestamp(verified.startdate,current.startdate??null) ? "startdate" : null,
+    Object.hasOwn(current,'color') && (verified.color??null)!==(current.color??null) ? "color" : null,
     !sameTimestamp(verified.done, input.done !== undefined ? input.done : current.done ?? null) ? "done" : null,
     (verified.archived ?? false) !== (input.archived ?? current.archived ?? false) ? "archived" : null,
   ].filter(Boolean);

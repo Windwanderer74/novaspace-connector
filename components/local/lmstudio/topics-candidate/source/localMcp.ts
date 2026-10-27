@@ -21,7 +21,7 @@ export function loadSourceSettings(home=homedir(),platform=process.platform):Sou
   if(scripts.length!==1)throw new Error('Unerwarteter MCP-Startweg.');
   const root=dirname(resolve(scripts[0]));
   const receipt=json(join(root,'installation.json')),local=json(join(root,'local.json'));
-  if(!['1.21.0-local.1','1.22.0-local.1','1.25.2-local.1','1.26.0-local.1','1.27.0-local.1','1.28.0-local.1','1.29.0-local.1','1.30.0-local.1','1.31.0-local.1'].includes(receipt.version)||JSON.stringify(receipt.installedEntry)!==JSON.stringify(entry)||
+  if(!['1.21.0-local.1','1.22.0-local.1','1.25.2-local.1','1.26.0-local.1','1.27.0-local.1','1.28.0-local.1','1.29.0-local.1','1.30.0-local.1','1.31.0-local.1','1.32.0-local.1','1.35.0-local.1'].includes(receipt.version)||JSON.stringify(receipt.installedEntry)!==JSON.stringify(entry)||
     !local.expectedUser||local.expectedUser!==receipt.expectedUser||local.baseUrl!=='https://cloud.example.invalid')throw new Error('MCP-Installation oder Kontozuordnung weicht ab.');
   const hashes=json(join(root,'SHA256SUMS.json'));
   for(const file of ['start_local.py','dist/nextcloud-local.cjs']){
@@ -35,7 +35,7 @@ export function loadSourceSettings(home=homedir(),platform=process.platform):Sou
 
 export async function connectLocalMcp(source:SourceSettings,selection:Selection,signal:AbortSignal):Promise<LocalSession> {
   signal.throwIfAborted();
-  const client=new Client({name:'novaforge-themenauswahl',version:'0.1.10'});
+  const client=new Client({name:'novaforge-themenauswahl',version:'0.1.12'});
   const transport=new StdioClientTransport(source.parameters);
   let closed=false;
   const close=()=>{

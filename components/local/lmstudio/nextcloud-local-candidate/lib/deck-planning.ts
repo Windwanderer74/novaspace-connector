@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { nextcloudIdentity } from './nextcloud-read';
 import { planningJson, planningVersion } from './planning-json';
+import * as z from 'zod/v4';
 const root='/index.php/apps/deck/api/v1.0';
 const request=async(path:string,method='GET',body?:unknown)=>(await planningJson(root+path,method,body)).data;
 function object(x:any) { if (!x || typeof x!=='object' || Array.isArray(x)) throw new Error('Ungültige Deck-Antwort.'); return x; }
@@ -20,7 +21,11 @@ export async function readPlanningCard(boardId:number,stackId:number,cardId:numb
   if(card.id!==cardId||card.stackId!==stackId||card.deletedAt)throw new Error('Karte nicht verfügbar oder inzwischen verschoben.');
   return {card,version:await planningVersion(card),boardVersion};
 }
-export async function listPlanningCards(a:{boardId:number;archive:'active'|'archived'|'all';query?:string;status:'all'|'open'|'done';labelId?:number;assignee?:string;limit:number;offset:number;expectedSnapshot?:string}) {
+export async function listPlanningCards(a:{boardId:number;archive:'active'|'archived'|'all';query?:string;status:'all'|'open'|'done';labelId?:number;assignee?:string;dueFilter?:'all'|'dated'|'undated';dueStart?:string;dueEnd?:string;limit:number;offset:number;expectedSnapshot?:string}) {
+  const dueFilter=a.dueFilter??'all';if(!['all','dated','undated'].includes(dueFilter))throw Error('Unbekannter Terminfilter.');
+  const bound=(value:string|undefined)=>{if(value===undefined)return null;if(!z.iso.datetime({offset:true,precision:0}).safeParse(value).success||!Number.isFinite(Date.parse(value)))throw Error('Termingrenze benötigt einen gültigen ISO-Zeitpunkt mit Sekunden und Offset.');return Date.parse(value);};
+  const from=bound(a.dueStart),until=bound(a.dueEnd),hasRange=from!==null||until!==null;
+  if(from!==null&&until!==null&&from>=until||dueFilter==='undated'&&hasRange)throw Error('Terminbereich leer oder widersprüchlich zu ohne Termin.');
   await readPlanningBoard(a.boardId);
   const base=boardPath(a.boardId);
   const active=a.archive==='archived'?[]:array(await request(`${base}/stacks`));
@@ -40,11 +45,17 @@ export async function listPlanningCards(a:{boardId:number;archive:'active'|'arch
     }
   }
   const all=[...cards.values()].sort((x,y)=>x.stackId-y.stackId||(x.order??0)-(y.order??0)||x.id-y.id);
-  const snapshot=await planningVersion({boardId:a.boardId,archive:a.archive,query:a.query??'',status:a.status,labelId:a.labelId??null,assignee:a.assignee??null,cards:all});
+  const dates=new Map<number,number|null>();
+  if(dueFilter!=='all'||hasRange)for(const card of all){
+    if(!Object.hasOwn(card,'duedate'))throw Error('Terminwert fehlt in der nativen Kartenauswahl; kein verlässlicher Terminfilter.');
+    const value=card.duedate;if(value===null){dates.set(card.id,null);continue;}
+    if(typeof value!=='string'||!z.iso.datetime({offset:true}).safeParse(value).success||!Number.isFinite(Date.parse(value)))throw Error('Unbekanntes natives Terminformat; nicht als ohne Termin behandeln.');dates.set(card.id,Date.parse(value));
+  }
+  const snapshot=await planningVersion({boardId:a.boardId,archive:a.archive,query:a.query??'',status:a.status,labelId:a.labelId??null,assignee:a.assignee??null,dueFilter,dueStart:from,dueEnd:until,cards:all});
   if((a.offset>0&&!a.expectedSnapshot)||(a.expectedSnapshot&&a.expectedSnapshot!==snapshot))throw new Error('Kartenauswahl verändert oder Seitennachweis fehlt. Bei Seite 1 beginnen.');
   const needle=(a.query??'').trim().toLocaleLowerCase('de');
-  const filtered=all.filter(c=>(!needle||`${c.title}\n${c.description??''}`.toLocaleLowerCase('de').includes(needle)) && (a.status==='all'||(a.status==='done')===Boolean(c.done)) && (!a.labelId||array(c.labels??[]).some(l=>l.id===a.labelId)) && (!a.assignee||array(c.assignedUsers??[]).some(u=>assignedUid(u)===a.assignee)));
-  return {boardId:a.boardId,archive:a.archive,snapshot,total:filtered.length,offset:a.offset,cards:filtered.slice(a.offset,a.offset+a.limit),nextOffset:a.offset+a.limit<filtered.length?a.offset+a.limit:null,consistency:'Mehrere native Lesezugriffe; kein atomarer Board-Snapshot. Snapshot schützt Folgeseiten vor erkannten Änderungen.'};
+  const filtered=all.filter(c=>{const due=dates.get(c.id),dateMatches=(dueFilter==='all'||dueFilter==='undated'&&due===null||dueFilter==='dated'&&due!==null)&&(from===null||typeof due==='number'&&due>=from)&&(until===null||typeof due==='number'&&due<until);return dateMatches&&(!needle||`${c.title}\n${c.description??''}`.toLocaleLowerCase('de').includes(needle)) && (a.status==='all'||(a.status==='done')===Boolean(c.done)) && (!a.labelId||array(c.labels??[]).some(l=>l.id===a.labelId)) && (!a.assignee||array(c.assignedUsers??[]).some(u=>assignedUid(u)===a.assignee));});
+  return {boardId:a.boardId,archive:a.archive,dueFilter,dueStart:a.dueStart??null,dueEnd:a.dueEnd??null,snapshot,total:filtered.length,offset:a.offset,cards:filtered.slice(a.offset,a.offset+a.limit),nextOffset:a.offset+a.limit<filtered.length?a.offset+a.limit:null,consistency:'Mehrere native Lesezugriffe; kein atomarer Board-Snapshot. Snapshot bindet Filter und schützt Folgeseiten vor erkannten Änderungen. Terminbereich beginnt einschließlich dueStart und endet ausschließlich dueEnd; explizite Offsets, keine automatische lokale Tages-/Überfälligkeitsannahme.'};
 }
 async function account(expected:string) { if((await nextcloudIdentity()).uid!==expected)throw new Error('Kontowechsel: Änderung gestoppt.'); }
 async function writable(board:any,permission:string) {

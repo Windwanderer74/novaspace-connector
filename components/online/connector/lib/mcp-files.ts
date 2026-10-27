@@ -6,12 +6,13 @@ import { FILES_WRITE_SCOPE, FILES_READ_SCOPE, FILES_ORGANIZE_SCOPE } from "./oau
 import { createFolder, createTextFile, updateTextFile } from "./files-write";
 import { prepareFileUpload, MAX_UPLOAD_BYTES, MAX_UPLOAD_MIB } from './files-upload';
 import { statFile, moveFile, renameFile } from "./files-organize";
+import { MINDMAP_MAX_BYTES } from './text-file-limits';
 
 import { searchFiles, copyFile } from './files-search-copy';
 
 const result = (data: object) => ({ content: [{ type: "text" as const, text: JSON.stringify(data) }], structuredContent: data as Record<string, unknown> });
 const path = z.string().min(2).max(2048).describe("Absoluter Pfad im verbundenen Nextcloud-Konto; vor Anlage festlegen und bei unklarem Ergebnis beibehalten");
-const text = z.string().max(128 * 1024).describe("Vollständiger gewünschter UTF-8-Text, höchstens 128 KiB; unveränderte Abschnitte erhalten");
+const text = z.string().max(MINDMAP_MAX_BYTES).describe("Vollständiger gewünschter UTF-8-Text: bis 128 KiB, validierte .km-Mindmaps bis 512 KiB; unveränderte Abschnitte erhalten");
 const annotations = { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 
 export function registerFilesWriteTools(server: McpServer) {
@@ -59,12 +60,12 @@ export function registerFilesWriteTools(server: McpServer) {
   }, async ({ path }, context) => { const error = requireScope(context, FILES_WRITE_SCOPE); if (error) return error; return result(await createFolder(path)); });
   server.registerTool("files_create_text", {
     ...scopeMetadata(FILES_WRITE_SCOPE), title: "Nextcloud-Textdatei anlegen",
-    description: "Legt eine neue UTF-8-Textdatei bis 128 KiB ohne Überschreiben an und liest Inhalt, Pfad, Datei-ID und ETag zurück. Unterstützt txt, md, csv, tsv, json, yaml, yml, xml, log, ics, vcf und validiertes km-JSON; für Mindmaps mindmap_create bevorzugen. Keine PDF-/Office-Verarbeitung. Zielpfad vorab festlegen. Bei unklarer Antwort exakt diesen Pfad lesen, keine Ersatzdatei erzeugen. verified und zurückgegebenen Text prüfen. Benötigt files:write einschließlich Prüfrecht.",
+    description: "Legt eine neue UTF-8-Textdatei bis 128 KiB ohne Überschreiben an; validierte .km-Mindmaps bis 512 KiB. Liest Inhalt, Pfad, Datei-ID und ETag zurück. Unterstützt txt, md, csv, tsv, json, yaml, yml, xml, log, ics, vcf und validiertes km-JSON; für Mindmaps mindmap_create bevorzugen. Keine PDF-/Office-Verarbeitung. Zielpfad vorab festlegen. Bei unklarer Antwort exakt diesen Pfad lesen, keine Ersatzdatei erzeugen. verified und zurückgegebenen Text prüfen. Benötigt files:write einschließlich Prüfrecht.",
     inputSchema: z.object({ path, text }), annotations,
   }, async ({ path, text }, context) => { const error = requireScope(context, FILES_WRITE_SCOPE); if (error) return error; return result(await createTextFile(path, text)); });
   server.registerTool("files_update_text", {
     ...scopeMetadata(FILES_WRITE_SCOPE), title: "Nextcloud-Textdatei aktualisieren",
-    description: "Aktualisiert eine unterstützte UTF-8-Textdatei bis 128 KiB mit frischem ETag aus files_read_text. Vollständigen Text lesen und unveränderte Abschnitte erhalten. Prüft Version vorab, sendet If-Match und liest Text/Datei-ID/ETag zurück. Konflikte nicht übergehen; bei unklarem Ergebnis denselben Pfad lesen. Keine Umbenennung, Löschung oder Office-Bearbeitung. Benötigt files:write einschließlich Prüfrecht.",
+    description: "Aktualisiert eine unterstützte UTF-8-Textdatei bis 128 KiB; validierte .km-Mindmaps bis 512 KiB. Frischer ETag aus files_read_text erforderlich. Vollständigen Text lesen und unveränderte Abschnitte erhalten. Prüft Version vorab, sendet If-Match und liest Text/Datei-ID/ETag zurück. Konflikte nicht übergehen; bei unklarem Ergebnis denselben Pfad lesen. Keine Umbenennung, Löschung oder Office-Bearbeitung. Benötigt files:write einschließlich Prüfrecht.",
     inputSchema: z.object({ path, etag: z.string().min(1).describe("Aktueller starker ETag aus files_read_text; nicht aus dem Ordner übernehmen"), text }), annotations: { ...annotations, destructiveHint: true },
   }, async ({ path, etag, text }, context) => { const error = requireScope(context, FILES_WRITE_SCOPE); if (error) return error; return result(await updateTextFile(path, etag, text)); });
 }

@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
 #!/usr/bin/env python3
+# SPDX-License-Identifier: AGPL-3.0-or-later
 """Version-bound original download and selected-page rendering in the assistant workspace.
 
 Input is one JSON object on stdin; signed URLs never enter argv, reports or errors.

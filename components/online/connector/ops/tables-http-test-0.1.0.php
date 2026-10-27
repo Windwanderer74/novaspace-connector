@@ -1,7 +1,7 @@
 <?php
 // SPDX-License-Identifier: AGPL-3.0-or-later
 declare(strict_types=1);
-// Public source edition: historical installation-specific maintenance script.
+// Historical installation-specific source: default disabled before bootstrap or input.
 if (getenv('NOVASPACE_ENABLE_LEGACY_INSTANCE_SCRIPTS') !== 'I_REVIEWED_THE_SOURCE') { fwrite(STDERR, "STOP: Historical instance-bound script. Read LEGACY_OPS.md before enabling.\n"); exit(78); }
 
 

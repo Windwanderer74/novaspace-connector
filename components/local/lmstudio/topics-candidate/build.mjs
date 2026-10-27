@@ -3,7 +3,7 @@ import {build} from 'esbuild';
 import {copyFile,mkdir,writeFile,readFile} from 'node:fs/promises';
 // LM Studio's bootstrap and our schema must use ONE SDK module instance.
 // Embedding another SDK copy makes KVConfigSchematics fail instanceof checks.
-await build({entryPoints:['source/index.ts'],outfile:'plugin.cjs',bundle:true,external:['@lmstudio/sdk'],platform:'node',format:'cjs',target:'node22',legalComments:'linked'});
+await build({nodePaths:process.env.NF_BUILD_MODULES?[process.env.NF_BUILD_MODULES]:[],entryPoints:['source/index.ts'],outfile:'plugin.cjs',bundle:true,external:['@lmstudio/sdk'],platform:'node',format:'cjs',target:'node22',legalComments:'linked'});
 await mkdir('src',{recursive:true});
 await writeFile('src/index.ts','// LM Studio compiles this entry and the vendored SDK in ONE module graph.\nexport {main} from "../plugin.cjs";\n');
 const tools=JSON.parse(await readFile('../nextcloud-local-candidate/TOOL-MANIFEST.json','utf8'));

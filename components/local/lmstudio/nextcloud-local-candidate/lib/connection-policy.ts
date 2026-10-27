@@ -32,9 +32,11 @@ export function parseConnectionPolicy(value: unknown): ConnectionPolicy {
   return { version: 1, configured: p.configured, enabled: p.enabled, apps };
 }
 export function appForScope(scope: string): AppName | undefined {
+  if (scope.startsWith('github:')) return 'deck';
   const app = scope.split(':')[0]; return Object.hasOwn(APP_ACCESS, app) ? app as AppName : undefined;
 }
 export function appForTool(name: string): AppName | undefined {
+  if (name.startsWith('github_')) return 'deck';
   if (/^(search|fetch|get_board|get_board_structure|get_stack|list_boards|create_card|update_card|move_card)$/.test(name)) return 'deck';
   if (name.startsWith('documents_')) return 'tables';
   if (name === 'nextcloud_account') return undefined;
@@ -53,14 +55,18 @@ const policies = new AsyncLocalStorage<ConnectionPolicy>();
 export const withConnectionPolicy = <T>(policy: ConnectionPolicy, fn: () => T) => policies.run(policy, fn);
 export function scopePolicyDenial(scope: string) {
   const p = policies.getStore(), app = appForScope(scope);
-  return p ? permissionDenial(p, app, /:(write|organize|share|trash)$/.test(scope)) : undefined;
+  return p ? permissionDenial(p, app, /:(write|organize|share|trash|schedule|manage)$/.test(scope)) : undefined;
+}
+/** Cross-app foreground workflows also respect a separately disabled Mindmap area. */
+export function appPolicyDenial(app: AppName, write = false) {
+  const p = policies.getStore(); return p ? permissionDenial(p, app, write) : undefined;
 }
 export function accessOverview(policy: ConnectionPolicy, scopes: readonly string[]) {
   return Object.entries(APP_ACCESS).map(([app, config]) => {
     const area = app as AppName;
     const reads = area === 'mindmap' ? ['files:read'] : area === 'files' ? ['files:read','files:download','files:pdfread'] : [`${area}:read`];
-    const writes = area === 'mindmap' ? ['files:write'] : area === 'files' ? ['files:write','files:organize','files:share','files:trash'] : [`${area}:write`];
-    const allowed = (s: string) => scopes.includes(s) && !permissionDenial(policy, appForScope(s), /:(write|organize|share|trash)$/.test(s));
+    const writes = area === 'mindmap' ? ['files:write'] : area === 'files' ? ['files:write','files:organize','files:share','files:trash'] : area === 'deck' ? ['deck:write','deck:share','deck:trash'] : area === 'calendar' ? ['calendar:write','calendar:schedule'] : area === 'contacts' ? ['contacts:write','contacts:share','contacts:manage'] : [`${area}:write`];
+    const allowed = (s: string) => scopes.includes(s) && !permissionDenial(policy, appForScope(s), /:(write|organize|share|trash|schedule|manage)$/.test(s));
     return { app, label: config.label, maximum: policy.apps[area], connectionEnabled: policy.enabled,
       readAvailable: !permissionDenial(policy, area) && reads.some(allowed),
       writeAvailable: config.write && !permissionDenial(policy, area, true) && writes.some(allowed),

@@ -55,14 +55,18 @@ const policies = new AsyncLocalStorage<ConnectionPolicy>();
 export const withConnectionPolicy = <T>(policy: ConnectionPolicy, fn: () => T) => policies.run(policy, fn);
 export function scopePolicyDenial(scope: string) {
   const p = policies.getStore(), app = appForScope(scope);
-  return p ? permissionDenial(p, app, /:(write|organize|share|trash)$/.test(scope)) : undefined;
+  return p ? permissionDenial(p, app, /:(write|organize|share|trash|schedule|manage)$/.test(scope)) : undefined;
+}
+/** Cross-app foreground workflows also respect a separately disabled Mindmap area. */
+export function appPolicyDenial(app: AppName, write = false) {
+  const p = policies.getStore(); return p ? permissionDenial(p, app, write) : undefined;
 }
 export function accessOverview(policy: ConnectionPolicy, scopes: readonly string[]) {
   return Object.entries(APP_ACCESS).map(([app, config]) => {
     const area = app as AppName;
     const reads = area === 'mindmap' ? ['files:read'] : area === 'files' ? ['files:read','files:download','files:pdfread'] : [`${area}:read`];
-    const writes = area === 'mindmap' ? ['files:write'] : area === 'files' ? ['files:write','files:organize','files:share','files:trash'] : [`${area}:write`];
-    const allowed = (s: string) => scopes.includes(s) && !permissionDenial(policy, appForScope(s), /:(write|organize|share|trash)$/.test(s));
+    const writes = area === 'mindmap' ? ['files:write'] : area === 'files' ? ['files:write','files:organize','files:share','files:trash'] : area === 'deck' ? ['deck:write','deck:share','deck:trash'] : area === 'calendar' ? ['calendar:write','calendar:schedule'] : area === 'contacts' ? ['contacts:write','contacts:share','contacts:manage'] : [`${area}:write`];
+    const allowed = (s: string) => scopes.includes(s) && !permissionDenial(policy, appForScope(s), /:(write|organize|share|trash|schedule|manage)$/.test(s));
     return { app, label: config.label, maximum: policy.apps[area], connectionEnabled: policy.enabled,
       readAvailable: !permissionDenial(policy, area) && reads.some(allowed),
       writeAvailable: config.write && !permissionDenial(policy, area, true) && writes.some(allowed),

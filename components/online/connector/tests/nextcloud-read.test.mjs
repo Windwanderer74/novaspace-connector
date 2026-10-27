@@ -52,9 +52,8 @@ test('Tool discovery advertises valid OAuth scopes and explicit exchange require
  assert.equal(response.status,200);
  const body=await response.text();
  const data=response.headers.get('content-type')?.includes('text/event-stream') ? body.split('\n').filter(line=>line.startsWith('data:')).map(line=>JSON.parse(line.slice(5))).find(item=>item.id===2) : JSON.parse(body);
- // 1.31.1 adds six bounded GitHub bridge tools to the previous 152 contracts.
- assert.equal(data.result.tools.length,158);
- assert.equal(new Set(data.result.tools.map(t=>t.name)).size,158);
+ assert.equal(data.result.tools.length,200);
+ assert.equal(new Set(data.result.tools.map(t=>t.name)).size,200);
  for(const tool of data.result.tools){
   const schemes=tool._meta?.securitySchemes;
   assert.equal(schemes?.length,1,tool.name);
@@ -64,6 +63,8 @@ test('Tool discovery advertises valid OAuth scopes and explicit exchange require
   for(const scope of schemes[0].scopes)assert.ok(module.ALL_SCOPES.includes(scope),tool.name+':'+scope);
  }
  const expected={
+  deck_prepare_card_move:['deck:read'],deck_move_card_to_board:['deck:write','deck:read'],deck_reconcile_card_move:['deck:read','files:read','files:write'],
+  deck_read_trash:['deck:read'],deck_prepare_trash:['deck:read'],deck_trash_item:['deck:trash','deck:read'],deck_restore_item:['deck:trash','deck:read'],
   nextcloud_account:['calendar:read'],calendar_list:['calendar:read'],
   calendar_read_event:['calendar:read'],calendar_create_event:['calendar:write'],
   files_create_text:['files:write'],files_read_text:['files:read'],
@@ -76,6 +77,21 @@ test('Tool discovery advertises valid OAuth scopes and explicit exchange require
   contacts_export_vcf:['contacts:read','files:read','files:write'],
   contacts_prepare_vcf_import:['contacts:read','files:read','files:download'],
   contacts_import_vcf:['contacts:write','contacts:read','files:read','files:download'],
+  contacts_read_options:['contacts:read'],
+  contacts_set_favorite:['contacts:write','contacts:read'],
+  contacts_read_photo:['contacts:read'],
+  contacts_set_photo:['contacts:write','contacts:read','files:read','files:download'],
+  contacts_remove_photo:['contacts:write','contacts:read'],
+  contacts_prepare_context:['contacts:read'],
+  contacts_read_book_shares:['contacts:read'],
+  contacts_change_book_share:['contacts:share','contacts:read'],
+  contacts_prepare_book_delete:['contacts:read'],
+  contacts_delete_book:['contacts:manage','contacts:read'],
+  contacts_find_duplicates:['contacts:read'],
+  contacts_prepare_merge:['contacts:read'],
+  contacts_merge_selected:['contacts:write','contacts:read'],
+  contacts_prepare_transfer:['contacts:read'],
+  contacts_transfer:['contacts:write','contacts:read'],
  };
  for(const [name,scopes]of Object.entries(expected))assert.deepEqual(data.result.tools.find(t=>t.name===name)?._meta?.securitySchemes,[{type:'oauth2',scopes}],name);
  assert.equal(fetched.length,0);

@@ -5,6 +5,11 @@ export { addressBooks };
 type ContactValue={value:string;type?:'HOME'|'WORK'|'OTHER'};
 type Address={street?:string;city?:string;region?:string;postalCode?:string;country?:string;type?:'HOME'|'WORK'|'OTHER'};
 export type ContactPatch={displayName?:string;givenName?:string;familyName?:string;organization?:string;note?:string;birthday?:string|null;emails?:ContactValue[];phones?:ContactValue[];addresses?:Address[];categories?:string[]};
+function categoryNames(value:string){
+  const values:string[]=[];let part='',escaped=false;
+  for(const ch of value){if(ch===','&&!escaped){values.push(unesc(part));part='';}else{part+=ch;}if(ch==='\\'&&!escaped)escaped=true;else escaped=false;}
+  values.push(unesc(part));return values;
+}
 function cardDocument(body:string) {
   const p=singleComponent(body,'VCARD'),props=p.indices.map(i=>p.lines[i]);
   if(p.lines.some(l=>key(l)==='BEGIN'&&val(l).toUpperCase()!=='VCARD'))throw new Error('Verschachtelte vCards werden nicht verändert.');
@@ -16,7 +21,7 @@ export function contactSummary(body:string) {
   try {
     const p=cardDocument(body),props=p.indices.map(i=>p.lines[i]);
     const all=(name:string)=>props.filter(l=>key(l)===name).map(l=>({property:l.slice(0,l.length-val(l).length-1),value:unesc(val(l))}));
-    return {uid:all('UID')[0].value,version:all('VERSION')[0].value,displayName:all('FN')[0].value,names:all('N'),organizations:all('ORG'),emails:all('EMAIL'),phones:all('TEL'),addresses:all('ADR'),categories:all('CATEGORIES'),birthday:all('BDAY'),notes:all('NOTE'),photoPresent:props.some(l=>key(l)==='PHOTO'),editable:true};
+    return {uid:all('UID')[0].value,version:all('VERSION')[0].value,displayName:all('FN')[0].value,names:all('N'),organizations:all('ORG'),emails:all('EMAIL'),phones:all('TEL'),addresses:all('ADR'),categories:all('CATEGORIES'),categoryNames:props.filter(l=>key(l)==='CATEGORIES').flatMap(l=>categoryNames(val(l))),birthday:all('BDAY'),notes:all('NOTE'),photoPresent:props.some(l=>key(l)==='PHOTO'),editable:true};
   }catch(e){return {editable:false,reason:(e as Error).message};}
 }
 export async function readContact(addressBookPath:string,contactPath:string) {

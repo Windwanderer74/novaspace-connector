@@ -11,9 +11,9 @@ import subprocess
 import sys
 import tempfile
 
-VERSION = '1.31.0-local.1'
+VERSION = '1.35.0-local.1'
 ENTRY = 'nextcloud-pilot-next2'
-ALL_SCOPES = ['deck:write','calendar:write','files:write','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:write','files:share','files:trash','notes:write','tasks:write','contacts:write']
+ALL_SCOPES = ['deck:write','calendar:write','files:write','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:write','files:share','deck:share','deck:trash','calendar:schedule','files:trash','notes:write','tasks:write','contacts:write','contacts:share','contacts:manage']
 GROUPS = ['deck','files','calendar','tables','mindmap','communication','inventory','notes','tasks','contacts']
 READ_SCOPES = ['deck:read','calendar:read','files:read','nextcloud:read','talk:read','mail:read','announcements:read','inventory:read','notes:read','tasks:read','contacts:read']
 
@@ -25,17 +25,17 @@ def previous_local_config(old, expected_user):
     args = old.get('args', [])
     scripts = [Path(p) for p in args if isinstance(p, str) and p.endswith('start_local.py')]
     if len(scripts) != 1 or not scripts[0].is_file():
-        raise RuntimeError('Dieses Update benötigt den belegten bisherigen lokalen Anschluss 1.30.0-local.1.')
+        raise RuntimeError('Dieses Update benötigt den belegten bisherigen lokalen Anschluss 1.32.0-local.1.')
     previous = scripts[0].resolve().parent
     receipt = json.loads((previous / 'installation.json').read_text(encoding='utf-8'))
     config = json.loads((previous / 'local.json').read_text(encoding='utf-8'))
-    if receipt.get('version') not in {'1.30.0-local.1'} or receipt.get('installedEntry') != old:
+    if receipt.get('version') not in {'1.32.0-local.1'} or receipt.get('installedEntry') != old:
         raise RuntimeError('Aktiver Eintrag weicht vom bestätigten Vorzustand ab. Nichts umgestellt.')
     if config.get('expectedUser') != expected_user or receipt.get('expectedUser') != expected_user or config.get('baseUrl') != 'https://cloud.example.invalid':
         raise RuntimeError('Vorhandener Anschluss gehört nicht zum erwarteten Konto/Ziel.')
-    pins = {'start_local.py': 'cd0c5200270820cd5424017cb5625ff9d4f3755a447d05f0ca5ab495e1434d75', 'dist/nextcloud-local.cjs': 'e646420d8e395594d6abfbaf8c059e2dccbe28a779d283fef0c6c879bd41308f'}
+    pins = {'start_local.py': 'cd0c5200270820cd5424017cb5625ff9d4f3755a447d05f0ca5ab495e1434d75', 'dist/nextcloud-local.cjs': 'a34fde297a36262091a8d6c6cec7e331eabab1141b36bd7b9d5284c32b3096b7'}
     if any(hashlib.sha256((previous/name).read_bytes()).hexdigest() != digest for name,digest in pins.items()):
-        raise RuntimeError('Aktiver 1.30-Programmstand wurde verändert. Nichts umgestellt.')
+        raise RuntimeError('Aktiver 1.32-Programmstand wurde verändert. Nichts umgestellt.')
     scopes = config.get('scopes')
     if not isinstance(scopes, list) or not set(READ_SCOPES + ALL_SCOPES).issuperset(scopes) or not {'calendar:read', 'files:read'}.issubset(scopes):
         raise RuntimeError('Vorhandene lokale Freigaben zuerst prüfen; nicht erweitert.')
@@ -73,7 +73,7 @@ def updated_config(original, replacement):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--expected-user', required=True, choices=['Soul','OtherUser'])
+    parser.add_argument('--expected-user', required=True, choices=['Soul','ExampleUser'])
     parser.add_argument('--restore', action='store_true')
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--enable-scope', action='append', choices=[s for s in READ_SCOPES + ALL_SCOPES if s != 'tables:write'], default=[])
@@ -156,7 +156,7 @@ def main():
     updated = updated_config(original,replacement)
     backup_dir = target.parent.parent / 'Sicherungen'
     backup_dir.mkdir(exist_ok=True)
-    backup = backup_dir / ('mcp-vor-local-1310-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.json')
+    backup = backup_dir / ('mcp-vor-local-1320-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.json')
     with backup.open('xb') as out:
         out.write(original)
     receipt = {'version':VERSION,'previousEntry':old,'installedEntry':replacement,'backupPath':str(backup),'expectedUser':args.expected_user}
@@ -171,9 +171,8 @@ def main():
 
 
 if __name__ == '__main__':
-    if os.environ.get('NOVASPACE_ENABLE_HISTORICAL_INSTALLERS') != 'I_REVIEWED_THE_SOURCE':
-        print('STOP: Historical update only. Read BUILD.md; no installation started.', file=sys.stderr)
-        raise SystemExit(78)
+    if __import__('os').environ.get('NOVASPACE_ENABLE_HISTORICAL_INSTALLERS') != 'I_REVIEWED_THE_SOURCE':
+        raise SystemExit('STOP: Historical installer disabled. Read BUILD.md; no configuration accessed.')
     try:
         main()
     except Exception as exc:

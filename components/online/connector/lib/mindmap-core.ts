@@ -2,7 +2,8 @@
 // KityMinder .km JSON. Unknown document/node/data fields are retained.
 export type MindmapNode = { data: Record<string, unknown> & { id: string; text: string }; children?: MindmapNode[]; [key: string]: unknown };
 export type Mindmap = { root: MindmapNode; [key: string]: unknown };
-export const MINDMAP_MAX_BYTES = 128 * 1024;
+import { MINDMAP_MAX_BYTES } from './text-file-limits';
+export { MINDMAP_MAX_BYTES } from './text-file-limits';
 export function mindmapPath(path: string) {
   if (!path.startsWith('/') || path.endsWith('/') || path.includes('//') || /[\\\x00-\x1f\x7f]/.test(path) || path.split('/').some(s => s === '.' || s === '..') || !/\.km$/i.test(path)) throw new Error('Eindeutiger absoluter .km-Dateipfad erforderlich.');
   return path;
@@ -24,7 +25,7 @@ export function validateMindmap(value: unknown): asserts value is Mindmap {
   visit(value.root, 0);
 }
 export function parseMindmap(text: string): Mindmap {
-  if (new TextEncoder().encode(text).length > MINDMAP_MAX_BYTES || text.includes('\0')) throw new Error('Mindmap überschreitet 128 KiB oder enthält Nullzeichen.');
+  if (new TextEncoder().encode(text).length > MINDMAP_MAX_BYTES || text.includes('\0')) throw new Error('Mindmap überschreitet 512 KiB oder enthält Nullzeichen.');
   let map: unknown;
   try { map = JSON.parse(text); } catch { throw new Error('Mindmap enthält kein gültiges JSON.'); }
   validateMindmap(map);

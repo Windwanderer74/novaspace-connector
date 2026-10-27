@@ -10,6 +10,7 @@ Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinan
 |---|---|
 | Dateien | Nach Namen suchen, Text lesen, Dateien kopieren und ausgewählte Freigaben bearbeiten |
 | Deck | Boards und Karten lesen, Aufgaben anlegen und bearbeiten, Listen und Zuständigkeiten verwalten |
+| Projekte | Gemeinsames Board und Mindmap, Standardablage und ausdrückliche Wiederaufnahme; praktische Connector-Anlageprobe noch offen |
 | Mindmaps | Entwicklungsgrundlagen strukturieren, Arbeitsschritte mit Deckkarten verbinden und Checklistenfortschritt abgleichen |
 | Planung | Kalender und Aufgaben lesen und bearbeiten, freie Zeitfenster ermitteln und einfache Terminserien verwalten |
 | Notizen und Kontakte | Inhalte pflegen und ausgewählte Text-, Kalender- und Kontaktdaten austauschen |
@@ -24,9 +25,9 @@ Die Entwicklung umfasst einen Online-Anschluss und einen persönlichen Anschluss
 
 ## Entwicklungsstand
 
-Stand: **24. Oktober 2026**. Im vorhandenen Arbeitsumfeld sind der Online-Anschluss **1.32.0**, der persönliche LM-Studio-Kern **1.32.0-local.1** und die Themenauswahl **0.1.11** installiert. Der Windows-Installer wurde mit Abschlusscode 0 beendet; nach dem Neustart sind die Konnektoren laut Nutzerrückmeldung sichtbar. Der kurze Modell-Funktionstest und die vollständige Bedienungsabnahme stehen noch aus.
+Stand: **27. Oktober 2026**. Online **1.35.0**, persönlicher LM-Studio-Kern **1.35.0-local.1**, Themenauswahl **0.1.12** und native Projekt-App **0.2.12** sind im bestehenden Arbeitsumfeld eingebaut. Authentifizierte Version und lesende Projekt-API sind bestätigt. Nach dem erfolgreichen Windows-Einbau zeigt der persönliche LM-Studio-Lesetest Konto, Version, Hilfe und Projektordner erfolgreich.
 
-Paket 1 steht bei **20 von 32 technisch belegten Bedingungen**. Die öffentlichen Quellsnapshots unten bleiben bei ihren jeweils angegebenen älteren Versionen. [Zwischenupdate 1.32: Einbau, Prüfungen und offene Schritte](docs/updates/1.32.0.md).
+Die passenden aufbereiteten Online-, persönlichen und Projekt-App-Quellen gehören zu diesem Beta-Zwischenstand. Die praktische gemeinsame Projektanlage über den Connector bleibt ein eigener offener Schreibtest. Paket 1 steht weiter bei **21 von 32 technischen Bedingungen**. [Update1.35: Projektfluss, Einbau, Prüfungen und offene Schritte](docs/updates/1.35.0.md).
 
 Der weitere Ausbau läuft in drei Lieferpaketen:
 
@@ -58,12 +59,13 @@ Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie folgend
 
 - Die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) als einzeln nachvollziehbares Modul.
 - Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
-- Den [Online-Connector 1.31.1 als bereinigte Quellfassung](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung. Worker und Browser-Bündel lassen sich bauen; 503 isolierte JavaScript-Prüfungen und zwei Prüfungen der gebauten Ausgabe bestehen. Historische Wartungsskripte sind vor Bootstrap und Passwortabfrage zusätzlich gesperrt.
-- Den [persönlichen LM-Studio-Anschluss](components/local/lmstudio/README.md): Kern 1.31.0-local.1 und Themenauswahl 0.1.10 aus dem hashgeprüften Original-ZIP, 200 Dateien im bereinigten Quellarchiv, Bauanleitung und gesperrte historische Installer. Beide Komponenten bauen; 41 JavaScript- und 16 Python-Prüfungen bestehen, einschließlich 16.384 Themenkombinationen und echter lokaler MCP-Kindprozesse. Der ältere externe Windows-DPAPI-Startweg bleibt eine ausdrücklich benannte Voraussetzung.
+- Den [Online-Connector1.35.0](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.1, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
+- Den [persönlichen LM-Studio-Anschluss1.35.0-local.1 mit Themenauswahl0.1.12](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
+- Die [native Projekt-App0.2.12](components/nextcloud/projects/README.md) mit vollständig zusammengeführtem Appbaum und isolierten Protokoll-/Adapterprüfungen.
+
 
 Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernommene Fremdhinweise bleiben erhalten. Das App-Paket dient der Prüfung und Testinstallation. Der Quellabgleich anhand der bereitgestellten Metadaten und aller 26 Dateihashes ist dokumentiert. Frische Testinstallationen auf Nextcloud **34.0.4 und 35.0.0** haben mit PHP 8.3.6 und MariaDB 10.11.14 jeweils **36 native Integrationsprüfungen** bestanden. [Testaufbau und Ergebnisse](components/nextcloud/platform/integration/README.md) sind dokumentiert. Online-/lokale Quellen enthalten inaktive Beispiele und ersetzen keine fertige unabhängige Hosting-/Anmelde- oder Erstinstallation. Der Quellen-/Lizenznachweis des älteren DPAPI-Startwegs, ein produktiver Updatepfad und erfolgreiche Abläufe mit externen Zusatz-Apps bleiben gesonderte Arbeit. [Lizenzzuordnung](LICENSING.md) und [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang.
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This repository includes the native GitHub bridge, assembled native app source and a sanitized online/browser source snapshot for version 1.31.1 under AGPL-3.0-or-later, retaining third-party notices. Build instructions and scoped test results are included. The existing installation has since been updated to online 1.32.0, personal core 1.32.0-local.1 and topic selection 0.1.11; model/UI acceptance and publication of matching sanitized source snapshots remain open. See [the dated update](docs/updates/1.32.0.md), component documentation and LICENSING.md.
-
+**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.35.0, personal1.35.0-local.1/topics0.1.12 and native project-app0.2.12 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded; a practical connector project-creation test remains open. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.35.0.md), component build/test reports and LICENSING.md.

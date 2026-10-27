@@ -14,6 +14,8 @@ PLUGIN_ID = 'novaforge/themenauswahl'
 SOURCE_ENTRY = 'nextcloud-pilot-next2'
 PREVIOUS_BUNDLE_SHA256 = '4aaf93a7354e0f255f8e000385f91fe22e1548f866b0e74a6a1243a1e4e8f4f7'
 PREVIOUS_012_SHA256 = '2aea3686e32840c757ef7dbe8ee6bf23d9b87087a81abadc076788caaa84b267'
+PREVIOUS_0111_SHA256 = 'f08566ea19b26801c786d0215b3a849c1fc9bd1fd215562145e37d616f3d8dfe'
+PREVIOUS_0110_SHA256 = 'a798c657137931ae6ef685f6e6dad320c1401fee449cb6b73ebe9c604be27e4a'
 PREVIOUS_019_SHA256 = '067d14c46b3d581ddb0ad98366b260c0dfa5c5f3fa49411decbf522ac67aa48f'
 PREVIOUS_018_SHA256 = '4a96922f754b14a2f4790740ffbd6230b401dc6a9f3ed394fa221d0ac37927ae'
 PREVIOUS_017_SHA256 = '328fce457a48c681369d66f0c1999668ffae001c4a93d415ccc10b8661f44d95'
@@ -32,7 +34,7 @@ def verified_previous_plugin(target):
     manifest = json.loads((target / 'manifest.json').read_text(encoding='utf-8'))
     package = json.loads((target / 'package.json').read_text(encoding='utf-8'))
     bundle = target / 'plugin.cjs'
-    previous_hash={'0.1.0':PREVIOUS_BUNDLE_SHA256,'0.1.1':PREVIOUS_011_SHA256,'0.1.2':PREVIOUS_012_SHA256,'0.1.3':PREVIOUS_013_SHA256,'0.1.4':PREVIOUS_014_SHA256,'0.1.5':PREVIOUS_015_SHA256,'0.1.6':PREVIOUS_016_SHA256,'0.1.7':PREVIOUS_017_SHA256,'0.1.8':PREVIOUS_018_SHA256,'0.1.9':PREVIOUS_019_SHA256}.get(package.get('version'))
+    previous_hash={'0.1.0':PREVIOUS_BUNDLE_SHA256,'0.1.1':PREVIOUS_011_SHA256,'0.1.2':PREVIOUS_012_SHA256,'0.1.3':PREVIOUS_013_SHA256,'0.1.4':PREVIOUS_014_SHA256,'0.1.5':PREVIOUS_015_SHA256,'0.1.6':PREVIOUS_016_SHA256,'0.1.7':PREVIOUS_017_SHA256,'0.1.8':PREVIOUS_018_SHA256,'0.1.9':PREVIOUS_019_SHA256,'0.1.10':PREVIOUS_0110_SHA256,'0.1.11':PREVIOUS_0111_SHA256}.get(package.get('version'))
     if manifest.get('owner') != 'novaforge' or manifest.get('name') != 'themenauswahl' or not previous_hash or hashlib.sha256(bundle.read_bytes()).hexdigest() != previous_hash:
         raise RuntimeError('Vorhandenes Plugin weicht vom bestätigten Pilot 0.1.0/0.1.1/0.1.2/0.1.3/0.1.4 ab. Nicht überschrieben.')
     return True
@@ -48,7 +50,7 @@ def verified_source(mcp_bytes, expected_user):
         raise RuntimeError('Aktiver lokaler Startweg muss zuerst geprüft werden.')
     receipt = json.loads((scripts[0].parent / 'installation.json').read_text(encoding='utf-8'))
     local = json.loads((scripts[0].parent / 'local.json').read_text(encoding='utf-8'))
-    if receipt.get('version') not in {'1.21.0-local.1','1.22.0-local.1','1.25.2-local.1','1.26.0-local.1','1.27.0-local.1','1.28.0-local.1','1.29.0-local.1','1.30.0-local.1','1.31.0-local.1'} or receipt.get('installedEntry') != entry:
+    if receipt.get('version') not in {'1.21.0-local.1','1.22.0-local.1','1.25.2-local.1','1.26.0-local.1','1.27.0-local.1','1.28.0-local.1','1.29.0-local.1','1.30.0-local.1','1.31.0-local.1','1.32.0-local.1','1.35.0-local.1'} or receipt.get('installedEntry') != entry:
         raise RuntimeError('Dieser Pilot setzt den bestätigten Anschluss 1.21.0/1.22.0/1.25.2-local.1 voraus.')
     if local.get('expectedUser') != expected_user or receipt.get('expectedUser') != expected_user:
         raise RuntimeError('Kontozuordnung weicht vom gewählten Konto ab.')
@@ -78,7 +80,7 @@ def locate_lms(home):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--expected-user', default='Soul', choices=['Soul','OtherUser'])
+    parser.add_argument('--expected-user', default='Soul', choices=['Soul','ExampleUser'])
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
     if os.name != 'nt':
@@ -92,14 +94,14 @@ def main():
     cli = locate_lms(home)
     target = home / 'extensions' / 'plugins' / 'novaforge' / 'themenauswahl'
     updating = verified_previous_plugin(target)
-    print('OK: Paket und bestehender Anschluss 1.30.0/1.31.0-local.1 für', args.expected_user, 'geprüft.')
+    print('OK: Paket und bestehender Anschluss 1.31.0/1.32.0-local.1 für', args.expected_user, 'geprüft.')
     if args.check:
         print('OK: Installationsweg vorhanden. Nur Bestand geprüft; nichts installiert.')
         return
     if mcp_path.read_bytes() != before:
         raise RuntimeError('MCP-Konfiguration wurde parallel geändert. Nichts installiert.')
     if updating:
-        backup = Path(os.environ['LOCALAPPDATA']) / 'NOVAFORGE' / 'Sicherungen' / ('themenauswahl-vor-0110-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f'))
+        backup = Path(os.environ['LOCALAPPDATA']) / 'NOVAFORGE' / 'Sicherungen' / ('themenauswahl-vor-0111-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f'))
         backup.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(target, backup, symlinks=True)
         if (backup / 'plugin.cjs').read_bytes() != (target / 'plugin.cjs').read_bytes():
@@ -118,18 +120,17 @@ def main():
     installed = json.loads((target / 'manifest.json').read_text(encoding='utf-8'))
     bundle = target / 'plugin.cjs'
     package = json.loads((target / 'package.json').read_text(encoding='utf-8'))
-    if package.get('version') != '0.1.10' or installed.get('revision') != 10 or installed.get('owner') != 'novaforge' or installed.get('name') != 'themenauswahl' or not bundle.is_file() or bundle.read_bytes() != (root / 'plugin.cjs').read_bytes():
+    if package.get('version') != '0.1.12' or installed.get('revision') != 12 or installed.get('owner') != 'novaforge' or installed.get('name') != 'themenauswahl' or not bundle.is_file() or bundle.read_bytes() != (root / 'plugin.cjs').read_bytes():
         raise RuntimeError('Installiertes Plugin nicht bestätigt. Bestand prüfen; Installation nicht wiederholen.')
-    print('OK: Themenauswahl 0.1.10 lokal installiert; vorhandene MCP-Einträge unverändert.')
+    print('OK: Themenauswahl 0.1.12 lokal installiert; vorhandene MCP-Einträge unverändert.')
     print('LM Studio: im neuen Chat novaforge/themenauswahl aktivieren und Themen kombinieren.')
     print('Den alten Anschluss als Einrichtung behalten, im Chat aber nicht zusätzlich auswählen.')
     print('Offen: sichtbare Schalter, kombinierter Werkzeugaufruf, Bilddarstellung und tatsächliche Prompt-Laufzeit prüfen.')
 
 
 if __name__ == '__main__':
-    if os.environ.get('NOVASPACE_ENABLE_HISTORICAL_INSTALLERS') != 'I_REVIEWED_THE_SOURCE':
-        print('STOP: Historical update only. Read BUILD.md; no installation started.', file=sys.stderr)
-        raise SystemExit(78)
+    if __import__('os').environ.get('NOVASPACE_ENABLE_HISTORICAL_INSTALLERS') != 'I_REVIEWED_THE_SOURCE':
+        raise SystemExit('STOP: Historical installer disabled. Read BUILD.md; no configuration accessed.')
     try:
         main()
     except (Exception, KeyboardInterrupt) as error:

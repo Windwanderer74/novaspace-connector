@@ -9,6 +9,7 @@ import {planningVersion} from './planning-json';
 import {xmlText,realDate} from './groupware-codec';
 
 const MAX=128*1024;
+export const calendarExchangeInternals={uidMatches};
 const key=(l:string)=>l.split(/[;:]/,1)[0].toUpperCase();
 const value=(l:string)=>l.slice(l.indexOf(':')+1);
 function icsPath(path:string){checkedFilePath(path);if(!/\.ics$/i.test(path))throw Error('Genau eine ausgewählte .ics-Datei erforderlich.');return path;}

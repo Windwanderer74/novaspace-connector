@@ -96,8 +96,38 @@ test('Different existing link, deleted or stale/missing card prevents file write
  for(const mode of ['card-missing','card-deleted','card-moved','existing-link']){reset();fault=mode;if(mode==='existing-link'){const map=structuredClone(source);map.root.data.hyperlink='https://example.test/existing';nodes.get('/actual.km').text=JSON.stringify(map);}const r=await call('mindmap_link_card',{...identity,nodeId:'root',boardId:5,stackId:20,cardId:77});assert.equal(r.isError,true,mode);assert.equal(writes,0);}
 });
 test('Malformed JSON, duplicate IDs, binary, oversized or overdeep tree rejected',()=>{
- for(const text of ['{}','[1]','invalid','\0',JSON.stringify({root:{data:{id:'root',text:'a'},children:[{data:{id:'root',text:'duplicate'}}]}}),JSON.stringify({...source,padding:'ü'.repeat(65537)})])assert.throws(()=>api.parseMindmap(text));
+ for(const text of ['{}','[1]','invalid','\0',JSON.stringify({root:{data:{id:'root',text:'a'},children:[{data:{id:'root',text:'duplicate'}}]}}),JSON.stringify({...source,padding:'ü'.repeat(262145)})])assert.throws(()=>api.parseMindmap(text));
  const deep={root:{data:{id:'r',text:'r'},children:[]}};let last=deep.root;for(let i=0;i<65;i++){const child={data:{id:String(i),text:String(i)},children:[]};last.children.push(child);last=child;}assert.throws(()=>api.parseMindmap(JSON.stringify(deep)),/Ebenen/);
+});
+test('512 KiB boundary counts UTF-8 bytes and rejects one extra byte',()=>{
+ const max=512*1024;
+ assert.equal(api.MINDMAP_MAX_BYTES,max);
+ const empty=JSON.stringify({...source,padding:''});
+ const exact=JSON.stringify({...source,padding:'ü'+'x'.repeat(max-Buffer.byteLength(empty)-2)});
+ assert.equal(Buffer.byteLength(exact),max);
+ assert.equal(api.parseMindmap(exact).padding.startsWith('ü'),true);
+ assert.throws(()=>api.parseMindmap(exact+' '),/512 KiB/);
+});
+test('Reading and editing a mindmap above 128 KiB preserves complete metadata and identity',async()=>{
+ reset();const large={...source,padding:'ü'.repeat(80000)};
+ nodes.get('/actual.km').text=JSON.stringify(large);
+ assert.ok(Buffer.byteLength(nodes.get('/actual.km').text)>128*1024);
+ const read=await call('mindmap_read',{path:'/actual.km'},['files:read']);
+ assert.equal(read.isError,undefined);assert.equal(read.structuredContent.mindmap.padding,large.padding);
+ const updated=await call('mindmap_update_nodes',{...identity,operations:[rename]});
+ assert.equal(updated.structuredContent.verified,true);assert.equal(updated.structuredContent.fileId,'6044');
+ assert.equal(JSON.parse(nodes.get('/actual.km').text).padding,large.padding);assert.equal(writes,1);
+ const again=await call('mindmap_read',{path:'/actual.km'},['files:read']);
+ assert.equal(again.structuredContent.mindmap.root.children[0].data.text,rename.text);
+});
+test('Oversized mindmap input and growth past 512 KiB never PUT',async()=>{
+ reset();nodes.get('/actual.km').text=JSON.stringify({...source,padding:'x'.repeat(512*1024)});
+ assert.equal((await call('mindmap_read',{path:'/actual.km'},['files:read'])).isError,true);assert.equal(writes,0);
+ reset();const empty=JSON.stringify({...source,padding:''});
+ const near=JSON.stringify({...source,padding:'x'.repeat(512*1024-Buffer.byteLength(empty)-20)});
+ nodes.get('/actual.km').text=near;
+ const r=await call('mindmap_update_nodes',{...identity,operations:[{action:'set_note',nodeId:'root',note:'x'.repeat(100)}]});
+ assert.equal(r.isError,true);assert.equal(writes,0);assert.equal(nodes.get('/actual.km').text,near);
 });
 test('Traversal and non-km paths, bad ETags and empty operation list fail before network',async()=>{
  for(const path of ['/../x.km','//x.km','/a\\b.km','/x.json','https://foreign.test/x.km']){reset();assert.equal((await call('mindmap_read',{path})).isError,true);assert.equal(requests.length,0);}
@@ -109,6 +139,18 @@ process.on('exit',()=>{globalThis.fetch=originalFetch;});
 const list=(rows)=>`<!-- nf-checklist:pilot:start -->\n${rows}\n<!-- nf-checklist:pilot:end -->`;
 const rows='- [x] Zuordnung prüfen <!-- nf-task:binding -->\n- [ ] Punkte spiegeln <!-- nf-task:mirror -->';
 const syncArgs={...identity,nodeId:'dltf81eurz40',boardId:5,stackId:20,cardId:77,checklistId:'pilot'};
+test('Deck projection can grow a mindmap through the former 128 KiB ceiling',async()=>{
+ reset();nodes.get('/actual.km').text=JSON.stringify({...source,padding:'x'.repeat(128000)});
+ assert.ok(Buffer.byteLength(nodes.get('/actual.km').text)<128*1024);
+ cardDescription=list(Array.from({length:10},(_,i)=>`- [ ] Bedingung ${i}: ${'x'.repeat(1000)} <!-- nf-task:large_${i} -->`).join('\n'));
+ const r=await call('mindmap_sync_card',syncArgs);
+ assert.equal(r.structuredContent.verified,true,JSON.stringify(r));
+ assert.equal(r.structuredContent.progress.total,10);assert.equal(r.structuredContent.progress.completed,0);
+ assert.ok(Buffer.byteLength(nodes.get('/actual.km').text)>128*1024);
+ assert.ok(Buffer.byteLength(nodes.get('/actual.km').text)<512*1024);
+ const read=await call('mindmap_read',{path:'/actual.km'},['files:read']);
+ assert.equal(read.isError,undefined);assert.equal(read.structuredContent.mindmap.padding.length,128000);
+});
 test('Checklist only counts selected area, ignores code examples, accepts checked case and CRLF',()=>{
  const desc='```markdown\n'+list(rows)+'\n```\n- [x] Other list\n'+list(rows.replace('[x]','[X]'));
  assert.deepEqual(api.parseDeckChecklist(desc.replaceAll('\n','\r\n'),'pilot'),[{id:'binding',text:'Zuordnung prüfen',done:true},{id:'mirror',text:'Punkte spiegeln',done:false}]);

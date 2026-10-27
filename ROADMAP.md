@@ -1,23 +1,16 @@
 # Entwicklungsübersicht · Nextcloud Connector von Nova Space
 
-Stand: **25. Oktober 2026**
+Stand: **27. Oktober 2026**
 
 Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen. Diese Übersicht macht den vorhandenen Betrieb, vorbereitete Erweiterungen und die verbleibenden Arbeitsschritte nachvollziehbar.
 
 ## Aktueller Stand
 
-- Im vorhandenen Arbeitsumfeld ist der Online-Anschluss **1.33.2** eingebaut; authentifizierte Versionsabfrage und Projektzugriff sind belegt.
-- Der native Boardwechsel ist an vorhandenen Originalkarten einschließlich ausdrücklicher Mindmap-Bindungen praktisch nachgewiesen. Die führenden Connector-Aufgaben liegen nun in einem gemeinsamen internen Projektboard; bestehende GitHub-Issues behalten ihre feste Zuordnung. Die zusätzliche Kopierfunktion wurde zugunsten des gewählten Verschiebewegs nicht weiterverfolgt.
-- Der persönliche Kern **1.32.0-local.1** und die Themenauswahl **0.1.11** wurden unter Windows mit Abschlusscode 0 installiert. Der Nutzer hat LM Studio neu gestartet und meldet die neuen Konnektoren als sichtbar.
-- Die native Apphilfe/Policy wurde auf **0.4.0-ui.8** aktualisiert; Sicherung und genau zwei erwartete Dateiänderungen sind geprüft.
-- Dieser **installierte Zwischenstand** ersetzt keine vollständige Paket-, Modell- oder Bedienungsabnahme. Die nachstehend veröffentlichten Quellsnapshots behalten ihre älteren Versionsstände; der öffentliche Quellabgleich der neueren Betriebsstände 1.32/1.33 steht aus. [Einbaunachweis und nächste Schritte](docs/updates/1.32.0.md).
-- Projekt- und Profilvorstellung sowie vier zugeordnete Entwicklungsaufgaben sind veröffentlicht.
-- Der [Online-Quellstand 1.31.1](components/online/connector/README.md) ist als bereinigter AGPL-Snapshot mit gemeinsamen Bibliotheken und Browser-Erweiterung aufbereitet. Worker und Browser-Bündel lassen sich bauen; 503 JavaScript-Prüfungen, zwei Prüfungen der gebauten Ausgabe und 16 Python-Prüfungen bestehen. Sichere Konfigurationsbeispiele, gesperrte historische Wartungsskripte, Herkunft und Fremdhinweise sind enthalten. Die laufende Installation wird dadurch nicht aktualisiert.
-- Der [persönliche Quellstand](components/local/lmstudio/README.md) von Kern 1.31.0-local.1/Themen 0.1.10 ist aus dem vollständig hashgeprüften Original-ZIP übernommen: 200 Dateien im bereinigten Quellarchiv, beide Komponenten bauen, 41 JavaScript- und 16 Python-Prüfungen bestehen. Die ältere externe Python-Grundlage 0.1.13 ist nun am dokumentierten Installationscommit mit AGPL-Lizenz und Upstream-Lockfile [zugeordnet](docs/LEGACY_STARTUP_SOURCE.md). Der persönliche Windows-DPAPI-Wrapper, die installierte Paketinventur und ein unabhängiger Erstinstallationspfad bleiben offen.
-- Als erstes Quellmodul liegt die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) unter **AGPL-3.0-or-later** vor: drei PHP-Klassen, vorhandener Kerntest, vollständiger Lizenztext und Dateiherkunft. Vier Syntaxprüfungen und 34 isolierte Kernprüfungen sind erfolgreich.
-- Das [Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) führt den App-Baum mit Hilfe ui.7 und GitHub-Brücke zusammen. AGPL, Fremdhinweise, inaktive Beispielkonfiguration, Tests und reproduzierbare Quell-/App-Archive sind enthalten.
-- Frische vollständige Nextcloud-Testinstallationen **34.0.4 und 35.0.0** mit PHP **8.3.6** und MariaDB **10.11.14** bestehen jeweils **36 native Prüfungen**: Installation, sechs Migrationstabellen, persönliche Anmeldung, Freigabe, CSRF, Identitätstrennung, Hauptschalter, veraltete Formulare, Widerruf und echter Webserver-Neustart. [Testnachweis](components/nextcloud/platform/INTEGRATION_RESULTS.json).
-- 32 PHP-Dateien und die isolierten Funktionsprüfungen des App-Pakets sind zusätzlich erfolgreich geprüft. Der ergänzte Quellabgleich bestätigt alle 26 gemeldeten Dateien des laufenden App-Baums einschließlich GitHub-Route und Metadaten. Die frühere XML-Abweichung ist aufgelöst: Die Betriebsmetadaten deklarieren Nextcloud 34–35; praktisch geprüft sind die oben genannten konkreten Kombinationen. Das ist noch kein abgenommenes Produktionsupdate oder Gesamt-Connector-Release; der [Quellstand](docs/SOURCE_STATUS.md) führt die Abgrenzung.
+- Online1.35.0, persönlich1.35.0-local.1, Themenauswahl0.1.12 und Projekte0.2.12 sind im bestehenden Arbeitsumfeld eingebaut. Der Windows-Installer endet mitCode0; lesende API und persönlicher LM-Studio-Konto-/Versions-/Hilfe-/Ordnerzugriff sind dokumentiert.
+- Passende aufbereitete Online-, persönliche und Projekt-App-Quellen mit Herkunft, Bauanleitung, Lizenzzuordnung und Prüfberichten werden in diesem Snapshot veröffentlicht. [Update1.35](docs/updates/1.35.0.md).
+- Der gemeinsame Projektfluss nutzt denselben nativen Kern wie der Browser. Die praktische Connector-Anlage und Wiederaufnahme bleiben eigene offene Schreibproben. Die allgemeine Modell-/UX-Matrix bleibt pausiert.
+- Paket1 bleibt21/32. Noch kein Lieferpaket ist als Ganzes abgenommen. Älterer persönlicher DPAPI-Wrapper, unabhängige Erstinstallation und weitere Betriebs-/Bedienungsabnahmen bleiben offen.
+- Die getrennt veröffentlichten älteren nativen Plattform-/GitHub-Module behalten ihre eigenen Versions- und Integrationsnachweise. Diese Veröffentlichung überträgt deren frühere Integrationsprüfungen nicht pauschal auf die neue Projekt-App.
 
 ## Arbeitspakete und Aufgaben
 
@@ -26,7 +19,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 | Produktweg und verständliche Einrichtung | Zwei von acht Produktbedingungen belegen interne Grundlagen; die allgemeine Produktabnahme ist offen. | [Produktweg](https://github.com/Windwanderer74/novaspace-connector/issues/1) |
 | Drei Lieferpakete | Alltag/Planung, Kommunikation/Daten und Fachfunktionen/Office sind abgegrenzt. Noch kein Paket ist als Ganzes abgeschlossen. | [Lieferplan](https://github.com/Windwanderer74/novaspace-connector/issues/2) |
 | Paket 1: Alltag und Planung | 21 von 32 technischen Bedingungen sind belegt; 11 Bedingungen einschließlich restlicher Facharbeit und vollständiger Abnahme bleiben offen. Der installierte Zwischenstand schließt das Paket nicht ab. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
-| Quellübernahme und Entwicklungsablauf | Native Module und bereinigter Online-/Browser-Quellstand 1.31.1 sind mit Lizenz, Herkunft, Bauanleitung und Prüfungen veröffentlicht. Native Neuinstallation auf zwei dokumentierten Nextcloud-Versionen ist belegt. Älterer DPAPI-Startweg, weitere native Apps, Historienprüfung, Updates und erfolgreiche externe Zusatz-App-Abläufe bleiben offen. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
+| Quellübernahme und Entwicklungsablauf | Native Module und aufbereitete Online-/persönliche/Projekt-Quellen1.35 sind mit Lizenz, Herkunft, Bauanleitung und Prüfberichten veröffentlicht. Native Neuinstallation auf zwei dokumentierten Nextcloud-Versionen ist belegt. Älterer DPAPI-Startweg, weitere native Apps, Historienprüfung, Updates und erfolgreiche externe Zusatz-App-Abläufe bleiben offen. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
 
 Die Zählungen beschreiben definierte Bedingungen. Sie sind keine Schätzung des verbleibenden Zeitaufwands oder der gesamten Produktreife.
 
@@ -46,14 +39,11 @@ Der erste praktische Weg ist ein **Abgleich auf ausdrücklichen Auftrag**. Eine 
 
 ## Nächste Schritte
 
-- Bei vereinbarter Wiederaufnahme den vorhandenen Prüflauf für den persönlichen Zwischenstand 1.32 gezielt verwenden. Der grundlegende Konto-/Fähigkeits-/Hilfeabruf wurde bereits zurückgemeldet; die umfassende Modell-/Bedienungsabnahme ist derzeit pausiert.
-- Die zu den neueren Betriebsständen gehörenden öffentlichen Quellsnapshots mit sicheren Beispielen, Herkunft und Fremdhinweisen gesondert nachführen. Die bisherigen öffentlichen Online-/LM-Studio-Snapshots bleiben bis dahin unverändert auf 1.31.1 beziehungsweise 1.31.0-local.1/Themen 0.1.10.
-- Den älteren externen Windows-DPAPI-Startweg des persönlichen Anschlusses mit passendem Quell-/Lizenznachweis aufarbeiten und später den unabhängigen Erstinstallationspfad prüfen.
-- Einen konkreten Updatepfad und erfolgreiche Abläufe mit den tatsächlich gewählten externen Zusatz-Apps gesondert abnehmen; weitere PHP-/Datenbank-/Webserverkombinationen bei Bedarf prüfen.
-- Für weitere Komponenten die tatsächlich benötigten Abhängigkeiten und übernehmbare Versionsgeschichte vollständig abgrenzen; die [Lizenzzuordnung](LICENSING.md) dateigenau fortführen.
-- Den ersten Abgleich der zugeordneten Aufgaben prüfen und sein Ergebnis nachvollziehbar festhalten.
-- Erst danach eine begrenzte automatische Zuordnung mit vereinbarten Feldern, Konfliktbehandlung und Abschaltweg erproben.
-- Die verbleibenden Abschlussbedingungen von Paket 1 weiterbearbeiten.
+1. Die praktische gemeinsame Connector-Projektanlage mit vereinbartem Ziel prüfen: tatsächliches Konto, Standardablage, Board/Spalten, Mindmap und feste Kennungen zurücklesen. Bei unklarem Ausgang denselben Vorgang prüfen.
+2. Wiederaufnahme und gemeinsame Inhaltsbearbeitung an ausdrücklich gewählten Ressourcen gesondert prüfen. Keine automatische Hintergrundsynchronisation zugesagt.
+3. Danach den Projektweg verständlich öffentlich ankündigen; Bild-/Videomaterial folgt als eigener Schritt.
+4. Den älteren externen DPAPI-Startweg und einen unabhängigen Erstinstallations-/Updatepfad weiter aufarbeiten. Die allgemeine Modell-/UX-Matrix bleibt bis zur vereinbarten Wiederaufnahme pausiert.
+5. Die übrigen definierten Bedingungen von Paket1 weiterbearbeiten. Die aktuellen Zählungen sind keine Schätzung des gesamten verbleibenden Zeitaufwands.
 
 ## Lizenzrichtung und Bereitstellung
 

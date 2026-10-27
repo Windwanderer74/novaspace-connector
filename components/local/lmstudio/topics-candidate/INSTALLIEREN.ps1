@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 param(
-  [ValidateSet('Soul','OtherUser')][string]$Konto = 'Soul',
+  [ValidateSet('Soul','ExampleUser')][string]$Konto = 'Soul',
   [switch]$NurPruefen
 )
 $ErrorActionPreference = 'Stop'

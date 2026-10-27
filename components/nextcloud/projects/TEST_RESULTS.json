@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-27",
+  "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+  "edition": "sanitized AGPL source snapshot",
+  "runtime": {
+    "os": "Linux x86_64",
+    "node": "24.22.1",
+    "npm": "11.9.0",
+    "python": "3.12.14",
+    "phpProtocolAndSyntax": "8.5.10 via PHP-WASM CLI; not a Nextcloud installation"
+  },
+  "liveChangesBySourceChecks": false,
+  "modelOrFreshInstallAcceptanceBySourceChecks": false,
+  "version": "0.2.12",
+  "checks": {
+    "nodeGroups": {
+      "passed": 4,
+      "failed": 0,
+      "controllerAssertions": 25,
+      "creationProtocolAssertions": 64,
+      "serviceAdapterAssertions": 60,
+      "apiContextAndPathAssertions": 10
+    },
+    "standaloneProtocols": {
+      "core": 28,
+      "creation": 35,
+      "matrix": 11,
+      "theme": 1,
+      "storage": 11,
+      "readyWorkplan": 6
+    },
+    "appPhpSyntaxFiles": 17
+  },
+  "boundaries": [
+    "Nextcloud/Deck objects in controller/service fixtures are synthetic",
+    "Deck value-class and actual hook suites retained for host context; not claimed as standalone native integration",
+    "No private hosting installer/receipt included",
+    "Original host install/read API evidence is separate; practical connector creation/resume remains open"
+  ]
+}

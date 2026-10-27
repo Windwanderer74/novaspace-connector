@@ -45,7 +45,7 @@ class LauncherTests(unittest.TestCase):
         self.run_fixture('raise SystemExit(0)\n',expected_code=None)
 
     def test_wrong_account_stops_before_child_start(self):
-        self.run_fixture('import os\nos.environ["NC_MCP_USER"]="OtherUser"\nfrom mcp_connector.entry_stdio import main\nmain()\n',expected_code=None)
+        self.run_fixture('import os\nos.environ["NC_MCP_USER"]="ExampleUser"\nfrom mcp_connector.entry_stdio import main\nmain()\n',expected_code=None)
 
 
 if __name__ == '__main__': unittest.main()

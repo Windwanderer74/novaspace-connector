@@ -5,6 +5,11 @@ import { requireScope,scopeMetadata } from './access';
 import { taskLists,searchTasks,readTask,createTask,updateTask,deleteTask } from './tasks';
 import { addressBooks,searchContacts,readContact,createContact,updateContact,deleteContact } from './contacts';
 import {registerContactWorkTools,CONTACT_WORK_TOOLS} from './mcp-contact-work';
+import {registerContactComfortTools,CONTACT_COMFORT_TOOLS} from './mcp-contact-comfort';
+import {registerContactTransferTools,CONTACT_TRANSFER_TOOLS} from './mcp-contact-transfer';
+import {registerContactDuplicateTools,CONTACT_DUPLICATE_TOOLS} from './mcp-contact-duplicates';
+import {registerContactBookTools,CONTACT_BOOK_TOOLS} from './mcp-contact-book-management';
+import {registerContactContextTools,CONTACT_CONTEXT_TOOLS} from './mcp-contact-context';
 import {registerTaskListTools,TASK_LIST_TOOLS} from './mcp-task-lists';
 const result=(data:object)=>({content:[{type:'text' as const,text:JSON.stringify(data)}],structuredContent:data as Record<string,unknown>});
 const text=(max:number)=>z.string().max(max).refine(s=>!/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/.test(s),'Ungültige Steuerzeichen');
@@ -14,9 +19,14 @@ const date=z.union([z.iso.date(),z.iso.datetime({offset:true,precision:0})]);
 const taskFields={title:text(500).min(1).optional(),description:text(10000).optional(),start:date.nullable().optional(),due:date.nullable().optional(),status:z.enum(['NEEDS-ACTION','IN-PROCESS','COMPLETED','CANCELLED']).optional(),percentComplete:z.number().int().min(0).max(100).optional(),priority:z.number().int().min(0).max(9).optional(),categories:z.array(text(100).min(1)).max(30).optional()};
 const valueType=z.enum(['HOME','WORK','OTHER']).optional();
 const contactFields={displayName:text(500).min(1).optional(),givenName:text(200).optional(),familyName:text(200).optional(),organization:text(1000).optional(),note:text(10000).optional(),birthday:z.iso.date().nullable().optional(),emails:z.array(z.object({value:z.email().max(320),type:valueType}).strict()).max(20).optional(),phones:z.array(z.object({value:text(200).min(1),type:valueType}).strict()).max(20).optional(),addresses:z.array(z.object({street:text(1000).optional(),city:text(200).optional(),region:text(200).optional(),postalCode:text(50).optional(),country:text(200).optional(),type:valueType}).strict()).max(10).optional(),categories:z.array(text(100).min(1)).max(30).optional()};
-export const GROUPWARE_TOOL_NAMES=['tasks_list_lists','tasks_search','tasks_read','tasks_create','tasks_update','tasks_delete',...TASK_LIST_TOOLS,'contacts_list_addressbooks','contacts_search','contacts_read','contacts_create','contacts_update','contacts_delete',...CONTACT_WORK_TOOLS] as const;
+export const GROUPWARE_TOOL_NAMES=['tasks_list_lists','tasks_search','tasks_read','tasks_create','tasks_update','tasks_delete',...TASK_LIST_TOOLS,'contacts_list_addressbooks','contacts_search','contacts_read','contacts_create','contacts_update','contacts_delete',...CONTACT_WORK_TOOLS,...CONTACT_COMFORT_TOOLS,...CONTACT_TRANSFER_TOOLS,...CONTACT_DUPLICATE_TOOLS,...CONTACT_BOOK_TOOLS,...CONTACT_CONTEXT_TOOLS] as const;
 export function registerGroupwareTools(server:McpServer) {
   registerContactWorkTools(server);
+  registerContactComfortTools(server);
+  registerContactTransferTools(server);
+  registerContactDuplicateTools(server);
+  registerContactBookTools(server);
+  registerContactContextTools(server);
   registerTaskListTools(server);
   function add(name:string,title:string,description:string,schema:z.ZodObject<any>,fn:(a:any)=>Promise<object>,write=false) {
     const app=name.split('_')[0],scope=app+(write?':write':':read');

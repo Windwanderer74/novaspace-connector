@@ -6,6 +6,6 @@ const result=await build({stdin:{contents:`import './browser/mindmap-editor-ui';
 // JSLoader renders its textarea without escaping HTML entities. Preserve literal
 // entity strings across a later edit/readback by escaping their ampersand in JS.
 const snippet=result.outputFiles[0].text.replace(/&(?:amp|quot|apos|lt|gt|#\d+|#x[0-9a-f]+);/gi, entity=>'\\x26'+entity.slice(1));
-await writeFile('browser/jsloader-mindmap-v1.js', '/* SPDX-License-Identifier: AGPL-3.0-or-later; see THIRD_PARTY_NOTICES.md */\n'+before.trimEnd()+'\n\n/* NOVAFORGE Mindmap / Deck browser workflow 1.5.0. Remove this final block to roll back. */\n'+snippet);
+await writeFile('browser/jsloader-mindmap-v1.js', '/* SPDX-License-Identifier: AGPL-3.0-or-later; see THIRD_PARTY_NOTICES.md */\n'+before.trimEnd()+'\n\n/* NOVAFORGE Mindmap / Deck browser workflow 1.6.1. Remove this final block to roll back. */\n'+snippet);
 
 await writeFile('.sites-runtime/browser-build-inputs.json', JSON.stringify(result.metafile,null,2)+'\n');

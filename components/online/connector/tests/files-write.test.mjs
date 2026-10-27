@@ -90,6 +90,22 @@ test('Reject path traversal, invalid UTF-8 input, binary and byte limits before 
  for(const text of ['x\0y','\ud800','ü'.repeat(65537)]){reset();const r=await call('files_create_text',{path:'/note.md',text});assert.equal(r.isError,true);assert.equal(requests.length,0);}
  for(const etag of ['*','W/"v1"','"v1"\r\nX: x']){reset();const r=await call('files_update_text',{path:'/note.md',etag,text:'x'});assert.equal(r.isError,true);assert.equal(requests.length,0);}
 });
+test('Only valid native mindmaps receive the larger 512 KiB file budget',async()=>{
+ reset();const text=JSON.stringify({root:{data:{id:'root',text:'Große Mindmap'},children:[]},padding:'ü'.repeat(80000)});
+ const created=await call('files_create_text',{path:'/large.KM',text});
+ assert.equal(created.structuredContent.verified,true,JSON.stringify(created));
+ const read=await call('files_read_text',{path:'/large.KM'});assert.equal(read.structuredContent.text,text);
+ const next=text.replace('Große Mindmap','Große Mindmap geändert');
+ const updated=await call('files_update_text',{path:'/large.KM',etag:read.structuredContent.etag,text:next});
+ assert.equal(updated.structuredContent.verified,true);assert.equal(updated.structuredContent.fileId,created.structuredContent.fileId);
+ for(const path of ['/large.txt','/large.json']){
+  reset();const rejected=await call('files_create_text',{path,text});assert.equal(rejected.isError,true);assert.equal(requests.length,0);
+  nodes.set(path,{type:'file',id:'3',rev:1,permissions:'GW',text});
+  assert.equal((await call('files_read_text',{path})).isError,true);assert.equal(writeCount,0);
+ }
+ reset();const invalid=await call('files_create_text',{path:'/bad.km',text:'x'.repeat(150000)});
+ assert.equal(invalid.isError,true);assert.equal(requests.length,0);
+});
 test('Unexpected DAV identity and HTTP failures remain errors without redirect following',async()=>{
  for(const status of [301,302,401,403,409,412,423,429]){reset();fault=status;const r=await create();assert.equal(r.isError,true);assert.equal(writeCount,1);assert.equal(nodes.has('/Prüfung.md'),false);}
  for(const status of [500,503]){reset();fault=status;const r=await create();assert.equal(r.structuredContent.writeAccepted,null);assert.equal(r.structuredContent.verified,false);assert.equal(writeCount,1);}

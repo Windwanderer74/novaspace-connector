@@ -41,7 +41,7 @@ test('Legacy request offers unchecked additional choices; approving unchanged gr
   assert.match(html,/name="additional_scope" value="talk:read"/);
   assert.match(html,/name="additional_scope" value="mail:read"/);
   assert.match(html,/name="additional_scope" value="announcements:read"/);
-  for (const scope of ['files:trash','files:share','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:read','inventory:write']) {
+  for (const scope of ['deck:trash','contacts:share','contacts:manage','files:trash','files:share','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:read','inventory:write']) {
     assert.ok(html.includes('name="additional_scope" value="'+scope+'"'));
   }
   assert.doesNotMatch(html,/checked/);
@@ -51,13 +51,13 @@ test('Legacy request offers unchecked additional choices; approving unchanged gr
 });
 
 test('Explicit choices survive authorization code and token exchange exactly', async () => {
-  for (const selected of [['files:trash'],['files:share'],['inventory:read'],['inventory:write'],['inventory:read','inventory:write'],['tables:write'],['tables:read'],['files:organize'],['files:pdfread'],['files:download'],['files:organize','files:pdfread','files:download'],['announcements:read'],['mail:read'],['nextcloud:read'],['talk:read'],['nextcloud:read','talk:read'],['calendar:read'],['files:read'],['calendar:read','files:read'],['calendar:write'],['files:write'],['calendar:read','files:read','calendar:write','files:write']]) {
+  for (const selected of [['deck:trash'],['contacts:share'],['contacts:manage'],['contacts:share','contacts:manage'],['files:trash'],['files:share'],['inventory:read'],['inventory:write'],['inventory:read','inventory:write'],['tables:write'],['tables:read'],['files:organize'],['files:pdfread'],['files:download'],['files:organize','files:pdfread','files:download'],['announcements:read'],['mail:read'],['nextcloud:read'],['talk:read'],['nextcloud:read','talk:read'],['calendar:read'],['files:read'],['calendar:read','files:read'],['calendar:write'],['files:write'],['calendar:read','files:read','calendar:write','files:write']]) {
     const form = values();
     selected.forEach(scope=>form.append('additional_scope',scope));
     const response = await exchange(await authorize(form));
     assert.equal(response.status,200);
     const issued = await response.json();
-    assert.equal(issued.scope,['deck:read','deck:write',...selected].join(' '));
+    assert.deepEqual(issued.scope.split(' ').sort(),['deck:read','deck:write',...selected].sort());
     assert.equal((await api.verifyAccessToken(issued.access_token)).scope,issued.scope);
   }
 });

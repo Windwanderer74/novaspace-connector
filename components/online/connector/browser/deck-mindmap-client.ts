@@ -2,6 +2,9 @@
 import { cardMindmapBinding, deckProgressTitle, normalizeCardWorkflow, workflowItems, workflowLists, conditionSection } from '../lib/mindmap-workflow-core';
 import { checklistProgress, parseDeckChecklist, projectDeckChecklist } from '../lib/mindmap-deck-core';
 import { locateNode, parseMindmap, serializeMindmap } from '../lib/mindmap-core';
+import { reconcileTaskContent } from '../lib/shared-task-content';
+import { sameCard } from '../lib/deck-card-snapshot';
+export { sameCard } from '../lib/deck-card-snapshot';
 
 export type CardRef = { boardId: number; stackId: number; cardId: number };
 export function savedLinkedCardId(url: string, method: string, origin: string): number | null {
@@ -17,6 +20,7 @@ export type Client = {
   saveCard(ref: CardRef, current: BrowserCard, title: string, description: string): Promise<BrowserCard>;
   map(path: string): Promise<{ text: string; etag: string; fileId: string }>;
   saveMap(path: string, etag: string, fileId: string, text: string): Promise<void>;
+  locateCard?(boardId: number, cardId: number): Promise<CardRef>;
 };
 export function savedCardRef(url: string, method: string, origin: string): CardRef | null {
   let parsed: URL; try { parsed = new URL(url, origin); } catch { return null; }
@@ -25,11 +29,15 @@ export function savedCardRef(url: string, method: string, origin: string): CardR
   if (!match || match.slice(1).some(n => !Number.isSafeInteger(Number(n)) || Number(n) < 1)) return null;
   return { boardId: Number(match[1]), stackId: Number(match[2]), cardId: Number(match[3]) };
 }
-function sameCard(a: BrowserCard, b: BrowserCard) {
-  return a.id === b.id && a.stackId === b.stackId && a.title === b.title && a.description === b.description && a.done === b.done && !b.deletedAt;
+export async function currentCardRef(client:Client,ref:CardRef):Promise<CardRef> {
+  if(!client.locateCard)return ref;
+  const current=await client.locateCard(ref.boardId,ref.cardId);
+  if(current.boardId!==ref.boardId || current.cardId!==ref.cardId || !Number.isSafeInteger(current.stackId) || current.stackId<1)throw Error('Aktuelle Kartenposition ist nicht eindeutig.');
+  return current;
 }
 /** Respond to a completed user edit. Never choose or toggle a checkbox. */
 export async function syncSavedDeckCard(client: Client, ref: CardRef) {
+  ref=await currentCardRef(client,ref);
   const current = await client.card(ref);
   const binding = cardMindmapBinding(current.description ?? '');
   if (!binding) return { linked: false as const };
@@ -43,22 +51,24 @@ export async function syncSavedDeckCard(client: Client, ref: CardRef) {
   const legacyPrevious = `<!-- nf-checklist:${binding.checklistId}:start -->\n${state.items.map(i => `- [${i.done ? 'x' : ' '}] ${i.text} <!-- nf-task:${i.id} -->`).join('\n')}\n<!-- nf-checklist:${binding.checklistId}:end -->`;
   const priorLists = (state as any).lists as { id: string; title: string; items: any[] }[] | undefined;
   const previous = priorLists ? `<!-- nf-conditions:${JSON.stringify({version:1,lists:priorLists.map(({id,title})=>({id,title}))})} -->\n` + priorLists.map(l=>conditionSection(l,l.items)).join('\n\n') : legacyPrevious;
-  const description = normalizeCardWorkflow(current.description ?? '', binding, previous);
+  const shared = reconcileTaskContent(source,binding.nodeId,current.title,normalizeCardWorkflow(current.description ?? '', binding, previous));
+  const description = shared.description;
   const items = workflowItems(description, binding);
   const progress = checklistProgress(items);
-  const title = deckProgressTitle(current.title, progress.total, progress.completed);
-  const projected = projectDeckChecklist(source, binding.nodeId, { boardId: ref.boardId, cardId: ref.cardId, checklistId: binding.checklistId }, items, node.data.hyperlink as string, !!current.done, workflowLists(description, binding));
+  const title = deckProgressTitle(shared.content.title, progress.total, progress.completed);
+  const projected = projectDeckChecklist(shared.map, binding.nodeId, { boardId: ref.boardId, cardId: ref.cardId, checklistId: binding.checklistId }, items, node.data.hyperlink as string, !!current.done, workflowLists(description, binding));
+  const changed = serializeMindmap(projected.map) !== snapshot.text;
   if (!sameCard(current, await client.card(ref))) throw new Error('Die Karte wurde inzwischen erneut geändert.');
   const card = title === current.title && description === current.description ? current : await client.saveCard(ref, current, title, description);
   if (!sameCard(card, await client.card(ref))) throw new Error('Kartenstand nach Speichern geändert; Mindmap-Abgleich offen.');
-  if (projected.changed) {
+  if (changed) {
     const updated = locateNode(projected.map, binding.nodeId).node.data.nfDeckSync as Record<string, unknown>;
     updated.syncedAt = new Date().toISOString();
     updated.sourceLastModified = card.lastModified ?? null;
     updated.sourceFingerprint = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(description)))].map(n => n.toString(16).padStart(2, '0')).join('');
     await client.saveMap(binding.path, snapshot.etag, binding.fileId, serializeMindmap(projected.map));
   }
-  return { linked: true as const, card, progress, unchanged: !projected.changed };
+  return { linked: true as const, card, progress, unchanged: !changed };
 }
 
 /** Explicit edit: validate the complete target before saving the card. */
@@ -69,9 +79,10 @@ export async function editDeckConditions(client: Client, ref: CardRef, expected:
   const description=normalizeCardWorkflow(transform(expected),binding,expected), items=workflowItems(description,binding);
   const snapshot=await client.map(binding.path);if(snapshot.fileId!==binding.fileId) throw Error('Mindmap-Dateikennung geändert.');
   const map=parseMindmap(snapshot.text),node=locateNode(map,binding.nodeId).node;
-  projectDeckChecklist(map,binding.nodeId,{boardId:ref.boardId,cardId:ref.cardId,checklistId:binding.checklistId},items,node.data.hyperlink as string,!!current.done,workflowLists(description,binding));
+  const shared=reconcileTaskContent(map,binding.nodeId,current.title,description);
+  projectDeckChecklist(shared.map,binding.nodeId,{boardId:ref.boardId,cardId:ref.cardId,checklistId:binding.checklistId},items,node.data.hyperlink as string,!!current.done,workflowLists(description,binding));
   if(!sameCard(current,await client.card(ref))) throw Error('Karte wurde inzwischen geändert.');
   const progress=checklistProgress(items);
-  await client.saveCard(ref,current,deckProgressTitle(current.title,progress.total,progress.completed),description);
+  await client.saveCard(ref,current,deckProgressTitle(shared.content.title,progress.total,progress.completed),shared.description);
   try{return await syncSavedDeckCard(client,ref);}catch(error){throw Error(`Karte gespeichert; Mindmap-Abgleich offen: ${error instanceof Error?error.message:'Bitte prüfen.'} Nicht erneut speichern.`);}
 }

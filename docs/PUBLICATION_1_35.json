@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-27",
+  "publicBaseCommit": "3023b1adfb47362067cc02b73f625346797cffa6",
+  "sourceCheckpoint": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+  "components": {
+    "components/online/connector": {
+      "manifestSha256": "ce5cde50e09a8448fc450e306dd291e0aa75cf2f450893126fb8a0635d3490b0",
+      "provenanceSha256": "d16510f8844d5dcc4cc06b350a2b064d21e8baece1602f842acaaf4fbb768898",
+      "testReportSha256": "7558d9a7914e5f3b9ca3f58264e6873bfb7dbda22823ac3cee80b52cd72c51b1"
+    },
+    "components/local/lmstudio": {
+      "manifestSha256": "2973af3da413b092f1ff9ab037ea049f80047c62a71acd52c0d6c717280ebbac",
+      "provenanceSha256": "f83e0778ab7c161f5e4b937563f4912afd4c0552606a5f6f4c7f7ff1d7203d72",
+      "testReportSha256": "67d75ad32af7e400202fff7f50329539571c1b2bcacc4dfb17c3f85913bcf987"
+    },
+    "components/nextcloud/projects": {
+      "manifestSha256": "27c769b613c87cfeaeb9779d55f811895d330037bec51490f5c919e450d33f28",
+      "provenanceSha256": "a8490a51f7afd5578ab1c2548cdc2a4b49d3af66568b51c5f761fda8f64682cb",
+      "testReportSha256": "40837ee9d3cdf84dfd4334ee44057a2d494891766489d289642895a245ba8363"
+    }
+  },
+  "historicalOtherNativeComponentsUnchanged": true,
+  "technicalPackage1": {
+    "completed": 21,
+    "total": 32
+  },
+  "practicalConnectorProjectCreationAccepted": false,
+  "generalModelMatrixPaused": true
+}
