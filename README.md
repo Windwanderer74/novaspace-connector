@@ -10,7 +10,7 @@ Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinan
 |---|---|
 | Dateien | Nach Namen suchen, Text lesen, Dateien kopieren und ausgewählte Freigaben bearbeiten |
 | Deck | Boards und Karten lesen, Aufgaben anlegen und bearbeiten, Listen und Zuständigkeiten verwalten |
-| Projekte | Gemeinsames Board und Mindmap, Standardablage und ausdrückliche Wiederaufnahme; praktische Connector-Anlageprobe noch offen |
+| Projekte | Gemeinsames Board und Mindmap, Standardablage und ausdrückliche Wiederaufnahme; erste Anlageprobe im persönlichen Anschluss erfolgreich zurückgemeldet |
 | Mindmaps | Entwicklungsgrundlagen strukturieren, Arbeitsschritte mit Deckkarten verbinden und Checklistenfortschritt abgleichen |
 | Planung | Kalender und Aufgaben lesen und bearbeiten, freie Zeitfenster ermitteln und einfache Terminserien verwalten |
 | Notizen und Kontakte | Inhalte pflegen und ausgewählte Text-, Kalender- und Kontaktdaten austauschen |
@@ -29,7 +29,7 @@ Die Themenauswahl bietet **18 Schalter und damit 262.144 mögliche Themenkonfigu
 
 Stand: **27. Oktober 2026**. Online **1.35.0**, persönlicher LM-Studio-Kern **1.35.0-local.1**, Themenauswahl **0.1.12** und native Projekt-App **0.2.12** sind im bestehenden Arbeitsumfeld eingebaut. Authentifizierte Version und lesende Projekt-API sind bestätigt. Nach dem erfolgreichen Windows-Einbau zeigt der persönliche LM-Studio-Lesetest Konto, Version, Hilfe und Projektordner erfolgreich.
 
-Die passenden aufbereiteten Online-, persönlichen und Projekt-App-Quellen gehören zu diesem Beta-Zwischenstand. Die praktische gemeinsame Projektanlage über den Connector bleibt ein eigener offener Schreibtest. Paket 1 steht weiter bei **21 von 32 technischen Bedingungen**. [Update1.35: Projektfluss, Einbau, Prüfungen und offene Schritte](docs/updates/1.35.0.md).
+Die passenden aufbereiteten Online-, persönlichen und Projekt-App-Quellen gehören zu diesem Beta-Zwischenstand. Eine erste gemeinsame Projektanlage im persönlichen Anschluss wurde erfolgreich zurückgemeldet. Diese begrenzte Pilotabnahme beruht auf der Ergebnisrückmeldung des Clients; weitere Inhalts- und Wiederaufnahmeprüfungen bleiben offen. Paket 1 steht weiter bei **21 von 32 technischen Bedingungen**. [Update1.35: Projektfluss, Einbau, Prüfungen und offene Schritte](docs/updates/1.35.0.md).
 
 Der weitere Ausbau läuft in drei Lieferpaketen:
 
@@ -70,4 +70,4 @@ Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernom
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.35.0, personal1.35.0-local.1/topics0.1.12 and native project-app0.2.12 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded; a practical connector project-creation test remains open. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.35.0.md), component build/test reports and LICENSING.md.
+**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.35.0, personal1.35.0-local.1/topics0.1.12 and native project-app0.2.12 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded. A first personal connector project-creation pilot was reported successful by the client; content and resume acceptance remain open. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.35.0.md), component build/test reports and LICENSING.md.

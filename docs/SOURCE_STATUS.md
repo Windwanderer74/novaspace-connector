@@ -2,7 +2,7 @@
 
 Online1.35.0, persönlich1.35.0-local.1/Themen0.1.12 und native Projekte0.2.12 sind als aufbereitete eigene AGPL-Quellen aufgenommen. Der genaue Umfang, Eingangs- und Veröffentlichungshashes stehen in den Komponenten-SOURCE_PROVENANCE.json-Dateien. Beispiele ersetzen Betriebsadressen; private Betriebsberichte, Zugangsdaten, erzeugte Bündel und vollständige private Historie gehören nicht zu dieser Quellveröffentlichung.
 
-[Update1.35](updates/1.35.0.md) beschreibt den bestätigten Einbau, die lesende API und den persönlichen LM-Studio-Lesetest. Die praktische Connector-Projektanlage und Wiederaufnahme bleiben offen. Komponentenberichte unterscheiden isolierte Quellprüfungen von Betriebsnachweisen.
+[Update1.35](updates/1.35.0.md) beschreibt den bestätigten Einbau, die lesende API und den persönlichen LM-Studio-Lesetest. Eine erste gemeinsame Projektanlage im persönlichen Anschluss wurde erfolgreich zurückgemeldet. Diese begrenzte Pilotabnahme beruht auf der Ergebnisrückmeldung des Clients; weitere Inhalts- und Wiederaufnahmeprüfungen bleiben offen. Komponentenberichte beschreiben weiterhin ihre zum Veröffentlichungszeitpunkt ausgeführten isolierten Quellprüfungen und übernehmen diese praktische Rückmeldung nicht als neuen Quelltest.
 
 Der ältere öffentliche Plattform-/GitHub-Brücken-Snapshot wird hier nicht stillschweigend als aktueller Betriebsquellstand ausgegeben. Sein eigener bisheriger Integrationsnachweis bleibt auf die dort dokumentierten Versionen begrenzt. Der persönliche DPAPI-Wrapper und ein unabhängiger Erstinstallationsweg bleiben gesonderte Arbeit; der vorhandene Herkunftsnachtrag gilt weiterhin.
 

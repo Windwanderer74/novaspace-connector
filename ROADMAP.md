@@ -8,7 +8,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 
 - Online1.35.0, persönlich1.35.0-local.1, Themenauswahl0.1.12 und Projekte0.2.12 sind im bestehenden Arbeitsumfeld eingebaut. Der Windows-Installer endet mitCode0; lesende API und persönlicher LM-Studio-Konto-/Versions-/Hilfe-/Ordnerzugriff sind dokumentiert.
 - Passende aufbereitete Online-, persönliche und Projekt-App-Quellen mit Herkunft, Bauanleitung, Lizenzzuordnung und Prüfberichten werden in diesem Snapshot veröffentlicht. [Update1.35](docs/updates/1.35.0.md).
-- Der gemeinsame Projektfluss nutzt denselben nativen Kern wie der Browser. Die praktische Connector-Anlage und Wiederaufnahme bleiben eigene offene Schreibproben. Die allgemeine Modell-/UX-Matrix bleibt pausiert.
+- Der gemeinsame Projektfluss nutzt denselben nativen Kern wie der Browser. Eine erste gemeinsame Projektanlage im persönlichen Anschluss wurde erfolgreich zurückgemeldet. Diese begrenzte Pilotabnahme beruht auf der Ergebnisrückmeldung des Clients; weitere Inhalts- und Wiederaufnahmeprüfungen bleiben offen. Die allgemeine Modell-/UX-Matrix bleibt pausiert.
 - Paket1 bleibt21/32. Noch kein Lieferpaket ist als Ganzes abgenommen. Älterer persönlicher DPAPI-Wrapper, unabhängige Erstinstallation und weitere Betriebs-/Bedienungsabnahmen bleiben offen.
 - Die getrennt veröffentlichten älteren nativen Plattform-/GitHub-Module behalten ihre eigenen Versions- und Integrationsnachweise. Diese Veröffentlichung überträgt deren frühere Integrationsprüfungen nicht pauschal auf die neue Projekt-App.
 
@@ -39,9 +39,9 @@ Der erste praktische Weg ist ein **Abgleich auf ausdrücklichen Auftrag**. Eine 
 
 ## Nächste Schritte
 
-1. Die praktische gemeinsame Connector-Projektanlage mit vereinbartem Ziel prüfen: tatsächliches Konto, Standardablage, Board/Spalten, Mindmap und feste Kennungen zurücklesen. Bei unklarem Ausgang denselben Vorgang prüfen.
-2. Wiederaufnahme und gemeinsame Inhaltsbearbeitung an ausdrücklich gewählten Ressourcen gesondert prüfen. Keine automatische Hintergrundsynchronisation zugesagt.
-3. Danach den Projektweg verständlich öffentlich ankündigen; Bild-/Videomaterial folgt als eigener Schritt.
+1. Nach der ersten zurückgemeldeten Anlageprobe die gemeinsame Inhaltsbearbeitung an ausdrücklich gewählten Ressourcen prüfen.
+2. Wiederaufnahme gesondert prüfen. Bei unklarem Ausgang denselben Vorgang lesen; keine automatische Hintergrundsynchronisation zugesagt.
+3. Den bereits als Beta-Zwischenstand angekündigten Projektweg mit Bild-/Videomaterial verständlich vorstellen.
 4. Den älteren externen DPAPI-Startweg und einen unabhängigen Erstinstallations-/Updatepfad weiter aufarbeiten. Die allgemeine Modell-/UX-Matrix bleibt bis zur vereinbarten Wiederaufnahme pausiert.
 5. Die übrigen definierten Bedingungen von Paket1 weiterbearbeiten. Die aktuellen Zählungen sind keine Schätzung des gesamten verbleibenden Zeitaufwands.
 

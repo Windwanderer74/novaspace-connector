@@ -25,6 +25,11 @@
     "completed": 21,
     "total": 32
   },
-  "practicalConnectorProjectCreationAccepted": false,
+  "practicalConnectorProjectCreationAccepted": true,
+  "practicalConnectorProjectCreationEvidence": {
+    "scope": "first personal connector project-creation pilot",
+    "basis": "client-reported result",
+    "contentAndResumeAcceptance": false
+  },
   "generalModelMatrixPaused": true
 }
