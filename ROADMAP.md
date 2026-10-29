@@ -6,7 +6,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 
 ## Aktueller Stand
 
-- Online **1.36.0**, persönlich **1.36.0-local.1** und Themenauswahl **0.1.17** sind
+- Online **1.36.0**, persönlich **1.36.0-local.1** und Themenauswahl **0.1.19** sind
   im vorhandenen Arbeitsumfeld eingebaut. Projekt-App **0.2.13** bleibt unverändert.
 - **Paket 1: 29/32.** Die Funktionsblöcke sind auf der dokumentierten Belegbasis
   abgeschlossen. Die drei offenen Bedingungen sind A01, A02 und Z01.
@@ -18,6 +18,10 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 - Die allgemeine Modell-/UX-Matrix bleibt pausiert. Die neue Modellschnittstelle
   ist kein pauschaler Zuverlässigkeitsnachweis für jedes lokale Modell.
 
+Ein tatsächlicher Dateien-/Mindmap-Durchlauf mit Themenauswahl 0.1.19 ist erfolgreich:
+Auswahl per Referenz, geprüfte Quellenkapsel und frisches Rücklesen bei unverändertem
+Quelltext. [Testergebnis und Grenzen](docs/updates/0.1.19.md).
+
 ## Arbeitspakete und Aufgaben
 
 | Bereich | Dokumentierter Stand | Führende GitHub-Aufgabe |
@@ -25,7 +29,7 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 | Produktweg und verständliche Einrichtung | Zwei von acht Produktbedingungen belegen interne Grundlagen; die allgemeine Produktabnahme ist offen. | [Produktweg](https://github.com/Windwanderer74/novaspace-connector/issues/1) |
 | Drei Lieferpakete | Alltag/Planung, Kommunikation/Daten und Fachfunktionen/Office sind abgegrenzt. Noch kein Paket ist als Ganzes abgeschlossen. | [Lieferplan](https://github.com/Windwanderer74/novaspace-connector/issues/2) |
 | Paket 1: Alltag und Planung | **29 von 32 Bedingungen** belegt. Offen: fachliche Abnahme A01, Bedienungsabnahme A02 und gemeinsamer Abschluss Z01. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
-| Quellübernahme und Entwicklungsablauf | Aufbereitete Online-/persönliche Quellen **1.36 / Themen 0.1.17**, aktuelle native Hilfe und Scope-Korrektur mit Herkunft, Manifesten und Bauangaben. Bestehende native Integrationsnachweise behalten ihren jeweiligen historischen Umfang; zusätzliche Erstinstallationen und weitere Quellen-/Betriebsprüfungen bleiben getrennt. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
+| Quellübernahme und Entwicklungsablauf | Aufbereitete Online-/persönliche Quellen **1.36 / Themen 0.1.19**, aktuelle native Hilfe und Scope-Korrektur mit Herkunft, Manifesten und Bauangaben. Bestehende native Integrationsnachweise behalten ihren jeweiligen historischen Umfang; zusätzliche Erstinstallationen und weitere Quellen-/Betriebsprüfungen bleiben getrennt. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
 
 Die Zählungen beschreiben definierte Bedingungen. Sie sind keine Schätzung des verbleibenden Zeitaufwands oder der gesamten Produktreife.
 

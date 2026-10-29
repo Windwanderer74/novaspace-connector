@@ -91,7 +91,7 @@ class CleanupIntegration(unittest.TestCase):
         self.assertEqual(len(self.commands), 1)
         self.assertEqual(self.commands[0][1:], ['dev', '--install', '--yes'])
         self.assertEqual((self.target / 'plugin.cjs').read_bytes(), self.new)
-        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0117-*'))
+        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0119-*'))
         self.assertEqual(len(backups), 1)
         self.assertEqual((backups[0] / 'plugin.cjs').read_bytes(), self.old)
         self.assertEqual(self.mcp.read_bytes(), self.before)
@@ -109,7 +109,7 @@ class CleanupIntegration(unittest.TestCase):
             self.invoke()
         self.assertEqual(len(self.commands), 1)
         self.assertEqual((self.core / 'local.json').read_bytes(), before)
-        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0117-*'))
+        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0119-*'))
         self.assertEqual(len(backups), 1)
         self.assertEqual((backups[0] / 'plugin.cjs').read_bytes(), self.old)
 
@@ -127,12 +127,48 @@ class CleanupIntegration(unittest.TestCase):
             self.invoke()
         self.assertEqual(len(self.commands), 1)
         self.assertEqual((self.core / 'local.json').read_bytes(), before)
-        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0117-*'))
+        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0119-*'))
         self.assertEqual(len(backups), 1)
         self.assertEqual((backups[0] / 'plugin.cjs').read_bytes(), self.old)
 
     def test_changed_0116_stops_before_backup_and_cli(self):
         self.write_plugin(self.target, '0.1.16', 16, b'unknown changed 0116 bundle')
+        with self.assertRaisesRegex(RuntimeError, 'keinem geprüften Vorgänger'):
+            self.invoke()
+        self.assertEqual(self.commands, [])
+        self.assertFalse((self.root / 'appdata').exists())
+
+    def test_confirmed_0117_upgrades_with_backup_and_keeps_all_grants(self):
+        self.write_plugin(self.target, '0.1.17', 17, self.old)
+        before = (self.core / 'local.json').read_bytes()
+        with patch.object(api, 'PREVIOUS_0117_SHA256', digest(self.old)):
+            self.invoke()
+        self.assertEqual(len(self.commands), 1)
+        self.assertEqual((self.core / 'local.json').read_bytes(), before)
+        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0119-*'))
+        self.assertEqual(len(backups), 1)
+        self.assertEqual((backups[0] / 'plugin.cjs').read_bytes(), self.old)
+
+    def test_changed_0117_stops_before_backup_and_cli(self):
+        self.write_plugin(self.target, '0.1.17', 17, b'changed 0117')
+        with self.assertRaisesRegex(RuntimeError, 'keinem geprüften Vorgänger'):
+            self.invoke()
+        self.assertEqual(self.commands, [])
+        self.assertFalse((self.root / 'appdata').exists())
+
+    def test_confirmed_0118_upgrades_with_backup_and_preserves_grants(self):
+        self.write_plugin(self.target, '0.1.18', 18, self.old)
+        before = (self.core / 'local.json').read_bytes()
+        with patch.object(api, 'PREVIOUS_0118_SHA256', digest(self.old)):
+            self.invoke()
+        self.assertEqual(len(self.commands), 1)
+        self.assertEqual((self.core / 'local.json').read_bytes(), before)
+        backups = list((self.root / 'appdata/NOVAFORGE/Sicherungen').glob('themenauswahl-vor-0119-*'))
+        self.assertEqual(len(backups), 1)
+        self.assertEqual((backups[0] / 'plugin.cjs').read_bytes(), self.old)
+
+    def test_changed_0118_stops_before_backup_and_cli(self):
+        self.write_plugin(self.target, '0.1.18', 18, b'changed 0118')
         with self.assertRaisesRegex(RuntimeError, 'keinem geprüften Vorgänger'):
             self.invoke()
         self.assertEqual(self.commands, [])

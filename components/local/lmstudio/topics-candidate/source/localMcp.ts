@@ -8,6 +8,7 @@ import {Client} from '@modelcontextprotocol/client';
 import {StdioClientTransport,type StdioServerParameters} from '@modelcontextprotocol/client/stdio';
 import {selectTools,type Selection} from './selection';
 import {calendarMeetingModelSchema,calendarMeetingNativeArguments} from './calendarMeetingInput';
+import {ReadReferences,ReadReferenceError,readReferenceModelSchema,readReferenceDescription} from './readReferences';
 
 export interface SourceSettings {parameters:StdioServerParameters;expectedUser:string}
 export interface LocalSession {tools:Tool[];[Symbol.dispose]():void}
@@ -36,11 +37,12 @@ export function loadSourceSettings(home=homedir(),platform=process.platform):Sou
 
 export async function connectLocalMcp(source:SourceSettings,selection:Selection,signal:AbortSignal):Promise<LocalSession> {
   signal.throwIfAborted();
-  const client=new Client({name:'novaforge-themenauswahl',version:'0.1.17'});
+  const client=new Client({name:'novaforge-themenauswahl',version:'0.1.19'});
   const transport=new StdioClientTransport(source.parameters);
+  const references=new ReadReferences(source.expectedUser);
   let closed=false;
   const close=()=>{
-    if(closed)return;closed=true;signal.removeEventListener('abort',close);
+    if(closed)return;closed=true;references.clear();signal.removeEventListener('abort',close);
     void client.close().catch(()=>{});
   };
   signal.addEventListener('abort',close,{once:true});
@@ -56,13 +58,22 @@ export async function connectLocalMcp(source:SourceSettings,selection:Selection,
     }
     if(account.isError||identity?.uid!==source.expectedUser)throw new Error('MCP-Kontoprüfung fehlgeschlagen.');
     signal.throwIfAborted();
-    const tools=selected.map(definition=>rawFunctionTool({name:definition.name,description:definition.description??'',
-      parametersJsonSchema:calendarMeetingModelSchema(definition.name,definition.inputSchema),
+    const tools=selected.map(definition=>rawFunctionTool({name:definition.name,description:readReferenceDescription(definition.name,definition.description??''),
+      parametersJsonSchema:readReferenceModelSchema(definition.name,calendarMeetingModelSchema(definition.name,definition.inputSchema)),
       implementation:async(args,ctx)=>{
         if(closed)throw new Error('Lokale Werkzeug-Sitzung ist beendet.');
         ctx.signal.throwIfAborted();
-        const nativeArgs=calendarMeetingNativeArguments(definition.name,definition.inputSchema,args);
-        try{return await client.callTool({name:definition.name,arguments:nativeArgs},{signal:ctx.signal,timeout:60000});}
+        let nativeArgs;
+        try {nativeArgs=references.nativeArguments(definition.name,calendarMeetingNativeArguments(definition.name,definition.inputSchema,args));}
+        catch(error){
+          if(!(error instanceof ReadReferenceError))throw error;
+          const data={code:'read_reference_required',message:error.message};
+          return {isError:true,structuredContent:data,content:[{type:'text' as const,text:JSON.stringify(data)}]};
+        }
+        try{
+          const result=await client.callTool({name:definition.name,arguments:nativeArgs},{signal:ctx.signal,timeout:60000});
+          return references.observe(definition.name,nativeArgs,result,args);
+        }
         catch{throw new Error('Lokaler MCP-Aufruf nicht bestätigt. Bei Änderungen zuerst den tatsächlichen Objektstand prüfen.');}
       }}));
     return {tools,[Symbol.dispose]:close};

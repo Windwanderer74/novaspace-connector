@@ -33,7 +33,7 @@ Die drei direkten historischen Installer (`update_connector.py`, `nextcloud-loca
 
 ## Was die Prüfungen belegen
 
-Der aktuelle öffentliche Quellstand wurde gebaut. 176 Kernprüfungen und
+Der frühere öffentliche Quellstand mit Themenauswahl 0.1.17 wurde gebaut. 176 Kernprüfungen und
 40 Themen-/SDK-Prüfungen sind erfolgreich. Darin werden alle **524.288**
 Schalterkombinationen auf ihre Werkzeugauswahl geprüft. Das sind keine
 entsprechend vielen Modellgespräche. Verwendet wurden vorhandene gesperrte
@@ -46,7 +46,16 @@ gesondert offen.
 
 ## Fortschreibung 29. Oktober 2026
 
-Aktueller Beta-Quellstand: Online1.36.0, persönlich1.36.0-local.1, Themen0.1.17.
+Aktueller Beta-Quellstand: Online1.36.0, persönlich1.36.0-local.1, Themen0.1.19.
 Paket1:29/32; A01/A02/Z01 offen. Ältere Prüfzahlen oben sind historische
 Nachweise und werden nicht als aktuelle Wiederholung ausgegeben. Der aktuelle
 Prüfumfang steht in TEST_RESULTS.json und im [Update](../../../docs/updates/1.36.0.md).
+
+## Themenauswahl 0.1.19
+
+Für diese Fortschreibung wurden der unveränderte öffentliche Kern als Testfixture
+und die aktualisierte Themenauswahl gebaut. 54 Themen-/SDK-Prüfungen, 24 isolierte
+Installerprüfungen und die TypeScript-Prüfung der Themenauswahl sind erfolgreich.
+Die früheren 176 Kernprüfungen wurden unverändert übernommen und nicht erneut als
+aktuelle Fachprüfung gezählt. Die tatsächlich übermittelte Windows-Installation
+und der persönliche Modelltest stehen getrennt in TEST_RESULTS.json.

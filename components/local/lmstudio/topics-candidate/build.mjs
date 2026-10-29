@@ -10,5 +10,4 @@ const tools=JSON.parse(await readFile('../nextcloud-local-candidate/TOOL-MANIFES
 await writeFile('TOOL-MANIFEST.json',JSON.stringify(tools.filter(t=>!t.name.startsWith('inventory_')),null,2));
 
 // Exercise the current core in the real child-process regression.
-await mkdir('tests/fixtures',{recursive:true});
 await copyFile('../nextcloud-local-candidate/dist/nextcloud-local.cjs','tests/fixtures/nextcloud-local.cjs');

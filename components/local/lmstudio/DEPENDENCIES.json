@@ -493,7 +493,7 @@
     },
     {
       "component": "topics-candidate",
-      "lockSha256": "687b8abe4a1189b5e5de25bf6ec2313190f735ae8f1591fa7d387d89a0e9f077",
+      "lockSha256": "bbd5003a907f739b3fb6b4d9b0d855fd1b1ce5cebf1ca99ad531d32c3970a15d",
       "packages": [
         {
           "lockPath": "node_modules/@esbuild/aix-ppc64",

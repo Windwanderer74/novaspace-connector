@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-29",
+  "publicBaseCommit": "23c15772560accc7676e6ae868cac2bab16c99ee",
+  "sourceCheckpoint": "9526e9f9010901c932d1c3c37e14de40cc57d2e0",
+  "versions": {
+    "online": "1.36.0",
+    "personal": "1.36.0-local.1",
+    "topics": "0.1.19"
+  },
+  "scope": "Topics-only source and result update; other native/online components remain on their previous versions",
+  "package1": {
+    "completed": 29,
+    "total": 32,
+    "open": [
+      "A01",
+      "A02",
+      "Z01"
+    ]
+  },
+  "localComponent": {
+    "manifestSha256": "ae096a39afb7e470b19fcab1ffeeb116dc30504ba78e06edd3e17951939dbeed",
+    "provenanceSha256": "c0fbfbcb1c2b4cdadac34d0d2f97186cb7a0aa59da1873fbe7a82f4274e9099f",
+    "testReportSha256": "b832a57880af86c29b9699a9600390ab23226ed36a046ec91e7b4e6b2e201ca2"
+  },
+  "functionalResult": "File selection, verified source capsule and fresh readback passed in the supplied personal Gemma transcript",
+  "privateOriginalEvidencePublished": false,
+  "historicalInstallersRemainDisabled": true,
+  "previousPublication": "PUBLICATION_1_36_0.json"
+}

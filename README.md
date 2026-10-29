@@ -33,7 +33,7 @@ Stand: **29. Oktober 2026 · Beta-Zwischenstand**.
 |---|---|
 | Online-Connector | **1.36.0** |
 | Persönlicher LM-Studio-Kern | **1.36.0-local.1** |
-| LM-Studio-Themenauswahl | **0.1.17** |
+| LM-Studio-Themenauswahl | **0.1.19** |
 | Native Projekt-App | **0.2.13**, unverändert |
 
 **Paket 1 steht bei 29 von 32 Bedingungen.** Die geplanten Funktionsblöcke sind
@@ -47,10 +47,12 @@ vereinbarten Umfang tatsächlich gespeichert und rückgelesen; der Eingang der b
 E-Mails wurde getrennt bestätigt. Absagen und Serienantworten sind isoliert geprüft,
 werden hier aber nicht als produktiv ausgeführt behauptet.
 
-Themenauswahl **0.1.17** macht erforderliche Angaben je Kalenderaktion im Modellschema
-verbindlich und behandelt die beobachtete zusätzliche ETag-Maskierung gezielt.
-Sie ergänzt keine Rechte und ersetzt keine Prüfung des tatsächlichen Serverstands.
-[Änderungen, Quellen und Abnahmegrenzen](docs/updates/1.36.0.md).
+Themenauswahl **0.1.19** übernimmt vorhandene Dateien aus Such- und Ordnerergebnissen
+über ausdrücklich gewählte Referenzen. Die sechs gebundenen Mindmap-Schreibwerkzeuge
+verwenden frisch gelesene Objekt- und Versionsbelege. Ein tatsächlicher Durchlauf
+mit Gemma bestätigt Auswahl, Quellenbindung und frisches Rücklesen bei unverändertem
+Quelltext. Die Themenbeschriftungen kommen ohne „Zusatz:“ aus.
+[Änderungen und Testergebnis](docs/updates/0.1.19.md).
 
 Der weitere Ausbau läuft in drei Lieferpaketen:
 
@@ -83,7 +85,7 @@ Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie folgend
 - Die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) als einzeln nachvollziehbares Modul.
 - Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
 - Den [Online-Connector 1.36.0](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.2, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
-- Den [persönlichen LM-Studio-Anschluss 1.36.0-local.1 mit Themenauswahl 0.1.17](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
+- Den [persönlichen LM-Studio-Anschluss 1.36.0-local.1 mit Themenauswahl 0.1.19](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
 - Die [native Projekt-App0.2.13](components/nextcloud/projects/README.md) mit vollständig zusammengeführtem Appbaum und isolierten Protokoll-/Adapterprüfungen.
 
 
@@ -91,4 +93,7 @@ Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernom
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.36.0, personal1.36.0-local.1/topics0.1.17 and native project-app0.2.13 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded. A first personal connector project-creation pilot was reported successful by the client; the scoped complete-status and browser-return steps are accepted; general model acceptance remains separate. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.36.0.md), component build/test reports and LICENSING.md.
+**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.36.0, personal1.36.0-local.1/topics0.1.19 and native project-app0.2.13 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded. A first personal connector project-creation pilot was reported successful by the client; the scoped complete-status and browser-return steps are accepted; general model acceptance remains separate. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.36.0.md), component build/test reports and LICENSING.md.
+
+Die Fortschreibung der Themenauswahl 0.1.19 hat einen eigenen
+[dateigenauen Veröffentlichungsnachweis](docs/PUBLICATION_TOPICS_0_1_19.json).

@@ -6,6 +6,7 @@ export {configSchematics,toolsProvider};
 export {provideSelectedTools} from './toolsProvider';
 export * from './localMcp';
 export * from './calendarMeetingInput';
+export * from './readReferences';
 export * from './selection';
 export async function main(context: PluginContext) {
   context.withConfigSchematics(configSchematics);

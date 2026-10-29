@@ -1857,22 +1857,53 @@
       "license": "Unchanged upstream license; see the retained license file"
     },
     {
-      "path": "topics-candidate/install_topics.py",
-      "sourcePath": "topics-0.1.17/install_topics.py",
-      "sourceSha256": "e7f9400de1fa34b0bf32077d4c32c10e500564c9d93f432d93d447eaa4352a24",
-      "publishedSha256": "cc7378f68f241f5244150ffb8d3315de980e11b5c37c0826179819365a72662c",
+      "path": "topics-candidate/build.mjs",
+      "sourcePath": "topics-0.1.19/build.mjs",
+      "sourceSha256": "a869345ae51c82aca940501f9ea775010407f02f0fbfc8f1c352fcc9b28569ee",
+      "publishedSha256": "dd7a19ae66af6b16d479b72f10fea998beafe8f1f8fbd661824da0eca9fdc424",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "topics-candidate/install_topics.py",
+      "sourcePath": "topics-0.1.19/install_topics.py",
+      "sourceSha256": "adf17116bc233f26449dd86d5d0f590ecb6e3bb957eb6736a56db28a7ec66203",
+      "publishedSha256": "e9c473cb5c2cc6c57804bac3f10bf1d5d6d7c293db6ed2861df7480922b36653",
+      "changes": [
+        "Reserved examples replace installation-specific values",
+        "Own-code SPDX notice; existing third-party notices retained",
+        "Historical installer remains disabled before configuration access"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "topics-candidate/manifest.json",
-      "sourcePath": "topics-0.1.17/manifest.json",
-      "sourceSha256": "7de659ed1e2dd0a84043ed0242728969428d7a1f906a125e846a9ae22fbf0860",
-      "publishedSha256": "7de659ed1e2dd0a84043ed0242728969428d7a1f906a125e846a9ae22fbf0860",
+      "sourcePath": "topics-0.1.19/manifest.json",
+      "sourceSha256": "b2baf7e084dbda0b30f67bb09174d1ad13879c799188254ef2e625c4672bec28",
+      "publishedSha256": "b2baf7e084dbda0b30f67bb09174d1ad13879c799188254ef2e625c4672bec28",
       "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "topics-candidate/package-lock.json",
+      "sourcePath": "topics-0.1.19/package-lock.json",
+      "sourceSha256": "4bb3407e74d2d42933007fb6de57fe054fb20a025a75ea42bb097413e5ae9bc9",
+      "publishedSha256": "bbd5003a907f739b3fb6b4d9b0d855fd1b1ce5cebf1ca99ad531d32c3970a15d",
+      "changes": [
+        "Public development dependency metadata retained; version advanced"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "topics-candidate/package.json",
+      "sourcePath": "topics-0.1.19/package.json",
+      "sourceSha256": "b473d0b841fcf1efb009e9dd6309afe32488a7be0c37d59b1773459572b66761",
+      "publishedSha256": "ee14a66cf97c78311f509eb44399c829ab6ddafcf5e3b034f87a43e46278c82a",
+      "changes": [
+        "Public development dependency metadata retained; version advanced"
+      ],
       "license": "AGPL-3.0-or-later"
     },
     {
@@ -1887,7 +1918,7 @@
     },
     {
       "path": "topics-candidate/source/calendarMeetingInput.ts",
-      "sourcePath": "topics-0.1.17/source/calendarMeetingInput.ts",
+      "sourcePath": "topics-0.1.19/source/calendarMeetingInput.ts",
       "sourceSha256": "d6869a8b990dc978979cfc2134a1be741ffdb796a0cbc7d9482f4b6b5e5ae605",
       "publishedSha256": "3513975801a8fb79a5dc95fd2313b3bd8c63f4d341aa280d8517b02e79fcf7cd",
       "changes": [
@@ -1897,9 +1928,9 @@
     },
     {
       "path": "topics-candidate/source/config.ts",
-      "sourcePath": "topics-0.1.17/source/config.ts",
-      "sourceSha256": "0274a6336954d9f10e5004ac3316d87046c31079b4d19c26bf5a70c92168519e",
-      "publishedSha256": "1c7221e356900a13f6b5dc56fe250826636d830e1afa74759b97f0b39152d3b4",
+      "sourcePath": "topics-0.1.19/source/config.ts",
+      "sourceSha256": "40dee186b54029942f9b5b4d71c8613b7d43baf6bcd9b468da5f7aafe8fc7437",
+      "publishedSha256": "acea1744b8ba7a037bb4ab026e5037e3ea6a1b07602cab94ac831b08cd28e951",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1907,9 +1938,9 @@
     },
     {
       "path": "topics-candidate/source/index.ts",
-      "sourcePath": "topics-0.1.17/source/index.ts",
-      "sourceSha256": "a822ab9e23fb40c11bd8f8ac6ffb6f1aae0e1bdc9446cf87bde2e85fd3f1d510",
-      "publishedSha256": "608b0e3f19ef02a19bf03b08c65702409ae0cbc6e7e87ba8f68d565db880b713",
+      "sourcePath": "topics-0.1.19/source/index.ts",
+      "sourceSha256": "b895bb6908e543d63083a6b0f8cc7f58ab4b8eaad2062027d80af4d4b8207875",
+      "publishedSha256": "9abea3196b3ed0f877cda735a1837cefb18272af0ddbb184f6415cce770e4baf",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1917,18 +1948,26 @@
     },
     {
       "path": "topics-candidate/source/localMcp.ts",
-      "sourcePath": "topics-0.1.17/source/localMcp.ts",
-      "sourceSha256": "e2ffb1508b46cae35ee78c4722c92af049e5310d6d06f7ec6407b4e516a6ddda",
-      "publishedSha256": "3ccf7a730f8b6836a6fe29dbb04f3c1e296a20f3862ef4d06b3f3def9da35d8b",
+      "sourcePath": "topics-0.1.19/source/localMcp.ts",
+      "sourceSha256": "dba418d35e7ce773fcacc3c47bc5032c078a53c3cedeb12a827d0e46292933e9",
+      "publishedSha256": "1d4fe9d5f7661c69d42ba4b2d85959fa557998b4f94d8309912d8944d613e5ec",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
+        "Reserved examples replace installation-specific values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "topics-candidate/source/readReferences.ts",
+      "sourcePath": "topics-0.1.19/source/readReferences.ts",
+      "sourceSha256": "327d76e2e31320a42b3226a56bfe096145d09f8052aacc2067ff83bad31ee063",
+      "publishedSha256": "327d76e2e31320a42b3226a56bfe096145d09f8052aacc2067ff83bad31ee063",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "topics-candidate/source/selection.ts",
-      "sourcePath": "topics-0.1.17/source/selection.ts",
+      "sourcePath": "topics-0.1.19/source/selection.ts",
       "sourceSha256": "2c2732bda90848cc1f8ba1cd3817f4931e04d879df48cf03d9b80a674d5cf6e2",
       "publishedSha256": "e9d8d608fd232ba750abf37749ab5c7169f0b7c466db6b213f3dd4779475e188",
       "changes": [
@@ -1938,7 +1977,7 @@
     },
     {
       "path": "topics-candidate/source/toolsProvider.ts",
-      "sourcePath": "topics-0.1.17/source/toolsProvider.ts",
+      "sourcePath": "topics-0.1.19/source/toolsProvider.ts",
       "sourceSha256": "88387eadc4a691f0a366c1755d9f8fc40ca491b85f4a8375093cade3bb9b8aae",
       "publishedSha256": "c1e0655570137d6c24a0cdd3485db3df64aa059b6652dcf6e7f5b261f2d2bb41",
       "changes": [
@@ -1948,18 +1987,18 @@
     },
     {
       "path": "topics-candidate/tests/calendar-action-contract.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/calendar-action-contract.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/calendar-action-contract.test.cjs",
       "sourceSha256": "139b2d21b40642a8bab05e2df8e210c2fa4a55758be9736458f41c47e1286e05",
       "publishedSha256": "04d727e34406d1ff24b22ccf5e4a5ad0d6fd21d16d539a12d6dcebb0c8fd3ff7",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
+        "Reserved examples replace installation-specific values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/tests/calendar-comfort-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/calendar-comfort-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/calendar-comfort-selection.test.cjs",
       "sourceSha256": "c59a81a16ddc50d8a5860524afc1a89223927d6fb60fb7d18886d6de1b3d8fe7",
       "publishedSha256": "75ee62af2369e7599a922f44240a53881b97d7910bdea4a3541e306b3e70c1d1",
       "changes": [
@@ -1969,7 +2008,7 @@
     },
     {
       "path": "topics-candidate/tests/calendar-invitations-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/calendar-invitations-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/calendar-invitations-selection.test.cjs",
       "sourceSha256": "42433a16b45f179ee3a2c6130bc224f67341e1ae88897e369db2fbb4f3d1e8fc",
       "publishedSha256": "d9402b81d9b442a5336c7d3cd9eb2fb0e3e594e9f2df0ba3c71d7defe1a5f0f1",
       "changes": [
@@ -1979,7 +2018,7 @@
     },
     {
       "path": "topics-candidate/tests/calendar-management-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/calendar-management-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/calendar-management-selection.test.cjs",
       "sourceSha256": "36de01def8fe6cac4bb3b307090d3f3864a7fa2e9af32f562d59e65e2e4a614b",
       "publishedSha256": "fa24ad58aa5115b5603834ec9e7766245f524d36c6a1d97ed64d4f4f1b2da69e",
       "changes": [
@@ -1989,18 +2028,18 @@
     },
     {
       "path": "topics-candidate/tests/calendar-meeting-null.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/calendar-meeting-null.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/calendar-meeting-null.test.cjs",
       "sourceSha256": "a34901060fdec231f9b1ad4e7fc846b06fe0cb81a4c99ce8e60ba7707bf12dcf",
       "publishedSha256": "e7f298c8ecd4047e9cb5cd3e90b854bb3269e5bfb132d8f24d4a4ee2c16b0058",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
+        "Reserved examples replace installation-specific values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/tests/calendar-meetings-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/calendar-meetings-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/calendar-meetings-selection.test.cjs",
       "sourceSha256": "baae6318dc64558f34dffae8707ff1a9b7d75e7224a196e9e57015cf92fef225",
       "publishedSha256": "685d230efa79b6fd3c40c1cda939be5f02360a049ade4cbd2ca1b3170502a61b",
       "changes": [
@@ -2010,7 +2049,7 @@
     },
     {
       "path": "topics-candidate/tests/calendar-series-care-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/calendar-series-care-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/calendar-series-care-selection.test.cjs",
       "sourceSha256": "566cad8a5d78071ddb960887436659c6d22031140dac84b00c9cdf1bb99c36e6",
       "publishedSha256": "175c1cb6b89b3dc1813751f0d04a744dfa03c1b266883d61601a8c27b82cc600",
       "changes": [
@@ -2020,7 +2059,7 @@
     },
     {
       "path": "topics-candidate/tests/contact-books-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/contact-books-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/contact-books-selection.test.cjs",
       "sourceSha256": "2a70621a3f75b113c638039de7f228b1b48bac9a970fc4354fb4c42857521efc",
       "publishedSha256": "7b150414303d0a15744d1e3faff2387ed64d8962c701d22bb58ef34ee2325c50",
       "changes": [
@@ -2030,7 +2069,7 @@
     },
     {
       "path": "topics-candidate/tests/deck-shares-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/deck-shares-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/deck-shares-selection.test.cjs",
       "sourceSha256": "7392bcc7b6adb0d3423aec62c53d6bbace3d03c388c5c7e07eee4f10009ebd47",
       "publishedSha256": "bf5af76f31dd93438cf5cf50de81db9729a05466c823e408e1187851ebd93d8a",
       "changes": [
@@ -2040,7 +2079,7 @@
     },
     {
       "path": "topics-candidate/tests/deck-trash-selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/deck-trash-selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/deck-trash-selection.test.cjs",
       "sourceSha256": "b6d12416cc496c151a6f6c87374b062da7f50668d056eeccce6a661ca7cf7344",
       "publishedSha256": "f3c40287f5683a80c7b10924d2a5cb5bc9e7dbb66c190fc7338d42c136e75806",
       "changes": [
@@ -2050,29 +2089,51 @@
     },
     {
       "path": "topics-candidate/tests/fixtures/calendar-meeting-fetch.cjs",
-      "sourcePath": "topics-0.1.17/tests/fixtures/calendar-meeting-fetch.cjs",
+      "sourcePath": "topics-0.1.19/tests/fixtures/calendar-meeting-fetch.cjs",
       "sourceSha256": "a50fff1a09441ee5033140b17d35fba7f421018c53cdabcfa2124777eef7884e",
       "publishedSha256": "d2e183805bfdc98d765309fe2d714b7208d735be7cda7484dd87b0ad0be1b741",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
+        "Reserved examples replace installation-specific values",
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "topics-candidate/tests/fixtures/mindmap-reference-fetch.cjs",
+      "sourcePath": "topics-0.1.19/tests/fixtures/mindmap-reference-fetch.cjs",
+      "sourceSha256": "4625da69034c65bcefc31787b157957c043d13ba22130fad940c9285d86e0c41",
+      "publishedSha256": "7aa42d5d2dfaf35ce040e7debede382fce6998789075bc0ed374a222c9d7d8c2",
+      "changes": [
+        "Reserved examples replace installation-specific values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/tests/local-mcp.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/local-mcp.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/local-mcp.test.cjs",
       "sourceSha256": "7d032f20c9165eae29830e840798e2448f5c8fdcd0596ec4f128d0a3afec8adf",
       "publishedSha256": "da3243db0c80fcc36cee9d236ab11250b9faad0df89b77669556c9a4040696ed",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
+        "Reserved examples replace installation-specific values",
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "topics-candidate/tests/read-references.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/read-references.test.cjs",
+      "sourceSha256": "2ba3a8fd2c35218df9316876a10f8ff26191d814308002c8fa6ac630d46d36d9",
+      "publishedSha256": "70c975b9220afb73cf2496d6c84fcf716000ac70098091effc17ff640aa904a9",
+      "changes": [
+        "Reserved examples replace installation-specific values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/tests/selection.test.cjs",
-      "sourcePath": "topics-0.1.17/tests/selection.test.cjs",
+      "sourcePath": "topics-0.1.19/tests/selection.test.cjs",
       "sourceSha256": "4873e76a3944212dcbb03e45473d2dd4d739e845ee78e3ab32cb8164ac24fe62",
       "publishedSha256": "a79d1132dbf8c450aa96e15c639be3dd67a77d0638646922b4e16e6987ac78fc",
       "changes": [
@@ -2082,22 +2143,22 @@
     },
     {
       "path": "topics-candidate/tests/test_cleanup_installer.py",
-      "sourcePath": "topics-0.1.17/tests/test_cleanup_installer.py",
-      "sourceSha256": "0ecee200315dd7fc381842917886ab99d6d49b171f37025bc74fa071691711d7",
-      "publishedSha256": "35572b592b50a73be48fdb92e4cac93dddfe19388d6658c29b1443d411bc3d8b",
+      "sourcePath": "topics-0.1.19/tests/test_cleanup_installer.py",
+      "sourceSha256": "be2b682d3620761a27a440c74fbc5d253f5ee805b8b6b85114b98172f44f0509",
+      "publishedSha256": "e50e2386cfcfa51aa105a9220231815cb118a125a321cfcbe5d6b426b912d6b1",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
+        "Reserved examples replace installation-specific values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/tests/test_installer.py",
-      "sourcePath": "topics-0.1.17/tests/test_installer.py",
+      "sourcePath": "topics-0.1.19/tests/test_installer.py",
       "sourceSha256": "bab070aca8473da3e1f29aa2ea5302835b4d18fead4a750baf614357cbc7f6c2",
       "publishedSha256": "24b33d9fc416e6a4e48b501a0e9484a5ae8ea703474d0092409b674817f41ba0",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
+        "Reserved examples replace installation-specific values",
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
@@ -2120,21 +2181,20 @@
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
-    },
-    {
-      "path": "topics-candidate/build.mjs",
-      "sourcePath": "topics-0.1.17/build.mjs",
-      "sourceSha256": "a869345ae51c82aca940501f9ea775010407f02f0fbfc8f1c352fcc9b28569ee",
-      "publishedSha256": "0b21e7d1f31cfb67d95cc03dc906d92f10def3759bd47de1cee1518a5e3860ec",
-      "changes": [
-        "Own-code SPDX notice; existing third-party notices retained"
-      ],
-      "license": "AGPL-3.0-or-later"
     }
   ],
   "excluded": [
     "Credentials, runtime configuration and private receipts",
     "Generated binaries, historical private hosting installers and full private Git history"
   ],
-  "additionalFilesPolicy": "Own publication/build/docs helpers: AGPL-3.0-or-later; existing third-party notices and dependency locks retained."
+  "additionalFilesPolicy": "Own publication/build/docs helpers: AGPL-3.0-or-later; existing third-party notices and dependency locks retained.",
+  "topicUpdate": {
+    "version": "0.1.19",
+    "sourceCheckpoint": "9526e9f9010901c932d1c3c37e14de40cc57d2e0",
+    "originalUpdateZipSha256": "18dbb4f287623579414770e402944c81d243f1da9b7dc1861ad600116f5b118c",
+    "nativeCoreChanged": false,
+    "runtimeDependencyVersionsChanged": false,
+    "privateFixturePathsIdsAndEtagsReplaced": true,
+    "releaseRecipeExcluded": "The installation-bound internal ZIP recipe depends on a private baseline; public source build remains in BUILD.md."
+  }
 }

@@ -12,13 +12,15 @@ import sys
 
 PLUGIN_ID = 'novaforge/themenauswahl'
 SOURCE_ENTRY = 'nextcloud-pilot-next2'
-VERSION = '0.1.17'
-REVISION = 17
+VERSION = '0.1.19'
+REVISION = 19
 CURRENT_CORE = '1.36.0-local.1'
 CORE_PINS = {
     'start_local.py': 'cd0c5200270820cd5424017cb5625ff9d4f3755a447d05f0ca5ab495e1434d75',
     'dist/nextcloud-local.cjs': 'bb8ad0642eb4b3815c13a9f001f79a298281be8799041c031382f701d940970e',
 }
+PREVIOUS_0118_SHA256 = '2edb2f3659619cdef67ed4afd14ff87d04d1e710b1bbc291036f8239dde90d42'
+PREVIOUS_0117_SHA256 = 'c47c9ef82df96a3ff3f3b078d32a67bec2cbef41cba40c7e1ef763d48e307d7a'
 PREVIOUS_0116_SHA256 = '33559054dcd515b43d45ca3b277eac7a8afd20f556256e3f29a5552731a238e3'
 PREVIOUS_0115_SHA256 = '83e26908496309bd74ce2f8c287fe500ea1e881170ad5978a57e9a09b2761af9'
 PREVIOUS_0114_SHA256 = 'b879201bdaf854a0a3a623cd49b38ae2007b1954c521992bba9a22375b29307b'
@@ -46,9 +48,9 @@ def verified_previous_plugin(target):
     manifest = json.loads((target / 'manifest.json').read_text(encoding='utf-8'))
     package = json.loads((target / 'package.json').read_text(encoding='utf-8'))
     bundle = target / 'plugin.cjs'
-    previous_hash={'0.1.0':PREVIOUS_BUNDLE_SHA256,'0.1.1':PREVIOUS_011_SHA256,'0.1.2':PREVIOUS_012_SHA256,'0.1.3':PREVIOUS_013_SHA256,'0.1.4':PREVIOUS_014_SHA256,'0.1.5':PREVIOUS_015_SHA256,'0.1.6':PREVIOUS_016_SHA256,'0.1.7':PREVIOUS_017_SHA256,'0.1.8':PREVIOUS_018_SHA256,'0.1.9':PREVIOUS_019_SHA256,'0.1.10':PREVIOUS_0110_SHA256,'0.1.11':PREVIOUS_0111_SHA256,'0.1.12':PREVIOUS_0112_SHA256,'0.1.13':PREVIOUS_0113_SHA256,'0.1.14':PREVIOUS_0114_SHA256,'0.1.15':PREVIOUS_0115_SHA256,'0.1.16':PREVIOUS_0116_SHA256}.get(package.get('version'))
+    previous_hash={'0.1.0':PREVIOUS_BUNDLE_SHA256,'0.1.1':PREVIOUS_011_SHA256,'0.1.2':PREVIOUS_012_SHA256,'0.1.3':PREVIOUS_013_SHA256,'0.1.4':PREVIOUS_014_SHA256,'0.1.5':PREVIOUS_015_SHA256,'0.1.6':PREVIOUS_016_SHA256,'0.1.7':PREVIOUS_017_SHA256,'0.1.8':PREVIOUS_018_SHA256,'0.1.9':PREVIOUS_019_SHA256,'0.1.10':PREVIOUS_0110_SHA256,'0.1.11':PREVIOUS_0111_SHA256,'0.1.12':PREVIOUS_0112_SHA256,'0.1.13':PREVIOUS_0113_SHA256,'0.1.14':PREVIOUS_0114_SHA256,'0.1.15':PREVIOUS_0115_SHA256,'0.1.16':PREVIOUS_0116_SHA256,'0.1.17':PREVIOUS_0117_SHA256,'0.1.18':PREVIOUS_0118_SHA256}.get(package.get('version'))
     if manifest.get('owner') != 'novaforge' or manifest.get('name') != 'themenauswahl' or not previous_hash or hashlib.sha256(bundle.read_bytes()).hexdigest() != previous_hash:
-        raise RuntimeError('Vorhandene Themenauswahl entspricht keinem geprüften Vorgänger bis 0.1.16. Nicht überschrieben.')
+        raise RuntimeError('Vorhandene Themenauswahl entspricht keinem geprüften Vorgänger bis 0.1.18. Nicht überschrieben.')
     return True
 
 
@@ -134,18 +136,18 @@ def main():
     print('OK: Tatsächlicher persönlicher Kern', source['version'], 'für', args.expected_user, 'an geprüfter Programmdatei bestätigt.')
     print('OK: calendar_read_scheduling ist im bestätigten Kern enthalten; in der Themenauswahl Kalender einschalten.')
     if already_current(target, root):
-        print('OK: Themenauswahl 0.1.17 bereits paketgleich vorhanden. Nichts installiert.')
+        print('OK: Themenauswahl 0.1.19 bereits paketgleich vorhanden. Nichts installiert.')
         return
     cli = locate_lms(home)
     updating = verified_previous_plugin(target)
-    print('OK: Paket 0.1.17 und bestehende Themenauswahl geprüft.')
+    print('OK: Paket 0.1.19 und bestehende Themenauswahl geprüft.')
     if args.check:
         print('OK: Installationsweg vorhanden. Nur Bestand geprüft; nichts installiert.')
         return
     if mcp_path.read_bytes() != before:
         raise RuntimeError('MCP-Konfiguration wurde parallel geändert. Nichts installiert.')
     if updating:
-        backup = Path(os.environ['LOCALAPPDATA']) / 'NOVAFORGE' / 'Sicherungen' / ('themenauswahl-vor-0117-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f'))
+        backup = Path(os.environ['LOCALAPPDATA']) / 'NOVAFORGE' / 'Sicherungen' / ('themenauswahl-vor-0119-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f'))
         backup.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(target, backup, symlinks=True)
         if (backup / 'plugin.cjs').read_bytes() != (target / 'plugin.cjs').read_bytes():
@@ -166,7 +168,7 @@ def main():
     package = json.loads((target / 'package.json').read_text(encoding='utf-8'))
     if package.get('version') != VERSION or installed.get('revision') != REVISION or installed.get('owner') != 'novaforge' or installed.get('name') != 'themenauswahl' or not bundle.is_file() or bundle.read_bytes() != (root / 'plugin.cjs').read_bytes():
         raise RuntimeError('Installiertes Plugin nicht bestätigt. Bestand prüfen; Installation nicht wiederholen.')
-    print('OK: Themenauswahl 0.1.17 lokal installiert; Kalender-Pflichtfelder je Aktion und genaue ETag-Uebernahme eingerichtet. Persönlicher Kern, Rechte und MCP-Einträge unverändert.')
+    print('OK: Themenauswahl 0.1.19 lokal installiert; Dateiauswahl per Referenz und Mindmap-Bindungen eingerichtet. Persönlicher Kern, Rechte und MCP-Einträge unverändert.')
     print('LM Studio: im neuen Chat novaforge/themenauswahl aktivieren und Themen kombinieren.')
     print('Den alten Anschluss als Einrichtung behalten, im Chat aber nicht zusätzlich auswählen.')
     print('Offen: sichtbare Schalter, kombinierter Werkzeugaufruf, Bilddarstellung und tatsächliche Prompt-Laufzeit prüfen.')

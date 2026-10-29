@@ -1,113 +1,183 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "date": "2026-10-29",
-  "sourceCheckpoint": "e2fd91539d4ba5855646f18eefd06e03609a957a",
+  "sourceCheckpoint": "9526e9f9010901c932d1c3c37e14de40cc57d2e0",
   "edition": "sanitized AGPL source snapshot",
-  "liveChangesBySourceChecks": false,
   "generalModelAcceptance": false,
   "previousSnapshotChecks": {
-    "schemaVersion": 3,
-    "date": "2026-10-27",
-    "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
+    "schemaVersion": 4,
+    "date": "2026-10-29",
+    "sourceCheckpoint": "e2fd91539d4ba5855646f18eefd06e03609a957a",
     "edition": "sanitized AGPL source snapshot",
     "liveChangesBySourceChecks": false,
-    "modelOrFreshInstallAcceptanceBySourceChecks": false,
+    "generalModelAcceptance": false,
+    "previousSnapshotChecks": {
+      "schemaVersion": 3,
+      "date": "2026-10-27",
+      "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
+      "edition": "sanitized AGPL source snapshot",
+      "liveChangesBySourceChecks": false,
+      "modelOrFreshInstallAcceptanceBySourceChecks": false,
+      "versions": {
+        "core": "1.35.1-local.1",
+        "topics": "0.1.13",
+        "revision": 13,
+        "coreTools": 172,
+        "topicsTools": 171
+      },
+      "checks": {
+        "coreBuild": true,
+        "topicsBuild": true,
+        "coreJavascriptPassed": 84,
+        "topicsJavascriptPassed": 29,
+        "topicCombinations": 262144,
+        "pythonPassed": [
+          3,
+          9,
+          9
+        ],
+        "failed": 0
+      },
+      "boundaries": [
+        "Historical public installers remain disabled by default",
+        "Excluded predecessor-binary tests are not claimed as rerun; no fresh Windows or general model/UI acceptance"
+      ],
+      "previousSnapshotChecks": {
+        "schemaVersion": 2,
+        "date": "2026-10-27",
+        "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+        "edition": "sanitized AGPL source snapshot",
+        "runtime": {
+          "os": "Linux x86_64",
+          "node": "24.22.1",
+          "npm": "11.9.0",
+          "python": "3.12.14",
+          "phpProtocolAndSyntax": "8.5.10 via PHP-WASM CLI; not a Nextcloud installation"
+        },
+        "liveChangesBySourceChecks": false,
+        "modelOrFreshInstallAcceptanceBySourceChecks": false,
+        "versions": {
+          "core": "1.35.0-local.1",
+          "topics": "0.1.12",
+          "coreTools": 172,
+          "topicsTools": 171
+        },
+        "originalArchiveSha256": "8b6936a5ad072864efda2ce3ebc3a26f5607ee2c5c2417b04f2ec8af0aa8c5e5",
+        "checks": {
+          "lockedInstall": {
+            "corePackages": 14,
+            "topicPackages": 30,
+            "passed": true
+          },
+          "sourceBuilds": {
+            "core": true,
+            "topics": true,
+            "catalogueWithoutCredentials": true
+          },
+          "javascript": {
+            "corePassed": 73,
+            "topicsPassed": 29,
+            "failed": 0,
+            "topicCombinations": 262144,
+            "realMcpChildProcesses": true,
+            "oneLmStudioSdkModuleGraph": true
+          },
+          "python": {
+            "launcherPassed": 3,
+            "topicInstallerPassed": 9,
+            "coordinatorPassed": 9,
+            "mutationsSimulated": true
+          },
+          "historicalCliDefaultGuards": {
+            "blocked": 3,
+            "configurationAccessed": false
+          }
+        },
+        "boundaries": [
+          "Two original predecessor-core installer tests need excluded historical binary fixtures and are not rerun here",
+          "Original Windows installation and focused user-supplied LM Studio read test are separate recorded evidence",
+          "No fresh Windows DPAPI, general model/UI, project creation/resume, image or prompt-latency acceptance"
+        ]
+      }
+    },
     "versions": {
-      "core": "1.35.1-local.1",
-      "topics": "0.1.13",
-      "revision": 13,
-      "coreTools": 172,
-      "topicsTools": 171
+      "core": "1.36.0-local.1",
+      "topics": "0.1.17",
+      "revision": 17,
+      "coreTools": 183,
+      "topicsTools": 179
     },
     "checks": {
       "coreBuild": true,
       "topicsBuild": true,
-      "coreJavascriptPassed": 84,
-      "topicsJavascriptPassed": 29,
-      "topicCombinations": 262144,
-      "pythonPassed": [
-        3,
-        9,
-        9
-      ],
+      "coreJavascriptPassed": 176,
+      "topicsJavascriptPassed": 40,
+      "topicCombinations": 524288,
       "failed": 0
     },
-    "boundaries": [
-      "Historical public installers remain disabled by default",
-      "Excluded predecessor-binary tests are not claimed as rerun; no fresh Windows or general model/UI acceptance"
-    ],
-    "previousSnapshotChecks": {
-      "schemaVersion": 2,
-      "date": "2026-10-27",
-      "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
-      "edition": "sanitized AGPL source snapshot",
-      "runtime": {
-        "os": "Linux x86_64",
-        "node": "24.22.1",
-        "npm": "11.9.0",
-        "python": "3.12.14",
-        "phpProtocolAndSyntax": "8.5.10 via PHP-WASM CLI; not a Nextcloud installation"
-      },
-      "liveChangesBySourceChecks": false,
-      "modelOrFreshInstallAcceptanceBySourceChecks": false,
-      "versions": {
-        "core": "1.35.0-local.1",
-        "topics": "0.1.12",
-        "coreTools": 172,
-        "topicsTools": 171
-      },
-      "originalArchiveSha256": "8b6936a5ad072864efda2ce3ebc3a26f5607ee2c5c2417b04f2ec8af0aa8c5e5",
-      "checks": {
-        "lockedInstall": {
-          "corePackages": 14,
-          "topicPackages": 30,
-          "passed": true
-        },
-        "sourceBuilds": {
-          "core": true,
-          "topics": true,
-          "catalogueWithoutCredentials": true
-        },
-        "javascript": {
-          "corePassed": 73,
-          "topicsPassed": 29,
-          "failed": 0,
-          "topicCombinations": 262144,
-          "realMcpChildProcesses": true,
-          "oneLmStudioSdkModuleGraph": true
-        },
-        "python": {
-          "launcherPassed": 3,
-          "topicInstallerPassed": 9,
-          "coordinatorPassed": 9,
-          "mutationsSimulated": true
-        },
-        "historicalCliDefaultGuards": {
-          "blocked": 3,
-          "configurationAccessed": false
-        }
-      },
-      "boundaries": [
-        "Two original predecessor-core installer tests need excluded historical binary fixtures and are not rerun here",
-        "Original Windows installation and focused user-supplied LM Studio read test are separate recorded evidence",
-        "No fresh Windows DPAPI, general model/UI, project creation/resume, image or prompt-latency acceptance"
-      ]
-    }
+    "environment": "Existing pinned build dependencies; no fresh dependency install or Windows installation claimed"
   },
   "versions": {
     "core": "1.36.0-local.1",
-    "topics": "0.1.17",
-    "revision": 17,
+    "topics": "0.1.19",
+    "revision": 19,
     "coreTools": 183,
     "topicsTools": 179
   },
   "checks": {
-    "coreBuild": true,
+    "unchangedPublicCoreBuiltAsFixture": true,
     "topicsBuild": true,
-    "coreJavascriptPassed": 176,
-    "topicsJavascriptPassed": 40,
+    "topicsTypeScript": true,
+    "topicsJavascriptPassed": 54,
+    "topicsPythonPassed": 24,
     "topicCombinations": 524288,
-    "failed": 0
+    "failed": 0,
+    "historicalInstallerDefaultStopsBeforeConfigAccess": true,
+    "nativeCoreFunctionalChecksRepeated": false
   },
-  "environment": "Existing pinned build dependencies; no fresh dependency install or Windows installation claimed"
+  "reports": {
+    "nodeSha256": "1993afc3a1faee605fb1c6be349bfa443372ba0c11aeba9994cbe9101ff199c0",
+    "pythonSha256": "12e27bea21e0eef0ef13f28e849800d5ae96e937743b5d2156efeae5932516c4"
+  },
+  "environment": {
+    "node": "24.22.1",
+    "targetNode": "22",
+    "sdk": "1.5.0",
+    "freshDependencyInstall": false,
+    "isolatedAdditionalBuildDependency": "Previously verified jose 6.2.12, matching the retained dependency lock, through NF_BUILD_MODULES; no runtime dependency version change"
+  },
+  "personalEvidence": {
+    "provenance": "User-supplied complete Windows receipt and subsequent actual tool Arguments/Result transcript, retained privately",
+    "installation": {
+      "topics": "0.1.19",
+      "core": "1.36.0-local.1",
+      "exitCode": 0
+    },
+    "model": "google/gemma-4-e4b",
+    "toolCalls": 6,
+    "result": "passed: explicit file selection, source capsule and fresh readback",
+    "searchHasMore": false,
+    "mapNodesBefore": 1,
+    "mapNodesAfter": 3,
+    "writeAccepted": true,
+    "writeVerified": true,
+    "sourceIdentityVerified": true,
+    "sourceVersionVerified": true,
+    "freshMapReadbackMatchesWrite": true,
+    "freshSourceReadbackUnchanged": true,
+    "cardCreated": false,
+    "lmStudioAnnouncedVersion": "0.4.27 Build 1",
+    "exactClientVersionConfirmed": false,
+    "fullUiAndImagesAccepted": false,
+    "endToEndPromptTiming": "deferred at user request",
+    "package1": {
+      "completed": 29,
+      "total": 32,
+      "open": [
+        "A01",
+        "A02",
+        "Z01"
+      ]
+    }
+  }
 }

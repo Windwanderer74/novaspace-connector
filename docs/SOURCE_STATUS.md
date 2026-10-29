@@ -2,8 +2,11 @@
 
 ## Fortschreibung 29. Oktober 2026
 
+Die Themenauswahl **0.1.19** ist mit Quellen, Prüfbericht und erfolgreicher
+persönlicher Quellenbindungsprobe nachgeführt. [Update](updates/0.1.19.md).
+
 Aktuell veröffentlicht: Online-Connector **1.36.0**, persönlicher Kern
-**1.36.0-local.1**, Themenauswahl **0.1.17** sowie native Plattformquellen mit
+**1.36.0-local.1**, Themenauswahl **0.1.19** sowie native Plattformquellen mit
 Hilfe **0.4.0-ui.9** und Scope-Korrektur **0.4.0-scope.1**. Die Projekt-App bleibt
 bei **0.2.13**. Herkunft und Bereinigung stehen in den jeweiligen Komponentenmanifesten.
 
