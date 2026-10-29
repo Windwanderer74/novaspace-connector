@@ -45,6 +45,83 @@ globalThis.fetch = async (url, o) => {
   throw Error('Unexpected ' + method + ' ' + path);
 };
 async function args(response = 'ACCEPTED') { const p = await api.readCalendarInvitation(calendarPath, eventPath); return { calendarPath, eventPath, expectedAccount: p.account, expectedUid: p.uid, expectedResponseVersion: p.responseVersion, etag: p.etag, attendeeAddress: p.ownAttendee?.address ?? 'mailto:chatgpt@example.test', response, acknowledgeNativeReply: true }; }
+async function seriesArgs(response = 'ACCEPTED') { const p = await api.readCalendarInvitation(calendarPath, eventPath, 'series'); return { calendarPath, eventPath, expectedAccount: p.account, expectedUid: p.uid, expectedResponseVersion: p.responseVersion, etag: p.etag, attendeeAddress: p.ownAttendee?.address ?? 'mailto:chatgpt@example.test', response, responseScope: 'series', acknowledgeNativeReply: true }; }
+test('A recurring master requires explicit series selection; rule and exclusions are only read', async () => {
+ reset(); data=seed(['RRULE:FREQ=WEEKLY;COUNT=5','EXDATE:20261108T190000Z']);const before=data;
+ assert.equal((await api.readCalendarInvitation(calendarPath,eventPath)).supportedForResponse,false);
+ const p=await api.readCalendarInvitation(calendarPath,eventPath,'series');
+ assert.equal(p.responseScope,'series');assert.equal(p.seriesMaster,true);assert.equal(p.supportedForResponse,true,JSON.stringify(p.reasons));
+ assert.equal(data,before);assert.equal(writes().length,0);
+});
+test('All three explicit master-series answers preserve recurrence, exclusions, attendees and original fields', async () => {
+ for(const response of ['ACCEPTED','TENTATIVE','DECLINED']){
+  reset();data=seed(['RRULE:FREQ=WEEKLY;COUNT=5','EXDATE:20261108T190000Z']);const before=data;
+  const r=await api.respondCalendarInvitation(await seriesArgs(response));
+  assert.equal(r.outcome,'verified');assert.equal(r.responseScope,'series');assert.equal(r.nativeDeliveryVerified,false);assert.equal(r.nativeReplyRequested,true);
+  assert.equal(data.replace(/\r\n[ \t]/g,'').replace(`PARTSTAT=${response};RSVP=FALSE;X-KEEP=yes`,'PARTSTAT=NEEDS-ACTION;RSVP=TRUE;X-KEEP=yes'),before);
+  assert.equal(writes().length,1);
+ }
+});
+test('A master defined by additional dates uses the same explicit whole-series answer', async () => {
+ reset();data=seed(['RDATE:20261101T190000Z,20261108T190000Z']);
+ const p=await api.readCalendarInvitation(calendarPath,eventPath,'series');assert.equal(p.supportedForResponse,true);
+ const r=await api.respondCalendarInvitation(await seriesArgs());assert.equal(r.outcome,'verified');assert.match(data,/RDATE:20261101T190000Z,20261108T190000Z/);
+});
+test('Equivalent series answer performs no write or notification request', async () => {
+ reset();data=seed(['RRULE:FREQ=WEEKLY;COUNT=5']).replace('PARTSTAT=NEEDS-ACTION','PARTSTAT=ACCEPTED');
+ const r=await api.respondCalendarInvitation(await seriesArgs());assert.equal(r.outcome,'unchanged');assert.equal(r.responseScope,'series');assert.equal(r.nativeReplyRequested,false);assert.equal(writes().length,0);
+});
+test('Response version binds the chosen scope and refuses a single-event preview for a series answer', async () => {
+ reset();data=seed(['RRULE:FREQ=WEEKLY;COUNT=5']);
+ const single=await api.readCalendarInvitation(calendarPath,eventPath),series=await api.readCalendarInvitation(calendarPath,eventPath,'series');
+ assert.notEqual(single.responseVersion,series.responseVersion);
+ await assert.rejects(api.respondCalendarInvitation({...await args(),responseScope:'series'}));assert.equal(writes().length,0);
+});
+test('Series mode does not accept ordinary events, detached instances, EXRULE or multi-component exceptions', async () => {
+ for(const mode of ['ordinary','detached','exrule','exceptions']){
+  reset();if(mode==='detached')data=seed(['RECURRENCE-ID:20261025T190000Z']);
+  if(mode==='exrule')data=seed(['RRULE:FREQ=WEEKLY;COUNT=5','EXRULE:FREQ=WEEKLY;COUNT=2']);
+  if(mode==='exceptions')data=seed(['RRULE:FREQ=WEEKLY;COUNT=5']).replace('END:VCALENDAR','BEGIN:VEVENT\r\nUID:invite-123@example.test\r\nRECURRENCE-ID:20261101T190000Z\r\nDTSTART:20261101T200000Z\r\nDTEND:20261101T210000Z\r\n'+organizer+'\r\n'+attendees.join('\r\n')+'\r\nEND:VEVENT\r\nEND:VCALENDAR');
+  const p=await api.readCalendarInvitation(calendarPath,eventPath,'series');assert.equal(p.supportedForResponse,false,mode);
+  await assert.rejects(api.respondCalendarInvitation(await seriesArgs()));assert.equal(writes().length,0,mode);
+ }
+});
+test('Series answers retain account, ownership, scheduling and explicit acknowledgement guards', async () => {
+ for(const mode of ['organizer','alias','rights','support','cancelled','acknowledgement']){
+  reset();data=seed(['RRULE:FREQ=WEEKLY;COUNT=5']);
+  if(mode==='organizer')data=data.replace(organizer,'ORGANIZER:mailto:chatgpt@example.test');
+  if(mode==='alias')aliases=['mailto:other@example.test','mailto:chatgpt@example.test'];
+  if(mode==='rights')rights=['read'];if(mode==='support')support=false;if(mode==='cancelled')data=data.replace('BEGIN:VEVENT','BEGIN:VEVENT\r\nSTATUS:CANCELLED');
+  const a=await seriesArgs();if(mode==='acknowledgement')a.acknowledgeNativeReply=false;
+  await assert.rejects(api.respondCalendarInvitation(a));assert.equal(writes().length,0,mode);
+ }
+});
+test('Conflict, uncertain reply and concurrent series edits do not trigger a second PUT', async () => {
+ for(const f of ['conflict','lost','sequence','otherAttendee','readback']){
+  reset();data=seed(['RRULE:FREQ=WEEKLY;COUNT=5']);const a=await seriesArgs();fault=f;
+  const r=await api.respondCalendarInvitation(a);assert.equal(r.outcome,f==='conflict'?'conflict':'unknown');assert.equal(r.responseScope,'series');assert.equal(r.nativeDeliveryVerified,false);assert.equal(writes().length,1,f);
+ }
+});
+test('Both invitation schemas default to single and require a literal series scope without new tools', async () => {
+ reset();const tools=new Map();api.registerCalendarInvitationTools({registerTool(n,c){tools.set(n,c);}});assert.equal(tools.size,3);
+ for(const name of ['calendar_read_invitation','calendar_respond_invitation']){
+  const schema=tools.get(name).inputSchema,a=name==='calendar_read_invitation'?{calendarPath,eventPath}:await args();
+  assert.equal(schema.parse(a).responseScope,'single');assert.equal(schema.parse({...a,responseScope:'series'}).responseScope,'series');
+  for(const responseScope of ['occurrence','all',false])assert.equal(schema.safeParse({...a,responseScope}).success,false);
+ }
+ await assert.rejects(api.readCalendarInvitation(calendarPath,eventPath,'all'));assert.equal(writes().length,0);
+});
+test('Actual read and reply handlers carry the parsed series scope through preview, guards and native readback', async () => {
+ reset();data=seed(['RRULE:FREQ=WEEKLY;COUNT=5','EXDATE:20261108T190000Z']);
+ const tools=new Map();api.registerCalendarInvitationTools({registerTool(n,c,f){tools.set(n,{c,f});}});
+ const reader=tools.get('calendar_read_invitation'),writer=tools.get('calendar_respond_invitation');
+ const context=t=>({http:{authInfo:{scopes:t.c.securitySchemes[0].scopes}}});
+ const read=await reader.f(reader.c.inputSchema.parse({calendarPath,eventPath,responseScope:'series'}),context(reader));
+ assert.equal(read.isError,undefined);const p=read.structuredContent;assert.equal(p.supportedForResponse,true);assert.equal(p.responseScope,'series');assert.equal(writes().length,0);
+ const input={calendarPath,eventPath,responseScope:'series',expectedAccount:p.account,expectedUid:p.uid,expectedResponseVersion:p.responseVersion,etag:p.etag,attendeeAddress:p.ownAttendee.address,response:'TENTATIVE',acknowledgeNativeReply:true};
+ const replied=await writer.f(writer.c.inputSchema.parse(input),context(writer));
+ assert.equal(replied.isError,undefined);assert.equal(replied.structuredContent.outcome,'verified');assert.equal(replied.structuredContent.responseScope,'series');assert.equal(replied.structuredContent.nativeDeliveryVerified,false);assert.equal(writes().length,1);
+});
 test('Scheduling discovery binds native aliases/endpoints and does not send a message', async () => { reset(); aliases.push('urn:uuid:fixture'); const p = await api.readCalendarScheduling(); assert.equal(p.account, 'ChatGPT'); assert.deepEqual(p.addresses, ['mailto:alias@example.test', 'mailto:chatgpt@example.test']); assert.equal(p.autoSchedulingAdvertised, true); assert.equal(p.nativeDeliveryVerified, false); assert.equal(writes().length, 0); });
 test('Foreign principal, outside scheduling endpoint and excessive aliases fail before any write', async () => { for (const f of ['principal', 'endpoint', 'aliases']) { reset(); if (f === 'principal') fault = 'foreignPrincipal'; if (f === 'endpoint') outbox = 'https://other.invalid/outbox/'; if (f === 'aliases') aliases = Array.from({ length: 51 }, (_, i) => `mailto:p${i}@example.test`); await assert.rejects(api.readCalendarScheduling()); assert.equal(writes().length, 0); } });
 test('Selected invitation exposes exact native own participant and a version without mutating it', async () => { reset(); const before = data; const p = await api.readCalendarInvitation(calendarPath, eventPath); assert.equal(p.supportedForResponse, true); assert.deepEqual(p.ownAttendee, { address: 'mailto:chatgpt@example.test', partstat: 'NEEDS-ACTION' }); assert.equal(p.organizer.name, 'Fremder: Name'); assert.equal(p.responseVersion.length, 64); assert.equal(data, before); assert.equal(writes().length, 0); });

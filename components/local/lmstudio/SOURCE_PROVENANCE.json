@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "date": "2026-10-27",
+  "date": "2026-10-29",
   "component": "personal",
-  "version": "1.35.1-local.1",
-  "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
+  "version": "1.36.0-local.1",
+  "upstreamCommit": "e2fd91539d4ba5855646f18eefd06e03609a957a",
   "edition": "sanitized AGPL source; no deployment or independent first-install claim",
   "historyImported": false,
-  "originalPersonalArchiveSha256": "9733d3ca988e8bc398b57a42b959e8acfaca47923e0b1e40e41e3c6211511d9d",
+  "originalPersonalArchiveSha256": "d3926b1c47f90a6407b3d84af85f72a2b412b4a2ff3173df16180594f7d54f02",
   "privateEvidenceIdsPublished": false,
   "files": [
     {
@@ -36,7 +36,7 @@
       "sourceSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "publishedSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/@modelcontextprotocol__server__LICENSE",
@@ -44,7 +44,7 @@
       "sourceSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "publishedSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/anynum__LICENSE",
@@ -52,7 +52,7 @@
       "sourceSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "publishedSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/esbuild__LICENSE.md",
@@ -60,7 +60,7 @@
       "sourceSha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681",
       "publishedSha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/fast-xml-builder__LICENSE",
@@ -68,7 +68,7 @@
       "sourceSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "publishedSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/fast-xml-parser__LICENSE",
@@ -76,7 +76,7 @@
       "sourceSha256": "7883225d5e84a6bbb9b170c3d891b4bf6d6259cee869c86bd86381a927071745",
       "publishedSha256": "7883225d5e84a6bbb9b170c3d891b4bf6d6259cee869c86bd86381a927071745",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/ical.js-LICENSE",
@@ -84,7 +84,7 @@
       "sourceSha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
       "publishedSha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/is-unsafe__LICENSE",
@@ -92,7 +92,7 @@
       "sourceSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "publishedSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/path-expression-matcher__LICENSE",
@@ -100,7 +100,7 @@
       "sourceSha256": "75486ea0af9309140ca6e2c401d7e67bea8f4892344e5707f6394dc5e83dfc44",
       "publishedSha256": "75486ea0af9309140ca6e2c401d7e67bea8f4892344e5707f6394dc5e83dfc44",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/strnum__LICENSE",
@@ -108,7 +108,7 @@
       "sourceSha256": "2aa16be0f4fad003a352a955a43314e9d1d8deef7034060a82ac9c49f32b81e2",
       "publishedSha256": "2aa16be0f4fad003a352a955a43314e9d1d8deef7034060a82ac9c49f32b81e2",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/xml-naming__LICENSE",
@@ -116,7 +116,7 @@
       "sourceSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "publishedSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/THIRD_PARTY_LICENSES/zod__LICENSE",
@@ -124,7 +124,7 @@
       "sourceSha256": "3f1189b28e3866e0d979968d466b78f813f76827cfdca1fbb124cc0a5c8841f8",
       "publishedSha256": "3f1189b28e3866e0d979968d466b78f813f76827cfdca1fbb124cc0a5c8841f8",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "nextcloud-local-candidate/browser/deck-mindmap-client.ts",
@@ -167,12 +167,11 @@
     {
       "path": "nextcloud-local-candidate/install.py",
       "sourcePath": "nextcloud-local-candidate/install.py",
-      "sourceSha256": "a5e98ec70603436868d86f0de92894cc6e1d7b01b2bcbd6e0201a00358eeab02",
-      "publishedSha256": "7bd23eb8082321b3dcfd08bcc49de235adbc0b6e5fe97d87bf9e633bdd56b2a1",
+      "sourceSha256": "ba22285ea1858ca9ccd1d5e8859fcfce2663dfdd03c127ffc637fc4aad43b787",
+      "publishedSha256": "a5a30692d9c329f14cfc01d6e61b29935a45275339b5bbeb561a8c77f3ec62b6",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Default historical-installer guard before configuration or credentials"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -229,8 +228,38 @@
     {
       "path": "nextcloud-local-candidate/lib/calendar-invitations.ts",
       "sourcePath": "nextcloud-local-candidate/lib/calendar-invitations.ts",
-      "sourceSha256": "352bff3b2218e4a91527b3e4aa011233e4ee451d42880ca42f0c0e4f4ba9141f",
-      "publishedSha256": "1e4059cf7eac16b0221e897225cd4f10f937e21d81644a5118a8f639174837e7",
+      "sourceSha256": "85cef20ddc61a7c57f54296e71dc38f940fa343f09f85b4aaa5db627d78cef31",
+      "publishedSha256": "f2d8ca5c787e97c0fb1130bb9537ef8f4626d69621f2b95ea9dae8ff0042dc80",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/calendar-links.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/calendar-links.ts",
+      "sourceSha256": "3d09d26802e5ae72d15c08b31f29f51c472a9754a7aa480eaddc8ae4fd45e498",
+      "publishedSha256": "257fa3467483205cb30df7670fc0be84549bbc9d1684da0e8d5ec173451e3261",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/calendar-management.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/calendar-management.ts",
+      "sourceSha256": "c72d1b23c11dec4388c3a4f1b5dc2386f09d1d25b2bb26961923ff1263076841",
+      "publishedSha256": "27e728122876d919fde4920f7c4da006eec82665acc41ca388d0c7c3d54efeb1",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/calendar-meetings.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/calendar-meetings.ts",
+      "sourceSha256": "457159e9742b87b3d09a58ce1e54bf381f58ffc4d2592cd0792fbdfca16e5370",
+      "publishedSha256": "3b485fcbf9fc5fc22b5f5e4a0b99cbda9db3814dd08f95e6c10e2d907c0b24f1",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -251,6 +280,16 @@
       "sourcePath": "nextcloud-local-candidate/lib/calendar-planning.ts",
       "sourceSha256": "49ecade071be5d5e5f8aedbd7b371dcb5b947e92d5cde98d997df841d01eed32",
       "publishedSha256": "b9cfc4c4fa9aa564a7c0704ba1c8e0e69e515129bbaa99fbda47179f2100a5f5",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/calendar-recovery.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/calendar-recovery.ts",
+      "sourceSha256": "c1f38e8fb225b068d21528cf12b349dbb4366b2354a99c9b23814cff92d7d528",
+      "publishedSha256": "3bad2073a4f1e7f1a5845e813da98b59ff0e42f3b508db8fd4f5b4ebab3f1e01",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -279,8 +318,18 @@
     {
       "path": "nextcloud-local-candidate/lib/calendar-settings.ts",
       "sourcePath": "nextcloud-local-candidate/lib/calendar-settings.ts",
-      "sourceSha256": "520963e872f574e2c07fb2677ffc7b65aec088075a764d95ddbc448c1bcc8ddf",
-      "publishedSha256": "225a116fb8eed27b8954380ee2f12476630b14731c33aab597b3d381561318c7",
+      "sourceSha256": "4c350b9f60734c5bc5fa5801ce35e4592291f4547d632faf07247be69d15571c",
+      "publishedSha256": "cbaf33717be9db76652647ca57f7ca9918e905bf0446d15ddf718ca8ac3383d7",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/calendar-trash.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/calendar-trash.ts",
+      "sourceSha256": "4b6f3f599c5edd9beee9a2e3837f99c7d8dbd43fb04014febc345ef0707ef781",
+      "publishedSha256": "8c391aa12d80b72fb4fb4e2ea485f840aa4f7cfe3ca105428070534e4f10b7b6",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -289,8 +338,8 @@
     {
       "path": "nextcloud-local-candidate/lib/calendar-write.ts",
       "sourcePath": "nextcloud-local-candidate/lib/calendar-write.ts",
-      "sourceSha256": "9ae4ffbaa380f75df69ae79532736f7b69f620193cc8a4932cb8355b0514f5ed",
-      "publishedSha256": "cdf226b8046bca1cc0ca3d5473f72bd70e1b02b17a72336a5ab77dc88d4feb39",
+      "sourceSha256": "ebf4a6c3fabc563a016aa62088efa1732545dd964de573923f9bc548f5ebf31a",
+      "publishedSha256": "8a8bb9c11b6655ca1f7a8a02974d6bfddb3fe180ac784944dbe16d9722d452d9",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -299,8 +348,8 @@
     {
       "path": "nextcloud-local-candidate/lib/connection-policy.ts",
       "sourcePath": "nextcloud-local-candidate/lib/connection-policy.ts",
-      "sourceSha256": "b952c252f45f4b7c2f706aa9961645474c4709893cc58d00c4236c1b9ac381d1",
-      "publishedSha256": "1353ab5db44d2abc49d66bab910d37340dcb59cf1efdaee169ae2f37decbd5e8",
+      "sourceSha256": "708db1fb7c0cadc214892009bee30860f0f38f6fdaf4eedf8594091c1e71a5d4",
+      "publishedSha256": "fed62bfbcc32e6e18166213a55df14b10b753a89c38b817c2d36a0c24839741d",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -309,8 +358,8 @@
     {
       "path": "nextcloud-local-candidate/lib/connector-version.ts",
       "sourcePath": "nextcloud-local-candidate/lib/connector-version.ts",
-      "sourceSha256": "10cee55874bc4c274a5211c488ea7426847606b61552e306d2425effd78edf82",
-      "publishedSha256": "c34e54227a534ab2df01c161bdfd83ba59d54235aa9206c0a9aad7f6c427db89",
+      "sourceSha256": "c7931df0349ad378be21298b2afde8495138f07e7f76aa9f655a0d7e2958a022",
+      "publishedSha256": "c0c76007919bb474b6a2a9d99cba13f9f88c8b27cd605a82471359ec90a08c18",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -659,8 +708,38 @@
     {
       "path": "nextcloud-local-candidate/lib/mcp-calendar-invitations.ts",
       "sourcePath": "nextcloud-local-candidate/lib/mcp-calendar-invitations.ts",
-      "sourceSha256": "23956819be619c7bda4f19c10f1a1828ab098fbb914e298046bdfee900694ae4",
-      "publishedSha256": "0a0ffbe1841f1801da51c300381750e3da83eeb0b696f2c94a7eb968ef89a272",
+      "sourceSha256": "841131290b5817121fae904e7390693ecdecbbd7734b2816380e193d95a56d61",
+      "publishedSha256": "a9596daa905086dc8b5e3d7dcdf550f2df77b9b86cb44da502ce1f1e0c5ab4be",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/mcp-calendar-links.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/mcp-calendar-links.ts",
+      "sourceSha256": "5c0c1dea06d1d98df27d0bbdb1958720ce1bdee3198b7b94fca3afd11986e9f5",
+      "publishedSha256": "a1a8cd8177dc59564c7e5858e16c47909eb9e6a3266f5e88034fc213e6a77006",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/mcp-calendar-management.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/mcp-calendar-management.ts",
+      "sourceSha256": "f6bdcb542e804d3acbe6fea80c2ca409aea2ec40326b224549b422e995c2b9aa",
+      "publishedSha256": "cff35e82a6944207d9bb0ae1e5e0a25c24c476ae46edce952329ffd3474e209e",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/mcp-calendar-meetings.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/mcp-calendar-meetings.ts",
+      "sourceSha256": "85c2520c6390e9243a473dcdd2eb9a90666fa12e3463425c1e82f7ab4d2282ce",
+      "publishedSha256": "40fc73edb22dd43729bce8f47995cea6e2fb58befddcaa39cee7aa4abbde2dfb",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -681,6 +760,16 @@
       "sourcePath": "nextcloud-local-candidate/lib/mcp-calendar-planning.ts",
       "sourceSha256": "3fa2ef1cb53f6482edf28cdb78e8417154f6047c5e09f3ffd6ca459b8aca8771",
       "publishedSha256": "4cc4c9244f5b55933b403fc0922c9ef02054d873dc6944838503d8e903fa9d79",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/lib/mcp-calendar-recovery.ts",
+      "sourcePath": "nextcloud-local-candidate/lib/mcp-calendar-recovery.ts",
+      "sourceSha256": "9b8b1244ef781f72e72dbbbeba372ce4425593201d47ccbb74d4b2aed97548a4",
+      "publishedSha256": "9a9afe6bdac9757138ff1dbac5176806e50f562ec4fbe1174f0af6353f98b391",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -709,8 +798,8 @@
     {
       "path": "nextcloud-local-candidate/lib/mcp-calendar.ts",
       "sourcePath": "nextcloud-local-candidate/lib/mcp-calendar.ts",
-      "sourceSha256": "661f4df4876218b61eab686761aad4053a9276f461b289f5d907c7e84033e402",
-      "publishedSha256": "254827ae432f3e68f65c1f5cd1a096d763ecab75ba9e7ff6a8865922abffcbc9",
+      "sourceSha256": "c7aa94c00c1047af81c64aa8882b4b5a0d74dcfe396c0d8818b7dd05a7a52a58",
+      "publishedSha256": "a70a09f9c96927c279204a14abda8cfc3cf3025e74d16330e3b841e12db16858",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1100,8 +1189,8 @@
     {
       "path": "nextcloud-local-candidate/lib/nextcloud-talk-read.ts",
       "sourcePath": "nextcloud-local-candidate/lib/nextcloud-talk-read.ts",
-      "sourceSha256": "ad78798dfed0bb0465cc99b906c0140287cc3489812de9c5c5a1261d1a6e96cc",
-      "publishedSha256": "a6acd73bc07f1a08bea89446fba3bacb43dac814fa63ad0048ad52adc6c606a7",
+      "sourceSha256": "b9d4aa8ab7dc966831162f10ea5c9a824c500b16c6923f2eb24eeb063529f7ce",
+      "publishedSha256": "d88770f5a3a001521de421b89e9adc59c7c151ca94ef8503a6a7f62cb91a98c5",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1141,8 +1230,8 @@
     {
       "path": "nextcloud-local-candidate/lib/oauth.ts",
       "sourcePath": "nextcloud-local-candidate/lib/oauth.ts",
-      "sourceSha256": "eb63a717eba25091736ed346c3eb10dfe33bfa00617bc3ed1711bc2edefc7225",
-      "publishedSha256": "1e6fd4c0e371212027902384b615624e92ec7b41fcb88458bd88faa7ce794439",
+      "sourceSha256": "3ab27ceb5bcaffe30b304f0153c5d96d2eba9732aaca0657291d01307384eb87",
+      "publishedSha256": "60d9b7886bcb0d1573fcfe137b903f842e8e96c8bd28347e0536e936f196871d",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1372,8 +1461,8 @@
     {
       "path": "nextcloud-local-candidate/src/local.ts",
       "sourcePath": "nextcloud-local-candidate/src/local.ts",
-      "sourceSha256": "1ffc7fee6ea70727c567f7f345fd52e28cf4a9ad2aa6d2979c7fea525ae11bb4",
-      "publishedSha256": "8cdd864fdd55ed6d4e2a1947110c7be130722a93af82c7e7a25e2cbdf33d7221",
+      "sourceSha256": "2536fb697d715ebea40614c228b1bf8de13ba75754d14fc67fac58a24e2163f6",
+      "publishedSha256": "ef1f827fe745f453932f6e28793e5fbaa2ac225fc95cc64e58f5fafc84230ad3",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1413,8 +1502,68 @@
     {
       "path": "nextcloud-local-candidate/tests/calendar-invitations-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/calendar-invitations-local.test.mjs",
-      "sourceSha256": "13d7581ce69d37192d5155952a18818befa4b603130d77a2e2fc799c1fa25f09",
-      "publishedSha256": "10dd08eefb9f37f7f6513e2d2ce499ba3099e759d00b9a3f44e1e4f09cc21fc1",
+      "sourceSha256": "58ada4b6e62d5adad2bb7e88bc45fd9d64b9ede5ce1d75f46eb48b6744392c04",
+      "publishedSha256": "360f3223048359c4eb80c7b7f105341f037a69e85b0bc7b50440ed36dbe3b2a4",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/tests/calendar-invitations.test.mjs",
+      "sourcePath": "nextcloud-local-candidate/tests/calendar-invitations.test.mjs",
+      "sourceSha256": "301b22e4d76b573ae54e1005f418cb269d0fdc38303ad3e3129d1f9a8ed5fb4f",
+      "publishedSha256": "2d74e3e2cd0ba1976b9bcb20f48370e53d762866974db2c86bee57f522277142",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/tests/calendar-links-recovery.test.mjs",
+      "sourcePath": "nextcloud-local-candidate/tests/calendar-links-recovery.test.mjs",
+      "sourceSha256": "99f845e3a340e2c64c192e8fba551f80cff2db5800c6efa6ddf88da5de8994f6",
+      "publishedSha256": "8a56ca6158e4acae6a3564b311b57acd7bfea4ea44e96dc32c5591c9ef98f286",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/tests/calendar-management-local.test.mjs",
+      "sourcePath": "nextcloud-local-candidate/tests/calendar-management-local.test.mjs",
+      "sourceSha256": "1a3f8f543dd8a252f1fb13e23f487504eec0235ec611cc3165e3e57efa14886e",
+      "publishedSha256": "0872aed5eafb900ff152372bc611f83b838b9a4c320069134c180761dfb858ed",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/tests/calendar-management.test.mjs",
+      "sourcePath": "nextcloud-local-candidate/tests/calendar-management.test.mjs",
+      "sourceSha256": "e24885d1836175da0ac4217addeaa57a3d7094aea66babdee7ed0c567daf56cd",
+      "publishedSha256": "280bb87b87dbd3fbca65f36f5fd6e3108daf41b5f4ddd88ed7ba0252741adbbb",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/tests/calendar-meetings-local.test.mjs",
+      "sourcePath": "nextcloud-local-candidate/tests/calendar-meetings-local.test.mjs",
+      "sourceSha256": "10d70f643f297959d606b63c8ec29dcc1c02476021a3ab26c4665f78d98b2739",
+      "publishedSha256": "c73e92636f9cee85246973923d8f247624faa90ab1d363d6d657eca319a80d8a",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "nextcloud-local-candidate/tests/calendar-meetings.test.mjs",
+      "sourcePath": "nextcloud-local-candidate/tests/calendar-meetings.test.mjs",
+      "sourceSha256": "d5cf8ba77663bcefe3fa6d15ef8bac0b0c32bf6f25098d9691981887fae645ac",
+      "publishedSha256": "473f386ce00306a510c36a3ddf5927edf8447160fb12dc8f241551cd2469c114",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1423,8 +1572,8 @@
     {
       "path": "nextcloud-local-candidate/tests/calendar-occurrences-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/calendar-occurrences-local.test.mjs",
-      "sourceSha256": "a56c2d1a3743a4eb4b58f89ce098dc03f57543a7e0c37846087b83fcb8a92fae",
-      "publishedSha256": "9dcf0ee554587fcac93ec00a8686182d182f7762f738faf1619275909bf06bac",
+      "sourceSha256": "74e1e7a6a00e334fb519fcd79aa071aeaa1a4d8cb943dd00a495a100595f23a0",
+      "publishedSha256": "6c4cd51f5470e975d32561b0f73b7f696a1d03c426091581d68bd2153dbd03bc",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1453,8 +1602,8 @@
     {
       "path": "nextcloud-local-candidate/tests/contact-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/contact-local.test.mjs",
-      "sourceSha256": "f1e26c7abdb5a83da0e5eb153f8f060ff4c93ce9ba7414844d897d4675c0cf1f",
-      "publishedSha256": "19dc58f95b9c8179cf8957ffb6ed661e6e6cb1609eff1f05acfb438d5d6ca304",
+      "sourceSha256": "68371e1c7c1a6b758190699b06d60f262b84b0061ede8eeb19771527bbecf468",
+      "publishedSha256": "fbabb8c26ec25825047846dcfff8af42effbda8e6d5d5a142698349d68e42519",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1483,8 +1632,8 @@
     {
       "path": "nextcloud-local-candidate/tests/deck-shares-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/deck-shares-local.test.mjs",
-      "sourceSha256": "0a52087e1a53ae7829729471d6cfa1026eb8fc3bf850a6cafcfe21900a567953",
-      "publishedSha256": "965a3d60ff2e10e17ce47a6db9acf07620c82b3b05f757f94f18bcd5564a2dac",
+      "sourceSha256": "89afd8e87c6d3a34c7c7314c5c90544c52b11e422b1c615bc5a53cb733012a08",
+      "publishedSha256": "f11a3ea283ec7e4774a0d0283272583063923b04fabf954c918c9c65702b1bf3",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1503,8 +1652,8 @@
     {
       "path": "nextcloud-local-candidate/tests/local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/local.test.mjs",
-      "sourceSha256": "aee823aa7bf29187176f11c839cd4b27552eb556a73446ea9a523763b99da123",
-      "publishedSha256": "5e759e0b04dfd7b6777b87abad945924a2f626b7aa5d6d13a07d76eae852f601",
+      "sourceSha256": "d22becef650a0ccb95fb789ccaef0ec9f65e0520a7bffcbab9d0087dad0eed45",
+      "publishedSha256": "9bd142d34b8c83fafee9c445d524a2d90ff908c0ff864901132e28213c92835c",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1556,8 +1705,8 @@
     {
       "path": "nextcloud-local-candidate/tests/task-lists-local.test.mjs",
       "sourcePath": "nextcloud-local-candidate/tests/task-lists-local.test.mjs",
-      "sourceSha256": "83af31df53cb253a3ae4407840eaa659432e6387f1012556cf70bafd42a65b38",
-      "publishedSha256": "e7dc95914a733af6fc381bb28267452a07d4d5a2187a9964cc39ea2acc002bf8",
+      "sourceSha256": "4461dfbba52113282c277d6355beed0b775ab7096cfa996176beb0ab4e260029",
+      "publishedSha256": "0cd760ea3574632cf3721cde049af1d9bb0c0cb18858c7cd078464ba6234e022",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1577,8 +1726,8 @@
     {
       "path": "tests/test_coordinator.py",
       "sourcePath": "tests/test_coordinator.py",
-      "sourceSha256": "4f5314fb91afd0c07bef6d536d2f4a7fd4b3700e5a57d88a05cc5a62594d1a5f",
-      "publishedSha256": "56909fe814a3152e1c7f02b6eac3619d14140d2dfcb33ba0bbbc2c05f0d708fb",
+      "sourceSha256": "ea16017510d125d3712c822ea7c4837c64c8fde3ca5c3e4a017f4a766dddf116",
+      "publishedSha256": "78e013440db57726c831cdd6c9f47545e2e6aa7261a4777b613264228edc40a2",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1586,7 +1735,7 @@
     },
     {
       "path": "topics-candidate/INSTALLIEREN.ps1",
-      "sourcePath": "topics-candidate/INSTALLIEREN.ps1",
+      "sourcePath": "topics-0.1.17/INSTALLIEREN.ps1",
       "sourceSha256": "fc902f9cb85fcf7cebf591c5032051ce7b4d76f1723c7a294dca4d436452724f",
       "publishedSha256": "b01c7a506a0c5f501d2ac95332119744004391275ce12f08de8b48ad57e0a371",
       "changes": [
@@ -1597,139 +1746,138 @@
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/@lmstudio__lms-isomorphic__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/@lmstudio__lms-isomorphic__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/@lmstudio__lms-isomorphic__LICENSE",
       "sourceSha256": "77702f579d3e5683d34c3cd77fa780c650e3d8c4fcc6fdebda7f3c91e8f5b015",
       "publishedSha256": "77702f579d3e5683d34c3cd77fa780c650e3d8c4fcc6fdebda7f3c91e8f5b015",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/@lmstudio__sdk__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/@lmstudio__sdk__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/@lmstudio__sdk__LICENSE",
       "sourceSha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
       "publishedSha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/@modelcontextprotocol__client__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/@modelcontextprotocol__client__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/@modelcontextprotocol__client__LICENSE",
       "sourceSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "publishedSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/@modelcontextprotocol__core__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/@modelcontextprotocol__core__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/@modelcontextprotocol__core__LICENSE",
       "sourceSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "publishedSha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/@types__node__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/@types__node__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/@types__node__LICENSE",
       "sourceSha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
       "publishedSha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/color-convert__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/color-convert__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/color-convert__LICENSE",
       "sourceSha256": "693866fc419c6f61c8570438ec00659d156ec2b4d4a4d04091711f5f11a365d4",
       "publishedSha256": "693866fc419c6f61c8570438ec00659d156ec2b4d4a4d04091711f5f11a365d4",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/color-name__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/color-name__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/color-name__LICENSE",
       "sourceSha256": "c064f7a3e353bc1bc977f3c897941c75ef763f44f41677e0a15370ca0853d6e2",
       "publishedSha256": "c064f7a3e353bc1bc977f3c897941c75ef763f44f41677e0a15370ca0853d6e2",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/esbuild__LICENSE.md",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/esbuild__LICENSE.md",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/esbuild__LICENSE.md",
       "sourceSha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681",
       "publishedSha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/jsonschema__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/jsonschema__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/jsonschema__LICENSE",
       "sourceSha256": "d8677215c6a06c7e47ddfb1aa10002b5f4ddb9116736b762864d014be6ee971e",
       "publishedSha256": "d8677215c6a06c7e47ddfb1aa10002b5f4ddb9116736b762864d014be6ee971e",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/typescript__LICENSE.txt",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/typescript__LICENSE.txt",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/typescript__LICENSE.txt",
       "sourceSha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
       "publishedSha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/undici-types__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/undici-types__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/undici-types__LICENSE",
       "sourceSha256": "a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27",
       "publishedSha256": "a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/ws__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/ws__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/ws__LICENSE",
       "sourceSha256": "2b29dcfe0d6471f7e8c92c5fb38c9f93edee10330937055440192f1832b1ecef",
       "publishedSha256": "2b29dcfe0d6471f7e8c92c5fb38c9f93edee10330937055440192f1832b1ecef",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/zod-to-json-schema__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/zod-to-json-schema__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/zod-to-json-schema__LICENSE",
       "sourceSha256": "80d3168ad2f70f6f5bb2ab22b23414707abf6f0a392034891481ae36a1a429d4",
       "publishedSha256": "80d3168ad2f70f6f5bb2ab22b23414707abf6f0a392034891481ae36a1a429d4",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/THIRD_PARTY_LICENSES/zod__LICENSE",
-      "sourcePath": "topics-candidate/THIRD_PARTY_LICENSES/zod__LICENSE",
+      "sourcePath": "topics-0.1.17/THIRD_PARTY_LICENSES/zod__LICENSE",
       "sourceSha256": "3f1189b28e3866e0d979968d466b78f813f76827cfdca1fbb124cc0a5c8841f8",
       "publishedSha256": "3f1189b28e3866e0d979968d466b78f813f76827cfdca1fbb124cc0a5c8841f8",
       "changes": [],
-      "license": "AGPL-3.0-or-later"
+      "license": "Unchanged upstream license; see the retained license file"
     },
     {
       "path": "topics-candidate/install_topics.py",
-      "sourcePath": "topics-candidate/install_topics.py",
-      "sourceSha256": "e221bd0f6073cb741bc92d9b1824554a03dd0dc4b62addc35b9fa9fee7aeea29",
-      "publishedSha256": "d9ab2628b267d51b10925dd5018e97f208ee7d311b4c9f8cdcdaa19b0bebae96",
+      "sourcePath": "topics-0.1.17/install_topics.py",
+      "sourceSha256": "e7f9400de1fa34b0bf32077d4c32c10e500564c9d93f432d93d447eaa4352a24",
+      "publishedSha256": "cc7378f68f241f5244150ffb8d3315de980e11b5c37c0826179819365a72662c",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Default historical-installer guard before configuration or credentials"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/manifest.json",
-      "sourcePath": "topics-candidate/manifest.json",
-      "sourceSha256": "be48772ae29b4ada86333816d854d69d2b526767e5c9b2171ef84f3a7c1155ee",
-      "publishedSha256": "be48772ae29b4ada86333816d854d69d2b526767e5c9b2171ef84f3a7c1155ee",
+      "sourcePath": "topics-0.1.17/manifest.json",
+      "sourceSha256": "7de659ed1e2dd0a84043ed0242728969428d7a1f906a125e846a9ae22fbf0860",
+      "publishedSha256": "7de659ed1e2dd0a84043ed0242728969428d7a1f906a125e846a9ae22fbf0860",
       "changes": [],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/profile.cjs",
-      "sourcePath": "topics-candidate/profile.cjs",
+      "sourcePath": "topics-0.1.17/profile.cjs",
       "sourceSha256": "20cc485d817a686b8a4b4729a98a0c63c023ada140d8c166827b4882ca051347",
       "publishedSha256": "3fe7b04ca0a489e0336f58a98195c2cbe64c61d626d73ca2ea5ac519717d6eb3",
       "changes": [
@@ -1738,10 +1886,20 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "topics-candidate/source/calendarMeetingInput.ts",
+      "sourcePath": "topics-0.1.17/source/calendarMeetingInput.ts",
+      "sourceSha256": "d6869a8b990dc978979cfc2134a1be741ffdb796a0cbc7d9482f4b6b5e5ae605",
+      "publishedSha256": "3513975801a8fb79a5dc95fd2313b3bd8c63f4d341aa280d8517b02e79fcf7cd",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "topics-candidate/source/config.ts",
-      "sourcePath": "topics-candidate/source/config.ts",
-      "sourceSha256": "f688490ec28ad0355d3ba95c8dd02a40cb8261ad5b5f0327af3e6ef3c221ce1f",
-      "publishedSha256": "92e70e81a5a49521c016f8d18e1ae5d49a72144d9db2bb7a48c962fc97cbc83c",
+      "sourcePath": "topics-0.1.17/source/config.ts",
+      "sourceSha256": "0274a6336954d9f10e5004ac3316d87046c31079b4d19c26bf5a70c92168519e",
+      "publishedSha256": "1c7221e356900a13f6b5dc56fe250826636d830e1afa74759b97f0b39152d3b4",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1749,9 +1907,9 @@
     },
     {
       "path": "topics-candidate/source/index.ts",
-      "sourcePath": "topics-candidate/source/index.ts",
-      "sourceSha256": "a9a2cef43c1adabd537ade45f446952c31315126b02c55126be975b6d79dac1a",
-      "publishedSha256": "04e35860ac9617130bd35520ef31195932f2af50b62d68ee852bf99cfed6cc0e",
+      "sourcePath": "topics-0.1.17/source/index.ts",
+      "sourceSha256": "a822ab9e23fb40c11bd8f8ac6ffb6f1aae0e1bdc9446cf87bde2e85fd3f1d510",
+      "publishedSha256": "608b0e3f19ef02a19bf03b08c65702409ae0cbc6e7e87ba8f68d565db880b713",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1759,9 +1917,9 @@
     },
     {
       "path": "topics-candidate/source/localMcp.ts",
-      "sourcePath": "topics-candidate/source/localMcp.ts",
-      "sourceSha256": "c4bc0b016c638cceb580e03ef2a5bd7046ce8eb5f4b73cbb3389df915c06ee73",
-      "publishedSha256": "4013ac87f89c5adca5508f917e90197663735ef282b136e4c00c9616f8d330f9",
+      "sourcePath": "topics-0.1.17/source/localMcp.ts",
+      "sourceSha256": "e2ffb1508b46cae35ee78c4722c92af049e5310d6d06f7ec6407b4e516a6ddda",
+      "publishedSha256": "3ccf7a730f8b6836a6fe29dbb04f3c1e296a20f3862ef4d06b3f3def9da35d8b",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1770,9 +1928,9 @@
     },
     {
       "path": "topics-candidate/source/selection.ts",
-      "sourcePath": "topics-candidate/source/selection.ts",
-      "sourceSha256": "0d6c7aab5f9a530d4a3e77fcb96f4813b971a639f8c8b95910143c66c7da9576",
-      "publishedSha256": "feadb6ae4cd4aee15f90b82c490e28774f6fa6bc70ef10a6e626ebf3a7aa109b",
+      "sourcePath": "topics-0.1.17/source/selection.ts",
+      "sourceSha256": "2c2732bda90848cc1f8ba1cd3817f4931e04d879df48cf03d9b80a674d5cf6e2",
+      "publishedSha256": "e9d8d608fd232ba750abf37749ab5c7169f0b7c466db6b213f3dd4779475e188",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1780,7 +1938,7 @@
     },
     {
       "path": "topics-candidate/source/toolsProvider.ts",
-      "sourcePath": "topics-candidate/source/toolsProvider.ts",
+      "sourcePath": "topics-0.1.17/source/toolsProvider.ts",
       "sourceSha256": "88387eadc4a691f0a366c1755d9f8fc40ca491b85f4a8375093cade3bb9b8aae",
       "publishedSha256": "c1e0655570137d6c24a0cdd3485db3df64aa059b6652dcf6e7f5b261f2d2bb41",
       "changes": [
@@ -1789,8 +1947,19 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "topics-candidate/tests/calendar-action-contract.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/calendar-action-contract.test.cjs",
+      "sourceSha256": "139b2d21b40642a8bab05e2df8e210c2fa4a55758be9736458f41c47e1286e05",
+      "publishedSha256": "04d727e34406d1ff24b22ccf5e4a5ad0d6fd21d16d539a12d6dcebb0c8fd3ff7",
+      "changes": [
+        "Reserved host/contact/secondary-account examples replace installation values",
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "topics-candidate/tests/calendar-comfort-selection.test.cjs",
-      "sourcePath": "topics-candidate/tests/calendar-comfort-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/calendar-comfort-selection.test.cjs",
       "sourceSha256": "c59a81a16ddc50d8a5860524afc1a89223927d6fb60fb7d18886d6de1b3d8fe7",
       "publishedSha256": "75ee62af2369e7599a922f44240a53881b97d7910bdea4a3541e306b3e70c1d1",
       "changes": [
@@ -1800,7 +1969,7 @@
     },
     {
       "path": "topics-candidate/tests/calendar-invitations-selection.test.cjs",
-      "sourcePath": "topics-candidate/tests/calendar-invitations-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/calendar-invitations-selection.test.cjs",
       "sourceSha256": "42433a16b45f179ee3a2c6130bc224f67341e1ae88897e369db2fbb4f3d1e8fc",
       "publishedSha256": "d9402b81d9b442a5336c7d3cd9eb2fb0e3e594e9f2df0ba3c71d7defe1a5f0f1",
       "changes": [
@@ -1809,8 +1978,39 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "topics-candidate/tests/calendar-management-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/calendar-management-selection.test.cjs",
+      "sourceSha256": "36de01def8fe6cac4bb3b307090d3f3864a7fa2e9af32f562d59e65e2e4a614b",
+      "publishedSha256": "fa24ad58aa5115b5603834ec9e7766245f524d36c6a1d97ed64d4f4f1b2da69e",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "topics-candidate/tests/calendar-meeting-null.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/calendar-meeting-null.test.cjs",
+      "sourceSha256": "a34901060fdec231f9b1ad4e7fc846b06fe0cb81a4c99ce8e60ba7707bf12dcf",
+      "publishedSha256": "e7f298c8ecd4047e9cb5cd3e90b854bb3269e5bfb132d8f24d4a4ee2c16b0058",
+      "changes": [
+        "Reserved host/contact/secondary-account examples replace installation values",
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "topics-candidate/tests/calendar-meetings-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/calendar-meetings-selection.test.cjs",
+      "sourceSha256": "baae6318dc64558f34dffae8707ff1a9b7d75e7224a196e9e57015cf92fef225",
+      "publishedSha256": "685d230efa79b6fd3c40c1cda939be5f02360a049ade4cbd2ca1b3170502a61b",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "topics-candidate/tests/calendar-series-care-selection.test.cjs",
-      "sourcePath": "topics-candidate/tests/calendar-series-care-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/calendar-series-care-selection.test.cjs",
       "sourceSha256": "566cad8a5d78071ddb960887436659c6d22031140dac84b00c9cdf1bb99c36e6",
       "publishedSha256": "175c1cb6b89b3dc1813751f0d04a744dfa03c1b266883d61601a8c27b82cc600",
       "changes": [
@@ -1820,7 +2020,7 @@
     },
     {
       "path": "topics-candidate/tests/contact-books-selection.test.cjs",
-      "sourcePath": "topics-candidate/tests/contact-books-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/contact-books-selection.test.cjs",
       "sourceSha256": "2a70621a3f75b113c638039de7f228b1b48bac9a970fc4354fb4c42857521efc",
       "publishedSha256": "7b150414303d0a15744d1e3faff2387ed64d8962c701d22bb58ef34ee2325c50",
       "changes": [
@@ -1830,7 +2030,7 @@
     },
     {
       "path": "topics-candidate/tests/deck-shares-selection.test.cjs",
-      "sourcePath": "topics-candidate/tests/deck-shares-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/deck-shares-selection.test.cjs",
       "sourceSha256": "7392bcc7b6adb0d3423aec62c53d6bbace3d03c388c5c7e07eee4f10009ebd47",
       "publishedSha256": "bf5af76f31dd93438cf5cf50de81db9729a05466c823e408e1187851ebd93d8a",
       "changes": [
@@ -1840,7 +2040,7 @@
     },
     {
       "path": "topics-candidate/tests/deck-trash-selection.test.cjs",
-      "sourcePath": "topics-candidate/tests/deck-trash-selection.test.cjs",
+      "sourcePath": "topics-0.1.17/tests/deck-trash-selection.test.cjs",
       "sourceSha256": "b6d12416cc496c151a6f6c87374b062da7f50668d056eeccce6a661ca7cf7344",
       "publishedSha256": "f3c40287f5683a80c7b10924d2a5cb5bc9e7dbb66c190fc7338d42c136e75806",
       "changes": [
@@ -1849,10 +2049,21 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "topics-candidate/tests/fixtures/calendar-meeting-fetch.cjs",
+      "sourcePath": "topics-0.1.17/tests/fixtures/calendar-meeting-fetch.cjs",
+      "sourceSha256": "a50fff1a09441ee5033140b17d35fba7f421018c53cdabcfa2124777eef7884e",
+      "publishedSha256": "d2e183805bfdc98d765309fe2d714b7208d735be7cda7484dd87b0ad0be1b741",
+      "changes": [
+        "Reserved host/contact/secondary-account examples replace installation values",
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "topics-candidate/tests/local-mcp.test.cjs",
-      "sourcePath": "topics-candidate/tests/local-mcp.test.cjs",
-      "sourceSha256": "f23b87676541743b77496ad357d9554872d85ed2ee045f1453b84a709985b9bf",
-      "publishedSha256": "45e13b9962bdfbd5dc418c95717735319efc91c87eed5f23627001538915b6d0",
+      "sourcePath": "topics-0.1.17/tests/local-mcp.test.cjs",
+      "sourceSha256": "7d032f20c9165eae29830e840798e2448f5c8fdcd0596ec4f128d0a3afec8adf",
+      "publishedSha256": "da3243db0c80fcc36cee9d236ab11250b9faad0df89b77669556c9a4040696ed",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1861,17 +2072,28 @@
     },
     {
       "path": "topics-candidate/tests/selection.test.cjs",
-      "sourcePath": "topics-candidate/tests/selection.test.cjs",
-      "sourceSha256": "bd7f679400573d22e8a3f95581c543e93766d46ff8a0a1cb2f2f21441478b2a4",
-      "publishedSha256": "7e5a950f4d3867ccf094fc9206e201bc263ed503008fd768be7558fbba685d6d",
+      "sourcePath": "topics-0.1.17/tests/selection.test.cjs",
+      "sourceSha256": "4873e76a3944212dcbb03e45473d2dd4d739e845ee78e3ab32cb8164ac24fe62",
+      "publishedSha256": "a79d1132dbf8c450aa96e15c639be3dd67a77d0638646922b4e16e6987ac78fc",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "topics-candidate/tests/test_cleanup_installer.py",
+      "sourcePath": "topics-0.1.17/tests/test_cleanup_installer.py",
+      "sourceSha256": "0ecee200315dd7fc381842917886ab99d6d49b171f37025bc74fa071691711d7",
+      "publishedSha256": "35572b592b50a73be48fdb92e4cac93dddfe19388d6658c29b1443d411bc3d8b",
+      "changes": [
+        "Reserved host/contact/secondary-account examples replace installation values",
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "topics-candidate/tests/test_installer.py",
-      "sourcePath": "topics-candidate/tests/test_installer.py",
+      "sourcePath": "topics-0.1.17/tests/test_installer.py",
       "sourceSha256": "bab070aca8473da3e1f29aa2ea5302835b4d18fead4a750baf614357cbc7f6c2",
       "publishedSha256": "24b33d9fc416e6a4e48b501a0e9484a5ae8ea703474d0092409b674817f41ba0",
       "changes": [
@@ -1882,7 +2104,7 @@
     },
     {
       "path": "topics-candidate/tsconfig.json",
-      "sourcePath": "topics-candidate/tsconfig.json",
+      "sourcePath": "topics-0.1.17/tsconfig.json",
       "sourceSha256": "dcaed403b54e584e56b64683dd5d48996dbd091eee39c910d1800ba49a791071",
       "publishedSha256": "dcaed403b54e584e56b64683dd5d48996dbd091eee39c910d1800ba49a791071",
       "changes": [],
@@ -1891,23 +2113,21 @@
     {
       "path": "update_connector.py",
       "sourcePath": "update_connector.py",
-      "sourceSha256": "ccd31eb493ed776504c7dbf938b1a1c3433d5ff7a6cc105775a2c9a7b93f8fe4",
-      "publishedSha256": "5acf9341cb4b48ee12957334d40ba9a133a3bc4cb7896c4babeca50b0e48f769",
+      "sourceSha256": "44e11b68e38e89e50d6a310989671e800560bf3998fc50890853b00634d0709e",
+      "publishedSha256": "5813c2afcffde01ee4bece289ed01ce979e4fdfb2371a07f83948dadfe5c1c2a",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Default historical-installer guard before configuration or credentials"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "topics-candidate/build.mjs",
-      "sourcePath": "topics-candidate/build.mjs",
-      "sourceSha256": "6acb5e596fd065c23106087dcf7bb169bf306655e02eae87867f4217700f81d4",
-      "publishedSha256": "5af0acdbfd6cfe325768601477abd090f306a9a494d33be97ec75b6664e53f81",
+      "sourcePath": "topics-0.1.17/build.mjs",
+      "sourceSha256": "a869345ae51c82aca940501f9ea775010407f02f0fbfc8f1c352fcc9b28569ee",
+      "publishedSha256": "0b21e7d1f31cfb67d95cc03dc906d92f10def3759bd47de1cee1518a5e3860ec",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Create generated fixture directory in a source-only checkout"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     }

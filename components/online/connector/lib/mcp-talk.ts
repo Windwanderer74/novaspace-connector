@@ -9,14 +9,18 @@ const annotations = { readOnlyHint: true, destructiveHint: false, idempotentHint
 function result(data: object) {
   return { content: [{ type: "text" as const, text: JSON.stringify(data) }], structuredContent: data as Record<string, unknown> };
 }
-export function registerTalkReadTools(server: McpServer) {
+export function registerTalkReadTools(server: McpServer, readCatalog: () => Promise<object>) {
   server.registerTool("nextcloud_capabilities", {
     ...scopeMetadata(NEXTCLOUD_READ_SCOPE), title: "Nextcloud-Funktionsstand lesen",
     description: "Liest Konto, Serverversion, sichtbare Fähigkeitsbereiche und Talk-Funktionen sowie tatsächlich gewährte Connectorrechte. Kein vollständiges App-Inventar, kein Schreibrechtsnachweis. Benötigt nextcloud:read.",
     inputSchema: z.object({}), annotations,
   }, async (_input, context) => {
     const error = requireScope(context, NEXTCLOUD_READ_SCOPE); if (error) return error;
-    return result(await readCapabilities(context.http?.authInfo?.scopes ?? [], context.http?.authInfo?.token));
+    const capabilities = await readCapabilities(context.http?.authInfo?.scopes ?? [], context.http?.authInfo?.token);
+    let mcpCatalog: object;
+    try { mcpCatalog = await readCatalog(); }
+    catch { mcpCatalog = { diagnosticVersion: '1', checked: false, error: 'catalog_unavailable' }; }
+    return result({ ...capabilities, mcpCatalog });
   });
   server.registerTool("talk_list_rooms", {
     ...scopeMetadata(TALK_READ_SCOPE), title: "Nextcloud-Talk-Räume finden",

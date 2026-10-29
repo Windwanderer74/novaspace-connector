@@ -15,8 +15,8 @@ function controller(selection,open){
  return {abort,ctl:{abortSignal:abort.signal,getPluginConfig:()=>({get:key=>key==='extraTools'?selection.extraTools??[]:key==='excludedTools'?selection.excludedTools??[]:selection.topics.includes(key)}),client:{plugins:{pluginTools:open}}}};
 }
 
-test('Catalogue has exactly 171 known tools; every tool is selectable',()=>{
- assert.equal(catalogue.length,171);assert.deepEqual(new Set(catalogue.map(t=>t.name)),api.KNOWN_TOOLS);
+test('Catalogue has exactly 179 known tools; every tool is selectable',()=>{
+ assert.equal(catalogue.length,179);assert.deepEqual(new Set(catalogue.map(t=>t.name)),api.KNOWN_TOOLS);
  assert.deepEqual(new Set(names({topics:[...api.MAIN_TOPICS,...api.EXTENSIONS]})),api.KNOWN_TOOLS);
 });
 test('Real SDK configuration reads per-chat switches and defaults; main registers both hooks',async()=>{
@@ -38,12 +38,13 @@ test('LM Studio SDK host accepts configuration from the shipped module; no secon
  host.port.callRpc=async(name,payload)=>{sent.push({name,payload})};
  await host.setConfigSchematics(api.configSchematics);
  assert.equal(sent.length,1);assert.equal(sent[0].name,'setConfigSchematics');
- assert.equal(sent[0].payload.schematics.fields.length,20);
+ assert.equal(sent[0].payload.schematics.fields.length,21);
+ assert.ok(!sent[0].payload.schematics.fields.some(f=>f.key==='inventory'));
  assert.equal(sent[0].payload.schematics.fields[0].typeParams.displayName,'Datei');
 });
-test('All 262144 topic combinations have a deduplicated union; source objects survive unchanged',()=>{
+test('All 524288 topic combinations have a deduplicated union; source objects survive unchanged',()=>{
  const topics=[...api.MAIN_TOPICS,...api.EXTENSIONS];
- for(let mask=0;mask<262144;mask++){
+ for(let mask=0;mask<524288;mask++){
   const selected=topics.filter((_,i)=>mask&(1<<i));
   const expected=new Set(api.BASE_TOOLS);
   for(const t of selected)for(const n of api.TOPIC_TOOLS[t])expected.add(n);
@@ -56,7 +57,7 @@ test('All 262144 topic combinations have a deduplicated union; source objects su
  }
 });
 test('Calendar and mail do not pull in files, unrelated communications or Deck',()=>{
- assert.equal(names({topics:['calendar']}).length,31);
+ assert.equal(names({topics:['calendar']}).length,37);
  assert.equal(names({topics:['mail']}).length,7);
  for(const topic of ['calendar','mail'])assert.ok(names({topics:[topic]}).every(n=>n.startsWith(topic+'_')||api.BASE_TOOLS.includes(n)));
 });
@@ -88,7 +89,7 @@ test('Two chats use different selections; source session lives until normal disp
  const sessions=[];const open=async id=>{assert.equal(id,api.SOURCE_PLUGIN);const s={tools:remote,closed:0,[Symbol.dispose](){this.closed++}};sessions.push(s);return s};
  const a=controller({topics:['mail']},open),b=controller({topics:['calendar']},open);
  const [at,bt]=await Promise.all([run(a.ctl),run(b.ctl)]);
- assert.equal(at.length,7);assert.equal(bt.length,31);assert.equal(sessions[0].closed,0);
+ assert.equal(at.length,7);assert.equal(bt.length,37);assert.equal(sessions[0].closed,0);
  a.abort.abort();assert.equal(sessions[0].closed,1);assert.equal(sessions[1].closed,0);
  b.abort.abort();assert.equal(sessions[1].closed,1);
 });
@@ -108,11 +109,21 @@ test('Invalid settings and empty selection do not open a source connection',asyn
  assert.equal(count,0);
 });
 
-test('Inventory theme has only three read tools and is disabled by default',()=>{
- const selected=names({topics:['inventory']});
- assert.deepEqual(new Set(selected),new Set([...api.BASE_TOOLS,'inventory_status','inventory_list_items','inventory_get_item']));
- assert.equal(api.configSchematics.parse({fields:[]}).get('inventory'),false);
+test('Retired Inventory is absent and older fine selections cannot bring it back',()=>{
+ assert.ok(!api.EXTENSIONS.includes('inventory'));
+ assert.ok(!catalogue.some(t=>t.name.startsWith('inventory_')));
+ const selected=names({topics:['calendar'],extraTools:['inventory_status','inventory_list_items'],excludedTools:['inventory_get_item']});
+ assert.ok(selected.includes('calendar_read_scheduling'));assert.ok(!selected.some(n=>n.startsWith('inventory_')));
+ assert.throws(()=>api.selectedNames({topics:['inventory']}));
  assert.throws(()=>api.selectedNames({topics:[],extraTools:['inventory_create_item']}));
+});
+
+test('Saved old Inventory checkbox is ignored by the real SDK parser and provider',async()=>{
+ let captured;
+ const parsed=api.configSchematics.parse({fields:[{key:'inventory',value:true},{key:'calendar',value:true}]});
+ const ctl={getPluginConfig:()=>parsed,abortSignal:new AbortController().signal};
+ const selected=await api.provideSelectedTools(ctl,async selection=>{captured=selection;return{tools:api.selectTools(remote,selection),[Symbol.dispose](){}}});
+ assert.deepEqual(captured.topics,['calendar']);assert.ok(selected.some(t=>t.name==='calendar_read_scheduling'));assert.ok(!selected.some(t=>t.name.startsWith('inventory_')));
 });
 
 test('Notes deletion needs Notes and Trash selection or an explicit fine-tool choice',()=>{assert.ok(!names({topics:['notes']}).includes('notes_delete'));assert.ok(!names({topics:['trash']}).includes('notes_delete'));assert.ok(names({topics:['notes','trash']}).includes('notes_delete'));assert.ok(names({topics:['notes'],extraTools:['notes_delete']}).includes('notes_delete'));});

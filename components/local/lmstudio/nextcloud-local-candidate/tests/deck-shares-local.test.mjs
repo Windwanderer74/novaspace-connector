@@ -26,5 +26,5 @@ test('Personal ACL mutation requires deck:share and deck:read before any native 
  assert.equal(calls,0);
 });
 test('Personal help explains the new explicit scope and native assignment-removal effect',async()=>{
- const r=await rpc(['calendar:read'],[],'tools/call',{name:'novaspace_connector_help',arguments:{}});assert.equal(r.structuredContent.version,'1.35.1-local.1');assert.match(JSON.stringify(r.structuredContent.deckShareFunctions),/deck:share/);assert.match(JSON.stringify(r.structuredContent.deckShareFunctions),/Kartenzuständigkeiten/);
+ const r=await rpc(['calendar:read'],[],'tools/call',{name:'novaspace_connector_help',arguments:{}});assert.equal(r.structuredContent.version,'1.36.0-local.1');assert.match(JSON.stringify(r.structuredContent.deckShareFunctions),/deck:share/);assert.match(JSON.stringify(r.structuredContent.deckShareFunctions),/Kartenzuständigkeiten/);
 });

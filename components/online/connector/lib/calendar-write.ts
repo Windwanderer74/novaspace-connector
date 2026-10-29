@@ -173,19 +173,23 @@ function extraProperties(input:Partial<EventInput>){
  if(input.categories!==undefined){if(input.categories.length>20||input.categories.some(s=>!s.trim()||s.length>100||/[\r\n\x00-\x1f\x7f]/.test(s))||new Set(input.categories).size!==input.categories.length)throw Error('Höchstens20 eindeutige Kategorien.');m.set('CATEGORIES',input.categories.length?`CATEGORIES:${input.categories.map(escapeText).join(',')}`:'');}return m;
 }
 
-export async function createCalendarEvent(calendarPath: string, eventId: string, input: EventInput) {
+export async function calendarEventDraft(calendar: string, eventId: string, input: EventInput, at = new Date()) {
   if (!/^[A-Za-z0-9][A-Za-z0-9_-]{7,79}$/.test(eventId)) throw new Error("Eine stabile Ereigniskennung mit 8–80 Buchstaben/Ziffern, Bindestrichen oder Unterstrichen ist erforderlich.");
   let range=eventRange(input);
-  const t = await target(calendarPath), path = t.calendar + eventId + ".ics";
-  let zone:string[]=[];if(input.timeZone!==undefined){if(!input.start||!input.end||input.startDate!==undefined||input.endDate!==undefined)throw Error('Benannte Zeitzone nur zusammen mit Start/Ende.');const r=await namedEventRange(t.calendar,input.start,input.end,input.timeZone);range=r.range;zone=r.zone;}
+  let zone:string[]=[];if(input.timeZone!==undefined){if(!input.start||!input.end||input.startDate!==undefined||input.endDate!==undefined)throw Error('Benannte Zeitzone nur zusammen mit Start/Ende.');const r=await namedEventRange(calendar,input.start,input.end,input.timeZone);range=r.range;zone=r.zone;}
   if(input.reminderEdits!==undefined)throw Error('Alarmindizes gelten nur beim Bearbeiten.');
   if(input.reminderMinutes!==undefined&&input.addReminders!==undefined)throw Error('Eine Erinnerungsvariante wählen.');
-  const now = stamp(new Date());
+  const now = stamp(at);
   const extras=extraProperties({...input,status:input.status??'CONFIRMED',transparency:input.transparency??'OPAQUE'});
   const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//NOVAFORGE//Nextcloud Connector//DE", "CALSCALE:GREGORIAN", ...zone,"BEGIN:VEVENT", `UID:${eventId}@novaforge`, `DTSTAMP:${now}`, `CREATED:${now}`, `LAST-MODIFIED:${now}`, "SEQUENCE:0", ...range, `SUMMARY:${escapeText(input.title)}`, `DESCRIPTION:${escapeText(input.description ?? "")}`, `LOCATION:${escapeText(input.location ?? "")}`, ...[...extras.values()].filter(Boolean)];
   if (input.reminderMinutes != null) lines.push("BEGIN:VALARM", "ACTION:DISPLAY", `TRIGGER:-PT${input.reminderMinutes}M`, "DESCRIPTION:Terminerinnerung", "END:VALARM");
   lines.push("END:VEVENT", "END:VCALENDAR");
-  const body=serialize(changeEventAlarms(lines,[],input.addReminders));await mutation(path, "PUT", null, body);
+  return serialize(changeEventAlarms(lines,[],input.addReminders));
+}
+
+export async function createCalendarEvent(calendarPath: string, eventId: string, input: EventInput) {
+  const t = await target(calendarPath), path = t.calendar + eventId + ".ics";
+  const body=await calendarEventDraft(t.calendar,eventId,input);await mutation(path, "PUT", null, body);
   return verify(t, path,false,body);
 }
 
@@ -249,4 +253,4 @@ export async function deleteCalendarEvent(calendarPath: string, eventPath: strin
 }
 
 // The series adapter shares the established exact-object DAV/ETag transport.
-export const calendarWriteInternals = { target, readAt, mutation, strongEtag, serialize, escapeText, stamp };
+export const calendarWriteInternals = { target, readAt, mutation, strongEtag, serialize, escapeText, stamp, eventRange, editable };

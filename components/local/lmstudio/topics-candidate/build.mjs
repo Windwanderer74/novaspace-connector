@@ -7,7 +7,7 @@ await build({nodePaths:process.env.NF_BUILD_MODULES?[process.env.NF_BUILD_MODULE
 await mkdir('src',{recursive:true});
 await writeFile('src/index.ts','// LM Studio compiles this entry and the vendored SDK in ONE module graph.\nexport {main} from "../plugin.cjs";\n');
 const tools=JSON.parse(await readFile('../nextcloud-local-candidate/TOOL-MANIFEST.json','utf8'));
-await writeFile('TOOL-MANIFEST.json',JSON.stringify(tools.filter(t=>t.name!=='inventory_create_item'),null,2));
+await writeFile('TOOL-MANIFEST.json',JSON.stringify(tools.filter(t=>!t.name.startsWith('inventory_')),null,2));
 
 // Exercise the current core in the real child-process regression.
 await mkdir('tests/fixtures',{recursive:true});

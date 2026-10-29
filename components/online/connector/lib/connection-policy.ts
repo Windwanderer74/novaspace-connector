@@ -65,7 +65,7 @@ export function accessOverview(policy: ConnectionPolicy, scopes: readonly string
   return Object.entries(APP_ACCESS).map(([app, config]) => {
     const area = app as AppName;
     const reads = area === 'mindmap' ? ['files:read'] : area === 'files' ? ['files:read','files:download','files:pdfread'] : [`${area}:read`];
-    const writes = area === 'mindmap' ? ['files:write'] : area === 'files' ? ['files:write','files:organize','files:share','files:trash'] : area === 'deck' ? ['deck:write','deck:share','deck:trash'] : area === 'calendar' ? ['calendar:write','calendar:schedule'] : area === 'contacts' ? ['contacts:write','contacts:share','contacts:manage'] : [`${area}:write`];
+    const writes = area === 'mindmap' ? ['files:write'] : area === 'files' ? ['files:write','files:organize','files:share','files:trash'] : area === 'deck' ? ['deck:write','deck:share','deck:trash'] : area === 'calendar' ? ['calendar:write','calendar:schedule','calendar:organize','calendar:manage','calendar:share'] : area === 'contacts' ? ['contacts:write','contacts:share','contacts:manage'] : [`${area}:write`];
     const allowed = (s: string) => scopes.includes(s) && !permissionDenial(policy, appForScope(s), /:(write|organize|share|trash|schedule|manage)$/.test(s));
     return { app, label: config.label, maximum: policy.apps[area], connectionEnabled: policy.enabled,
       readAvailable: !permissionDenial(policy, area) && reads.some(allowed),

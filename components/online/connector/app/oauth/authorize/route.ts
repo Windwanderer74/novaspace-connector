@@ -9,6 +9,8 @@ import {
   CALENDAR_READ_SCOPE,
   CALENDAR_WRITE_SCOPE,
   CALENDAR_SCHEDULE_SCOPE,
+  CALENDAR_ORGANIZE_SCOPE,
+  CALENDAR_MANAGE_SCOPE, CALENDAR_SHARE_SCOPE,
   canonicalResource,
   createAuthorizationCode,
   FILES_READ_SCOPE,
@@ -101,7 +103,10 @@ export async function GET(request: Request) {
     "notes:write": "Native Notizen anlegen und versionsgebunden bearbeiten; keine Löschung; zusätzlich Notizleserechte nötig",
     "deck:read": "Deck-Boards, Listen und Karten lesen",
     "deck:write": "Deck-Karten anlegen, bearbeiten und verschieben",
-    "calendar:schedule": "Eigene Antwort auf eine einzelne Kalendereinladung übermitteln; kann native Mitteilung/E-Mail an den vorhandenen Organisator auslösen. Zusätzlich Kalender-Schreib-/Leserecht erforderlich",
+    "calendar:schedule": "Eigene Antwort auf einen Einzeltermin oder ausdrücklich eine ganze gespeicherte Masterserie ohne Einzelabweichungen übermitteln; kann native Mitteilung/E-Mail an den vorhandenen Organisator auslösen. Zusätzlich Kalender-Schreib-/Leserecht erforderlich",
+    "calendar:manage": "Ganzen eigenen Kalender nach Umfangsvorschau entfernen oder nativ wiederherstellen; vorhandene Inhalte und Zugriffe betroffen, bei deaktiviertem Papierkorb dauerhaft. Keine einzelnen Besprechungsabsagen. Zusätzlich Kalender-Schreib-/Leserecht erforderlich",
+    "calendar:share": "Eigene Kalender für ausdrücklich gewählte lokale Nutzer/Gruppen zum Lesen/Bearbeiten freigeben oder direkte Freigaben aufheben; betrifft bestehende/künftige Termine, native Mitteilungen möglich. Zusätzlich Kalender-Schreib-/Leserecht erforderlich",
+    "calendar:organize": "Eigene Einladungen an ausdrücklich gewählte Teilnehmer, Besprechungsänderungen und Absagen nach Vorschau übermitteln; vollständiger Termininhalt wird geteilt, Absage entfernt das Original. Zusätzlich Kalender-Schreib-/Leserecht erforderlich",
     "calendar:read": "Verbundenes Nextcloud-Konto, Kalender und Termine lesen",
     "calendar:write": "Einzelne Kalendertermine anlegen, bearbeiten und löschen (einschließlich Prüfen und Zurücklesen)",
     "files:write": "NovaSpace-Ordner und Textdateien anlegen, Dateien/Ordner ohne Überschreiben kopieren sowie Textdateien aktualisieren (einschließlich Prüfen und Zurücklesen; keine Löschung)",
@@ -128,7 +133,7 @@ export async function GET(request: Request) {
   const permissions = requested.map(scope => `<li>${escapeHtml(scopeDescriptions[scope] ?? scope)}</li>`).join("");
   // Older connector registrations still request Deck scopes only. Offer the
   // additional permissions explicitly; never add them without checked consent.
-  const optionalScopes = [GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, DECK_SHARE_SCOPE, DECK_TRASH_SCOPE, CALENDAR_SCHEDULE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, CONTACTS_SHARE_SCOPE, CONTACTS_MANAGE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].filter(scope => !requested.includes(scope));
+  const optionalScopes = [GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, DECK_SHARE_SCOPE, DECK_TRASH_SCOPE, CALENDAR_SCHEDULE_SCOPE, CALENDAR_ORGANIZE_SCOPE, CALENDAR_MANAGE_SCOPE, CALENDAR_SHARE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, CONTACTS_SHARE_SCOPE, CONTACTS_MANAGE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].filter(scope => !requested.includes(scope));
 
   const optionalPermissions = optionalScopes.length ? `<fieldset style="border:1px solid #475569;border-radius:10px;padding:16px;margin:20px 0"><legend>Zusätzliche Zugriffe auswählen</legend><p>Aktiviere die gewünschten Bereiche. Kalender-Schreibzugriff erlaubt auch das Löschen einzelner Termine in deinen freigegebenen Kalendern.</p>${optionalScopes.map(scope => `<label style="display:block;margin:16px 0"><input type="checkbox" name="additional_scope" value="${scope}"> ${escapeHtml(scopeDescriptions[scope])}</label>`).join("")}<p>Ohne Auswahl bleibt es bei den oben aufgeführten Rechten. Diese Zustimmung allein legt noch keine Termine, Ordner oder Dateien an.</p></fieldset>` : "";
   const hidden = [
@@ -164,7 +169,7 @@ export async function POST(request: Request) {
   }
 
   const additionalScopes = form.getAll("additional_scope");
-  if (additionalScopes.some(scope => typeof scope !== "string" || ![GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, DECK_SHARE_SCOPE, DECK_TRASH_SCOPE, CALENDAR_SCHEDULE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, CONTACTS_SHARE_SCOPE, CONTACTS_MANAGE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].includes(scope))) {
+  if (additionalScopes.some(scope => typeof scope !== "string" || ![GITHUB_READ_SCOPE, GITHUB_WRITE_SCOPE, DECK_SHARE_SCOPE, DECK_TRASH_SCOPE, CALENDAR_SCHEDULE_SCOPE, CALENDAR_ORGANIZE_SCOPE, CALENDAR_MANAGE_SCOPE, CALENDAR_SHARE_SCOPE, TASKS_READ_SCOPE, TASKS_WRITE_SCOPE, CONTACTS_READ_SCOPE, CONTACTS_WRITE_SCOPE, CONTACTS_SHARE_SCOPE, CONTACTS_MANAGE_SCOPE, NOTES_READ_SCOPE, NOTES_WRITE_SCOPE, CALENDAR_READ_SCOPE, FILES_READ_SCOPE, CALENDAR_WRITE_SCOPE, FILES_WRITE_SCOPE, NEXTCLOUD_READ_SCOPE, TALK_READ_SCOPE, MAIL_READ_SCOPE, ANNOUNCEMENTS_READ_SCOPE, FILES_ORGANIZE_SCOPE, FILES_PDF_SCOPE, FILES_DOWNLOAD_SCOPE, FILES_SHARE_SCOPE, FILES_TRASH_SCOPE, TABLES_READ_SCOPE, TABLES_WRITE_SCOPE, INVENTORY_READ_SCOPE, INVENTORY_WRITE_SCOPE].includes(scope))) {
 
     return html("<h1>Ungültige zusätzliche Berechtigung</h1>", 400);
   }

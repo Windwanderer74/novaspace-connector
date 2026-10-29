@@ -33,6 +33,7 @@ import { registerCalendarTools } from "./mcp-calendar";
 import { registerAnnouncementsReadTools } from "./mcp-announcements";
 import { registerMailReadTools } from "./mcp-mail";
 import { registerTalkReadTools } from "./mcp-talk";
+import { readMcpCatalog } from './mcp-catalog';
 import { CONNECTOR_VERSION } from "./connector-version";
 import { createProjectAwareCard, resumeProjectCapsuleCard } from './project-capsule-card';
 import { updateCardInMindmapWorkflow } from './deck-mindmap-workflow';
@@ -302,7 +303,7 @@ export function createDeckMcpServer() {
   });
 
   registerNextcloudReadTools(server);
-  registerTalkReadTools(server);
+  registerTalkReadTools(server, () => readMcpCatalog(createDeckMcpServer));
   registerMailReadTools(server);
   registerAnnouncementsReadTools(server);
   registerCalendarTools(server);

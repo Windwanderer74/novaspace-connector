@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "component": "novaspace_platform",
   "appMetadataVersion": "0.4.0",
-  "includedHelpPatch": "0.4.0-ui.7",
+  "includedHelpPatch": "0.4.0-ui.9",
   "includedGithubBridge": "0.1.0",
-  "sourceSnapshotDate": "2026-10-23",
+  "sourceSnapshotDate": "2026-10-29",
   "licenseForOwnFiles": "AGPL-3.0-or-later",
-  "sourceCheckpoint": "ca1fb50642c0b3cab7c5f9d898e36fba7befdf38",
-  "sourceConnectorVersion": "1.31.1",
+  "sourceCheckpoint": "e2fd91539d4ba5855646f18eefd06e03609a957a",
+  "sourceConnectorVersion": "1.36.0",
   "prepared132Included": false,
   "fullPrivateHistoryImported": false,
   "productionDeploymentPerformed": false,
@@ -135,12 +135,13 @@
       ]
     },
     {
-      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/ConnectionPolicy.php",
+      "sourcePath": "ops/paket1-calendar-collaboration/native-help/lib/Service/ConnectionPolicy.php",
       "publishedPath": "app/lib/Service/ConnectionPolicy.php",
-      "sourceSha256": "b8c32de619c2d64f74da6d7fa0fe56895c1d8e660aaac40e0d44cc2fe91c710f",
-      "publishedSha256": "eb7984ddc675fb33ab3e13b0ed61aaf5c7e4a5dafabf1ca21374949bb2e6badf",
+      "sourceSha256": "88a8556a252dee931d4437888110bb9cf6706d808ce15ed94ce79db9a91f79a9",
+      "publishedSha256": "ccc39dd6ec85e19d9bdf03a9088d6602850945717611d6a729a336353f34f85a",
       "changes": [
-        "Add SPDX license identifier."
+        "Current verified source for the help/scope patch",
+        "Reserved example host/contact values and existing SPDX license identification"
       ]
     },
     {
@@ -162,12 +163,13 @@
       ]
     },
     {
-      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/GatewayVerifier.php",
+      "sourcePath": "ops/gateway-scope-compat/GatewayVerifier.php",
       "publishedPath": "app/lib/Service/GatewayVerifier.php",
-      "sourceSha256": "2d546059e8bd163a3ffb141832a714e8ae8ca17003b3bc068f38e81c1d9677ad",
-      "publishedSha256": "0ab12dcc347b719f0b03ba627ed3d8c7438a7c7c3575dbf794312f43e62cfc21",
+      "sourceSha256": "9a92ceee65c1ebb31c4663db23bbf2ecd24bdae8008737bd215dae65efd48dfb",
+      "publishedSha256": "92e2db687987e982366cd3cc31f309f031fcd920d638784b040e85f2386bf5ba",
       "changes": [
-        "Add SPDX license identifier."
+        "Current verified source for the help/scope patch",
+        "Reserved example host/contact values and existing SPDX license identification"
       ]
     },
     {
@@ -189,13 +191,13 @@
       ]
     },
     {
-      "sourcePath": "ops/platform-foundation/nextcloud-app/templates/connections.php",
+      "sourcePath": "ops/paket1-calendar-collaboration/native-help/templates/connections.php",
       "publishedPath": "app/templates/connections.php",
-      "sourceSha256": "05a7621cd68a613f84d68b1cccb361880ed601a16bfa7c2be7b2f1223e40b769",
-      "publishedSha256": "a4818570b470ff4872d4ea12da8b158bc08212f47c1a23c0e66ae140994b067e",
+      "sourceSha256": "299ac66c112b669898c97dfd0bae39435f6bac4dd01dbeddc41965e6b9edd426",
+      "publishedSha256": "0e458795b61e0e37e1ed13b04f1623f67b46f19be44fc044586fbda556fdc1df",
       "changes": [
-        "Add SPDX license identifier.",
-        "Point public help link to the published integration guide instead of an instance-specific hosted endpoint."
+        "Current verified source for the help/scope patch",
+        "Reserved example host/contact values and existing SPDX license identification"
       ]
     },
     {
@@ -389,5 +391,11 @@
     "checksPerCombination": 36,
     "appImplementationChanged": false,
     "productionUpdated": false
-  }
+  },
+  "includedScopePatch": "0.4.0-scope.1",
+  "currentPublicationChanges": [
+    "Calendar help source",
+    "Signed scope-array bound:32 to64; identity/signature checks retained"
+  ],
+  "currentPublicationFreshInstallTested": false
 }

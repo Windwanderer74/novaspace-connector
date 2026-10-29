@@ -52,8 +52,8 @@ test('Tool discovery advertises valid OAuth scopes and explicit exchange require
  assert.equal(response.status,200);
  const body=await response.text();
  const data=response.headers.get('content-type')?.includes('text/event-stream') ? body.split('\n').filter(line=>line.startsWith('data:')).map(line=>JSON.parse(line.slice(5))).find(item=>item.id===2) : JSON.parse(body);
- assert.equal(data.result.tools.length,200);
- assert.equal(new Set(data.result.tools.map(t=>t.name)).size,200);
+ assert.equal(data.result.tools.length,211);
+ assert.equal(new Set(data.result.tools.map(t=>t.name)).size,211);
  for(const tool of data.result.tools){
   const schemes=tool._meta?.securitySchemes;
   assert.equal(schemes?.length,1,tool.name);

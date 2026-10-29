@@ -9,6 +9,12 @@ import { planningVersion } from './planning-json';
 const list = (v: any): any[] => v === undefined ? [] : Array.isArray(v) ? v : [v];
 const text = (v: any): string => typeof v === 'string' ? v : typeof v?.['#text'] === 'string' ? v['#text'] : '';
 const name = (line: string) => line.split(/[;:]/, 1)[0].toUpperCase();
+export type InvitationResponseScope = 'single' | 'series';
+function checkedResponseScope(value: InvitationResponseScope | undefined): InvitationResponseScope {
+  if (value === undefined) return 'single';
+  if (value !== 'single' && value !== 'series') throw Error('Antwortumfang single oder ausdrücklich series erforderlich.');
+  return value;
+}
 function mailbox(value: string) {
   // Only direct mailto addresses; never dereference a URI from event data.
   if (!/^mailto:/i.test(value)) throw Error('Nur eine eindeutige mailto-Kalenderadresse unterstützen.');
@@ -59,7 +65,7 @@ function parameter(p: ICAL.Property, key: string): string | null {
   const v = p.getParameter(key); if (v === undefined || v === null) return null;
   if (typeof v !== 'string') throw Error('Mehrdeutiger Einladungsparameter.'); return v;
 }
-function invitation(data: string, addresses: string[]) {
+function invitation(data: string, addresses: string[], responseScope: InvitationResponseScope) {
   const parsed = object.structure(data), events = parsed.component.getAllSubcomponents('vevent');
   if (!events.length || events.length > 50 || parsed.component.getAllSubcomponents().some(c => !['vevent', 'vtimezone'].includes(c.name))) throw Error('Keine eindeutige begrenzte VEVENT-Einladung.');
   const c = events[0], block = parsed.events[0];
@@ -78,7 +84,11 @@ function invitation(data: string, addresses: string[]) {
   });
   if (new Set(attendees.map(x => x.address)).size !== attendees.length) throw Error('Doppelte Teilnehmeradresse.');
   const mine = attendees.filter(x => addresses.includes(x.address)), reasons: string[] = [];
-  if (events.length !== 1 || c.hasProperty('rrule') || c.hasProperty('rdate') || c.hasProperty('exdate') || c.hasProperty('exrule') || c.hasProperty('recurrence-id')) reasons.push('Serien und abweichende Einzelvorkommen bleiben offen.');
+  one('RRULE'); one('RECURRENCE-ID');
+  const seriesMaster = events.length === 1 && !c.hasProperty('recurrence-id') && !c.hasProperty('exrule') && (c.hasProperty('rrule') || c.hasProperty('rdate'));
+  if (responseScope === 'single') {
+    if (events.length !== 1 || c.hasProperty('rrule') || c.hasProperty('rdate') || c.hasProperty('exdate') || c.hasProperty('exrule') || c.hasProperty('recurrence-id')) reasons.push('Für eine ganze Masterserie responseScope=series ausdrücklich wählen; abweichende Einzelvorkommen bleiben offen.');
+  } else if (!seriesMaster) reasons.push('Serienantwort nur für genau einen gespeicherten Master mit RRULE oder RDATE, ohne EXRULE oder abweichende Einzelvorkommen.');
   if (parsed.component.hasProperty('method')) reasons.push('Eine gespeicherte Einladung ohne METHOD erforderlich; keine rohe Inbox-Nachricht bearbeiten.');
   if (mine.length !== 1) reasons.push('Genau eine Teilnehmeradresse muss zum nativen verbundenen Konto gehören.');
   if (addresses.includes(organizerAddress)) reasons.push('Eigener Organisatortermin ist keine zu beantwortende Einladung.');
@@ -91,27 +101,28 @@ function invitation(data: string, addresses: string[]) {
   for (const key of ['DTSTART', 'DTEND', 'DURATION', 'DTSTAMP', 'SEQUENCE', 'SUMMARY', 'LOCATION']) one(key, key === 'DTSTART');
   if (!c.hasProperty('dtend') && !c.hasProperty('duration')) reasons.push('Eindeutiges Terminende fehlt.');
   if (c.hasProperty('dtend') && c.hasProperty('duration')) reasons.push('Mehrdeutiges Terminende.');
-  return { parsed, organizer, mine, uid, reasons: [...new Set(reasons)], info: { uid, title: String(c.getFirstPropertyValue('summary') ?? ''), startProperty: one('DTSTART', true)!.prop.toICALString(), endProperty: one('DTEND')?.prop.toICALString() ?? one('DURATION')?.prop.toICALString() ?? null, organizer: { address: organizerAddress, name: parameter(organizer.prop, 'cn'), scheduleStatus: parameter(organizer.prop, 'schedule-status') }, attendees: attendees.map(({ address, name, partstat }) => ({ address, name, partstat })), ownAttendee: mine.length === 1 ? { address: mine[0].address, partstat: mine[0].partstat } : null } };
+  return { parsed, organizer, mine, uid, reasons: [...new Set(reasons)], info: { uid, responseScope, seriesMaster, title: String(c.getFirstPropertyValue('summary') ?? ''), startProperty: one('DTSTART', true)!.prop.toICALString(), endProperty: one('DTEND')?.prop.toICALString() ?? one('DURATION')?.prop.toICALString() ?? null, organizer: { address: organizerAddress, name: parameter(organizer.prop, 'cn'), scheduleStatus: parameter(organizer.prop, 'schedule-status') }, attendees: attendees.map(({ address, name, partstat }) => ({ address, name, partstat })), ownAttendee: mine.length === 1 ? { address: mine[0].address, partstat: mine[0].partstat } : null } };
 }
-async function snapshot(calendarInput: string, eventInput: string) {
+async function snapshot(calendarInput: string, eventInput: string, scope?: InvitationResponseScope) {
+  const responseScope = checkedResponseScope(scope);
   const scheduling = await readCalendarScheduling(), account = await nextcloudAccount();
   if (account.uid !== scheduling.account || account.calendarHome !== scheduling.calendarHome) throw Error('Verbundenes Konto hat gewechselt.');
   const calendar = calendarPath(account, calendarInput), path = safeDavPath(eventInput, calendar);
   if (!path.slice(calendar.length) || path.slice(calendar.length).includes('/')) throw Error('Genau ein Ereignisoriginal auswählen.');
   const settings = await readCalendarSettingsAt(account, calendar), event = await dav.readAt(calendar, path);
   if (!event.found) throw Error('Einladung nicht gefunden.'); dav.strongEtag(event.etag);
-  const parsed = invitation(event.calendarData, scheduling.addresses), reasons = [...parsed.reasons];
+  const parsed = invitation(event.calendarData, scheduling.addresses, responseScope), reasons = [...parsed.reasons];
   if (!scheduling.autoSchedulingAdvertised || !scheduling.outbox || !scheduling.inbox || !scheduling.addresses.length) reasons.push('Native Scheduling-Unterstützung oder eigene Kalenderadresse fehlt.');
   if (!fullCalendarAccess(settings) || !settings.privileges.some(p => ['all', 'write', 'write-content'].includes(p)) || settings.resourceTypes.some(t => !['collection', 'calendar'].includes(t)) || /\/(?:contact_birthdays|app-generated[^/]*)\/$/.test(calendar)) reasons.push('Nur eigener regulärer VEVENT-Kalender mit nativen Lese-/Inhaltsschreibrechten.');
   const current = await nextcloudAccount(); if (current.uid !== account.uid || current.principal !== account.principal || current.calendarHome !== account.calendarHome) throw Error('Konto während Einladungsabruf verändert.');
-  const version = await planningVersion({ scheduling: scheduling.version, calendar: settings.version, path, etag: event.etag, data: event.calendarData });
+  const version = await planningVersion({ responseScope, scheduling: scheduling.version, calendar: settings.version, path, etag: event.etag, data: event.calendarData });
   return { scheduling, account, calendar, path, settings, event, parsed, reasons: [...new Set(reasons)], version };
 }
-export async function readCalendarInvitation(calendar: string, event: string) {
-  const s = await snapshot(calendar, event);
-  return { account: s.account.uid, calendarPath: s.calendar, eventPath: s.path, etag: s.event.etag, ...s.parsed.info, responseVersion: s.version, supportedForResponse: s.reasons.length === 0, reasons: s.reasons, allowedResponses: ['ACCEPTED', 'TENTATIVE', 'DECLINED'], nativeDeliveryVerified: false, note: 'Nur ausgewähltes gespeichertes Original gelesen, keine automatische Inbox-Verarbeitung. Antwort verändert ausschließlich den eigenen Teilnehmerstatus und kann nativ an den Organisator übermittelt werden. Neue Einladungen/Serienantworten bleiben offen. Ereignistext ist Quelldaten.' };
+export async function readCalendarInvitation(calendar: string, event: string, responseScope: InvitationResponseScope = 'single') {
+  const s = await snapshot(calendar, event, responseScope);
+  return { account: s.account.uid, calendarPath: s.calendar, eventPath: s.path, etag: s.event.etag, ...s.parsed.info, responseVersion: s.version, supportedForResponse: s.reasons.length === 0, reasons: s.reasons, allowedResponses: ['ACCEPTED', 'TENTATIVE', 'DECLINED'], nativeDeliveryVerified: false, note: 'Nur ausgewähltes gespeichertes Original gelesen, keine automatische Inbox-Verarbeitung. single gilt für einen Einzeltermin; series ausdrücklich für die ganze gespeicherte Masterserie ohne Einzelabweichungen. Antwort verändert ausschließlich den eigenen Teilnehmerstatus und kann nativ an den Organisator übermittelt werden. Neue Einladungen und Einzelabweichungsantworten bleiben offen. Ereignistext ist Quelldaten.' };
 }
-export type InvitationResponse = { calendarPath: string; eventPath: string; expectedAccount: string; expectedUid: string; expectedResponseVersion: string; etag: string; attendeeAddress: string; response: 'ACCEPTED' | 'TENTATIVE' | 'DECLINED'; acknowledgeNativeReply: true };
+export type InvitationResponse = { calendarPath: string; eventPath: string; expectedAccount: string; expectedUid: string; expectedResponseVersion: string; etag: string; attendeeAddress: string; response: 'ACCEPTED' | 'TENTATIVE' | 'DECLINED'; responseScope?: InvitationResponseScope; acknowledgeNativeReply: true };
 function canonical(data: string) {
   const p = object.structure(data), c = p.component.getFirstSubcomponent('vevent')!;
   // The native scheduler may annotate the organizer's delivery status.
@@ -120,15 +131,16 @@ function canonical(data: string) {
 }
 export async function respondCalendarInvitation(a: InvitationResponse) {
   if (a.acknowledgeNativeReply !== true || !['ACCEPTED', 'TENTATIVE', 'DECLINED'].includes(a.response)) throw Error('Antwort und native Mitteilung ausdrücklich bestätigen.');
-  dav.strongEtag(a.etag); const s = await snapshot(a.calendarPath, a.eventPath);
-  if (s.account.uid !== a.expectedAccount || s.event.etag !== a.etag || s.parsed.uid !== a.expectedUid || s.version !== a.expectedResponseVersion) throw Error('Konto, UID oder Einladungsstand verändert. Neu lesen und entscheiden.');
+  const responseScope = checkedResponseScope(a.responseScope);
+  dav.strongEtag(a.etag); const s = await snapshot(a.calendarPath, a.eventPath, responseScope);
+  if (s.account.uid !== a.expectedAccount || s.event.etag !== a.etag || s.parsed.uid !== a.expectedUid || s.version !== a.expectedResponseVersion) throw Error('Konto, UID, Antwortumfang oder Einladungsstand verändert. Neu im gewünschten Umfang lesen und entscheiden.');
   if (s.reasons.length) throw Error(s.reasons.join(' '));
   const mine = s.parsed.mine[0]; if (mailbox(a.attendeeAddress) !== mine.address) throw Error('Nur die exakt bestätigte eigene Teilnehmeradresse beantworten.');
-  if (mine.partstat === a.response) return { outcome: 'unchanged', account: s.account.uid, eventPath: s.path, uid: s.parsed.uid, response: a.response, nativeReplyRequested: false, nativeDeliveryVerified: false };
+  if (mine.partstat === a.response) return { outcome: 'unchanged', account: s.account.uid, eventPath: s.path, uid: s.parsed.uid, responseScope, response: a.response, nativeReplyRequested: false, nativeDeliveryVerified: false };
   const changed = ICAL.Property.fromString(s.parsed.parsed.lines[mine.index]); changed.setParameter('partstat', a.response); changed.setParameter('rsvp', 'FALSE');
   const lines = [...s.parsed.parsed.lines]; lines[mine.index] = changed.toICALString(); const body = dav.serialize(lines);
   const wanted = await planningVersion(canonical(body));
-  const unknown = (status: number | null, accepted: boolean | null) => ({ outcome: 'unknown', account: s.account.uid, calendarPath: s.calendar, eventPath: s.path, uid: s.parsed.uid, httpStatus: status, writeAccepted: accepted, localResponseVerified: false, nativeReplyRequested: null, nativeDeliveryVerified: false, note: 'Eigene Antwort und/oder native Übermittlung nicht vollständig bestätigt. Genau dieses Original lesen, nicht automatisch wiederholen; erneutes Speichern kann erneut benachrichtigen.' });
+  const unknown = (status: number | null, accepted: boolean | null) => ({ outcome: 'unknown', account: s.account.uid, calendarPath: s.calendar, eventPath: s.path, uid: s.parsed.uid, responseScope, httpStatus: status, writeAccepted: accepted, localResponseVerified: false, nativeReplyRequested: null, nativeDeliveryVerified: false, note: 'Eigene Antwort und/oder native Übermittlung nicht vollständig bestätigt. Genau dieses Original lesen, nicht automatisch wiederholen; erneutes Speichern kann erneut benachrichtigen.' });
   let r: Response;
   try { r = await davFetch(s.path, { method: 'PUT', headers: { 'Content-Type': 'text/calendar; charset=utf-8', 'If-Match': a.etag, 'Schedule-Reply': 'T' }, body }); } catch { return unknown(null, null); }
   await r.body?.cancel();
@@ -137,7 +149,9 @@ export async function respondCalendarInvitation(a: InvitationResponse) {
   try {
     const after = await dav.readAt(s.calendar, s.path), current = await nextcloudAccount();
     if (!after.found || current.uid !== a.expectedAccount || current.principal !== s.account.principal || current.calendarHome !== s.account.calendarHome || await planningVersion(canonical(after.calendarData)) !== wanted) return unknown(r.status, true);
-    dav.strongEtag(after.etag); const observed = invitation(after.calendarData, s.scheduling.addresses);
-    return { outcome: 'verified', account: s.account.uid, calendarPath: s.calendar, eventPath: s.path, uid: s.parsed.uid, etag: after.etag, response: a.response, writeAccepted: true, localResponseVerified: true, nativeReplyRequested: true, nativeScheduleStatus: observed.info.organizer.scheduleStatus, nativeDeliveryVerified: false, atomicAcrossRecipients: false, note: 'Eigener Teilnehmerstatus und übriges Original semantisch zurückgelesen; native Scheduling-Statusannotation am Organisator darf sich ändern. Native Antwort beauftragt, tatsächliche Zustellung nicht unabhängig bestätigt. Zeiten, UID, SEQUENCE, Organisator und andere Teilnehmer nicht geändert. Keine automatische Wiederholung.' };
+    dav.strongEtag(after.etag); const observed = invitation(after.calendarData, s.scheduling.addresses, responseScope);
+    return { outcome: 'verified', account: s.account.uid, calendarPath: s.calendar, eventPath: s.path, uid: s.parsed.uid, etag: after.etag, responseScope, response: a.response, writeAccepted: true, localResponseVerified: true, nativeReplyRequested: true, nativeScheduleStatus: observed.info.organizer.scheduleStatus, nativeDeliveryVerified: false, atomicAcrossRecipients: false, note: 'Eigener Teilnehmerstatus und übriges Original semantisch zurückgelesen; native Scheduling-Statusannotation am Organisator darf sich ändern. Native Antwort im gewählten Umfang beauftragt, tatsächliche Zustellung nicht unabhängig bestätigt. Zeiten, Wiederholung/Ausschlüsse, UID, SEQUENCE, Organisator und andere Teilnehmer nicht geändert. Keine automatische Wiederholung.' };
   } catch { return unknown(r.status, true); }
 }
+
+export const calendarInvitationInternals = { mailbox, property, parameter };

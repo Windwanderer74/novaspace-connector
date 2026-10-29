@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { registerCalendarOccurrenceTools } from './mcp-calendar-occurrences';
 import { registerCalendarInvitationTools } from './mcp-calendar-invitations';
+import { registerCalendarMeetingTools } from './mcp-calendar-meetings';
+import { registerCalendarManagementTools } from './mcp-calendar-management';
+import { registerCalendarRecoveryTools } from './mcp-calendar-recovery';
+import { registerCalendarLinkTools } from './mcp-calendar-links';
 import { registerCalendarPlanningTools } from './mcp-calendar-planning';
 import { registerCalendarSeriesTools } from './mcp-calendar-series';
 import { registerCalendarExchangeTools } from './mcp-calendar-exchange';
@@ -31,6 +35,10 @@ export function registerCalendarTools(server: McpServer) {
   registerCalendarOccurrenceTools(server);
   registerCalendarExchangeTools(server);
   registerCalendarInvitationTools(server);
+  registerCalendarMeetingTools(server);
+  registerCalendarManagementTools(server);
+  registerCalendarRecoveryTools(server);
+  registerCalendarLinkTools(server);
   server.registerTool("calendar_read_event", {
     ...scopeMetadata(CALENDAR_READ_SCOPE), title: "Einzelnen Nextcloud-Termin lesen",
     description: "Liest genau ein unaufgelöstes Kalenderobjekt einschließlich ETag und Originalinhalt. Meldet found=false nur bei bestätigtem Fehlen. Vor Änderungen verwenden; keine Serienauflösung. Benötigt calendar:read.",

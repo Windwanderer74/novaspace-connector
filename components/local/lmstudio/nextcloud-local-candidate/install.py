@@ -11,9 +11,9 @@ import subprocess
 import sys
 import tempfile
 
-VERSION = '1.35.1-local.1'
+VERSION = '1.36.0-local.1'
 ENTRY = 'nextcloud-pilot-next2'
-ALL_SCOPES = ['deck:write','calendar:write','files:write','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:write','files:share','deck:share','deck:trash','calendar:schedule','files:trash','notes:write','tasks:write','contacts:write','contacts:share','contacts:manage']
+ALL_SCOPES = ['deck:write','calendar:write','files:write','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:write','files:share','deck:share','deck:trash','calendar:schedule','calendar:organize','calendar:manage','calendar:share','files:trash','notes:write','tasks:write','contacts:write','contacts:share','contacts:manage']
 GROUPS = ['deck','files','calendar','tables','mindmap','communication','inventory','notes','tasks','contacts']
 READ_SCOPES = ['deck:read','calendar:read','files:read','nextcloud:read','talk:read','mail:read','announcements:read','inventory:read','notes:read','tasks:read','contacts:read']
 
@@ -25,17 +25,17 @@ def previous_local_config(old, expected_user):
     args = old.get('args', [])
     scripts = [Path(p) for p in args if isinstance(p, str) and p.endswith('start_local.py')]
     if len(scripts) != 1 or not scripts[0].is_file():
-        raise RuntimeError('Dieses Update benötigt den belegten bisherigen lokalen Anschluss 1.35.0-local.1.')
+        raise RuntimeError('Dieses Update benötigt den belegten bisherigen lokalen Anschluss 1.35.1-local.1.')
     previous = scripts[0].resolve().parent
     receipt = json.loads((previous / 'installation.json').read_text(encoding='utf-8'))
     config = json.loads((previous / 'local.json').read_text(encoding='utf-8'))
-    if receipt.get('version') not in {'1.35.0-local.1'} or receipt.get('installedEntry') != old:
+    if receipt.get('version') not in {'1.35.1-local.1'} or receipt.get('installedEntry') != old:
         raise RuntimeError('Aktiver Eintrag weicht vom bestätigten Vorzustand ab. Nichts umgestellt.')
     if config.get('expectedUser') != expected_user or receipt.get('expectedUser') != expected_user or config.get('baseUrl') != 'https://cloud.example.invalid':
         raise RuntimeError('Vorhandener Anschluss gehört nicht zum erwarteten Konto/Ziel.')
-    pins = {'start_local.py': 'cd0c5200270820cd5424017cb5625ff9d4f3755a447d05f0ca5ab495e1434d75', 'dist/nextcloud-local.cjs': '8fff9cc7514742484b5c2d58ab9a855bc5953f03a14afce6c3ede2fecbe3296c'}
+    pins = {'start_local.py': 'cd0c5200270820cd5424017cb5625ff9d4f3755a447d05f0ca5ab495e1434d75', 'dist/nextcloud-local.cjs': '8933a867b3775b6d129d91d04ce98d724ab38ca0ec70729419aea7aaee22f536'}
     if any(hashlib.sha256((previous/name).read_bytes()).hexdigest() != digest for name,digest in pins.items()):
-        raise RuntimeError('Aktiver 1.35-Programmstand wurde verändert. Nichts umgestellt.')
+        raise RuntimeError('Aktiver 1.35.1-Programmstand wurde verändert. Nichts umgestellt.')
     scopes = config.get('scopes')
     if not isinstance(scopes, list) or not set(READ_SCOPES + ALL_SCOPES).issuperset(scopes) or not {'calendar:read', 'files:read'}.issubset(scopes):
         raise RuntimeError('Vorhandene lokale Freigaben zuerst prüfen; nicht erweitert.')
@@ -156,7 +156,7 @@ def main():
     updated = updated_config(original,replacement)
     backup_dir = target.parent.parent / 'Sicherungen'
     backup_dir.mkdir(exist_ok=True)
-    backup = backup_dir / ('mcp-vor-local-1350-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.json')
+    backup = backup_dir / ('mcp-vor-local-1351-' + datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.json')
     with backup.open('xb') as out:
         out.write(original)
     receipt = {'version':VERSION,'previousEntry':old,'installedEntry':replacement,'backupPath':str(backup),'expectedUser':args.expected_user}

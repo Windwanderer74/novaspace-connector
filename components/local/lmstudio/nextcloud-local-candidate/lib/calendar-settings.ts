@@ -122,3 +122,6 @@ export async function createTaskList(a:Patch&{listId:string;title:string;expecte
 export async function updateTaskListSettings(a:Patch&{listPath:string;expectedAccount:string;expectedVersion:string}){
  const {listPath,...rest}=a;return taskListResult(await updateCollectionSettings({...rest,calendarPath:listPath},'VTODO'),listPath);
 }
+
+// Management also reads the native deleted-calendar resource at its original URL.
+export const calendarSettingsInternals={normalize};

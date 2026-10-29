@@ -20,6 +20,9 @@ def main():
     parser.add_argument('--expected-user', required=True, choices=['Soul', 'ExampleUser'])
     parser.add_argument('--install', action='store_true')
     parser.add_argument('--enable-file-sharing', action='store_true', help='Zusaetzlich bewusst Dateifreigaben verwalten erlauben')
+    parser.add_argument('--enable-calendar-management', action='store_true', help='Ganze eigene Kalender gezielt verwalten und Originale nativ wiederherstellen erlauben')
+    parser.add_argument('--enable-calendar-sharing', action='store_true', help='Direkte eigene lokale Kalenderfreigaben bewusst erlauben')
+    parser.add_argument('--enable-calendar-organizer', action='store_true', help='Eigene Einladungen und Organisatoraktionen bewusst erlauben')
     parser.add_argument('--enable-calendar-replies', action='store_true', help='Eigene Kalenderantworten bewusst uebermitteln erlauben')
     parser.add_argument('--enable-contact-sharing', action='store_true', help='Eigene Adressbuchfreigaben bewusst erlauben')
     parser.add_argument('--enable-contact-management', action='store_true', help='Gesamte eigene Adressbuecher dauerhaft entfernen erlauben')
@@ -37,6 +40,9 @@ def main():
     core = root / 'nextcloud-local-candidate' / 'install.py'
     common = ['--expected-user', args.expected_user]
     core_scopes = ['--enable-scope', 'files:share'] if args.enable_file_sharing else []
+    if args.enable_calendar_management: core_scopes += ['--enable-scope', 'calendar:manage']
+    if args.enable_calendar_sharing: core_scopes += ['--enable-scope', 'calendar:share']
+    if args.enable_calendar_organizer: core_scopes += ['--enable-scope', 'calendar:organize']
     if args.enable_calendar_replies: core_scopes += ['--enable-scope', 'calendar:schedule']
     if args.enable_contact_sharing: core_scopes += ['--enable-scope', 'contacts:share']
     if args.enable_contact_management: core_scopes += ['--enable-scope', 'contacts:manage']
@@ -60,8 +66,11 @@ def main():
     # The new selection remains compatible with the old core if the second step fails.
     subprocess.run([sys.executable, str(topics), *common], check=True, timeout=240)
     subprocess.run([sys.executable, str(core), *common, *core_scopes], check=True, timeout=240)
-    print('OK: Themenauswahl 0.1.13 und persoenlicher MCP-Kern 1.35.1-local.1 eingetragen.')
+    print('OK: Themenauswahl 0.1.14 und persoenlicher MCP-Kern 1.36.0-local.1 eingetragen.')
     print('Bisherige Freigaben erhalten. Zusaetzlich files:share bewusst freigegeben.' if args.enable_file_sharing else 'Vorhandene Freigaben unveraendert; Dateifreigabeaenderungen nicht neu erlaubt.')
+    if args.enable_calendar_management: print('Zusaetzlich calendar:manage bewusst freigegeben; native Inhalts-/Zugriffs-/Rueckweggrenzen gelten.')
+    if args.enable_calendar_sharing: print('Zusaetzlich calendar:share bewusst freigegeben; keine Kalenderfreigabe automatisch angelegt.')
+    if args.enable_calendar_organizer: print('Zusaetzlich calendar:organize bewusst freigegeben; Kalender-Lese-/Schreibrechte nicht automatisch ergaenzt.')
     if args.enable_calendar_replies: print('Zusaetzlich calendar:schedule bewusst freigegeben.')
     if args.enable_deck_sharing: print('Zusaetzlich deck:share bewusst freigegeben.')
     if args.enable_file_trash: print('Zusaetzlich files:trash bewusst freigegeben.')

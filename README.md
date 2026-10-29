@@ -12,7 +12,7 @@ Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinan
 | Deck | Boards und Karten lesen, Aufgaben anlegen und bearbeiten, Listen und Zuständigkeiten verwalten |
 | Projekte | Gemeinsames Board und Mindmap, Standardablage und ausdrückliche Wiederaufnahme; Projekt-Grundpilot im dokumentierten Umfang als Beta-Arbeitsblock abgeschlossen |
 | Mindmaps | Entwicklungsgrundlagen strukturieren, Arbeitsschritte mit Deckkarten verbinden und Checklistenfortschritt abgleichen |
-| Planung | Kalender und Aufgaben lesen und bearbeiten, freie Zeitfenster ermitteln und einfache Terminserien verwalten |
+| Planung | Kalender und Aufgaben lesen und bearbeiten, freie Zeitfenster ermitteln und einfache Terminserien sowie ausdrücklich beauftragte Einladungen verwalten |
 | Notizen und Kontakte | Inhalte pflegen und ausgewählte Text-, Kalender- und Kontaktdaten austauschen |
 
 Ein mögliches Arbeitsgespräch: „Finde die Unterlagen zu diesem Vorhaben, fasse den Stand zusammen und ergänze die nächsten vereinbarten Schritte auf der zugehörigen Deckkarte.“ Die Ausführung hängt von den tatsächlich eingeräumten Rechten und den unterstützten Werkzeugen ab.
@@ -23,13 +23,34 @@ Der Connector prüft das verbundene Konto und die verfügbaren Rechte. Bei unter
 
 Die Entwicklung umfasst einen Online-Anschluss und einen persönlichen Anschluss für LM Studio. Die Themenauswahl stellt passende Fachbereiche zusammen. Automatisierte Prüfungen und praktische Erprobung werden getrennt dokumentiert.
 
-Die Themenauswahl bietet **18 Schalter und damit 262.144 mögliche Themenkonfigurationen**. Alle Kombinationen werden automatisiert auf ihre Werkzeugauswahl geprüft. Das zählt Schalterbelegungen; verschiedene Belegungen können dieselben Werkzeuge ergeben. Es sind keine 262.144 praktischen Modelltests. [Prüfumfang](components/local/lmstudio/TEST_RESULTS.json).
+Die Themenauswahl bietet **19 Schalter und damit 524.288 mögliche Themenkonfigurationen**. Alle Kombinationen werden automatisiert auf ihre Werkzeugauswahl geprüft. Das zählt Schalterbelegungen; verschiedene Belegungen können dieselben Werkzeuge ergeben. Es sind keine 524.288 praktischen Modelltests. [Prüfumfang](components/local/lmstudio/TEST_RESULTS.json).
 
 ## Entwicklungsstand
 
-Stand: **27. Oktober 2026**. Online **1.35.1**, persönlicher LM-Studio-Kern **1.35.1-local.1**, Themenauswahl **0.1.13** und native Projekt-App **0.2.13** sind im bestehenden Arbeitsumfeld eingebaut. Authentifizierte Version und lesende Projekt-API sind bestätigt. Nach dem erfolgreichen Windows-Einbau zeigt der persönliche LM-Studio-Lesetest Konto, Version, Hilfe und Projektordner erfolgreich.
+Stand: **29. Oktober 2026 · Beta-Zwischenstand**.
 
-Die passenden aufbereiteten Online-, persönlichen und Projekt-App-Quellen gehören zu diesem Beta-Zwischenstand. Der vereinbarte Projekt-Grundpilot ist als Beta-Arbeitsblock abgeschlossen: Projekt- und Aufgabenanlage, Prüfung eines vollständigen Vorgangs sowie der Browser-Rückweg zum persönlichen Anschluss sind im dokumentierten Umfang bestätigt. Persönliche Nachweise beruhen auf Client- und Nutzerrückmeldungen; allgemeine Modellabnahme und eine echte Teilvorgang-Reparatur bleiben getrennt. Paket 1 steht weiter bei **22 von 32 technischen Bedingungen**. [Update1.35: Projektfluss, Einbau, Prüfungen und offene Schritte](docs/updates/1.35.1.md).
+| Bestandteil | Bestätigter Einbaustand |
+|---|---|
+| Online-Connector | **1.36.0** |
+| Persönlicher LM-Studio-Kern | **1.36.0-local.1** |
+| LM-Studio-Themenauswahl | **0.1.17** |
+| Native Projekt-App | **0.2.13**, unverändert |
+
+**Paket 1 steht bei 29 von 32 Bedingungen.** Die geplanten Funktionsblöcke sind
+abgeglichen. Offen bleiben die gebündelte fachliche Abnahme, die Bedienungsabnahme
+und der gemeinsame Abschluss. Das Gesamtpaket bleibt in Abnahme.
+
+Der Kalenderausbau umfasst eigene Einladungen, Änderungen und Absagen mit getrenntem
+Organisatorrecht, begrenzte Antworten auf gespeicherte Masterserien, Kalenderverwaltung
+und dokumentierte Verknüpfungen/Rückwege. Einladung und Titeländerung wurden im
+vereinbarten Umfang tatsächlich gespeichert und rückgelesen; der Eingang der beiden
+E-Mails wurde getrennt bestätigt. Absagen und Serienantworten sind isoliert geprüft,
+werden hier aber nicht als produktiv ausgeführt behauptet.
+
+Themenauswahl **0.1.17** macht erforderliche Angaben je Kalenderaktion im Modellschema
+verbindlich und behandelt die beobachtete zusätzliche ETag-Maskierung gezielt.
+Sie ergänzt keine Rechte und ersetzt keine Prüfung des tatsächlichen Serverstands.
+[Änderungen, Quellen und Abnahmegrenzen](docs/updates/1.36.0.md).
 
 Der weitere Ausbau läuft in drei Lieferpaketen:
 
@@ -61,8 +82,8 @@ Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie folgend
 
 - Die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) als einzeln nachvollziehbares Modul.
 - Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
-- Den [Online-Connector1.35.1](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.2, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
-- Den [persönlichen LM-Studio-Anschluss1.35.1-local.1 mit Themenauswahl0.1.13](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
+- Den [Online-Connector 1.36.0](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.2, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
+- Den [persönlichen LM-Studio-Anschluss 1.36.0-local.1 mit Themenauswahl 0.1.17](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
 - Die [native Projekt-App0.2.13](components/nextcloud/projects/README.md) mit vollständig zusammengeführtem Appbaum und isolierten Protokoll-/Adapterprüfungen.
 
 
@@ -70,4 +91,4 @@ Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernom
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.35.1, personal1.35.1-local.1/topics0.1.13 and native project-app0.2.13 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded. A first personal connector project-creation pilot was reported successful by the client; the scoped complete-status and browser-return steps are accepted; general model acceptance remains separate. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.35.1.md), component build/test reports and LICENSING.md.
+**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.36.0, personal1.36.0-local.1/topics0.1.17 and native project-app0.2.13 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded. A first personal connector project-creation pilot was reported successful by the client; the scoped complete-status and browser-return steps are accepted; general model acceptance remains separate. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.36.0.md), component build/test reports and LICENSING.md.

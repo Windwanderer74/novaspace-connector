@@ -32,6 +32,13 @@ class CoordinatorTests(unittest.TestCase):
 
 class DeckShareScopeTests(unittest.TestCase):
     run_check=CoordinatorTests.run_check
+    def test_calendar_management_is_separate(self):
+        self.assertEqual(self.run_check(['--enable-calendar-management']),['calendar:manage'])
+    def test_calendar_sharing_is_separate(self):
+        self.assertEqual(self.run_check(['--enable-calendar-sharing']),['calendar:share'])
+    def test_calendar_organizer_requires_the_explicit_option(self):
+        self.assertEqual(self.run_check(['--enable-calendar-organizer']),['calendar:organize'])
+
     def test_calendar_response_requires_the_explicit_option(self):
         self.assertEqual(self.run_check(['--enable-calendar-replies']),['calendar:schedule'])
     def test_deck_share_requires_the_explicit_option(self):

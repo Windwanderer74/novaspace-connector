@@ -32,4 +32,11 @@ Die vorhandene Anmeldung setzt die von der Hosting-Plattform geprüften `oai-aut
 
 Die JavaScript-Prüfungen verwenden synthetische Daten, Ersatzantworten für HTTP und temporär erzeugte Testschlüssel; sie führen keine gewollten echten Nextcloud- oder GitHub-Änderungen aus. Die Prüfung der gebauten Ausgabe ruft den erzeugten Worker im lokalen Node-Prozess auf. Das ist weder ein Cloudflare-Laufzeittest noch ein produktiver End-to-End-Test. Die native App hat einen [eigenen Integrationsnachweis](../../nextcloud/platform/INTEGRATION_RESULTS.json).
 
-Die festen technischen Kontobezeichnungen und Pilotgrenzen einiger Adapter stammen aus dem Ausgangsstand. Sie sind dokumentierter bestehender Code, keine allgemeine Mehrmandanten-Konfiguration. [LEGACY_OPS.md](LEGACY_OPS.md) beschreibt die besonders installationsgebundenen Programme. Bestehende Produktionsabnahmen werden durch diese Quellprüfung nicht ersetzt. Ein frischer Online-Betrieb, ein Update der laufenden Installation, echte externe GitHub-Schreibvorgänge bleiben eigene Abnahmen. Persönliche Quellen1.35.1 und die Projekt-App0.2.13 werden als eigene Komponenten veröffentlicht.
+Die festen technischen Kontobezeichnungen und Pilotgrenzen einiger Adapter stammen aus dem Ausgangsstand. Sie sind dokumentierter bestehender Code, keine allgemeine Mehrmandanten-Konfiguration. [LEGACY_OPS.md](LEGACY_OPS.md) beschreibt die besonders installationsgebundenen Programme. Bestehende Produktionsabnahmen werden durch diese Quellprüfung nicht ersetzt. Ein frischer Online-Betrieb, ein Update der laufenden Installation, echte externe GitHub-Schreibvorgänge bleiben eigene Abnahmen. Persönliche Quellen1.36.0 und die Projekt-App0.2.13 werden als eigene Komponenten veröffentlicht.
+
+## Fortschreibung 29. Oktober 2026
+
+Aktueller Beta-Quellstand: Online1.36.0, persönlich1.36.0-local.1, Themen0.1.17.
+Paket1:29/32; A01/A02/Z01 offen. Ältere Prüfzahlen oben sind historische
+Nachweise und werden nicht als aktuelle Wiederholung ausgegeben. Der aktuelle
+Prüfumfang steht in TEST_RESULTS.json und im [Update](../../../docs/updates/1.36.0.md).

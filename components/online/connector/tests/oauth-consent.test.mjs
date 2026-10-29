@@ -41,7 +41,7 @@ test('Legacy request offers unchecked additional choices; approving unchanged gr
   assert.match(html,/name="additional_scope" value="talk:read"/);
   assert.match(html,/name="additional_scope" value="mail:read"/);
   assert.match(html,/name="additional_scope" value="announcements:read"/);
-  for (const scope of ['deck:trash','contacts:share','contacts:manage','files:trash','files:share','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:read','inventory:write']) {
+  for (const scope of ['calendar:share','calendar:manage','deck:trash','contacts:share','contacts:manage','files:trash','files:share','files:organize','files:pdfread','files:download','tables:read','tables:write','inventory:read','inventory:write']) {
     assert.ok(html.includes('name="additional_scope" value="'+scope+'"'));
   }
   assert.doesNotMatch(html,/checked/);
@@ -51,7 +51,7 @@ test('Legacy request offers unchecked additional choices; approving unchanged gr
 });
 
 test('Explicit choices survive authorization code and token exchange exactly', async () => {
-  for (const selected of [['deck:trash'],['contacts:share'],['contacts:manage'],['contacts:share','contacts:manage'],['files:trash'],['files:share'],['inventory:read'],['inventory:write'],['inventory:read','inventory:write'],['tables:write'],['tables:read'],['files:organize'],['files:pdfread'],['files:download'],['files:organize','files:pdfread','files:download'],['announcements:read'],['mail:read'],['nextcloud:read'],['talk:read'],['nextcloud:read','talk:read'],['calendar:read'],['files:read'],['calendar:read','files:read'],['calendar:write'],['files:write'],['calendar:read','files:read','calendar:write','files:write']]) {
+  for (const selected of [['calendar:share'],['calendar:manage'],['calendar:share','calendar:manage'],['deck:trash'],['contacts:share'],['contacts:manage'],['contacts:share','contacts:manage'],['files:trash'],['files:share'],['inventory:read'],['inventory:write'],['inventory:read','inventory:write'],['tables:write'],['tables:read'],['files:organize'],['files:pdfread'],['files:download'],['files:organize','files:pdfread','files:download'],['announcements:read'],['mail:read'],['nextcloud:read'],['talk:read'],['nextcloud:read','talk:read'],['calendar:read'],['files:read'],['calendar:read','files:read'],['calendar:write'],['files:write'],['calendar:read','files:read','calendar:write','files:write']]) {
     const form = values();
     selected.forEach(scope=>form.append('additional_scope',scope));
     const response = await exchange(await authorize(form));
@@ -81,4 +81,21 @@ test('Declining or using another identity cannot issue an authorization code', a
 test('Expanded consent still requires the matching PKCE verifier', async () => {
   const form = values();form.append('additional_scope','calendar:read');
   assert.equal((await exchange(await authorize(form),'x'.repeat(50))).status,400);
+});
+
+test('Organizer consent is an unchecked extra choice; existing reply rights never become organizer rights', async () => {
+  const prior = 'calendar:read calendar:write calendar:schedule';
+  const page = await api.consent(new Request(origin+'/oauth/authorize?'+values(prior),{headers:{'oai-authenticated-user-email':email}}));
+  const html = await page.text();
+  const choice = html.match(/<input[^>]+name="additional_scope"[^>]+value="calendar:organize"[^>]*>/)?.[0];
+  assert.ok(choice,'An explicit additional organizer choice is available');
+  assert.doesNotMatch(choice,/checked/);
+  const unchanged = await (await exchange(await authorize(values(prior)))).json();
+  assert.deepEqual(unchanged.scope.split(' ').sort(),prior.split(' ').sort());
+  assert.doesNotMatch((await api.verifyAccessToken(unchanged.access_token)).scope,/calendar:organize/);
+  const form = values(prior);form.append('additional_scope','calendar:organize');
+  const response = await exchange(await authorize(form));assert.equal(response.status,200);
+  const issued = await response.json();
+  assert.deepEqual(issued.scope.split(' ').sort(),[...prior.split(' '),'calendar:organize'].sort());
+  assert.equal((await api.verifyAccessToken(issued.access_token)).scope,issued.scope);
 });

@@ -1,85 +1,98 @@
 {
-  "snapshotDate": "2026-10-23",
-  "runtime": "PHP 8.3 via PHP-WASM",
-  "isolated": true,
-  "productionCredentialsMounted": false,
-  "liveNetworkOrNextcloudUsed": false,
-  "results": [
-    {
-      "target": "--lint",
-      "result": "Syntax OK: 32 PHP files"
-    },
-    {
-      "target": "platform-native-controller.php",
-      "result": [
-        "PASS: 25 native access tests; boundary doubles, no HTTP acceptance.",
-        "PASS: 32 native resolver/controller tests; no HTTP acceptance."
-      ]
-    },
-    {
-      "target": "platform-access-native.php",
-      "result": [
-        "PASS: 52 registry/RSA/SQLite/native-boundary tests. No MariaDB or HTTP acceptance."
-      ]
-    },
-    {
-      "target": "platform-inventory-native.php",
-      "result": [
-        "PASS: 37 registry/RSA/SQLite/native-boundary tests. No MariaDB or HTTP acceptance.",
-        "PASS: 30 inventory-delegation/RSA/SQLite tests. No MariaDB or HTTP acceptance."
-      ]
-    },
-    {
-      "target": "github-bridge-core.php",
-      "result": [
-        "GitHub bridge core: 34 checks passed"
-      ]
-    },
-    {
-      "target": "github-bridge-signature.php",
-      "result": [
-        "GitHub bridge native signatures: 7 checks passed"
-      ]
-    },
-    {
-      "target": "publication-boundaries.php",
-      "result": [
-        "PASS: 4 publication route/configuration boundary checks."
-      ]
-    }
-  ],
-  "limits": [
-    "These fixture suites use boundary doubles and in-memory SQLite; native HTTP/MariaDB results are in INTEGRATION_RESULTS.json.",
-    "External application success paths, production upgrades and other runtime combinations remain separately scoped."
-  ],
-  "sourceReconciliation": {
-    "observedFiles": 26,
-    "matchedFiles": 26,
-    "evidenceSource": "User-provided read-only SSH JSON output",
-    "metadataDifferenceResolved": true,
-    "phpImplementationChanged": false,
-    "fullPhpSuiteRepeated": false,
-    "reason": "Only app XML, provenance, checksums and documentation changed; prior PHP results remain applicable."
-  },
-  "scope": "Isolated PHP fixture suites; full native server integration is reported separately.",
-  "nativeIntegration": {
-    "report": "INTEGRATION_RESULTS.json",
-    "recipe": "integration/README.md",
-    "matrix": [
+  "schemaVersion": 4,
+  "date": "2026-10-29",
+  "sourceCheckpoint": "e2fd91539d4ba5855646f18eefd06e03609a957a",
+  "edition": "sanitized AGPL source snapshot",
+  "liveChangesBySourceChecks": false,
+  "generalModelAcceptance": false,
+  "previousSnapshotChecks": {
+    "snapshotDate": "2026-10-23",
+    "runtime": "PHP 8.3 via PHP-WASM",
+    "isolated": true,
+    "productionCredentialsMounted": false,
+    "liveNetworkOrNextcloudUsed": false,
+    "results": [
       {
-        "nextcloud": "34.0.4",
-        "php": "8.3.6",
-        "mariadb": "10.11.14",
-        "passed": 36,
-        "total": 36
+        "target": "--lint",
+        "result": "Syntax OK: 32 PHP files"
       },
       {
-        "nextcloud": "35.0.0",
-        "php": "8.3.6",
-        "mariadb": "10.11.14",
-        "passed": 36,
-        "total": 36
+        "target": "platform-native-controller.php",
+        "result": [
+          "PASS: 25 native access tests; boundary doubles, no HTTP acceptance.",
+          "PASS: 32 native resolver/controller tests; no HTTP acceptance."
+        ]
+      },
+      {
+        "target": "platform-access-native.php",
+        "result": [
+          "PASS: 52 registry/RSA/SQLite/native-boundary tests. No MariaDB or HTTP acceptance."
+        ]
+      },
+      {
+        "target": "platform-inventory-native.php",
+        "result": [
+          "PASS: 37 registry/RSA/SQLite/native-boundary tests. No MariaDB or HTTP acceptance.",
+          "PASS: 30 inventory-delegation/RSA/SQLite tests. No MariaDB or HTTP acceptance."
+        ]
+      },
+      {
+        "target": "github-bridge-core.php",
+        "result": [
+          "GitHub bridge core: 34 checks passed"
+        ]
+      },
+      {
+        "target": "github-bridge-signature.php",
+        "result": [
+          "GitHub bridge native signatures: 7 checks passed"
+        ]
+      },
+      {
+        "target": "publication-boundaries.php",
+        "result": [
+          "PASS: 4 publication route/configuration boundary checks."
+        ]
       }
-    ]
+    ],
+    "limits": [
+      "These fixture suites use boundary doubles and in-memory SQLite; native HTTP/MariaDB results are in INTEGRATION_RESULTS.json.",
+      "External application success paths, production upgrades and other runtime combinations remain separately scoped."
+    ],
+    "sourceReconciliation": {
+      "observedFiles": 26,
+      "matchedFiles": 26,
+      "evidenceSource": "User-provided read-only SSH JSON output",
+      "metadataDifferenceResolved": true,
+      "phpImplementationChanged": false,
+      "fullPhpSuiteRepeated": false,
+      "reason": "Only app XML, provenance, checksums and documentation changed; prior PHP results remain applicable."
+    },
+    "scope": "Isolated PHP fixture suites; full native server integration is reported separately.",
+    "nativeIntegration": {
+      "report": "INTEGRATION_RESULTS.json",
+      "recipe": "integration/README.md",
+      "matrix": [
+        {
+          "nextcloud": "34.0.4",
+          "php": "8.3.6",
+          "mariadb": "10.11.14",
+          "passed": 36,
+          "total": 36
+        },
+        {
+          "nextcloud": "35.0.0",
+          "php": "8.3.6",
+          "mariadb": "10.11.14",
+          "passed": 36,
+          "total": 36
+        }
+      ]
+    }
+  },
+  "checks": {
+    "scopeAndSignatureBoundaryChecksPassed": 18,
+    "failed": 0,
+    "freshNextcloudInstallation": false
   }
 }

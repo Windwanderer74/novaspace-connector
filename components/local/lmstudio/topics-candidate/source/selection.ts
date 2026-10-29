@@ -1,18 +1,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 export const MAIN_TOPICS = ['files', 'deck', 'mindmap', 'calendar', 'mail', 'notes', 'tasks', 'contacts'] as const;
-export const EXTENSIONS = ['tables', 'talk', 'announcements', 'inventory', 'sharing', 'trash', 'boardShares', 'invitationReplies', 'contactBooks', 'deckTrash'] as const;
+export const EXTENSIONS = ['tables', 'talk', 'announcements', 'sharing', 'trash', 'boardShares', 'invitationReplies', 'calendarInvitations', 'calendarManagement', 'contactBooks', 'deckTrash'] as const;
 export type Topic = typeof MAIN_TOPICS[number] | typeof EXTENSIONS[number];
 export const SOURCE_PLUGIN = 'mcp/nextcloud-pilot-next2';
 export const BASE_TOOLS = ['nextcloud_account', 'nextcloud_capabilities', 'novaspace_connector_help'];
 
-// Explicit catalogue from the supported personal releases through 1.35.0; Inventory is read-only in this selection. A future server
+// Explicit catalogue from the supported personal release 1.36.0. A future server
 // tool is never implicitly enabled by a name prefix or a wildcard.
 export const TOPIC_TOOLS: Record<Topic, readonly string[]> = {
+  calendarManagement: ['calendar_list','calendar_read_settings','calendar_read_event','calendar_read_management','calendar_change_calendar_share','calendar_delete_calendar','calendar_restore_calendar','calendar_read_trash','calendar_restore_event'],
+  calendarInvitations: ['calendar_list','calendar_read_settings','calendar_read_scheduling','calendar_read_event','calendar_prepare_meeting','calendar_submit_meeting'],
   invitationReplies: ['calendar_read_scheduling', 'calendar_read_invitation', 'calendar_respond_invitation'],
   boardShares: ['deck_read_board_shares', 'deck_create_board_share', 'deck_update_board_share', 'deck_revoke_board_share'],
   contactBooks: ['contacts_read_book_shares','contacts_change_book_share','contacts_prepare_book_delete','contacts_delete_book'],
   deckTrash: ['deck_read_trash', 'deck_prepare_trash', 'deck_trash_item', 'deck_restore_item'],
-  inventory: ['inventory_status','inventory_list_items','inventory_get_item'],
   sharing: ['files_shares_list','files_share_read','files_share_create','files_share_update','files_share_revoke','files_stat'],
   trash: ['files_trash_list','files_trash_read','files_trash','files_restore','files_stat','files_list'],
   files: ['files_trash_list','files_trash_read','files_shares_list','files_share_read','files_search','files_copy','files_list','files_stat','files_read_text','files_move','files_rename',
@@ -25,7 +26,7 @@ export const TOPIC_TOOLS: Record<Topic, readonly string[]> = {
     'create_card','update_card','move_card'],
   mindmap: ['mindmap_read','mindmap_create','mindmap_update_nodes',
     'mindmap_link_file','mindmap_add_source_capsule'],
-  calendar: ['calendar_prepare_series_edit','calendar_edit_series','calendar_search_events','calendar_prepare_copy','calendar_copy_event','calendar_read_occurrence','calendar_update_occurrence','calendar_reset_occurrence','calendar_read_scheduling','calendar_read_invitation','calendar_read_settings','calendar_create_calendar','calendar_update_calendar','calendar_free_busy','calendar_find_slots','calendar_read_series','calendar_create_series','calendar_update_series','calendar_exclude_occurrence','calendar_export_ics','calendar_prepare_ics_import','calendar_import_ics','calendar_list','calendar_read_period','calendar_read_event',
+  calendar: ['calendar_read_management','calendar_read_trash','calendar_read_links','calendar_prepare_file_link','calendar_apply_file_link','calendar_prepare_meeting','calendar_prepare_series_edit','calendar_edit_series','calendar_search_events','calendar_prepare_copy','calendar_copy_event','calendar_read_occurrence','calendar_update_occurrence','calendar_reset_occurrence','calendar_read_scheduling','calendar_read_invitation','calendar_read_settings','calendar_create_calendar','calendar_update_calendar','calendar_free_busy','calendar_find_slots','calendar_read_series','calendar_create_series','calendar_update_series','calendar_exclude_occurrence','calendar_export_ics','calendar_prepare_ics_import','calendar_import_ics','calendar_list','calendar_read_period','calendar_read_event',
     'calendar_create_event','calendar_update_event','calendar_delete_event'],
   mail: ['mail_list_accounts','mail_list_folders','mail_list_messages','mail_read_message'],
   tables: ['tables_status','tables_list','tables_read','tables_list_rows',
@@ -38,6 +39,9 @@ export const MINDMAP_FILES = ['files_list','files_stat','files_read_text',
 export const MINDMAP_DECK = ['mindmap_project_folders','mindmap_project_status','mindmap_create_project','mindmap_resume_project','mindmap_resume_project_card','mindmap_link_card','mindmap_sync_card','mindmap_create_work_step'];
 export const NOTES_TRASH = ['notes_delete'];
 export const KNOWN_TOOLS = new Set([...BASE_TOOLS,...Object.values(TOPIC_TOOLS).flat(),...MINDMAP_DECK,...NOTES_TRASH]);
+// Ignore only these retired fine selections from an older chat. They cannot
+// re-enable the removed area; all other unknown names still fail closed.
+const RETIRED_TOOLS = new Set(['inventory_status','inventory_list_items','inventory_get_item']);
 export interface Selection { topics: readonly Topic[]; extraTools?: readonly string[]; excludedTools?: readonly string[] }
 
 export function selectedNames(selection: Selection): Set<string> {
@@ -52,9 +56,9 @@ export function selectedNames(selection: Selection): Set<string> {
   }
   if (selection.topics.includes('notes') && selection.topics.includes('trash')) for (const name of NOTES_TRASH) result.add(name);
   for (const names of [selection.extraTools ?? [],selection.excludedTools ?? []]) {
-    if (!Array.isArray(names) || names.some(n => !KNOWN_TOOLS.has(n))) throw new Error('Unbekanntes Einzelwerkzeug.');
+    if (!Array.isArray(names) || names.some(n => !KNOWN_TOOLS.has(n) && !RETIRED_TOOLS.has(n))) throw new Error('Unbekanntes Einzelwerkzeug.');
   }
-  for (const name of selection.extraTools ?? []) result.add(name);
+  for (const name of selection.extraTools ?? []) if (!RETIRED_TOOLS.has(name)) result.add(name);
   for (const name of selection.excludedTools ?? []) result.delete(name);
   return result;
 }

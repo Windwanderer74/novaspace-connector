@@ -27,5 +27,5 @@ test('Personal cross-app exchange enforces every extra scope before native acces
 });
 test('Local help describes own addressbooks, selected vCards, unchanged identities and no merge',async()=>{
  const r=await rpc(['calendar:read'],['contacts'],'tools/call',{name:'novaspace_connector_help',arguments:{}});
- assert.equal(r.structuredContent.version,'1.35.1-local.1');assert.equal(r.structuredContent.contactWorkFunctions.length,5);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/Original-UID/);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/keine Sammelimporte oder Dublettenverschmelzung/);
+ assert.equal(r.structuredContent.version,'1.36.0-local.1');assert.equal(r.structuredContent.contactWorkFunctions.length,5);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/Original-UID/);assert.match(JSON.stringify(r.structuredContent.contactWorkFunctions),/keine Sammelimporte oder Dublettenverschmelzung/);
 });

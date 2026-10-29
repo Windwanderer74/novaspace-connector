@@ -48,7 +48,7 @@ final class GatewayVerifier {
 				|| !is_string($c['sub']) || !preg_match('/^[0-9a-f]{64}$/D', $c['sub'])
 				|| !is_string($c['client']) || !preg_match('/^[0-9a-f]{64}$/D', $c['client'])
 				|| !is_string($c['nonce']) || !self::uuid($c['nonce'])
-				|| !is_array($c['scope']) || !array_is_list($c['scope']) || count($c['scope']) > 32
+				|| !is_array($c['scope']) || !array_is_list($c['scope']) || count($c['scope']) > 64
 				|| count(array_filter($c['scope'], 'is_string')) !== count($c['scope'])
 				|| ($purpose === 'setup' && !in_array('nextcloud:read', $c['scope'], true))) { throw new PlatformDenied(); }
 			if (openssl_verify($p[0] . '.' . $p[1], self::decode($p[2]), $this->trust['publicKey'], OPENSSL_ALGO_SHA256) !== 1) {

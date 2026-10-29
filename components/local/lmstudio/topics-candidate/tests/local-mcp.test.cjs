@@ -17,7 +17,7 @@ test('Local source loader binds receipt/account/code and excludes tokens and plu
  writeFileSync(join(home,'.lmstudio/mcp.json'),JSON.stringify({mcpServers:{'nextcloud-pilot-next2':entry}}));
  const local={baseUrl:'https://cloud.example.invalid',expectedUser:'Soul'};
  writeFileSync(join(installed,'local.json'),JSON.stringify(local));
- writeFileSync(join(installed,'installation.json'),JSON.stringify({version:'1.35.1-local.1',expectedUser:'Soul',installedEntry:entry}));
+ writeFileSync(join(installed,'installation.json'),JSON.stringify({version:'1.36.0-local.1',expectedUser:'Soul',installedEntry:entry}));
  writeFileSync(join(installed,'SHA256SUMS.json'),JSON.stringify({'start_local.py':hash(script),'dist/nextcloud-local.cjs':hash(join(installed,'dist/nextcloud-local.cjs'))}));
  const source=api.loadSourceSettings(home,'win32');assert.equal(source.expectedUser,'Soul');assert.equal(source.parameters.command,'python.exe');
  assert.deepEqual(source.parameters.env,{PYTHONUTF8:'1',NC_MCP_TALK_SEND:'false'});
@@ -51,12 +51,12 @@ test('Already aborted local session never starts',async()=>{
  const a=new AbortController();a.abort();await assert.rejects(api.connectLocalMcp(source(),{topics:['deck']},a.signal));
 });
 
-test('Inventory selection calls the real updated child bundle with own-account read-only tools',async()=>{
- const abort=new AbortController();const session=await api.connectLocalMcp(source('Soul',true),{topics:['inventory']},abort.signal);
+test('Actual child still offers Calendar reads while retired Inventory stays hidden',async()=>{
+ const abort=new AbortController();const session=await api.connectLocalMcp(source('Soul',true),{topics:['calendar'],extraTools:['inventory_status']},abort.signal);
  try{
-  assert.equal(session.tools.length,6);assert.ok(!session.tools.some(t=>t.name==='inventory_create_item'));
+  assert.ok(session.tools.some(t=>t.name==='calendar_read_scheduling'));assert.ok(!session.tools.some(t=>t.name.startsWith('inventory_')));
   const ctx={signal:abort.signal,status(){},warn(){},callId:1};
-  const result=await session.tools.find(t=>t.name==='inventory_status').implementation({},ctx);
-  assert.equal(result.isError,undefined,JSON.stringify(result));assert.equal(result.structuredContent.account,'Soul');assert.equal(result.structuredContent.itemCount,0);
+  const result=await session.tools.find(t=>t.name==='nextcloud_account').implementation({},ctx);
+  assert.equal(result.isError,undefined,JSON.stringify(result));assert.equal(result.structuredContent.uid,'Soul');
  }finally{session[Symbol.dispose]();}
 });

@@ -1,77 +1,89 @@
 {
-  "schemaVersion": 3,
-  "date": "2026-10-27",
-  "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
+  "schemaVersion": 4,
+  "date": "2026-10-29",
+  "sourceCheckpoint": "e2fd91539d4ba5855646f18eefd06e03609a957a",
   "edition": "sanitized AGPL source snapshot",
   "liveChangesBySourceChecks": false,
-  "modelOrFreshInstallAcceptanceBySourceChecks": false,
-  "version": "1.35.1",
-  "checks": {
-    "targetedJavascriptPassed": 38,
-    "builtWorkerPassed": 2,
-    "notesFilesAndSharingPassed": 43,
-    "workerBuild": true,
-    "browserBuild": true,
-    "failed": 0
-  },
-  "boundaries": [
-    "Focused correction and Notes/Files checks; the previous 730-case run is retained below, not relabelled as rerun",
-    "Synthetic HTTP and temporary keys; no live mutation by source checks"
-  ],
+  "generalModelAcceptance": false,
   "previousSnapshotChecks": {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "date": "2026-10-27",
-    "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+    "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
     "edition": "sanitized AGPL source snapshot",
-    "runtime": {
-      "os": "Linux x86_64",
-      "node": "24.22.1",
-      "npm": "11.9.0",
-      "python": "3.12.14",
-      "phpProtocolAndSyntax": "8.5.10 via PHP-WASM CLI; not a Nextcloud installation"
-    },
     "liveChangesBySourceChecks": false,
     "modelOrFreshInstallAcceptanceBySourceChecks": false,
-    "version": "1.35.0",
+    "version": "1.35.1",
     "checks": {
-      "lockedInstall": {
-        "passed": true,
-        "installedPackages": 593
-      },
-      "unit": {
-        "passed": 730,
-        "failed": 0,
-        "testFiles": 59
-      },
-      "builtWorker": {
-        "passed": 2,
-        "failed": 0
-      },
-      "browserBuild": {
-        "passed": true,
-        "thirdPartyPackages": 17
-      },
-      "workerBuild": {
-        "passed": true
-      },
-      "python": {
-        "passed": [
-          7,
-          4,
-          5
-        ],
-        "failed": 0
-      },
-      "historicalCliDefaultGuards": {
-        "blocked": 8,
-        "bootstrapReached": false
-      }
+      "targetedJavascriptPassed": 38,
+      "builtWorkerPassed": 2,
+      "notesFilesAndSharingPassed": 43,
+      "workerBuild": true,
+      "browserBuild": true,
+      "failed": 0
     },
     "boundaries": [
-      "Synthetic HTTP/temporary keys only; not live GitHub/Nextcloud writes",
-      "Native project fixtures have a separate component",
-      "Two stale discovery/version assertions updated to actual 200 tools/1.35.0; application unchanged",
-      "Not a fresh independent authentication/hosting or product acceptance"
-    ]
+      "Focused correction and Notes/Files checks; the previous 730-case run is retained below, not relabelled as rerun",
+      "Synthetic HTTP and temporary keys; no live mutation by source checks"
+    ],
+    "previousSnapshotChecks": {
+      "schemaVersion": 2,
+      "date": "2026-10-27",
+      "upstreamCommit": "b1dc8a5389a01ba21deb73f6857f03b06774081a",
+      "edition": "sanitized AGPL source snapshot",
+      "runtime": {
+        "os": "Linux x86_64",
+        "node": "24.22.1",
+        "npm": "11.9.0",
+        "python": "3.12.14",
+        "phpProtocolAndSyntax": "8.5.10 via PHP-WASM CLI; not a Nextcloud installation"
+      },
+      "liveChangesBySourceChecks": false,
+      "modelOrFreshInstallAcceptanceBySourceChecks": false,
+      "version": "1.35.0",
+      "checks": {
+        "lockedInstall": {
+          "passed": true,
+          "installedPackages": 593
+        },
+        "unit": {
+          "passed": 730,
+          "failed": 0,
+          "testFiles": 59
+        },
+        "builtWorker": {
+          "passed": 2,
+          "failed": 0
+        },
+        "browserBuild": {
+          "passed": true,
+          "thirdPartyPackages": 17
+        },
+        "workerBuild": {
+          "passed": true
+        },
+        "python": {
+          "passed": [
+            7,
+            4,
+            5
+          ],
+          "failed": 0
+        },
+        "historicalCliDefaultGuards": {
+          "blocked": 8,
+          "bootstrapReached": false
+        }
+      },
+      "boundaries": [
+        "Synthetic HTTP/temporary keys only; not live GitHub/Nextcloud writes",
+        "Native project fixtures have a separate component",
+        "Two stale discovery/version assertions updated to actual 200 tools/1.35.0; application unchanged",
+        "Not a fresh independent authentication/hosting or product acceptance"
+      ]
+    }
+  },
+  "checks": {
+    "currentSourceProvenanceAndManifestVerified": true,
+    "historicalRuntimeResultsRetainedSeparately": true
   }
 }

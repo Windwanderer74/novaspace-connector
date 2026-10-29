@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "date": "2026-10-27",
+  "date": "2026-10-29",
   "component": "online",
-  "version": "1.35.1",
-  "upstreamCommit": "96e68f12cdfc9ea9482cd646983fbdd5f809f2b7",
+  "version": "1.36.0",
+  "upstreamCommit": "e2fd91539d4ba5855646f18eefd06e03609a957a",
   "edition": "sanitized AGPL source; no deployment or independent first-install claim",
   "historyImported": false,
   "originalPersonalArchiveSha256": null,
@@ -50,8 +50,8 @@
     {
       "path": "app/anleitung/page.tsx",
       "sourcePath": "app/anleitung/page.tsx",
-      "sourceSha256": "9cb0aa25409bca98b76349000c1ec8c8b1b6a70481f85d0a9e6898fa72800598",
-      "publishedSha256": "657a13a80ffcd6dccddaace828e1053eb02ebceb4d9bb7571259a7b60abf0811",
+      "sourceSha256": "622e1a9a0fd4cbf8f0cc6b92f55ecff8cc398ecb3a2074fbf9d55f9a4dfc1714",
+      "publishedSha256": "777947675b37f4c4fa1f06af9a78bc0eac66d69966fa3b68eea4b3df47f89de9",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -100,8 +100,8 @@
     {
       "path": "app/oauth/authorize/route.ts",
       "sourcePath": "app/oauth/authorize/route.ts",
-      "sourceSha256": "5e998d58135a29dea24b17dae55be482393ef5aa9ac76345f2afbf40a11e1dbc",
-      "publishedSha256": "5f1b4094d635766b3c9f02064e2f7db39d55c55a96130a9c6ce3d1f26e72d8ce",
+      "sourceSha256": "c7fa5ac0173bbde8517935b4f049113400fb6a97e61f5622746ba20a09633d8e",
+      "publishedSha256": "16c106341d704929892b1e537d522954037b1a331f0a4b62a33f67bcd09d2b51",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -368,8 +368,38 @@
     {
       "path": "lib/calendar-invitations.ts",
       "sourcePath": "lib/calendar-invitations.ts",
-      "sourceSha256": "352bff3b2218e4a91527b3e4aa011233e4ee451d42880ca42f0c0e4f4ba9141f",
-      "publishedSha256": "1e4059cf7eac16b0221e897225cd4f10f937e21d81644a5118a8f639174837e7",
+      "sourceSha256": "85cef20ddc61a7c57f54296e71dc38f940fa343f09f85b4aaa5db627d78cef31",
+      "publishedSha256": "f2d8ca5c787e97c0fb1130bb9537ef8f4626d69621f2b95ea9dae8ff0042dc80",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-links.ts",
+      "sourcePath": "lib/calendar-links.ts",
+      "sourceSha256": "3d09d26802e5ae72d15c08b31f29f51c472a9754a7aa480eaddc8ae4fd45e498",
+      "publishedSha256": "257fa3467483205cb30df7670fc0be84549bbc9d1684da0e8d5ec173451e3261",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-management.ts",
+      "sourcePath": "lib/calendar-management.ts",
+      "sourceSha256": "c72d1b23c11dec4388c3a4f1b5dc2386f09d1d25b2bb26961923ff1263076841",
+      "publishedSha256": "27e728122876d919fde4920f7c4da006eec82665acc41ca388d0c7c3d54efeb1",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-meetings.ts",
+      "sourcePath": "lib/calendar-meetings.ts",
+      "sourceSha256": "457159e9742b87b3d09a58ce1e54bf381f58ffc4d2592cd0792fbdfca16e5370",
+      "publishedSha256": "3b485fcbf9fc5fc22b5f5e4a0b99cbda9db3814dd08f95e6c10e2d907c0b24f1",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -390,6 +420,16 @@
       "sourcePath": "lib/calendar-planning.ts",
       "sourceSha256": "49ecade071be5d5e5f8aedbd7b371dcb5b947e92d5cde98d997df841d01eed32",
       "publishedSha256": "b9cfc4c4fa9aa564a7c0704ba1c8e0e69e515129bbaa99fbda47179f2100a5f5",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-recovery.ts",
+      "sourcePath": "lib/calendar-recovery.ts",
+      "sourceSha256": "c1f38e8fb225b068d21528cf12b349dbb4366b2354a99c9b23814cff92d7d528",
+      "publishedSha256": "3bad2073a4f1e7f1a5845e813da98b59ff0e42f3b508db8fd4f5b4ebab3f1e01",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -418,8 +458,18 @@
     {
       "path": "lib/calendar-settings.ts",
       "sourcePath": "lib/calendar-settings.ts",
-      "sourceSha256": "520963e872f574e2c07fb2677ffc7b65aec088075a764d95ddbc448c1bcc8ddf",
-      "publishedSha256": "225a116fb8eed27b8954380ee2f12476630b14731c33aab597b3d381561318c7",
+      "sourceSha256": "4c350b9f60734c5bc5fa5801ce35e4592291f4547d632faf07247be69d15571c",
+      "publishedSha256": "cbaf33717be9db76652647ca57f7ca9918e905bf0446d15ddf718ca8ac3383d7",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/calendar-trash.ts",
+      "sourcePath": "lib/calendar-trash.ts",
+      "sourceSha256": "4b6f3f599c5edd9beee9a2e3837f99c7d8dbd43fb04014febc345ef0707ef781",
+      "publishedSha256": "8c391aa12d80b72fb4fb4e2ea485f840aa4f7cfe3ca105428070534e4f10b7b6",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -428,8 +478,8 @@
     {
       "path": "lib/calendar-write.ts",
       "sourcePath": "lib/calendar-write.ts",
-      "sourceSha256": "9ae4ffbaa380f75df69ae79532736f7b69f620193cc8a4932cb8355b0514f5ed",
-      "publishedSha256": "cdf226b8046bca1cc0ca3d5473f72bd70e1b02b17a72336a5ab77dc88d4feb39",
+      "sourceSha256": "ebf4a6c3fabc563a016aa62088efa1732545dd964de573923f9bc548f5ebf31a",
+      "publishedSha256": "8a8bb9c11b6655ca1f7a8a02974d6bfddb3fe180ac784944dbe16d9722d452d9",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -438,8 +488,8 @@
     {
       "path": "lib/connection-policy.ts",
       "sourcePath": "lib/connection-policy.ts",
-      "sourceSha256": "b952c252f45f4b7c2f706aa9961645474c4709893cc58d00c4236c1b9ac381d1",
-      "publishedSha256": "1353ab5db44d2abc49d66bab910d37340dcb59cf1efdaee169ae2f37decbd5e8",
+      "sourceSha256": "708db1fb7c0cadc214892009bee30860f0f38f6fdaf4eedf8594091c1e71a5d4",
+      "publishedSha256": "fed62bfbcc32e6e18166213a55df14b10b753a89c38b817c2d36a0c24839741d",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -448,8 +498,8 @@
     {
       "path": "lib/connector-version.ts",
       "sourcePath": "lib/connector-version.ts",
-      "sourceSha256": "10cee55874bc4c274a5211c488ea7426847606b61552e306d2425effd78edf82",
-      "publishedSha256": "c34e54227a534ab2df01c161bdfd83ba59d54235aa9206c0a9aad7f6c427db89",
+      "sourceSha256": "c7931df0349ad378be21298b2afde8495138f07e7f76aa9f655a0d7e2958a022",
+      "publishedSha256": "c0c76007919bb474b6a2a9d99cba13f9f88c8b27cd605a82471359ec90a08c18",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -798,8 +848,38 @@
     {
       "path": "lib/mcp-calendar-invitations.ts",
       "sourcePath": "lib/mcp-calendar-invitations.ts",
-      "sourceSha256": "23956819be619c7bda4f19c10f1a1828ab098fbb914e298046bdfee900694ae4",
-      "publishedSha256": "0a0ffbe1841f1801da51c300381750e3da83eeb0b696f2c94a7eb968ef89a272",
+      "sourceSha256": "841131290b5817121fae904e7390693ecdecbbd7734b2816380e193d95a56d61",
+      "publishedSha256": "a9596daa905086dc8b5e3d7dcdf550f2df77b9b86cb44da502ce1f1e0c5ab4be",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar-links.ts",
+      "sourcePath": "lib/mcp-calendar-links.ts",
+      "sourceSha256": "5c0c1dea06d1d98df27d0bbdb1958720ce1bdee3198b7b94fca3afd11986e9f5",
+      "publishedSha256": "a1a8cd8177dc59564c7e5858e16c47909eb9e6a3266f5e88034fc213e6a77006",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar-management.ts",
+      "sourcePath": "lib/mcp-calendar-management.ts",
+      "sourceSha256": "f6bdcb542e804d3acbe6fea80c2ca409aea2ec40326b224549b422e995c2b9aa",
+      "publishedSha256": "cff35e82a6944207d9bb0ae1e5e0a25c24c476ae46edce952329ffd3474e209e",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar-meetings.ts",
+      "sourcePath": "lib/mcp-calendar-meetings.ts",
+      "sourceSha256": "85c2520c6390e9243a473dcdd2eb9a90666fa12e3463425c1e82f7ab4d2282ce",
+      "publishedSha256": "40fc73edb22dd43729bce8f47995cea6e2fb58befddcaa39cee7aa4abbde2dfb",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -820,6 +900,16 @@
       "sourcePath": "lib/mcp-calendar-planning.ts",
       "sourceSha256": "3fa2ef1cb53f6482edf28cdb78e8417154f6047c5e09f3ffd6ca459b8aca8771",
       "publishedSha256": "4cc4c9244f5b55933b403fc0922c9ef02054d873dc6944838503d8e903fa9d79",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-calendar-recovery.ts",
+      "sourcePath": "lib/mcp-calendar-recovery.ts",
+      "sourceSha256": "9b8b1244ef781f72e72dbbbeba372ce4425593201d47ccbb74d4b2aed97548a4",
+      "publishedSha256": "9a9afe6bdac9757138ff1dbac5176806e50f562ec4fbe1174f0af6353f98b391",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -848,8 +938,18 @@
     {
       "path": "lib/mcp-calendar.ts",
       "sourcePath": "lib/mcp-calendar.ts",
-      "sourceSha256": "661f4df4876218b61eab686761aad4053a9276f461b289f5d907c7e84033e402",
-      "publishedSha256": "254827ae432f3e68f65c1f5cd1a096d763ecab75ba9e7ff6a8865922abffcbc9",
+      "sourceSha256": "c7aa94c00c1047af81c64aa8882b4b5a0d74dcfe396c0d8818b7dd05a7a52a58",
+      "publishedSha256": "a70a09f9c96927c279204a14abda8cfc3cf3025e74d16330e3b841e12db16858",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/mcp-catalog.ts",
+      "sourcePath": "lib/mcp-catalog.ts",
+      "sourceSha256": "a7ee9de10c3b9e60714500160d21139a02bc613c9825b8b64efb48b513934f48",
+      "publishedSha256": "1ca1689f7ab67e1ec297ca4031d99b49ce30ebda11fa9adbabcc1bd3b01a02b0",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1129,8 +1229,8 @@
     {
       "path": "lib/mcp-talk.ts",
       "sourcePath": "lib/mcp-talk.ts",
-      "sourceSha256": "a8d229fe9b912df629f9939bb1babe207dc7c89e2a722fb143034ecd44f54bc0",
-      "publishedSha256": "f85abaed04497076e6cbda36d87b4b0b088982eb9a8453bc8e92d0c27f360aca",
+      "sourceSha256": "b3e008c8565bdec791f84d4a06e6f2990fb244a399ccec76a3a48a5c3330d24a",
+      "publishedSha256": "8f5773b07fe34e78bbed994964bdd0380191983695afd8b24e7f92a3b7a8a264",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1149,8 +1249,8 @@
     {
       "path": "lib/mcp.ts",
       "sourcePath": "lib/mcp.ts",
-      "sourceSha256": "d8623cf3ad2f33568e66a6f207da9df4f71cd19d5cc128570a09ba493726353f",
-      "publishedSha256": "1e77d89e29cd1bfcd5fd9383a3e218cba1c1d34f558cf13c82ae16a61647b81f",
+      "sourceSha256": "aac67e48868c02b2bb60c5546cdfe6e8ab60677f6c9bc961cf4b9ed34d644f67",
+      "publishedSha256": "25abe53015ec21e40c021d1b1d9100b340ec0453a72b51da8b6c50ee06a50f2a",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1239,8 +1339,8 @@
     {
       "path": "lib/nextcloud-talk-read.ts",
       "sourcePath": "lib/nextcloud-talk-read.ts",
-      "sourceSha256": "ad78798dfed0bb0465cc99b906c0140287cc3489812de9c5c5a1261d1a6e96cc",
-      "publishedSha256": "a6acd73bc07f1a08bea89446fba3bacb43dac814fa63ad0048ad52adc6c606a7",
+      "sourceSha256": "b9d4aa8ab7dc966831162f10ea5c9a824c500b16c6923f2eb24eeb063529f7ce",
+      "publishedSha256": "d88770f5a3a001521de421b89e9adc59c7c151ca94ef8503a6a7f62cb91a98c5",
       "changes": [
         "Reserved host/contact/secondary-account examples replace installation values",
         "Own-code SPDX notice; existing third-party notices retained"
@@ -1280,8 +1380,8 @@
     {
       "path": "lib/oauth.ts",
       "sourcePath": "lib/oauth.ts",
-      "sourceSha256": "eb63a717eba25091736ed346c3eb10dfe33bfa00617bc3ed1711bc2edefc7225",
-      "publishedSha256": "1e6fd4c0e371212027902384b615624e92ec7b41fcb88458bd88faa7ce794439",
+      "sourceSha256": "3ab27ceb5bcaffe30b304f0153c5d96d2eba9732aaca0657291d01307384eb87",
+      "publishedSha256": "60d9b7886bcb0d1573fcfe137b903f842e8e96c8bd28347e0536e936f196871d",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -1545,8 +1645,7 @@
       "sourceSha256": "3acb957fb559e93c7b44461477abe7164739cd5b2bc4b909c03d550500a3ff32",
       "publishedSha256": "f2b504bf74a6a476fb4daa15113421a182d0719e9f110a132d992238890951cf",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
-        "Default historical-CLI guard before bootstrap or input"
+        "Reserved host/contact/secondary-account examples replace installation values"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1602,8 +1701,7 @@
       "sourceSha256": "24a1423d8258232426da61a191f6bc2854301a0aa189588719bb7d28403fa7f2",
       "publishedSha256": "941fda4bd4fda6e2c3229b74433a8c3817d2f3b4c171d46d9a0198947b6ab057",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
-        "Default historical-CLI guard before bootstrap or input"
+        "Reserved host/contact/secondary-account examples replace installation values"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1612,9 +1710,7 @@
       "sourcePath": "ops/pdf-bridge-repair-0.1.1.php",
       "sourceSha256": "e68b46ea5fd909ba39b9f61326a99b3213f13c774dc59f3acc12fcbb8f9a8ae2",
       "publishedSha256": "69ee076b385a3ab6752729279c44e52ec344ef2ed5dde81eafb756b81069b068",
-      "changes": [
-        "Default historical-CLI guard before bootstrap or input"
-      ],
+      "changes": [],
       "license": "AGPL-3.0-or-later"
     },
     {
@@ -1630,9 +1726,7 @@
       "sourcePath": "ops/register-share-soul-0.1.0.php",
       "sourceSha256": "f3aef632f32c1bc634250ab87d40d678845b00e9dbd46ad13d82e8586ff5483f",
       "publishedSha256": "3d5e17f83f48880ca3d12e3b15defd958d3976bf8bbf9b5b22b23ea1ad5f99b0",
-      "changes": [
-        "Default historical-CLI guard before bootstrap or input"
-      ],
+      "changes": [],
       "license": "AGPL-3.0-or-later"
     },
     {
@@ -1641,8 +1735,7 @@
       "sourceSha256": "ae0d0a5a94ff7879b8f0a4e25c48936d678146c11c4571f383b4edb1ed8cb08a",
       "publishedSha256": "8d45f4bc4402f3cb70acb82efee5908e81aa0fe6482ee92c0f4a0e1dfacde25f",
       "changes": [
-        "Reserved host/contact/secondary-account examples replace installation values",
-        "Default historical-CLI guard before bootstrap or input"
+        "Reserved host/contact/secondary-account examples replace installation values"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1701,9 +1794,7 @@
       "sourcePath": "ops/tables-pilot-http-install-0.1.2.php",
       "sourceSha256": "eedb1356c96726e9fff0f76d271c52bdc4455de219ab56848bcda91668142095",
       "publishedSha256": "81e1b22cd435d9cd7ff2526e80da1e02494e9753215505a52e6fb4546a197541",
-      "changes": [
-        "Default historical-CLI guard before bootstrap or input"
-      ],
+      "changes": [],
       "license": "AGPL-3.0-or-later"
     },
     {
@@ -1712,8 +1803,7 @@
       "sourceSha256": "c2abe72ef69dc74cc9e4a754f69c4c694f15cb3b3c6d8c4fce83ea5016a6b542",
       "publishedSha256": "d4ba79857eb0f5b4a8377aee2e1e94996de956c8853e1e2d845e7d633517ccba",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Default historical-CLI guard before bootstrap or input"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1751,8 +1841,7 @@
       "sourceSha256": "967e404234e43947f08a0bc8c349642b03cb86d48670bc65f7148f4f901228ee",
       "publishedSha256": "3d46b4c309a48d9927527a111f91d70a17364fdfd7007244b4835a67b403d81e",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Default historical-CLI guard before bootstrap or input"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1913,8 +2002,38 @@
     {
       "path": "tests/calendar-invitations.test.mjs",
       "sourcePath": "tests/calendar-invitations.test.mjs",
-      "sourceSha256": "82ba126bf3a74e77e98d5366e07a5c688b8366e44ee0df988e060b5f118a839f",
-      "publishedSha256": "df66059026f357b81fb294335865ac83160b5843831e5a76241e23271d4c41f5",
+      "sourceSha256": "301b22e4d76b573ae54e1005f418cb269d0fdc38303ad3e3129d1f9a8ed5fb4f",
+      "publishedSha256": "2d74e3e2cd0ba1976b9bcb20f48370e53d762866974db2c86bee57f522277142",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/calendar-links-recovery.test.mjs",
+      "sourcePath": "tests/calendar-links-recovery.test.mjs",
+      "sourceSha256": "99f845e3a340e2c64c192e8fba551f80cff2db5800c6efa6ddf88da5de8994f6",
+      "publishedSha256": "8a56ca6158e4acae6a3564b311b57acd7bfea4ea44e96dc32c5591c9ef98f286",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/calendar-management.test.mjs",
+      "sourcePath": "tests/calendar-management.test.mjs",
+      "sourceSha256": "e24885d1836175da0ac4217addeaa57a3d7094aea66babdee7ed0c567daf56cd",
+      "publishedSha256": "280bb87b87dbd3fbca65f36f5fd6e3108daf41b5f4ddd88ed7ba0252741adbbb",
+      "changes": [
+        "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/calendar-meetings.test.mjs",
+      "sourcePath": "tests/calendar-meetings.test.mjs",
+      "sourceSha256": "d5cf8ba77663bcefe3fa6d15ef8bac0b0c32bf6f25098d9691981887fae645ac",
+      "publishedSha256": "473f386ce00306a510c36a3ddf5927edf8447160fb12dc8f241551cd2469c114",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -2291,11 +2410,10 @@
     {
       "path": "tests/nextcloud-read.test.mjs",
       "sourcePath": "tests/nextcloud-read.test.mjs",
-      "sourceSha256": "77441f3f42e0de2ddf05a4e8332393bde344c10db0c6b458d6839ba93138e0a0",
-      "publishedSha256": "dec4a3ecb2588292e823ea537dede6032d9733394695ac7b30349674f9761e98",
+      "sourceSha256": "3af7a2c4d6362ad862977bf208274be37ff1dc16b987d049645d6d68782e9e23",
+      "publishedSha256": "48ebb7151f9f7cac2a5f187cdace70123dc6f076e4a8138347db58c5311339ff",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Discovery assertion uses the actual 200-tool catalogue"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -2312,8 +2430,8 @@
     {
       "path": "tests/oauth-consent.test.mjs",
       "sourcePath": "tests/oauth-consent.test.mjs",
-      "sourceSha256": "785c601276177222d9ba56a2b86e9ff426177a75f1f914bef141df191d8496eb",
-      "publishedSha256": "aad42465cc41673c54ea8d66607732dd0f57c1a8a12b832f7c6d70067291aece",
+      "sourceSha256": "449111d358f9cb1f4c612c38ec0bb70536b3eb72a6e7b19640b73f3988996794",
+      "publishedSha256": "89352b3416a0b1117caa647b78a808b98d6e791d6a1c33e88c4005a9f481b83f",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
       ],
@@ -2493,11 +2611,10 @@
     {
       "path": "tests/talk-read.test.mjs",
       "sourcePath": "tests/talk-read.test.mjs",
-      "sourceSha256": "5fbdd411c73d58a7599718de6385ef75050298ca2d18f095d64b829a79765a9c",
-      "publishedSha256": "23dd9898d79cf3c5648070791d200a666167ffca553f8448071126d9db779d34",
+      "sourceSha256": "234ebed42981578fc3633d1493d10dcf2964d9a84a634a08b8361de2cedbf9e7",
+      "publishedSha256": "d57dbdeb450ab243c8e7400d6a12b6e8de19bd7bd0a77d989d17effb666f3b84",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained",
-        "Capability assertion uses current 1.35.1 version"
+        "Own-code SPDX notice; existing third-party notices retained"
       ],
       "license": "AGPL-3.0-or-later"
     },

@@ -1,16 +1,22 @@
 # Entwicklungsübersicht · Nextcloud Connector von Nova Space
 
-Stand: **27. Oktober 2026**
+Stand: **29. Oktober 2026**
 
 Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen. Diese Übersicht macht den vorhandenen Betrieb, vorbereitete Erweiterungen und die verbleibenden Arbeitsschritte nachvollziehbar.
 
 ## Aktueller Stand
 
-- Online1.35.1, persönlich1.35.1-local.1, Themenauswahl0.1.13 und Projekte0.2.13 sind im bestehenden Arbeitsumfeld eingebaut. Der Windows-Installer endet mitCode0; lesende API und persönlicher LM-Studio-Konto-/Versions-/Hilfe-/Ordnerzugriff sind dokumentiert.
-- Passende aufbereitete Online-, persönliche und Projekt-App-Quellen mit Herkunft, Bauanleitung, Lizenzzuordnung und Prüfberichten werden in diesem Snapshot veröffentlicht. [Update1.35](docs/updates/1.35.1.md).
-- Der gemeinsame Projektfluss nutzt denselben nativen Kern wie der Browser. Der vereinbarte Projekt-Grundpilot ist als Beta-Arbeitsblock abgeschlossen: Projekt- und Aufgabenanlage, Prüfung eines vollständigen Vorgangs sowie der Browser-Rückweg zum persönlichen Anschluss sind im dokumentierten Umfang bestätigt. Persönliche Nachweise beruhen auf Client- und Nutzerrückmeldungen; allgemeine Modellabnahme und eine echte Teilvorgang-Reparatur bleiben getrennt. Die allgemeine Modell-/UX-Matrix bleibt pausiert.
-- Paket1 bleibt22/32. Noch kein Lieferpaket ist als Ganzes abgenommen. Älterer persönlicher DPAPI-Wrapper, unabhängige Erstinstallation und weitere Betriebs-/Bedienungsabnahmen bleiben offen.
-- Die getrennt veröffentlichten älteren nativen Plattform-/GitHub-Module behalten ihre eigenen Versions- und Integrationsnachweise. Diese Veröffentlichung überträgt deren frühere Integrationsprüfungen nicht pauschal auf die neue Projekt-App.
+- Online **1.36.0**, persönlich **1.36.0-local.1** und Themenauswahl **0.1.17** sind
+  im vorhandenen Arbeitsumfeld eingebaut. Projekt-App **0.2.13** bleibt unverändert.
+- **Paket 1: 29/32.** Die Funktionsblöcke sind auf der dokumentierten Belegbasis
+  abgeschlossen. Die drei offenen Bedingungen sind A01, A02 und Z01.
+- Eigene Einladung und Änderung sind mit Ergebnisrücklesen und gesondertem
+  E-Mail-Eingang praktisch belegt. Absage und Masterserienantworten bleiben als
+  isoliert geprüfte Wege mit den dokumentierten Rollen-/Umfangsgrenzen ausgewiesen.
+- Der öffentliche Quellstand ist bereinigt und dateigenau zugeordnet.
+  [Update 1.36](docs/updates/1.36.0.md) unterscheidet Einbau, Quellprüfung und Live-Belege.
+- Die allgemeine Modell-/UX-Matrix bleibt pausiert. Die neue Modellschnittstelle
+  ist kein pauschaler Zuverlässigkeitsnachweis für jedes lokale Modell.
 
 ## Arbeitspakete und Aufgaben
 
@@ -18,8 +24,8 @@ Nova Space entwickelt eine KI-Anbindung für unterstützte Nextcloud-Funktionen.
 |---|---|---|
 | Produktweg und verständliche Einrichtung | Zwei von acht Produktbedingungen belegen interne Grundlagen; die allgemeine Produktabnahme ist offen. | [Produktweg](https://github.com/Windwanderer74/novaspace-connector/issues/1) |
 | Drei Lieferpakete | Alltag/Planung, Kommunikation/Daten und Fachfunktionen/Office sind abgegrenzt. Noch kein Paket ist als Ganzes abgeschlossen. | [Lieferplan](https://github.com/Windwanderer74/novaspace-connector/issues/2) |
-| Paket 1: Alltag und Planung | 22 von 32 technischen Bedingungen sind belegt; 11 Bedingungen einschließlich restlicher Facharbeit und vollständiger Abnahme bleiben offen. Der installierte Zwischenstand schließt das Paket nicht ab. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
-| Quellübernahme und Entwicklungsablauf | Native Module und aufbereitete Online-/persönliche/Projekt-Quellen1.35 sind mit Lizenz, Herkunft, Bauanleitung und Prüfberichten veröffentlicht. Native Neuinstallation auf zwei dokumentierten Nextcloud-Versionen ist belegt. Älterer DPAPI-Startweg, weitere native Apps, Historienprüfung, Updates und erfolgreiche externe Zusatz-App-Abläufe bleiben offen. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
+| Paket 1: Alltag und Planung | **29 von 32 Bedingungen** belegt. Offen: fachliche Abnahme A01, Bedienungsabnahme A02 und gemeinsamer Abschluss Z01. | [Paket 1](https://github.com/Windwanderer74/novaspace-connector/issues/3) |
+| Quellübernahme und Entwicklungsablauf | Aufbereitete Online-/persönliche Quellen **1.36 / Themen 0.1.17**, aktuelle native Hilfe und Scope-Korrektur mit Herkunft, Manifesten und Bauangaben. Bestehende native Integrationsnachweise behalten ihren jeweiligen historischen Umfang; zusätzliche Erstinstallationen und weitere Quellen-/Betriebsprüfungen bleiben getrennt. | [Entwicklungsweg](https://github.com/Windwanderer74/novaspace-connector/issues/4) |
 
 Die Zählungen beschreiben definierte Bedingungen. Sie sind keine Schätzung des verbleibenden Zeitaufwands oder der gesamten Produktreife.
 
@@ -39,13 +45,17 @@ Der erste praktische Weg ist ein **Abgleich auf ausdrücklichen Auftrag**. Eine 
 
 ## Nächste Schritte
 
-1. Nach dem abgeschlossenen Projekt-Betablock und technischen Notizabgleich den Kalenderrest bearbeiten: Einladungen/Serienantworten, Verwaltung und Verknüpfungen.
-2. Den vollständigen Datei-/Mindmap-Masterabgleich getrennt vom begrenzten Projektpilot festhalten; vorhandene Werkzeuge weiterverwenden.
-3. Konsistenz, gemeinsame Auslieferung und fachliche/Bedienungsabnahme am vollständigen Paketstand abschließen. Die allgemeine Modell-/UX-Matrix bleibt bis zum vereinbarten Auftrag pausiert.
-4. Älteren externen DPAPI-Startweg und unabhängigen Erstinstallations-/Updatepfad weiter aufarbeiten.
-5. Bild-/Videomaterial für eine verständliche Vorstellung als eigenen Kommunikationsschritt vorbereiten.
+1. **A01 – Fachliche Abnahme:** vorhandene Lese-/Schreib-, Rechte-, Konflikt- und
+   Rücklesebelege für Paket 1 gebündelt abgleichen. Erfolgreiche Kalenderproben
+   werden nicht erneut als Pflichtaufgabe angehängt.
+2. **A02 – Bedienungsabnahme:** Schalter, Katalog, kombinierte Themenaufrufe,
+   Bilddarstellung und tatsächliche Start-/Promptlaufzeit abschließend belegen.
+   Einzelne Denkzeiten sind keine Messung der gesamten Promptlaufzeit.
+3. **Z01 – Abschluss:** Ergebnisse und Grenzen festhalten, die zugehörigen
+   Übersichten abgleichen und Paket 1 gemeinsam abschließen.
 
-Die mehrfach gemeldeten Beschreibungs-Aufrufversuche sind als spätere Betriebs-/Bedienungsbeobachtung erfasst. Ursache und möglicher Nutzen eines klareren Systemprompts sind offen; sie blockieren den bewusst begrenzten Projekt-Betaabschluss nicht. [Aktueller Stand und Grenzen](docs/updates/1.35.1.md).
+Paket 1 ist bis zu diesen drei Schritten als Ganzes offen. Die Zählung ist keine
+Zeitgarantie und bedeutet nicht drei einzelne Werkzeugaufrufe.
 
 ## Lizenzrichtung und Bereitstellung
 

@@ -13,7 +13,7 @@ python3 tests/test_coordinator.py
 
 Beide Teilpakete besitzen ein eigenes Lockfile. Für den Kern wurde das große erhaltene Online-Lockfile auf die benötigten direkten Abhängigkeiten reduziert; alle verbleibenden Versionen, Paketquellen und Integritätswerte stimmen mit dem Original überein. Für die Themenauswahl wird das erhaltene Entwicklungs-Lockfile verwendet. Dessen SDK-/Runtime-Versionen werden mit dem ursprünglichen vendorten Paketbestand verglichen. Ein SDK ist Apache-2.0 und wird nicht in eine eigene Lizenz umetikettiert.
 
-`npm run build` erzeugt zunächst den Kern und dessen 172 Werkzeugverträge ohne Kontozugang. Anschließend entsteht `plugin.cjs` mit externem `@lmstudio/sdk`, damit der LM-Studio-Bootstrap und die Konfigurationsschemata dieselbe SDK-Instanz verwenden. Die aktuelle Kern-Ausgabe wird als Kindprozess-Testfixture bereitgestellt. Dieser Ablauf liest keine vorhandene LM-Studio-Konfiguration und veröffentlicht nichts.
+`npm run build` erzeugt zunächst den Kern und dessen 183 Werkzeugverträge ohne Kontozugang. Anschließend entsteht `plugin.cjs` mit externem `@lmstudio/sdk`, damit der LM-Studio-Bootstrap und die Konfigurationsschemata dieselbe SDK-Instanz verwenden. Die aktuelle Kern-Ausgabe wird als Kindprozess-Testfixture bereitgestellt. Dieser Ablauf liest keine vorhandene LM-Studio-Konfiguration und veröffentlicht nichts.
 
 Quellarchiv nach Prüfung erzeugen:
 
@@ -33,6 +33,20 @@ Die drei direkten historischen Installer (`update_connector.py`, `nextcloud-loca
 
 ## Was die Prüfungen belegen
 
-84 lokale JavaScript-Prüfungen kontrollieren Werkzeugverträge, Scopes, Konto, Projektfunktionen, gemeinsamen Aufgabeninhalt und stdio. 29 Themen-/SDK-Prüfungen verwenden die echte SDK-Klasse, alle262144 Kombinationen und echte lokale MCP-Kindprozesse mit synthetischen HTTP-Antworten. Drei Launcher-, neun Themeninstaller- und neun Koordinatorprüfungen simulieren ihre Umgebung. Alle drei direkten historischen Installer sind standardmäßig gesperrt.
+Der aktuelle öffentliche Quellstand wurde gebaut. 176 Kernprüfungen und
+40 Themen-/SDK-Prüfungen sind erfolgreich. Darin werden alle **524.288**
+Schalterkombinationen auf ihre Werkzeugauswahl geprüft. Das sind keine
+entsprechend vielen Modellgespräche. Verwendet wurden vorhandene gesperrte
+Bauabhängigkeiten; eine frische Installation aller Abhängigkeiten wurde nicht
+abgenommen. Frühere Prüfläufe stehen separat in TEST_RESULTS.json.
 
-Zwei ursprüngliche Kerninstaller-Tests benötigen ausgeschlossene vorherige Binärfixtures; sie bleiben von dieser öffentlichen Neuausführung ausgeschlossen. Der ursprüngliche erfolgreiche Windows-Einbau und der persönliche gezielte Lesetest sind getrennte Betriebsnachweise. Bilder, Prompt-Gesamtlaufzeit, Projektanlage-/Wiederaufnahme und ein unabhängiger Erstinstallationspfad sind damit nicht pauschal abgenommen. Die genaue Quellprüfung steht in TEST_RESULTS.json.
+Der erfolgreiche Windows-Einbau ist ein eigener Betriebsnachweis. Die allgemeine
+Modell- und Bedienungsabnahme sowie der unabhängige Erstinstallationsweg bleiben
+gesondert offen.
+
+## Fortschreibung 29. Oktober 2026
+
+Aktueller Beta-Quellstand: Online1.36.0, persönlich1.36.0-local.1, Themen0.1.17.
+Paket1:29/32; A01/A02/Z01 offen. Ältere Prüfzahlen oben sind historische
+Nachweise und werden nicht als aktuelle Wiederholung ausgegeben. Der aktuelle
+Prüfumfang steht in TEST_RESULTS.json und im [Update](../../../docs/updates/1.36.0.md).

@@ -1,5 +1,16 @@
 # NovaSpace Plattformgrundlage · App-Quellpaket
 
+## Aktuelle Quellfortschreibung · 29. Oktober 2026
+
+Appmetadaten bleiben **0.4.0**. Enthalten sind jetzt die Kalenderhilfe
+**0.4.0-ui.9** und **0.4.0-scope.1**: Die signierte Scope-Liste darf bis64 statt32
+Einträge enthalten; Signatur-, Identitäts- und Rechteprüfungen bleiben erhalten.
+Nur ConnectionPolicy.php, die Verbindungsvorlage und GatewayVerifier.php werden
+für diesen Stand nachgeführt. Die inaktive öffentliche Vertrauenskonfiguration
+bleibt erhalten. Frühere Integrationsberichte unten bleiben historische Nachweise;
+daraus wird keine frische Neuinstallation dieses Quellupdates behauptet.
+
+
 Quellaufnahme vom **23. Oktober 2026**: App-Metadaten **0.4.0**, Hilfeänderungen bis **0.4.0-ui.7** und native GitHub-Brücke **0.1.0**. Der zusammengeführte Baum liegt in [app/](app/). Er umfasst die eigenen Klassen, Migrationen, Ansichten, Styles und das App-Symbol einschließlich der zuvor einzeln veröffentlichten GitHub-Brücke.
 
 **Lizenz der eigenen Dateien: AGPL-3.0-or-later.** Der vollständige Text liegt in [LICENSE](LICENSE) und für das App-Paket zusätzlich in [app/LICENSE](app/LICENSE). Die beiden unveränderten Nextcloud-Testschnittstellen behalten ihre jeweiligen SPDX-Hinweise und Copyright-Angaben; siehe [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -1,4 +1,18 @@
-# Quellstand 1.35.1 · Fortschreibung 27. Oktober 2026
+# Quellstand 1.36.0 · Fortschreibung 29. Oktober 2026
+
+## Fortschreibung 29. Oktober 2026
+
+Aktuell veröffentlicht: Online-Connector **1.36.0**, persönlicher Kern
+**1.36.0-local.1**, Themenauswahl **0.1.17** sowie native Plattformquellen mit
+Hilfe **0.4.0-ui.9** und Scope-Korrektur **0.4.0-scope.1**. Die Projekt-App bleibt
+bei **0.2.13**. Herkunft und Bereinigung stehen in den jeweiligen Komponentenmanifesten.
+
+Paket 1 steht bei **29/32**; offen sind **A01, A02 und Z01**. Die nachfolgenden
+älteren Bestandsaufnahmen behalten ihren historischen Geltungsbereich.
+[Aktueller Änderungs- und Belegstand](updates/1.36.0.md).
+
+
+--- Historischer Stand 1.35.1 ---
 
 Online1.35.1, persönlicher Kern1.35.1-local.1/Themen0.1.13 und native Projekte0.2.13 mit Browserworkflow1.6.2 sind als zusammengehörige aufbereitete AGPL-Quellen nachgeführt. Andere native Komponenten behalten ihren gesonderten historischen Stand.
 
