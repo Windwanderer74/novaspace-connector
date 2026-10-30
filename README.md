@@ -27,21 +27,33 @@ Die Themenauswahl bietet **19 Schalter und damit 524.288 mögliche Themenkonfigu
 
 ## Entwicklungsstand
 
-Stand: **30. Oktober 2026 · Paket 1 in Schlussabnahme**.
+Stand: **30. Oktober 2026 · Paket 1 gemeinsam abgenommen · 32/32**.
 
-**31 von 32 Bedingungen** sind erfüllt. Fachliche Modellabnahme und Bedienungsabnahme
-einschließlich Laufzeit sind abgeschlossen. Offen bleibt die gemeinsame Schlussabnahme
-nach Bestätigung des gewünschten Namens- und Oberflächenupdates.
+Die erste Stufe **Alltag und Planung** ist im vereinbarten und dokumentierten
+Beta-Umfang abgeschlossen. Fachliche Modellabnahme A01, Bedienungsabnahme A02 und
+gemeinsame Schlussabnahme Z01 sind erfüllt. Nach erfolgreichem Windows-Abschluss
+hat der Projektverantwortliche die neue Oberfläche angesehen und ausdrücklich abgenommen.
 
-Der neue **NovaSpace Connector 0.1.26** ordnet die Themen unter **Arbeit**,
-**Kommunikation** und **Verwaltung**. Einzelne Werkzeuge können weiter zusätzlich
-gewählt oder ausgeschlossen werden. Der gesicherte Übergang auf **novaspace/connector**
-erhält die bisherigen Auswahlfelder; Windows-Einbau und Sichtprüfung sind noch offen.
+| Bestandteil | Bestätigter Stand |
+|---|---|
+| Online-Connector | **1.36.0** |
+| Persönlicher LM-Studio-Kern | **1.36.3-local.1** |
+| NovaSpace Connector in LM Studio | **0.1.26**, Eintrag **novaspace/connector** |
 
-Online läuft **1.36.0**. Der letzte vollständig protokollierte persönliche Windows-Stand
-ist Kern **1.36.2-local.1 / Plugin 0.1.24**. Kernquelle **1.36.3-local.1** und die aktuelle
-Pluginquelle **0.1.26** sind getrennt vom tatsächlichen Einbaustand gesichert. Der öffentliche Programmquellstand bleibt vorerst auf dem bisherigen datierten Ausschnitt.
-[Änderungen, Prüfungen und Grenzen](docs/updates/0.1.26.md).
+Der vorhandene persönliche Anschluss wurde ohne erneute Installation weiterverwendet.
+Alle **17 Einstellungen** wurden umgestellt und bytegenau zurückgelesen;
+Kern, MCP-Einträge und vorhandene Freigaben blieben erhalten. Vorgänger und Rückweg
+sind gesichert. Die Bereiche heißen **Arbeit**, **Kommunikation** und **Verwaltung**;
+die ergänzende und ausschließende Einzelwerkzeugauswahl bleibt erhalten.
+[Abnahme, Prüfungen und Grenzen](docs/updates/0.1.26.md).
+
+Für ein späteres Update ist vorgemerkt: echte Bereichsüberschriften mit Trennlinien
+und den Tools darunter. Die Machbarkeit in SDK und Client wird beim nächsten
+Oberflächenschritt geprüft. Die aktuelle Darstellung ist abgenommen.
+
+Der öffentliche Programmquellausschnitt behält seinen datierten Versionsstand.
+Die Paketabnahme bestätigt den dokumentierten Betrieb; allgemeine Erstinstallation
+für neue Personen, weitere Clients und die späteren Pakete bleiben eigene Arbeit.
 
 Der weitere Ausbau läuft in drei Lieferpaketen:
 
