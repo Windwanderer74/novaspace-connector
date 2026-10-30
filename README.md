@@ -1,8 +1,8 @@
-# Nextcloud Connector von Nova Space
+# NovaSpace Connector
 
-**KI-Anbindung für Nextcloud – Dateien, Aufgaben und Planung gezielt mit KI nutzen.**
+**Augmented Workspace – die Schnittstelle zwischen Mensch und KI.**
 
-Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von Nova Space macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
+Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
 ## Was sich damit machen lässt
 
@@ -27,32 +27,21 @@ Die Themenauswahl bietet **19 Schalter und damit 524.288 mögliche Themenkonfigu
 
 ## Entwicklungsstand
 
-Stand: **29. Oktober 2026 · Beta-Zwischenstand**.
+Stand: **30. Oktober 2026 · Paket 1 in Schlussabnahme**.
 
-| Bestandteil | Bestätigter Einbaustand |
-|---|---|
-| Online-Connector | **1.36.0** |
-| Persönlicher LM-Studio-Kern | **1.36.0-local.1** |
-| LM-Studio-Themenauswahl | **0.1.19** |
-| Native Projekt-App | **0.2.13**, unverändert |
+**31 von 32 Bedingungen** sind erfüllt. Fachliche Modellabnahme und Bedienungsabnahme
+einschließlich Laufzeit sind abgeschlossen. Offen bleibt die gemeinsame Schlussabnahme
+nach Bestätigung des gewünschten Namens- und Oberflächenupdates.
 
-**Paket 1 steht bei 29 von 32 Bedingungen.** Die geplanten Funktionsblöcke sind
-abgeglichen. Offen bleiben die gebündelte fachliche Abnahme, die Bedienungsabnahme
-und der gemeinsame Abschluss. Das Gesamtpaket bleibt in Abnahme.
+Der neue **NovaSpace Connector 0.1.26** ordnet die Themen unter **Arbeit**,
+**Kommunikation** und **Verwaltung**. Einzelne Werkzeuge können weiter zusätzlich
+gewählt oder ausgeschlossen werden. Der gesicherte Übergang auf **novaspace/connector**
+erhält die bisherigen Auswahlfelder; Windows-Einbau und Sichtprüfung sind noch offen.
 
-Der Kalenderausbau umfasst eigene Einladungen, Änderungen und Absagen mit getrenntem
-Organisatorrecht, begrenzte Antworten auf gespeicherte Masterserien, Kalenderverwaltung
-und dokumentierte Verknüpfungen/Rückwege. Einladung und Titeländerung wurden im
-vereinbarten Umfang tatsächlich gespeichert und rückgelesen; der Eingang der beiden
-E-Mails wurde getrennt bestätigt. Absagen und Serienantworten sind isoliert geprüft,
-werden hier aber nicht als produktiv ausgeführt behauptet.
-
-Themenauswahl **0.1.19** übernimmt vorhandene Dateien aus Such- und Ordnerergebnissen
-über ausdrücklich gewählte Referenzen. Die sechs gebundenen Mindmap-Schreibwerkzeuge
-verwenden frisch gelesene Objekt- und Versionsbelege. Ein tatsächlicher Durchlauf
-mit Gemma bestätigt Auswahl, Quellenbindung und frisches Rücklesen bei unverändertem
-Quelltext. Die Themenbeschriftungen kommen ohne „Zusatz:“ aus.
-[Änderungen und Testergebnis](docs/updates/0.1.19.md).
+Online läuft **1.36.0**. Der letzte vollständig protokollierte persönliche Windows-Stand
+ist Kern **1.36.2-local.1 / Plugin 0.1.24**. Kernquelle **1.36.3-local.1** und die aktuelle
+Pluginquelle **0.1.26** sind getrennt vom tatsächlichen Einbaustand gesichert. Der öffentliche Programmquellstand bleibt vorerst auf dem bisherigen datierten Ausschnitt.
+[Änderungen, Prüfungen und Grenzen](docs/updates/0.1.26.md).
 
 Der weitere Ausbau läuft in drei Lieferpaketen:
 
@@ -66,11 +55,11 @@ Der Umfang befindet sich in Entwicklung. Vorbereitete Funktionen und abgeschloss
 
 Die [Entwicklungsübersicht](ROADMAP.md) verbindet den dokumentierten Stand mit den [laufenden Aufgaben](https://github.com/Windwanderer74/novaspace-connector/issues). Sie unterscheidet vorhandenen Betrieb, vorbereitete Erweiterungen und offene Abnahmen.
 
-## Über Nova Space
+## Über NovaSpace
 
-Unter dem Namen **Nova Space** entstehen Werkzeuge für die Arbeit mit Nextcloud und KI. Der Nextcloud Connector verbindet ausgewählte Nextcloud-Funktionen mit angebundenen KI-Programmen.
+Unter dem Namen **NovaSpace** entstehen Werkzeuge für die Arbeit mit Nextcloud und KI. Der Nextcloud Connector verbindet ausgewählte Nextcloud-Funktionen mit angebundenen KI-Programmen.
 
-Entwicklung und praktische Erprobung finden in unserer eigenen Nextcloud-Arbeitsumgebung statt. Das Vorhaben ist Teil des NOVAFORGE-Projekts.
+Entwicklung und praktische Erprobung finden in unserer eigenen Nextcloud-Arbeitsumgebung statt.
 
 Weitere Informationen: [novaspace.info](https://novaspace.info/).
 
@@ -85,7 +74,7 @@ Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie folgend
 - Die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) als einzeln nachvollziehbares Modul.
 - Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
 - Den [Online-Connector 1.36.0](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.2, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
-- Den [persönlichen LM-Studio-Anschluss 1.36.0-local.1 mit Themenauswahl 0.1.19](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
+- Den [persönlichen LM-Studio-Quellausschnitt 1.36.0-local.1 mit Themenauswahl 0.1.19](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
 - Die [native Projekt-App0.2.13](components/nextcloud/projects/README.md) mit vollständig zusammengeführtem Appbaum und isolierten Protokoll-/Adapterprüfungen.
 
 
@@ -93,7 +82,7 @@ Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernom
 
 ---
 
-**English:** The Nextcloud Connector by Nova Space provides permission-controlled AI access to supported Nextcloud workflows. This beta snapshot includes sanitized online1.36.0, personal1.36.0-local.1/topics0.1.19 and native project-app0.2.13 source under AGPL-3.0-or-later, retaining third-party notices. Installation and scoped read-only access are recorded. A first personal connector project-creation pilot was reported successful by the client; the scoped complete-status and browser-return steps are accepted; general model acceptance remains separate. Other native modules retain their separately documented versions. See [the dated update](docs/updates/1.36.0.md), component build/test reports and LICENSING.md.
+**English:** NovaSpace Connector is an Augmented Workspace connecting people and AI with supported Nextcloud workflows. Package 1 is at 31/32; final joint acceptance is pending. Source, installed versions and verification limits are documented separately.
 
 Die Fortschreibung der Themenauswahl 0.1.19 hat einen eigenen
 [dateigenauen Veröffentlichungsnachweis](docs/PUBLICATION_TOPICS_0_1_19.json).

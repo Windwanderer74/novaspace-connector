@@ -1,3 +1,13 @@
+## Aktuelle Fortschreibung · 30. Oktober 2026
+
+NovaSpace Connector **0.1.26** ist als persönliches Updatepaket vorbereitet und geprüft.
+Die neue persönliche Kernquelle **1.36.3-local.1** und Pluginquelle **0.1.26** sind gesichert;
+der öffentliche Programmquellstand bleibt auf dem bisherigen datierten Ausschnitt.
+Paket 1 **31/32**, A01/A02 abgeschlossen, Z01 offen. Windows-Einbau und Sichtprüfung
+des neuen Plugins sind noch nicht belegt. [Umfang und Prüfungen](updates/0.1.26.md).
+
+--- Historische datierte Grundlagen ---
+
 # Quellstand 1.36.0 · Fortschreibung 29. Oktober 2026
 
 ## Fortschreibung 29. Oktober 2026
