@@ -16,7 +16,7 @@ bestehenden Übertragungstickets durch.
 | Einzelnes Kommentar-Leserecht aus, gespeichert und nach Neuladen erhalten; Kommentarabruf gesperrt, Kartenlesen weiter möglich | Bestanden |
 | Wieder eingeschaltet und nach Neuladen erhalten; Kommentarabruf wieder erlaubt, übrige Auswahl unverändert | Bestanden |
 
-**3/3 bestanden.** [Vollständiger kurzer Testbericht](../../components/nextcloud/platform/LIVE-TEST.md).
+**3/3 bestanden.** [Vollständiger kurzer Testbericht](../../components/nextcloud/platform/LIVE-TEST-0.5.0.md).
 
 [App herunterladen](../../downloads/novaspace-platform-app-0.5.0.tar.gz) ·
 [Prüfsummen](../../downloads/SHA256SUMS.txt) ·

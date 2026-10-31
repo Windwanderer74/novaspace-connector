@@ -4,11 +4,12 @@ declare(strict_types=1);
 style('novaspace_platform', 'connections');
 style('novaspace_platform', 'connections-scroll');
 script('novaspace_platform', 'connections');
+script('novaspace_platform', 'connections-autosave');
 ?>
 <main class="ns-platform" tabindex="0" aria-label="KI-Verbindungen">
-  <h1>Meine KI-Verbindungen</h1>
-  <p>Mit dem <strong>NovaSpace Connector</strong> arbeitet deine KI in den von dir freigegebenen Bereichen.</p>
-  <details><summary>Wie verwalte ich meinen KI-Zugang?</summary><p>Jede Verbindung gehört zu deinem angezeigten Konto. Der Hauptschalter unterbricht oder erlaubt alle App-Zugriffe dieser Verbindung. Darunter begrenzt du einzelne Bereiche. Speichere deine Auswahl; danach gilt sie für folgende Aufrufe. Die KI kann den aktuellen Freigabestatus abfragen und nennt bei einer Sperre den betroffenen Bereich. Der vollständige Widerruf bleibt separat möglich.</p></details>
+  <h1>NovaSpace KI Connector</h1>
+  <p>Mit deinen <strong>KI-Verbindungen</strong> arbeitet deine KI in den von dir freigegebenen Bereichen.</p>
+  <details><summary>Wie verwalte ich meinen KI-Zugang?</summary><p>Jede Verbindung gehört zu deinem angezeigten Konto. Der Hauptschalter unterbricht oder erlaubt alle App-Zugriffe dieser Verbindung. Darunter begrenzt du einzelne Bereiche. Änderungen werden nach kurzer Pause automatisch gespeichert. „Gespeichert“ bestätigt die Übernahme; danach gilt sie für folgende Aufrufe. Die KI kann den aktuellen Freigabestatus abfragen und nennt bei einer Sperre den betroffenen Bereich. Der vollständige Widerruf bleibt separat möglich.</p></details>
   <details>
     <summary>Mit der KI arbeiten: Beispiele und Kurzanleitung</summary>
     <p>Nenne den Bereich und das gewünschte Ergebnis möglichst konkret. Zum Einstieg kannst du zum Beispiel sagen:</p>
@@ -39,7 +40,7 @@ script('novaspace_platform', 'connections');
     <p>Eine vorhandene Datei lässt sich mit ausdrücklichem Auftrag und zusätzlichem Recht „Dateifreigaben verwalten“ an eine Deck-Karte verknüpfen. Dadurch erhalten aktuelle und spätere Kartenleser Lesezugriff; native Benachrichtigungen sind möglich. Das Abtrennen einer modernen Dateizuordnung erhält die Originaldatei. Alte Deck-Dateianhänge werden damit nicht gelöscht.</p>
     <p>Mit dem zusätzlichen Konnektorrecht „Papierkorb verwalten“ kann die KI ausdrücklich gewählte eigene Dateien im persönlichen Heimspeicher in den Papierkorb löschen und gezielt wiederherstellen. Ordner einschließlich Inhalt müssen ausdrücklich benannt werden. Endgültiges Löschen wird nicht angeboten; native Aufbewahrungsfristen gelten. Die Dateien-Auswahl allein erteilt dieses Zusatzrecht nicht.</p>
     <p>Eigene Dateifreigaben kannst du für einen genau genannten Pfad lesen lassen. Neue Nutzer-/Gruppenfreigaben oder geschützte Links sowie Änderungen und Aufhebungen benötigen zusätzlich das bewusst erteilte Konnektorrecht „Dateifreigaben verwalten“. Die Dateien-Auswahl allein ergänzt dieses Recht nicht. Empfänger und gewünschte Zugriffe bestimmst du; das Aufheben einer Freigabe löscht keine Datei.</p>
-    <p><a href="https://github.com/Windwanderer74/novaspace-connector/blob/main/components/nextcloud/platform/INSTALL.md" target="_blank" rel="noopener noreferrer">Kurzanleitung zum NovaSpace Connector öffnen</a></p>
+    <p><a href="https://github.com/Windwanderer74/novaspace-connector/blob/main/components/nextcloud/platform/INSTALL.md" target="_blank" rel="noopener noreferrer">Kurzanleitung zum NovaSpace KI Connector öffnen</a></p>
   </details>
   <?php if ($_['error'] !== null): ?>
     <p role="alert"><?php p($_['error']); ?></p>
@@ -64,23 +65,30 @@ script('novaspace_platform', 'connections');
     <?php endif; ?>
     <?php foreach ($_['connections'] as $c): ?>
       <section class="ns-connection">
-        <h2><?php p($c['label']); ?></h2>
-        <?php $access = $c['accessPolicy']; ?>
-        <p>Status: <strong><?php p($c['revokedAt'] !== null ? 'Widerrufen' : ($access['enabled'] ? 'Verbindung eingeschaltet' : 'Hauptschalter ausgeschaltet')); ?></strong></p>
+        <h2><?php p(\OCA\NovaspacePlatform\Service\ConnectionLabels::connection($c['label'])); ?></h2>
+        <?php $access = $c['accessPolicy']; $summaryFunctions = $access['functions'] ?? \OCA\NovaspacePlatform\Service\ConnectionFunctions::inherited($access['apps']); ?>
+        <p>Status: <strong data-connection-status><?php p($c['revokedAt'] !== null ? 'Widerrufen' : ($access['enabled'] ? 'Verbindung eingeschaltet' : 'Hauptschalter ausgeschaltet')); ?></strong></p>
         <p>Cloud-Konnektor · technischer Zugang <?php p($c['nativeUid']); ?></p>
         <p class="ns-id">Verbindungskennung: <?php p($c['connectionId']); ?></p>
         <?php if ($c['revokedAt'] === null): ?>
-          <form class="ns-access" method="post" action="<?php p($_['accessUrls'][$c['connectionId']]); ?>">
+          <form class="ns-access" method="post" action="<?php p($_['accessUrls'][$c['connectionId']]); ?>" data-connection-id="<?php p($c['connectionId']); ?>" data-autosave-url="<?php p($_['accessAsyncUrls'][$c['connectionId']] ?? ''); ?>">
             <input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']); ?>">
             <input type="hidden" name="revision" value="<?php p($c['revision']); ?>">
             <input type="hidden" name="requestId" value="<?php p($_['requestIds'][$c['connectionId']]); ?>">
+            <div class="ns-save-bar" data-save-bar>
+              <span role="status" aria-live="polite" aria-atomic="true" data-save-status>Auswahl geladen</span>
+              <button type="submit" class="primary" data-save-button>Änderungen speichern</button>
+              <a href="<?php p($_['homeUrl']); ?>" data-save-reload hidden>Seite neu laden</a>
+            </div>
+            <p class="ns-autosave-hint">Änderungen werden nach kurzer Pause übernommen. Der Speicherstatus bleibt beim Scrollen sichtbar.</p>
+            <noscript><p>Ohne JavaScript bitte „Änderungen speichern“ verwenden.</p></noscript>
             <label for="main-<?php p($c['connectionId']); ?>">Gesamten KI-Zugang schalten</label>
             <select id="main-<?php p($c['connectionId']); ?>" name="enabled">
               <option value="1" <?php if ($access['enabled']) { p('selected'); } ?>>Ein – ausgewählte App-Zugriffe zulassen</option>
               <option value="0" <?php if (!$access['enabled']) { p('selected'); } ?>>Aus – alle App-Zugriffe sperren</option>
             </select>
             <p>Ausgeschaltete Bereiche:
-              <strong><?php $off = []; foreach ($_['appCatalogue'] as $key => $info) { if ($access['apps'][$key] === 'off') { $off[] = $info['label']; } } p($off ? implode(', ', $off) : 'keine zusätzlichen App-Sperren'); ?></strong>.
+              <strong data-disabled-areas><?php $off = []; foreach ($_['functionCatalogue']['areas'] as $areaForOff) { if ($summaryFunctions['areas'][$areaForOff['id']] === 'off') $off[] = $areaForOff['label']; } p($off ? implode(', ', $off) : 'keine zusätzlichen App-Sperren'); ?></strong>.
               Bei ausgeschaltetem Hauptschalter sind sämtliche Bereiche gesperrt. Die App-Auswahl bleibt für später erhalten.
             </p>
             <?php if (!$access['configured']): ?><p>Deine bisherigen Konnektorfreigaben bleiben wirksam. Hier kannst du sie zusätzlich begrenzen.</p><?php endif; ?>
@@ -100,7 +108,7 @@ script('novaspace_platform', 'connections');
             <?php foreach ($catalogue['areas'] as $area): if ($area['category'] !== $category) continue;
               $key = $area['id']; $app = $area['app']; $info = $_['appCatalogue'][$app];
               $selected = $area['extension'] ? $functions['areas'][$key] : $access['apps'][$app];
-              $rows = array_values(array_filter($catalogue['tools'], fn($t) => !$t['legacy'] && $t['area'] === $key));
+              $rows = \OCA\NovaspacePlatform\Service\ConnectionLabels::rows($catalogue, $key);
               $restricted = false;
               foreach ($rows as $t) if (($selected === 'write' || ($selected === 'read' && $t['readOnly'])) && !in_array($t['name'], $functions['allowedTools'], true)) $restricted = true;
               $field = ($area['extension'] ? 'areas[' . $key : 'apps[' . $app) . ']';
@@ -121,7 +129,7 @@ script('novaspace_platform', 'connections');
                   <?php foreach ($rows as $t): ?>
                     <label class="ns-function">
                       <input type="checkbox" name="allowedTools[]" value="<?php p($t['name']); ?>" data-write="<?php p($t['readOnly'] ? '0' : '1'); ?>" <?php if (in_array($t['name'], $functions['allowedTools'], true)) p('checked'); ?>>
-                      <span><?php p($t['title']); ?><small><?php p($t['readOnly'] ? 'Lesen / Prüfen' : 'Änderung'); ?></small></span>
+                      <span><?php p($t['displayTitle']); ?><small><?php p($t['readOnly'] ? 'Lesen / Prüfen' : 'Ändern'); ?></small></span>
                     </label>
                   <?php endforeach; ?>
                 </details>
@@ -132,11 +140,10 @@ script('novaspace_platform', 'connections');
             <?php endforeach; ?>
             <p>Mindmap und Datei-Verknüpfungen benötigen zusätzlich Dateirechte; Deck-Verknüpfungen zusätzlich Deck-Leserechte. Eine App-Freigabe ersetzt keine Rechte an einzelnen Inhalten.</p>
             <p>Dateizugriff kann auch gespeicherte Mindmaps und exportierte Inhalte anderer Apps umfassen. Diese Liste begrenzt die App-Werkzeuge; die Auswahl einzelner Ordner und Inhalte folgt später.</p>
-            <button type="submit" class="primary">Auswahl für diese Verbindung speichern</button>
             <p>Die Änderung gilt nach dem Speichern für folgende Aufrufe. Bereits laufende Aufrufe können abschließen. Bei einer Sperre erhält die KI den konkreten Grund und kann den Freigabestatus weiter abfragen.</p>
           </form>
           <p>Der Widerruf sperrt folgende Konnektor-Aufrufe und zugehörige Dateifreigaben. Bereits laufende Aufrufe können noch abschließen.</p>
-          <form method="post" action="<?php p($_['revokeUrls'][$c['connectionId']]); ?>">
+          <form class="ns-revoke" method="post" action="<?php p($_['revokeUrls'][$c['connectionId']]); ?>">
             <input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']); ?>">
             <input type="hidden" name="revision" value="<?php p($c['revision']); ?>">
             <input type="hidden" name="requestId" value="<?php p($_['requestIds'][$c['connectionId']]); ?>">
@@ -148,7 +155,7 @@ script('novaspace_platform', 'connections');
       </section>
     <?php endforeach; ?>
     <h2>Letzte Änderungen an deinen Verbindungen</h2>
-    <p>Hier werden Bestätigungen und Widerrufe dokumentiert. Änderungen an Geräten, Dateien und anderen App-Inhalten kommen später hinzu.</p>
+    <p>Hier werden Bestätigungen, Freigaben und Widerrufe dokumentiert. Nach automatischem Speichern die Seite neu laden, um die neuesten Einträge zu sehen.</p>
     <?php if ($_['events'] === []): ?><p>Noch keine Änderungen.</p><?php endif; ?>
     <ol class="ns-events">
     <?php foreach ($_['events'] as $e): ?>
@@ -162,7 +169,7 @@ script('novaspace_platform', 'connections');
             $isFunction = str_starts_with($parts[0], 'function.');
             $labels = $parts[0] === 'main' || $isFunction ? ['0' => 'Aus', '1' => 'Ein'] : ['off' => 'Aus', 'read' => 'Lesen', 'write' => 'Lesen und Schreiben'];
             $name = $parts[0] === 'main' ? 'Hauptschalter' : ($_['appCatalogue'][$parts[0]]['label'] ?? 'App');
-            if ($isFunction) { $byName = array_column($_['functionCatalogue']['tools'], 'title', 'name'); $name = $byName[substr($parts[0], 9)] ?? substr($parts[0], 9); }
+            if ($isFunction) { $byName = []; foreach ($_['functionCatalogue']['tools'] as $tool) $byName[$tool['name']] = \OCA\NovaspacePlatform\Service\ConnectionLabels::title($tool); $name = $byName[substr($parts[0], 9)] ?? substr($parts[0], 9); }
             if (str_starts_with($parts[0], 'area.')) { $byArea = array_column($_['functionCatalogue']['areas'], 'label', 'id'); $name = $byArea[substr($parts[0], 5)] ?? 'Bereich'; }
             $changes[] = $name . ': ' . ($labels[$values[0]] ?? '?') . ' → ' . ($labels[$values[1]] ?? '?');
           } p(implode(' · ', $changes)); ?></span>

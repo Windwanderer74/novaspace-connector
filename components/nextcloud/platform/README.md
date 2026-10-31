@@ -1,45 +1,52 @@
-# NovaSpace Plattform-App 0.5.0
+# NovaSpace KI Connector · App 0.6.0
 
-Stand: **31. Oktober 2026**. Die App-Seite des **NovaSpace Connectors** erhält
-Einzelberechtigungen je KI-Verbindung. Unter **Arbeit**, **Kommunikation** und
-**Verwaltung** stehen 19 Bereiche mit Dropdowns und aufklappbaren Funktionen.
-Eine Einzelauswahl kann den Bereich weiter einschränken; Hauptschalter,
-Bereichsrahmen, ursprüngliche Connectorrechte und native Objektfreigaben gelten
-zusätzlich. Die Detailwahl bleibt beim Ausschalten erhalten.
+Stand: **31. Oktober 2026**. Die Verwaltungsseite **KI-Verbindungen** erhält den
+Namen **NovaSpace KI Connector**, kurze Funktionsnamen und deutsche alphabetische
+Sortierung innerhalb der Bereiche. Unter **Arbeit**, **Kommunikation** und
+**Verwaltung** bleiben die 19 bekannten Bereiche und ihre Einzelrechte erhalten.
 
-Die Regeln werden beim tatsächlichen MCP-Aufruf durchgesetzt. Voraussetzung für
-den Online-Anschluss ist dessen Rechteauswertung **1.37.0** oder ein entsprechend
-kompatibler Gateway. Gespeicherte Freigaben erteilen neuen Werkzeugnamen keine
-automatischen Rechte. Die zusätzliche Tabelle `ns_pf_tool_access` speichert die
-Einzelauswahl; bestehende Verbindungen werden beim Update nicht neu angelegt.
+Dropdown- und Häkchenänderungen werden nach ungefähr 500 ms Pause automatisch
+gespeichert. Eine beim Scrollen sichtbare Leiste meldet „Speichert …“, erst nach
+geprüfter Serverquittung „Gespeichert“ oder einen Fehler mit „Erneut versuchen“.
+Schnelle Änderungen folgen geordnet je Verbindung. Unbekannte Ergebnisse werden
+mit derselben Absicht und Request-ID wiederholt; Versionskonflikte stoppen.
+Der manuelle Speicherweg bleibt als Rückfall vorhanden.
 
-- [App-Paket 0.5.0 herunterladen](../../../downloads/novaspace-platform-app-0.5.0.tar.gz)
-- [SHA-256-Prüfsumme](../../../downloads/SHA256SUMS.txt)
-- [Kleine Live-Testreihe: 3/3 bestanden](LIVE-TEST.md)
-- [Einbau und Konfiguration](INSTALL.md)
-- [Quellen und Prüfumfang](SOURCE_PROVENANCE.json) · [Prüfberichte](TEST_RESULTS.json)
+Bestehende Verbindungen, technische App-/Werkzeugkennungen, zusätzliche
+Connectorrechte und native Objektgrenzen bleiben erhalten. Haupt- und
+Bereichsschalter begrenzen die Einzelwahl weiterhin. Der Online-Anschluss nutzt
+die bereits veröffentlichte Rechteauswertung **1.37.0**.
 
-Der konkrete Updatepilot **0.4.0 → 0.5.0** wurde auf Nextcloud **35.0.2.2**,
-PHP **8.5.12** und MySQL/MariaDB ausgeführt: private Quell-/Datenbanksicherung,
-native Migration, Dateirückvergleich und unveränderte bestehende Verbindungsdaten
-wurden bestätigt. Danach wurden Speichern/Neuladen, gezielte Sperre, weiter
-mögliches Kartenlesen und Wiederfreigabe live geprüft. Das ist eine begrenzte
-Beta-Abnahme an einer bestehenden Verbindung. Frühere frische Serverprüfungen
-unten behalten ihre damaligen Versionen; neue Nutzer und weitere Clients sind
-weiterer Arbeitsumfang.
+- [App 0.6.0 herunterladen](../../../downloads/novaspace-platform-app-0.6.0.tar.gz)
+- [Vollständiges Quellarchiv](../../../downloads/novaspace-platform-source-0.6.0.tar.gz)
+- [SHA-256-Prüfsummen](../../../downloads/SHA256SUMS.txt)
+- [Kleine Live-Testreihe:3/3 bestanden](LIVE-TEST.md)
+- [Änderungsübersicht](../../../docs/updates/platform-0.6.0.md)
+- [Einbau](INSTALL.md) · [Quellenherkunft](SOURCE_PROVENANCE.json) · [Prüfbericht](TEST_RESULTS.json)
 
-Die veröffentlichten Vertrauensdateien sind inaktive Beispiele. Vorhandene eigene
-Gateway-Konfiguration bleibt beim Update installationsbezogen zu erhalten.
-Die eigenen Quellen stehen weiterhin unter **AGPL-3.0-or-later**.
+Das Bestandsupdate **0.5.0→0.6.0** ist auf Nextcloud 35.0.2.2 / PHP 8.5.12
+installiert. Private Quellen-/Datenbanksicherung und Rückprüfung aller sieben
+Plattformtabellen einschließlich Einzelrechten sind bestätigt. Keine zusätzliche
+Tabellenmigration. Die kleine produktive Abnahme umfasst Autosave aus/an,
+Neuladen, wirksame MCP-Sperre und Wiederfreigabe an einer bestehenden Verbindung.
 
-## Pakete selbst erzeugen
+Die veröffentlichten Vertrauensdateien sind inaktive Beispiele. Eine bestehende
+eigene Gateway-Konfiguration wird beim Update installationsbezogen erhalten.
+Die eigenen Quellen stehen unter **AGPL-3.0-or-later**, Fremdhinweise bleiben erhalten.
 
-Mit `python3 tools/package.py /tmp/novaspace-platform-050` werden nach Prüfung des
-Dateimanifests das vollständige Quellarchiv und das App-Archiv erzeugt.
-`node tests/run.mjs` führt die PHP-Fixtures mit lokalem PHP/OpenSSL/PDO_SQLite aus.
-Die neue Suite `tests/platform-functions-native.php` enthält **61** Prüfungen.
-Der Katalog wird im Online-Quellpaket mit
-`node scripts/build-connection-functions.mjs --check` gegen beide Komponenten geprüft.
+## Prüfen und Pakete erzeugen
+
+`node tests/run.mjs` benötigt Node.js sowie PHP mit OpenSSL und PDO_SQLite.
+Es prüft PHP-Syntax, native Fixtures einschließlich der70 UI-/Registryfälle,
+acht JavaScript-Speicher-/Transportfälle und die Veröffentlichungsgrenzen.
+Die öffentliche Fassung wurde hier mit PHP 8.3/WASM und SQLite geprüft; der
+separate produktive Update-/Webnachweis steht im Live-Testbericht.
+
+`python3 tools/package.py /tmp/novaspace-platform-060` erzeugt nach Prüfung von
+SHA256SUMS.json deterministische App-/Quellarchive. Ein vorhandenes Ausgabearchiv
+wird nicht überschrieben. Der vollständige abgeleitete Katalog bleibt gegenüber
+App 0.5.0 unverändert; Online 1.37.0 und der persönliche LM-Studio-Anschluss
+werden durch diese Veröffentlichung nicht umgebaut.
 
 ## Historische Quell- und Integrationsnachweise bis 29. Oktober 2026
 

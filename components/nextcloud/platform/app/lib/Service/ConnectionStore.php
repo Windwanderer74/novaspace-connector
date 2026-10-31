@@ -207,6 +207,8 @@ final class ConnectionStore {
 		});
 		$e = $this->event($key); $after = $this->policy($id);
 		if ($e === null || $after['enabled'] !== $enabled || $after['apps'] !== $apps || ($functions !== null && ($after['functions'] ?? null) !== $functions)) { throw new PlatformDenied('registry_outcome_unconfirmed'); }
-		return ['committed' => true, 'accessPolicy' => $after];
+		$r = $this->connection($id, $owner);
+		if ((int)$r['revision'] !== $revision + 1 || $r['revoked_at'] !== null) { throw new PlatformDenied('version_conflict'); }
+		return ['committed' => true, 'accessPolicy' => $after, 'revision' => (int)$r['revision']];
 	}
 }

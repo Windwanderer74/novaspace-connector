@@ -1,6 +1,10 @@
-## Fortschreibung 31. Oktober 2026 · App0.5.0
+## Fortschreibung31. Oktober 2026 · App 0.6.0
 
-Native KI-Verbindungen mit Bereichs-/Einzelwahl ist eingebaut und im gezielten Live-Test **3/3** bestätigt. Online läuft **1.37.0**. [App, Testbericht und Einbau](docs/updates/platform-0.5.0.md). Paket1 bleibt **32/32** abgenommen; der nachfolgende Stand beschreibt seinen Abschluss vom30. Oktober.
+**NovaSpace KI Connector 0.6.0** ist eingebaut und in der vereinbarten Autosave-/Sperr-/Rücknahme-Probe **3/3** bestätigt. Kurze alphabetische Funktionsnamen und sichtbarer Speicherstatus sind enthalten; ursprüngliche Policy und Rechte nach der Probe exakt wiederhergestellt. [App, Testbericht und Einbau](docs/updates/platform-0.6.0.md). Online 1.37.0 und Paket 1/32 von 32 bleiben unverändert. Der folgende Verlauf behält seine damaligen Versionsstände.
+
+## Fortschreibung 31. Oktober 2026 · App 0.5.0
+
+Native KI-Verbindungen mit Bereichs-/Einzelwahl ist eingebaut und im gezielten Live-Test **3/3** bestätigt. Online läuft **1.37.0**. [App, Testbericht und Einbau](docs/updates/platform-0.5.0.md). Paket 1 bleibt **32/32** abgenommen; der nachfolgende Stand beschreibt seinen Abschluss vom30. Oktober.
 
 ---
 

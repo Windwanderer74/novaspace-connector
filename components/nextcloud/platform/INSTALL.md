@@ -1,38 +1,49 @@
-# App 0.5.0: Einbau und Prüfstand
+# App 0.6.0: Einbau und Prüfstand
 
-Die Version ist als Beta-App-Paket und mit vollständigem App-Quellbaum
-veröffentlicht. Das Archiv enthält `novaspace_platform/` und die AGPL-Lizenz.
-Vor Verwendung SHA-256 prüfen und zunächst außerhalb der Cloud entpacken.
+Das App-Archiv enthält `novaspace_platform/`, die Quellen und die AGPL-Lizenz.
+Vor Verwendung die SHA-256-Prüfsumme prüfen und außerhalb der Cloud entpacken.
+Die enthaltene Gateway-Konfiguration ist inaktiv; eine vorhandene eigene
+`appinfo/trusted-gateway.json` installationsbezogen erhalten.
 
-Für bestehende Installationen sind Quelle, Schema, Versionsmetadaten und eigene
-Vertrauenskonfiguration zu erfassen und zu sichern. Das Paket enthält inaktive
-Beispiele: eine vorhandene `appinfo/trusted-gateway.json` muss mit der tatsächlichen
-eigenen Gateway-Konfiguration erhalten bleiben. Danach ist die neue native
-Migration `Version000500Date20261031190000` auszuführen und ihre zusätzliche
-Tabelle `ns_pf_tool_access` zurückzuprüfen. Quellen kopieren allein führt keine
-Datenbankmigration aus. Ein allgemeiner Überschreibbefehl ist nicht Teil dieses Pakets.
+## Update einer vorhandenen App 0.5.0
 
-Der ausgeführte Bestandsupdatepilot verwendete einen an seinen vorher geprüften
-Bestand gebundenen Installer mit eigener Plattform-Datenbanksicherung. Dieser
-benötigt Inventory nicht. Erst nach vollständig zurückgelesener Sicherung und
-erneutem Bestandsvergleich erfolgte das native App-Upgrade; alte Daten wurden
-anschließend verglichen. Dieser installationsbezogene Aufruf wird hier nicht als
-universeller Erstinstaller ausgeliefert. Ein vollständiges Zurücksetzen der
-Datenbank erfolgt nicht automatisch.
+Quelle, Versionsmetadaten, Aktivierung, eigene Vertrauenskonfiguration sowie
+Datenbank sichern und prüfen. Danach die geprüften Programmdateien im bestehenden
+Apppfad bereitstellen und das native Nextcloud-App-Upgrade für die Version0.6.0
+verwenden. Das Update fügt gegenüber0.5.0 keine Migration oder Tabelle hinzu;
+alle sieben Plattformtabellen und vorhandenen Einzelrechte sind zu erhalten.
+Die bisherige v2-Rechteauswertung bleibt bindend. Keine neue Verbindung nötig.
 
-Die neue Einzelwahl benötigt einen kompatiblen Gateway; für den Online-Connector
-ist **1.37.0** zusammen mit der App geprüft. App und Online-Connector verwenden
-denselben abgeleiteten Funktionskatalog. Haupt- und Bereichsschalter sowie OAuth-
-und native Objektgrenzen bleiben bindend.
+Der ausgeführte Pilot verwendete einen auf den bestätigten Ausgangsbaum
+begrenzten Installer mit privater Quellen-/Datenbanksicherung, erneuter
+Bestandsprüfung und Rückvergleich nach dem nativen Upgrade. Ein UI-Rückweg zur
+bisherigen manuellen Oberfläche erhält das aktuelle Backend und seine Rechte.
+Es erfolgt keine automatische Datenbankrücksetzung. Der konkrete private
+Sicherungspfad ist nicht Bestandteil dieses öffentlichen Quellpakets.
 
-Die Drei-Schritt-Probe in [LIVE-TEST.md](LIVE-TEST.md) lässt sich an einer ausdrücklich
-gewählten Testverbindung nachvollziehen: Kommentare einer eigenen Karte lesen,
-nur diese Lesefunktion deaktivieren und die Sperre prüfen, anschließend wieder
-freigeben. Ein unabhängiger Kartenabruf muss währenddessen weiter funktionieren.
+Das veröffentlichte Archiv ist kein pauschaler Überschreibbefehl und kein
+universeller Installer für ungeprüfte bestehende Installationen.
 
-Die frühere Kontext-Statusschnittstelle enthält noch den festen Wert0.4.0.
-Die installierte Appversion wird anhand von Nextcloud-App-Metadaten und
-`appinfo/info.xml` festgestellt; der alte Kontextwert ist dafür nicht maßgeblich.
+## Ausgang vor App 0.5.0
+
+Einzelrechte benötigen seit0.5.0 die native Migration
+`Version000500Date20261031190000` und Tabelle `ns_pf_tool_access`.
+Bei einem älteren Ausgang muss dieser Unterschied im passenden nativen
+Upgradeweg berücksichtigt werden; Quellen kopieren ersetzt keine Migration.
+App und Online-Connector 1.37.0 verwenden denselben abgeleiteten Katalog.
+
+## Praktische Stichprobe
+
+Nach dem Update KI-Verbindungen neu laden. Die kurze Probe in
+[LIVE-TEST.md](LIVE-TEST.md) prüft an einer bestehenden Testverbindung:
+einzelnes Kommentar-Leserecht aus, „Gespeichert“ abwarten, neu laden und den
+wirklich gesperrten MCP-Aufruf prüfen; dann wieder an, automatische Bestätigung,
+Neuladen und wieder erlaubten Abruf prüfen. Unabhängiges Kartenlesen bleibt
+währenddessen erlaubt. Für den ausgeführten Pilot sind3/3 bestätigt.
+
+Die ältere Kontext-Statusschnittstelle enthält weiterhin den festen Wert0.4.0.
+Die installierte Appversion wird anhand der Nextcloud-App-Metadaten und
+`appinfo/info.xml` festgestellt; dieser alte Kontextwert ist kein Versionsnachweis.
 
 ## Historische Anleitung und Prüfungen der App 0.4.0
 

@@ -1,14 +1,17 @@
-# NovaSpace Connector
+# NovaSpace KI Connector
 
 **Augmented Workspace – die Schnittstelle zwischen Mensch und KI.**
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
-## Neu: App 0.5.0 mit Einzelrechten
+## Neu: App 0.6.0 mit automatischem Speichern
 
-Die App „KI-Verbindungen“ bietet jetzt die drei Bereiche **Arbeit**, **Kommunikation** und **Verwaltung** mit aufklappbaren Einzelrechten. Die kleine Live-Testreihe besteht **3/3**; Online-Connector **1.37.0** setzt die Auswahl durch.
+Die App **NovaSpace KI Connector** bietet kurze, alphabetisch sortierte Funktionsnamen
+und automatische Speicherung mit sichtbarem Status. **Arbeit**, **Kommunikation**
+und **Verwaltung** gliedern weiterhin 19 Bereiche mit Einzelrechten. Die kleine
+Live-Testreihe für Autosave, Sperre und Rücknahme besteht **3/3**.
 
-[App 0.5.0 herunterladen](downloads/novaspace-platform-app-0.5.0.tar.gz) · [Prüfsumme](downloads/SHA256SUMS.txt) · [Live-Testbericht](components/nextcloud/platform/LIVE-TEST.md) · [Änderungen und Einbau](docs/updates/platform-0.5.0.md)
+[App 0.6.0 herunterladen](downloads/novaspace-platform-app-0.6.0.tar.gz) · [Prüfsummen](downloads/SHA256SUMS.txt) · [Live-Testbericht](components/nextcloud/platform/LIVE-TEST.md) · [Änderungen und Einbau](docs/updates/platform-0.6.0.md)
 
 ## Was sich damit machen lässt
 
@@ -33,7 +36,7 @@ Die Themenauswahl bietet **19 Schalter und damit 524.288 mögliche Themenkonfigu
 
 ## Entwicklungsstand
 
-Stand: **31. Oktober 2026 · App 0.5.0 / Online 1.37.0 · Paket 1 abgenommen, 32/32**.
+Stand: **31. Oktober 2026 · App 0.6.0 / Online 1.37.0 · Paket 1 abgenommen, 32/32**.
 
 Die erste Stufe **Alltag und Planung** ist im vereinbarten und dokumentierten
 Beta-Umfang abgeschlossen. Fachliche Modellabnahme A01, Bedienungsabnahme A02 und
@@ -43,7 +46,7 @@ hat der Projektverantwortliche die neue Oberfläche angesehen und ausdrücklich 
 | Bestandteil | Bestätigter Stand |
 |---|---|
 | Online-Connector | **1.37.0** |
-| Native Plattform-App / KI-Verbindungen | **0.5.0**, Live-Probe **3/3** |
+| Native Plattform-App / KI-Verbindungen | **0.6.0**, Autosave-Live-Probe **3/3** |
 | Persönlicher LM-Studio-Kern | **1.36.3-local.1** |
 | NovaSpace Connector in LM Studio | **0.1.26**, Eintrag **novaspace/connector** |
 
@@ -94,14 +97,14 @@ Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie folgend
 - Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
 - Den [Online-Connector 1.37.0](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.2, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
 - Den [persönlichen LM-Studio-Quellausschnitt 1.36.0-local.1 mit Themenauswahl 0.1.19](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
-- Die [native Projekt-App0.2.13](components/nextcloud/projects/README.md) mit vollständig zusammengeführtem Appbaum und isolierten Protokoll-/Adapterprüfungen.
+- Die [native Projekt-App 0.2.13](components/nextcloud/projects/README.md) mit vollständig zusammengeführtem Appbaum und isolierten Protokoll-/Adapterprüfungen.
 
 
-Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernommene Fremdhinweise bleiben erhalten. Das App-Paket dient der Prüfung und Testinstallation. Der Quellabgleich anhand der bereitgestellten Metadaten und aller 26 Dateihashes ist dokumentiert. Frische Testinstallationen auf Nextcloud **34.0.4 und 35.0.0** haben mit PHP 8.3.6 und MariaDB 10.11.14 jeweils **36 native Integrationsprüfungen** bestanden. [Testaufbau und Ergebnisse](components/nextcloud/platform/integration/README.md) sind dokumentiert. Online-/lokale Quellen enthalten inaktive Beispiele und ersetzen keine fertige unabhängige Hosting-/Anmelde- oder Erstinstallation. Der Quellen-/Lizenznachweis des älteren DPAPI-Startwegs, ein produktiver Updatepfad und erfolgreiche Abläufe mit externen Zusatz-Apps bleiben gesonderte Arbeit. [Lizenzzuordnung](LICENSING.md) und [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang.
+Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernommene Fremdhinweise bleiben erhalten. Das App-Paket dient der Prüfung und Testinstallation. Der aktuelle App-Quellstand ist den 33 vom Installer bestätigten Laufzeitdateien zugeordnet; 32 Implementierungen stimmen nach den erklärten Lizenz-/Hilfelink-Anpassungen überein, die Vertrauensdatei bleibt öffentlich inaktiv. Frische Testinstallationen auf Nextcloud **34.0.4 und 35.0.0** haben mit PHP 8.3.6 und MariaDB 10.11.14 jeweils **36 native Integrationsprüfungen** bestanden. [Testaufbau und Ergebnisse](components/nextcloud/platform/integration/README.md) sind dokumentiert. Online-/lokale Quellen enthalten inaktive Beispiele und ersetzen keine fertige unabhängige Hosting-/Anmelde- oder Erstinstallation. Der Quellen-/Lizenznachweis des älteren DPAPI-Startwegs, allgemeine Updatepfade außerhalb der dokumentierten Bestandspiloten und erfolgreiche Abläufe mit externen Zusatz-Apps bleiben gesonderte Arbeit. [Lizenzzuordnung](LICENSING.md) und [Quellübersicht](docs/SOURCE_STATUS.md) beschreiben den genauen Umfang.
 
 ---
 
-**English:** NovaSpace Connector is an Augmented Workspace connecting people and AI with supported Nextcloud workflows. Package 1 is accepted at 32/32. Native app 0.5.0 adds per-function permissions; the focused live acceptance passed 3/3. Source, installed versions and verification limits are documented separately.
+**English:** NovaSpace Connector is an Augmented Workspace connecting people and AI with supported Nextcloud workflows. Package 1 is accepted at 32/32. Native app0.6.0 adds automatic saving, clearer labels and alphabetical ordering to per-function permissions; focused live acceptance passed3/3. Source, installed versions and verification limits are documented separately.
 
 Die Fortschreibung der Themenauswahl 0.1.19 hat einen eigenen
 [dateigenauen Veröffentlichungsnachweis](docs/PUBLICATION_TOPICS_0_1_19.json).

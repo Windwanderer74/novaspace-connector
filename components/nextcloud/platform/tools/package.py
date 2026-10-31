@@ -53,7 +53,7 @@ def archive(name, prefix, members):
                     package.addfile(item, io.BytesIO(data))
     return {'path': str(target), 'sha256': hashlib.sha256(target.read_bytes()).hexdigest(), 'files': len(members)}
 results = [
-    archive('novaspace-platform-source-0.5.0.tar.gz', 'novaspace-platform-source', entries),
-    archive('novaspace-platform-app-0.5.0.tar.gz', 'novaspace_platform', {p[4:]: data for p, data in entries.items() if p.startswith('app/')}),
+    archive('novaspace-platform-source-0.6.0.tar.gz', 'novaspace-platform-source', entries),
+    archive('novaspace-platform-app-0.6.0.tar.gz', 'novaspace_platform', {p[4:]: data for p, data in entries.items() if p.startswith('app/')}),
 ]
 print(json.dumps({'manifestFilesVerified': len(manifest), 'archives': results}, indent=2))

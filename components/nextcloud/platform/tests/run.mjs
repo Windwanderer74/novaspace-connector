@@ -8,7 +8,7 @@ import {generateKeyPairSync} from 'node:crypto';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const php=process.env.NF_PHP_BINARY || 'php';
 const temporary=mkdtempSync(join(tmpdir(),'novaspace-platform-test-'));
-const tests=['platform-native-controller.php','platform-access-native.php','platform-functions-native.php','platform-inventory-native.php','github-bridge-core.php','github-bridge-results.php','github-bridge-signature.php','publication-boundaries.php'];
+const tests=['platform-native-controller.php','platform-access-native.php','platform-functions-native.php','platform-ui-native.php','platform-inventory-native.php','github-bridge-core.php','github-bridge-results.php','github-bridge-signature.php','publication-boundaries.php'];
 function run(args,env={}) {
   const result=spawnSync(php,args,{cwd:root,env:{...process.env,...env},encoding:'utf8'});
   if(result.stdout)process.stdout.write(result.stdout);
@@ -21,6 +21,9 @@ try {
   const {privateKey}=generateKeyPairSync('rsa',{modulusLength:2048});
   const keyPath=join(temporary,'ephemeral-test-key.pem');
   writeFileSync(keyPath,privateKey.export({type:'pkcs8',format:'pem'}),{mode:0o600});
+  const ui=spawnSync(process.execPath,['tests/platform-ui-autosave.mjs'],{cwd:root,encoding:'utf8'});
+  if(ui.stdout)process.stdout.write(ui.stdout);if(ui.stderr)process.stderr.write(ui.stderr);
+  if(ui.error||ui.status!==0)throw new Error('Autosave JavaScript checks failed');
   lint('app');lint('tests');
   for(const name of tests)run(['tests/'+name,...(name==='github-bridge-signature.php'?[keyPath]:[])],{NF_REGISTRY_TEST_KEY:keyPath});
 } finally {rmSync(temporary,{recursive:true,force:true});}

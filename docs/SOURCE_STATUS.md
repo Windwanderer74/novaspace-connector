@@ -1,6 +1,6 @@
 ## Quellfortschreibung 31. Oktober 2026
 
-Native Plattform-App **0.5.0** und zugehörige Online-Rechteauswertung **1.37.0** sind als aufbereitete AGPL-Quellen nachgeführt. App-Paket, Dateinachweise, **3/3** Live-Testbericht und bestehende Prüfberichte sind verknüpft. [Veröffentlichung](updates/platform-0.5.0.md). Die persönliche Quelle behält ihren bisherigen datierten Snapshot.
+Native Plattform-App **0.6.0** mit Branding, alphabetischen Funktionsnamen und automatischem Speichern ist als aufbereitete AGPL-Quelle nachgeführt. App-/Quellpakete, Dateinachweise und **3/3** Autosave-Live-Testbericht sind verknüpft. Online-Rechteauswertung bleibt **1.37.0**. [Veröffentlichung](updates/platform-0.6.0.md). Persönliche Quelle und frühere Integrationsberichte behalten ihre datierten Stände.
 
 --- Historischer Stand bis30. Oktober ---
 
@@ -62,9 +62,9 @@ Paket 1 steht bei **29/32**; offen sind **A01, A02 und Z01**. Die nachfolgenden
 
 --- Historischer Stand 1.35.1 ---
 
-Online1.35.1, persönlicher Kern1.35.1-local.1/Themen0.1.13 und native Projekte0.2.13 mit Browserworkflow1.6.2 sind als zusammengehörige aufbereitete AGPL-Quellen nachgeführt. Andere native Komponenten behalten ihren gesonderten historischen Stand.
+Online 1.35.1, persönlicher Kern1.35.1-local.1/Themen0.1.13 und native Projekte0.2.13 mit Browserworkflow1.6.2 sind als zusammengehörige aufbereitete AGPL-Quellen nachgeführt. Andere native Komponenten behalten ihren gesonderten historischen Stand.
 
-[Update1.35.1](updates/1.35.1.md) beschreibt den abgeschlossenen begrenzten Projekt-Betablock, den technischen Notizabgleich, Einbau und offene Grenzen. Quellprüfungen und praktische Client-/Nutzerrückmeldungen bleiben getrennt ausgewiesen. Der vollständige Paketabschluss steht noch aus; Paket1 jetzt22/32.
+[Update1.35.1](updates/1.35.1.md) beschreibt den abgeschlossenen begrenzten Projekt-Betablock, den technischen Notizabgleich, Einbau und offene Grenzen. Quellprüfungen und praktische Client-/Nutzerrückmeldungen bleiben getrennt ausgewiesen. Der vollständige Paketabschluss steht noch aus; Paket 1 jetzt22/32.
 
 Die aktuelle dateigenaue Herkunft und alle Manifest-/Prüfberichtshashes stehen in [PUBLICATION_1_35_1.json](PUBLICATION_1_35_1.json). Die vollständigen früheren Nachweise bleiben unten und im Vorgängermanifest erhalten.
 
@@ -72,7 +72,7 @@ Die aktuelle dateigenaue Herkunft und alle Manifest-/Prüfberichtshashes stehen 
 
 # Quellstand1.35 · Fortschreibung27. Oktober2026
 
-Online1.35.0, persönlich1.35.0-local.1/Themen0.1.12 und native Projekte0.2.12 sind als aufbereitete eigene AGPL-Quellen aufgenommen. Der genaue Umfang, Eingangs- und Veröffentlichungshashes stehen in den Komponenten-SOURCE_PROVENANCE.json-Dateien. Beispiele ersetzen Betriebsadressen; private Betriebsberichte, Zugangsdaten, erzeugte Bündel und vollständige private Historie gehören nicht zu dieser Quellveröffentlichung.
+Online 1.35.0, persönlich1.35.0-local.1/Themen0.1.12 und native Projekte0.2.12 sind als aufbereitete eigene AGPL-Quellen aufgenommen. Der genaue Umfang, Eingangs- und Veröffentlichungshashes stehen in den Komponenten-SOURCE_PROVENANCE.json-Dateien. Beispiele ersetzen Betriebsadressen; private Betriebsberichte, Zugangsdaten, erzeugte Bündel und vollständige private Historie gehören nicht zu dieser Quellveröffentlichung.
 
 [Update1.35](updates/1.35.0.md) beschreibt den bestätigten Einbau, die lesende API und den persönlichen LM-Studio-Lesetest. Eine erste gemeinsame Projektanlage im persönlichen Anschluss wurde erfolgreich zurückgemeldet. Diese begrenzte Pilotabnahme beruht auf der Ergebnisrückmeldung des Clients; weitere Inhalts- und Wiederaufnahmeprüfungen bleiben offen. Komponentenberichte beschreiben weiterhin ihre zum Veröffentlichungszeitpunkt ausgeführten isolierten Quellprüfungen und übernehmen diese praktische Rückmeldung nicht als neuen Quelltest.
 
@@ -109,7 +109,7 @@ Das öffentliche Repository erhält ausgewählte, geprüfte Quellstände mit Her
 | Bereich im vorhandenen Quellbestand | Bisheriger Befund | Veröffentlichung / nächster Schritt |
 |---|---|---|
 | Native GitHub-Brücke 0.1.0 | Drei PHP-Klassen; vorhandener reiner Kerntest; Einbindung in die NovaSpace-Plattform-App | [Erstes AGPL-Quellmodul](../components/nextcloud/github-bridge/README.md) mit vollständigem Lizenztext und Dateiherkunft veröffentlicht |
-| Native Plattform-App | [Zusammengeführter App-Quellbaum](../components/nextcloud/platform/README.md) mit Hilfe ui.7 und GitHub-Brücke, AGPL-Zuordnung, Fremdhinweisen, sicherer Beispielkonfiguration und Paketierung | Quellabgleich abgeschlossen; frische Nextcloud-Installationen 34.0.4/35.0.0 mit PHP 8.3.6/MariaDB 10.11.14 jeweils 36/36 native Prüfungen erfolgreich; Updatepfad und externe Zusatz-App-Abläufe gesondert offen |
+| Native Plattform-App 0.6.0 | [App-Quellbaum](../components/nextcloud/platform/README.md) mit Autosave, Einzelrechten, GitHub-Brücke, AGPL-Zuordnung, inaktiver Beispielkonfiguration und reproduzierbarer Paketierung | Bestandsupdate 0.5.0→0.6.0 und gezielte Live-Abnahme 3/3 bestätigt; frühere frische Serverprüfungen behalten ihre ursprünglichen Versionsstände. |
 | Weitere native Nextcloud-Erweiterungen | Weitere App-/Integrationsstände und vorbereitete Quellen im Bestand | Als eigene Komponenten mit vollständiger Herkunft, Lizenz, Abhängigkeiten und Einbaugrenzen prüfen |
 | Browser-/Nextcloud-Integration | Direkte Nutzung von `@nextcloud/files`; tatsächlicher Browser-Aufbau erfasst 17 Fremdpakete und 14 eigene Quellen | Bearbeitbare Quellen und benötigte JSLoader-Grundlage im [Online-Quellpaket](../components/online/connector/README.md); Bundle-Aufbau geprüft, keine generierten Bündel im Quellarchiv |
 | Online-Connector und gemeinsame Bibliotheken | Bereinigter Snapshot aus Betriebscheckpoint 1.31.1, einschließlich Anwendung, MCP/OAuth, Worker und gemeinsamer Kerne | Als zusammengehöriger eigener Nextcloud-Teil unter AGPL-3.0-or-later veröffentlicht; dateigenaue Herkunft, inaktive Konfiguration, Bauanleitung und Fremdhinweise liegen bei; unabhängige kommerzielle Abtrennung nicht behauptet |

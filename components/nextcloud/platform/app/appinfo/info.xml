@@ -2,10 +2,10 @@
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
   <id>novaspace_platform</id>
-  <name>NovaSpace Plattformgrundlage</name>
+  <name>NovaSpace KI Connector</name>
   <summary>Persönliche KI-Verbindungen und nachvollziehbare Freigaben</summary>
-  <description>Native Zugangsprüfung, bestätigte Cloud-Verbindungen, Widerruf und Konfigurationsverlauf. Begrenzte persönliche Inventory-Delegation mit atomarem Änderungsnachweis.</description>
-  <version>0.5.0</version>
+  <description>Persönliche KI-Verbindungen mit Hauptschalter, Bereichen und einzelnen Funktionen verwalten. Freigaben automatisch speichern, Änderungen nachvollziehen und Verbindungen widerrufen.</description>
+  <version>0.6.0</version>
   <licence>agpl</licence>
   <author>NovaSpace</author>
   <namespace>NovaspacePlatform</namespace>

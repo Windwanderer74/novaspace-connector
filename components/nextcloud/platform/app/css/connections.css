@@ -27,4 +27,9 @@
 .ns-function small { display: block; color: var(--color-text-maxcontrast); }
 .ns-function-details { margin-bottom: 12px; }
 .ns-app-access[data-inactive=true] .ns-function-details { opacity: .75; }
+.ns-save-bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 10px 12px; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-main-background); box-shadow: 0 3px 10px #0002; }
+.ns-save-bar [data-save-status] { flex: 1 1 220px; overflow-wrap: anywhere; }
+.ns-save-bar [hidden] { display: none !important; }
+.ns-save-bar[data-state=error],.ns-save-bar[data-state=conflict] { border-color: var(--color-error); }
+.ns-autosave-hint { font-size: 14px; color: var(--color-text-maxcontrast); }
 @media (max-width: 600px) { .ns-platform { padding: 0 12px 32px; margin: 16px auto; } .ns-connection { padding: 8px 12px 16px; } .ns-area-heading { grid-template-columns: minmax(0, 1fr); gap: 0; } }

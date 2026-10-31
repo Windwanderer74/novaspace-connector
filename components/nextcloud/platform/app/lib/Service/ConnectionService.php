@@ -10,6 +10,7 @@ use OCP\Security\ICrypto;
 use OCP\IURLGenerator;
 require_once __DIR__ . '/../Native/NativeAccessResolver.php';
 require_once __DIR__ . '/GatewayVerifier.php';
+require_once __DIR__ . '/ConnectionLabels.php';
 
 final class ConnectionService {
 	public function __construct(private IUserSession $users, private ISession $session, private IProvider $tokens,
@@ -63,7 +64,7 @@ final class ConnectionService {
 		$owner = $this->web(); $d = $this->ticket($ticket); $state = $this->store->status($d['client']);
 		if ($state['registered'] && $state['connection']['ownerUid'] !== $owner) { throw new PlatformDenied('client_belongs_to_another_user'); }
 		return ['ownerUid' => $owner, 'nativeUid' => $d['client']['nativeUid'], 'clientDisplay' => substr($d['client']['clientHash'], 0, 12),
-			'label' => $this->gateway->trust()['label'], 'ticket' => $ticket, 'scopes' => ['platform:read']];
+			'label' => ConnectionLabels::connection($this->gateway->trust()['label']), 'ticket' => $ticket, 'scopes' => ['platform:read']];
 	}
 	public function approve(string $ticket, string $label): array {
 		$owner = $this->web(); $d = $this->ticket($ticket);

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "component": "novaspace_platform",
-  "appMetadataVersion": "0.5.0",
-  "includedHelpPatch": "0.5.0",
+  "appMetadataVersion": "0.6.0",
+  "includedHelpPatch": "0.6.0",
   "includedGithubBridge": "0.1.1",
   "sourceSnapshotDate": "2026-10-31",
   "licenseForOwnFiles": "AGPL-3.0-or-later",
-  "sourceCheckpoint": "19fd6eeba0984b7c2a1e9bace49b045e742edad0",
+  "sourceCheckpoint": "76a53365ca06c39b806730d6426434b652213785",
   "sourceConnectorVersion": "1.37.0",
   "prepared132Included": false,
   "fullPrivateHistoryImported": false,
@@ -23,17 +23,26 @@
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/appinfo/info.xml",
       "publishedPath": "app/appinfo/info.xml",
-      "sourceSha256": "9b6ace2d628e5f7cc315769e9c07387526e01747b5c88b19b434fcaeecd2f8b3",
-      "publishedSha256": "9b6ace2d628e5f7cc315769e9c07387526e01747b5c88b19b434fcaeecd2f8b3",
+      "sourceSha256": "3d52fca28e6d556de5005a29c33cc2ef4e4322e403026075bebe48efc28f2073",
+      "publishedSha256": "3d52fca28e6d556de5005a29c33cc2ef4e4322e403026075bebe48efc28f2073",
       "changes": []
     },
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/appinfo/routes.php",
       "publishedPath": "app/appinfo/routes.php",
-      "sourceSha256": "fdf95ccf5c8322d4391d446e573537cdad65f7c9e0b5805fa2e32c1c4e701f64",
-      "publishedSha256": "029359ebd3b073206a03041e269bae10cb8df36657e325677575933583b235a5",
+      "sourceSha256": "c4c15f0295d761340185f8f96bcf300fa419e1832102f19bf64b2b210ece28fa",
+      "publishedSha256": "fd49bef0ccac4377cbb83e7bae5b14ac5439e40d2ea030105e0e920d3b497a90",
       "changes": [
-        "Retain previously published merged implementation and SPDX header; host-bound installer retains the same existing runtime file."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/appinfo/trusted-gateway.json",
+      "publishedPath": "app/appinfo/trusted-gateway.json",
+      "sourceSha256": "e58730723e72a1ff90d4969c06a0cc87db4dd9353e0f09c6e1f65a806759d0ce",
+      "publishedSha256": "a6564ef013effcaf7ce784edbb7c1051c3180615dbcca0dd164a8334ebed32ba",
+      "changes": [
+        "Published trust remains an inactive example; installation-specific active trust is not included."
       ]
     },
     {
@@ -46,8 +55,8 @@
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/css/connections.css",
       "publishedPath": "app/css/connections.css",
-      "sourceSha256": "d7bb049d804d0b50cc101176ade4e66ede8ff005a17d7b018f683aa26cc1b7ad",
-      "publishedSha256": "d7bb049d804d0b50cc101176ade4e66ede8ff005a17d7b018f683aa26cc1b7ad",
+      "sourceSha256": "8fb98effed35385ef560591fdceb7b2d2094bf63363920b98fd753a0b0353e99",
+      "publishedSha256": "8fb98effed35385ef560591fdceb7b2d2094bf63363920b98fd753a0b0353e99",
       "changes": []
     },
     {
@@ -55,6 +64,13 @@
       "publishedPath": "app/img/app.svg",
       "sourceSha256": "f2151cfd213a4615383e6658468418de731b494faa1d736f9946b3a0f52e6024",
       "publishedSha256": "f2151cfd213a4615383e6658468418de731b494faa1d736f9946b3a0f52e6024",
+      "changes": []
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/js/connections-autosave.js",
+      "publishedPath": "app/js/connections-autosave.js",
+      "sourceSha256": "168e7a9168585234d82540ef9568cf582d04ced0e2ff007489baca1326970ce8",
+      "publishedSha256": "168e7a9168585234d82540ef9568cf582d04ced0e2ff007489baca1326970ce8",
       "changes": []
     },
     {
@@ -67,10 +83,10 @@
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Controller/ConnectionsController.php",
       "publishedPath": "app/lib/Controller/ConnectionsController.php",
-      "sourceSha256": "eb0568703d50b4c822e04f33f6be6372c13d21f9d47771fcf90872be1833c6f5",
-      "publishedSha256": "91eea93d3f45152d7f6ed01ee2cce161fdc127c4968a2daa1de8fc557d00c039",
+      "sourceSha256": "959137c4a9b84263927e7a5a6971aec7011f398375c3b3536b135e756aebfe54",
+      "publishedSha256": "d92c97b98a47d774e72245e00cb766f6154e0077f811b47b46834aea562794ac",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -79,7 +95,7 @@
       "sourceSha256": "a3a4046a1bde5d66889f710ce619227d9299cdbd310593db47ecc40b40634062",
       "publishedSha256": "b9ce0e982185837e1a2b214c65ad7e1f54fc98461970e05f0fe3858bd97fada1",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -88,7 +104,7 @@
       "sourceSha256": "263dfe9c770f953fe780d233de216fae81d6fe6d16f5c7fedf7dc6eb39fc71ce",
       "publishedSha256": "6243de59aa596ed003a1f2d117d3e9d2d47099c537624f5bf701c4f2842ee20a",
       "changes": [
-        "Add SPDX license identifier."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -97,7 +113,7 @@
       "sourceSha256": "7ebb3d0a15151d8b9e581a44cd82c4ad8bb93ba0dec480f115e6c7df7a0cc4a0",
       "publishedSha256": "d97c1c1da294681c9e0a7333d2c3b81a194d9a5bb53b5533c62a81c4b7a9d3b7",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -106,7 +122,7 @@
       "sourceSha256": "2052fa5a396650d4b19dd598e8eaa378f767dbc7ee72badce2c6dfb4373df710",
       "publishedSha256": "2d2235ec418eb4f2eacff6df408ef9f3ce75e76b8de4cce63fc03116716a3a99",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -115,7 +131,7 @@
       "sourceSha256": "4d056320d3c264e0e2360a1997472a7ccf71cea90bba4a421d8a7ac26a5799a2",
       "publishedSha256": "402a8d107fab0f43b0686c6b3cb59ee32ecee2dacb42746da37f69e3bfe0352b",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -124,7 +140,7 @@
       "sourceSha256": "ea3bb097a0e21f28e02568cea32205380d60ea500b155a4a38ef2d0635cf3eae",
       "publishedSha256": "b0104c4ec616ae34b42c764ff826646cd7bf313c8003a5f25aa80cfa9f4339e8",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -133,7 +149,7 @@
       "sourceSha256": "ed005a2306e93115342e4bbfda412ece95872cbf01c15223b868af3a662c097a",
       "publishedSha256": "9e9528dc7f315dd633aba7b8a97c41bbcbeef88306e3a46f5184878093bd8f85",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -142,7 +158,7 @@
       "sourceSha256": "475dcd8674612bd880229922fd6d1304ed8d25c61276639a7ce669750f66003b",
       "publishedSha256": "3eb3d9484130e9cc1e4e957ccc2f4baa174804d81120ce8a502c4f96fdea9e01",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -151,7 +167,7 @@
       "sourceSha256": "891a170059a44d3a4a8beb37a0f9feee46631621f062654d23b4d45352c5c840",
       "publishedSha256": "eeb03909b2d65ea421d223f67338645875d31b9bf97b58739bacda097c614d66",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -160,7 +176,7 @@
       "sourceSha256": "7e4558cfcf51b09131e52753e209d10da508b58fce0e7e736f234c89c2209adb",
       "publishedSha256": "21d0876cd999ecf6fb618363e9f05f246b36876db38a7b9b11a2cbe278c16e93",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -169,7 +185,16 @@
       "sourceSha256": "11954ba89a26ff17fa37c941f02c38fa82462665bd8acf40674ac720b474b3de",
       "publishedSha256": "62623ba23094d413c91d163a9475b3b29caac0adfe3bb130cb1f58edd45361b6",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
+      ]
+    },
+    {
+      "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/ConnectionLabels.php",
+      "publishedPath": "app/lib/Service/ConnectionLabels.php",
+      "sourceSha256": "284f767fd64bf7fee822147b79cf725185115aace59182db1146fe1cab8b4b9b",
+      "publishedSha256": "0db2d2775bdb49083a7b43be913491e01152779109408abaf83ef0f9227aac99",
+      "changes": [
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -178,25 +203,25 @@
       "sourceSha256": "88a8556a252dee931d4437888110bb9cf6706d808ce15ed94ce79db9a91f79a9",
       "publishedSha256": "ccc39dd6ec85e19d9bdf03a9088d6602850945717611d6a729a336353f34f85a",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/ConnectionService.php",
       "publishedPath": "app/lib/Service/ConnectionService.php",
-      "sourceSha256": "d5580daa0de3a438c74f4d0e00508fc8b2f5a7b04b3c0165cf3276457c30e654",
-      "publishedSha256": "0d2cd6fa0af2648b2930a7684b8a8e19ebe8b51493058c393305376bca43d0f0",
+      "sourceSha256": "dfbcdb6b79ec8bfccc3928b6ae8d1361439de75ce327313b96b3f81687544404",
+      "publishedSha256": "0b4f6d7250f8350b3ab2bff5cbacc7905c6eb4998d82eed14544845dd345812e",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/lib/Service/ConnectionStore.php",
       "publishedPath": "app/lib/Service/ConnectionStore.php",
-      "sourceSha256": "62c9526326889364bd1dd3d1aa8fc0d13159a740f78bdf7fc7e938aa4c358533",
-      "publishedSha256": "2ef06db27e0fceeda8dc583c021aa27e5ea45cd15e8189474418d9168e1aa6c2",
+      "sourceSha256": "c0aced1a1a2093b0f19d016af94385dcd698f65d4479eb438be5b7de882e72a9",
+      "publishedSha256": "24fb6b8e38f7811e22ee79cdd76eee8045f9b6e8640fc7c7f295b2ad94ef1468",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -205,7 +230,7 @@
       "sourceSha256": "9a92ceee65c1ebb31c4663db23bbf2ecd24bdae8008737bd215dae65efd48dfb",
       "publishedSha256": "92e2db687987e982366cd3cc31f309f031fcd920d638784b040e85f2386bf5ba",
       "changes": [
-        "Retain previously published merged implementation and SPDX header; host-bound installer retains the same existing runtime file."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -235,7 +260,7 @@
       "sourceSha256": "5e5f5774ea8134cf69d59284bfc8760bc8bd2b094ba89b776831392025c73515",
       "publishedSha256": "5a5133faab396ffebb6e2d4ece1f8d407a036d420931815808bb685b9f4c7444",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -244,17 +269,16 @@
       "sourceSha256": "163b81474ab0eb28872758a6680fe81da940f228f57b7f1bbe55477916a91ff3",
       "publishedSha256": "d9d2f03d3f307908d87e8c12d3fc824c2d447f40f31059b46b64c590fbd80d7a",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
       "sourcePath": "ops/platform-foundation/nextcloud-app/templates/connections.php",
       "publishedPath": "app/templates/connections.php",
-      "sourceSha256": "5a2d55144d811211625e628204cb3bf9a97e74597d3ebb087f4fd80d696d0c93",
-      "publishedSha256": "9fa08d2acce4541f06ae41a8a9d52bcd1bfa20bbfbf0b1c63b93e56b7d353fe5",
+      "sourceSha256": "96ac391d81bfdd49bbd8bc313e4363663c8b8ce7eec313d166efa4e746ae7f5f",
+      "publishedSha256": "12b95ff388c1425eaceda11f046d69fd421501da23eacd42fc8b69d404527421",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged.",
-        "Public setup help link in place of installation-specific help URL."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
@@ -263,130 +287,16 @@
       "sourceSha256": "fadc891b10c3d687c9abf5505a10a452807ef2c1201a7a71ee7c99eb20752571",
       "publishedSha256": "a9f8a183fdd48dbe5d4ad800a4d7c8406f3d7e9783c03f79518cd9c38fd8d4af",
       "changes": [
-        "Add SPDX identifier; PHP behavior unchanged."
+        "SPDX comment and/or public help URL only; otherwise byte-equal to installer-confirmed runtime source."
       ]
     },
     {
-      "sourcePath": "tests/fixtures/platform-native/IProvider.php",
-      "publishedPath": "tests/fixtures/platform-native/IProvider.php",
-      "sourceSha256": "704bdce8337a5bc33da0d6958ce74d5bec3741da08243464aca90abd991105d3",
-      "publishedSha256": "704bdce8337a5bc33da0d6958ce74d5bec3741da08243464aca90abd991105d3",
-      "changes": []
+      "publishedPath": "app/LICENSE",
+      "publishedSha256": "41c454984ccb03e15b90fecd4ac64405dddb1b61e8aaba7e6aadb6e54a34456e"
     },
     {
-      "sourcePath": "tests/fixtures/platform-native/IToken.php",
-      "publishedPath": "tests/fixtures/platform-native/IToken.php",
-      "sourceSha256": "1ddfc8f18fd7290a622537c657599c137ff4468dd43b7bf0a031822639c434eb",
-      "publishedSha256": "1ddfc8f18fd7290a622537c657599c137ff4468dd43b7bf0a031822639c434eb",
-      "changes": []
-    },
-    {
-      "sourcePath": "verified sync-bridge 0.1.1 tests/legacy-bridge-core.php",
-      "publishedPath": "tests/github-bridge-core.php",
-      "sourceSha256": "d8be537b1f760da4403605b04389036976431911c36cb5d1f5675262419393a9",
-      "publishedSha256": "f7f90577afc96f68e0db5979383c7036534403f32a576766641ef99146031326",
-      "changes": [
-        "Portable component include path."
-      ]
-    },
-    {
-      "sourcePath": "verified sync-bridge 0.1.1 tests/bridge-results.php",
-      "publishedPath": "tests/github-bridge-results.php",
-      "sourceSha256": "daf747d5baadbac8fcb4541b95551161440bbb11d5f96d9e2eff8f58ba19e1a0",
-      "publishedSha256": "988cde48f371c52f2ff65138b4474806cd64da8434fbd0037e60e0e5c8e6819f",
-      "changes": [
-        "Portable component include path."
-      ]
-    },
-    {
-      "sourcePath": "tests/github-bridge-signature.php",
-      "publishedPath": "tests/github-bridge-signature.php",
-      "sourceSha256": "7beddeacf4afcb0f96d76e5332b90910daa14c2fa9e3452970cba5e2ce0601a4",
-      "publishedSha256": "4b46e6bdd8b6a071aca903fad24a47e160ab17914be9263c33d6d24f03d9a8e6",
-      "changes": [
-        "Add SPDX license identifier.",
-        "Adjust source paths to the published app directory layout."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-access-cases.php",
-      "publishedPath": "tests/platform-access-cases.php",
-      "sourceSha256": "325cfc74e9fbdb21e9abcf366871fe5e82add41f6542427a4b038fca9d97ce0b",
-      "publishedSha256": "ec47d90295ad340318189891951ab3e41929ff845f2abf322a82fba25ed7e4b9",
-      "changes": [
-        "Add SPDX license identifier.",
-        "Adjust source paths to the published app directory layout.",
-        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-access-native.php",
-      "publishedPath": "tests/platform-access-native.php",
-      "sourceSha256": "f1a6fe191c1e93de2c30a57aafefcd060d03ad9a0c0b137d83a176fa273529bb",
-      "publishedSha256": "2dcfe591c23c661f216d59a5dbf1f5482610417484f5dc6208fdb080b477ca94",
-      "changes": [
-        "Add SPDX license identifier."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-function-cases.php",
-      "publishedPath": "tests/platform-function-cases.php",
-      "sourceSha256": "139c84f3c76bfba3fa05cbdde78b3c3ac247eee8809979fe5c58b32bde06a591",
-      "publishedSha256": "6ef811d96287f59bdc77f680863a6751ecca53feef6077f85eb53e5d080e2e8a",
-      "changes": [
-        "Portable component paths, generic fixture identities and SPDX identifier."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-functions-native.php",
-      "publishedPath": "tests/platform-functions-native.php",
-      "sourceSha256": "76a66139ebe253f95cafc8d71e9abc5ea5a8278e6edc5b035a076d8d4ef06f99",
-      "publishedSha256": "c74cf66759e921e364d88b9ab29b41f60ac564675d99e677f264a7a80ad6fd0f",
-      "changes": [
-        "Portable component paths, generic fixture identities and SPDX identifier."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-inventory-native.php",
-      "publishedPath": "tests/platform-inventory-native.php",
-      "sourceSha256": "17a45fbb568506ebd0cf2e718db69810318254adf1f848b79ac3e0a23ca75367",
-      "publishedSha256": "b4ab8b23ed9e7c255f723391680ad0da15e5e3b3d691554210da44d486d02ac9",
-      "changes": [
-        "Add SPDX license identifier.",
-        "Adjust source paths to the published app directory layout.",
-        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-native-access.php",
-      "publishedPath": "tests/platform-native-access.php",
-      "sourceSha256": "890626be56b64c5e4c43628cd98b8b437e5035cd9432d4e39afbc551895dca98",
-      "publishedSha256": "ade7a021d424ca1d4c3294f22ead67d9db6745401b2c123bdc4ce1bff8af1ddc",
-      "changes": [
-        "Add SPDX license identifier.",
-        "Adjust source paths to the published app directory layout.",
-        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-native-controller.php",
-      "publishedPath": "tests/platform-native-controller.php",
-      "sourceSha256": "79643d4ce82c89aebc2c64cbd99bcc91cea8c8241204cdd1d2fefde4a0c78517",
-      "publishedSha256": "bcbd4f1e7c1ef3e54df3e75d46ee2ec9ce4a626005977dcdb150e8cbb3ad7114",
-      "changes": [
-        "Add SPDX license identifier.",
-        "Adjust source paths to the published app directory layout.",
-        "Use generic Owner/NativeActor/OtherOwner fixture accounts; preserve case-sensitive identity checks."
-      ]
-    },
-    {
-      "sourcePath": "tests/platform-registry-native.php",
-      "publishedPath": "tests/platform-registry-native.php",
-      "sourceSha256": "1a239d2cb5d5c1dd1570df3889e9649b32ff4f73b26cc66bc5d7562ad27f9d36",
-      "publishedSha256": "cc8d7bbcae7ca2871cb72704371bc30bdae534fe8dfb04db6a80e94b6357cf09",
-      "changes": [
-        "Portable component paths, generic fixture identities and SPDX identifier."
-      ]
+      "publishedPath": "app/appinfo/trusted-gateway.example.json",
+      "publishedSha256": "a6564ef013effcaf7ce784edbb7c1051c3180615dbcca0dd164a8334ebed32ba"
     }
   ],
   "configurationChange": {
@@ -453,5 +363,13 @@
   ],
   "currentPublicationFreshInstallTested": false,
   "publicationDeploymentPerformed": false,
-  "liveTestReport": "LIVE-TEST.md"
+  "liveTestReport": "LIVE-TEST.md",
+  "runtimeReconciliation": {
+    "installedFiles": 33,
+    "implementationFilesCompared": 32,
+    "unexplainedDifferences": 0,
+    "source": "Operator-confirmed source-verified installer with pinned input and payload hashes",
+    "directServerAccessByAssistant": false,
+    "trustExampleOnly": true
+  }
 }

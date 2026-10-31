@@ -140,7 +140,7 @@ namespace {
 	rt('Registry controller uses signed header, rejects overrides and removes upstream errors',function($f){$c=fn($params,$proof)=>new \OCA\NovaspacePlatform\Controller\RegistryController('novaspace_platform',new RegistryRequest($params,$proof),$f->service);check($c([],assertion())->status()->status===503);cloud($f);check($c(['format'=>'json'],assertion())->status()->status===200);check($c(['ownerUid'=>'Owner'],assertion())->status()->status===400);$r=$c([],'SECRET')->status();check($r->status===503&&!str_contains(json_encode($r->data),'SECRET'));});
 	function style($app,$name) { check($app==='novaspace_platform'&&in_array($name,['connections','connections-scroll'],true)); }
 	function p($value) { echo htmlspecialchars((string)$value,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8'); }
-	function script($app,$name) { check($app==='novaspace_platform'&&$name==='connections'); }
+	function script($app,$name) { check($app==='novaspace_platform'&&in_array($name,['connections','connections-autosave'],true)); }
 	rt('Rendered native form escapes identity label ticket and CSRF fields',function($f){
 		$_=['error'=>null,'preview'=>['ownerUid'=>'Owner','label'=>'<script>alert(1)</script>','clientDisplay'=>'123','nativeUid'=>'NativeActor','ticket'=>'\"<ticket>'],'approveUrl'=>'/approve','homeUrl'=>'/home','requesttoken'=>'\"<csrf>'];
 		ob_start();include __DIR__.'/../app/templates/connections.php';$html=ob_get_clean();
@@ -148,5 +148,6 @@ namespace {
 	});
 	if (defined('NF_ACCESS_TESTS')) { require __DIR__ . '/platform-access-cases.php'; }
 	if (defined('NF_FUNCTION_TESTS')) { require __DIR__ . '/platform-function-cases.php'; }
+	if (defined('NF_UI_TESTS')) { require __DIR__ . '/platform-ui-cases.php'; }
 	echo "PASS: $registryTests registry/RSA/SQLite/native-boundary tests. No MariaDB or HTTP acceptance.\n";
 }

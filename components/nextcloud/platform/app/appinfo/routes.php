@@ -9,6 +9,7 @@ return ['routes' => [
 	['name' => 'connections#approve', 'url' => '/connections/approve', 'verb' => 'POST'],
 	['name' => 'connections#revoke', 'url' => '/connections/{connectionId}/revoke', 'verb' => 'POST'],
 	['name' => 'connections#saveAccess', 'url' => '/connections/{connectionId}/access', 'verb' => 'POST'],
+	['name' => 'connections#saveAccessAsync', 'url' => '/connections/{connectionId}/access/async', 'verb' => 'POST'],
 ], 'ocs' => [
 	['name' => 'github_bridge#execute', 'url' => '/api/v1/registry/github', 'verb' => 'POST'],
 	['name' => 'inventory_api#execute', 'url' => '/api/v1/registry/inventory', 'verb' => 'POST'],

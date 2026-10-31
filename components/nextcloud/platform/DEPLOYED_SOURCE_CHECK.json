@@ -1,8 +1,8 @@
 {
   "date": "2026-10-31",
-  "appVersion": "0.5.0",
+  "appVersion": "0.6.0",
   "evidence": "Operator-provided checked installer output; not a direct SSH session of the assistant",
-  "runtimeSourceFilesVerifiedByInstaller": 31,
+  "runtimeSourceFilesVerifiedByInstaller": 33,
   "schemaVerified": true,
   "existingDataVerified": true,
   "individualSettingsCreatedByInstaller": false,
@@ -72,8 +72,28 @@
     },
     "acceptanceLimits": [
       "The comparison uses supplied file hashes and metadata, not an independently authenticated live server read.",
-      "The declared Nextcloud range 34\u201335 is not a practical compatibility certification.",
+      "The declared Nextcloud range 34–35 is not a practical compatibility certification.",
       "No new installation, migration, HTTP/CSRF or production update acceptance is claimed."
     ]
-  }
+  },
+  "previousSourceCheck050": {
+    "date": "2026-10-31",
+    "appVersion": "0.5.0",
+    "evidence": "Operator-provided checked installer output; not a direct SSH session of the assistant",
+    "runtimeSourceFilesVerifiedByInstaller": 31,
+    "schemaVerified": true,
+    "existingDataVerified": true,
+    "individualSettingsCreatedByInstaller": false,
+    "livePermissionTests": "LIVE-TEST.md",
+    "publicationDifferences": [
+      "Inactive gateway trust examples",
+      "SPDX comments",
+      "Public setup-help link"
+    ]
+  },
+  "upgrade": "0.5.0 to 0.6.0",
+  "newSchemaMigrations": 0,
+  "sourceCheckpoint": "76a53365ca06c39b806730d6426434b652213785",
+  "implementationFilesMatched": 32,
+  "unexplainedDifferences": 0
 }
