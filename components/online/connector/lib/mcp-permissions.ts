@@ -2,6 +2,7 @@
 import type { McpServer } from '@modelcontextprotocol/server';
 import { hasGatewayPrincipal, currentGatewayPrincipal, readRegistryState } from './platform-registry';
 import { appForTool, parseConnectionPolicy, permissionDenial, withConnectionPolicy } from './connection-policy';
+import { functionPolicyDenial } from './connection-functions';
 
 /** Wrap every registration, so an advertised tool cannot bypass the connection's policy. */
 export function enforceConnectionPermissions(server: McpServer) {
@@ -17,7 +18,8 @@ export function enforceConnectionPermissions(server: McpServer) {
       const app = appForTool(name);
       if (!app && name !== 'nextcloud_account') return { isError: true, content: [{ type: 'text', text: 'Für dieses Werkzeug ist kein geprüfter App-Bereich zugeordnet.' }], structuredContent: { outcome: 'tool_policy_unmapped', reauthenticationRequired: false } };
       const readOnly = (config.annotations as { readOnlyHint?: boolean } | undefined)?.readOnlyHint === true;
-      const denied = permissionDenial(policy, app, !readOnly);
+      const denied = permissionDenial(policy, app, !readOnly)
+        ?? (name === 'nextcloud_account' ? undefined : functionPolicyDenial(policy.functions, name));
       if (denied) return denied;
       return withConnectionPolicy(policy, () => callback(...args));
     })) as typeof server.registerTool;

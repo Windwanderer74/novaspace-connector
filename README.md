@@ -4,6 +4,12 @@
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
+## Neu: App 0.5.0 mit Einzelrechten
+
+Die App „KI-Verbindungen“ bietet jetzt die drei Bereiche **Arbeit**, **Kommunikation** und **Verwaltung** mit aufklappbaren Einzelrechten. Die kleine Live-Testreihe besteht **3/3**; Online-Connector **1.37.0** setzt die Auswahl durch.
+
+[App 0.5.0 herunterladen](downloads/novaspace-platform-app-0.5.0.tar.gz) · [Prüfsumme](downloads/SHA256SUMS.txt) · [Live-Testbericht](components/nextcloud/platform/LIVE-TEST.md) · [Änderungen und Einbau](docs/updates/platform-0.5.0.md)
+
 ## Was sich damit machen lässt
 
 | Bereich | Beispiele aus dem vorhandenen Funktionsumfang |
@@ -27,7 +33,7 @@ Die Themenauswahl bietet **19 Schalter und damit 524.288 mögliche Themenkonfigu
 
 ## Entwicklungsstand
 
-Stand: **30. Oktober 2026 · Paket 1 gemeinsam abgenommen · 32/32**.
+Stand: **31. Oktober 2026 · App 0.5.0 / Online 1.37.0 · Paket 1 abgenommen, 32/32**.
 
 Die erste Stufe **Alltag und Planung** ist im vereinbarten und dokumentierten
 Beta-Umfang abgeschlossen. Fachliche Modellabnahme A01, Bedienungsabnahme A02 und
@@ -36,7 +42,8 @@ hat der Projektverantwortliche die neue Oberfläche angesehen und ausdrücklich 
 
 | Bestandteil | Bestätigter Stand |
 |---|---|
-| Online-Connector | **1.36.0** |
+| Online-Connector | **1.37.0** |
+| Native Plattform-App / KI-Verbindungen | **0.5.0**, Live-Probe **3/3** |
 | Persönlicher LM-Studio-Kern | **1.36.3-local.1** |
 | NovaSpace Connector in LM Studio | **0.1.26**, Eintrag **novaspace/connector** |
 
@@ -85,7 +92,7 @@ Dieses Repository enthält die Projekt- und Entwicklungsübersicht sowie folgend
 
 - Die [native GitHub-Brücke 0.1.0](components/nextcloud/github-bridge/README.md) als einzeln nachvollziehbares Modul.
 - Das [zusammengeführte Quellpaket der nativen Plattform-App](components/nextcloud/platform/README.md) mit GitHub-Einbau, Tests, sicherer Beispielkonfiguration und reproduzierbarer Paketierung.
-- Den [Online-Connector 1.36.0](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.2, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
+- Den [Online-Connector 1.37.0](components/online/connector/README.md), einschließlich gemeinsamer Bibliotheken und bearbeitbarer Browser-Erweiterung1.6.2, Herkunft, Lizenzzuordnung, Fremdhinweisen und Bauanleitung.
 - Den [persönlichen LM-Studio-Quellausschnitt 1.36.0-local.1 mit Themenauswahl 0.1.19](components/local/lmstudio/README.md), aufbereitet aus dem hashgeprüften ausgelieferten Paket. Der ältere externe Windows-DPAPI-Startweg bleibt eine benannte Voraussetzung.
 - Die [native Projekt-App0.2.13](components/nextcloud/projects/README.md) mit vollständig zusammengeführtem Appbaum und isolierten Protokoll-/Adapterprüfungen.
 
@@ -94,7 +101,7 @@ Die eigenen Dateien dieser Bereiche stehen unter **AGPL-3.0-or-later**; übernom
 
 ---
 
-**English:** NovaSpace Connector is an Augmented Workspace connecting people and AI with supported Nextcloud workflows. Package 1 is at 31/32; final joint acceptance is pending. Source, installed versions and verification limits are documented separately.
+**English:** NovaSpace Connector is an Augmented Workspace connecting people and AI with supported Nextcloud workflows. Package 1 is accepted at 32/32. Native app 0.5.0 adds per-function permissions; the focused live acceptance passed 3/3. Source, installed versions and verification limits are documented separately.
 
 Die Fortschreibung der Themenauswahl 0.1.19 hat einen eigenen
 [dateigenauen Veröffentlichungsnachweis](docs/PUBLICATION_TOPICS_0_1_19.json).

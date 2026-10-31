@@ -7,16 +7,19 @@ use OCP\IConfig;
 
 require_once __DIR__ . '/GatewayVerifier.php';
 require_once __DIR__ . '/ConnectionPolicy.php';
+require_once __DIR__ . '/ConnectionFunctions.php';
 
 final class ConnectionStore {
 	private string $connections;
 	private string $events;
 	private string $access;
+	private string $functions;
 	public function __construct(private IDBConnection $db, IConfig $config) {
 		$p = $config->getSystemValue('dbtableprefix', 'oc_');
 		if (!is_string($p) || !preg_match('/^[A-Za-z0-9_]{0,64}$/D', $p)) { throw new PlatformDenied('configuration_invalid'); }
 		$this->connections = $p . 'ns_pf_connections'; $this->events = $p . 'ns_pf_events';
 		$this->access = $p . 'ns_pf_access';
+		$this->functions = $p . 'ns_pf_tool_access';
 	}
 	private function one(string $sql, array $params): ?array {
 		$r = $this->db->executeQuery($sql, $params);
@@ -50,10 +53,12 @@ final class ConnectionStore {
 	}
 	public function policy(string $id): array {
 		$r = $this->one('SELECT enabled, apps_json FROM ' . $this->access . ' WHERE conn_id = ?', [$id]);
-		if ($r === null) { return ConnectionPolicy::defaults(); }
-		if (!in_array((string)$r['enabled'], ['0', '1'], true)) { throw new PlatformDenied('permission_state_unverified'); }
-		return ['version' => 1, 'configured' => true, 'enabled' => (int)$r['enabled'] === 1,
+		if ($r !== null && !in_array((string)$r['enabled'], ['0', '1'], true)) { throw new PlatformDenied('permission_state_unverified'); }
+		$p = $r === null ? ConnectionPolicy::defaults() : ['version' => 1, 'configured' => true, 'enabled' => (int)$r['enabled'] === 1,
 			'apps' => ConnectionPolicy::modes(json_decode($r['apps_json'], true, 16, JSON_THROW_ON_ERROR))];
+		$f = $this->one('SELECT policy_json FROM ' . $this->functions . ' WHERE conn_id = ?', [$id]);
+		if ($f !== null) { $p['version'] = 2; $p['functions'] = ConnectionFunctions::normalize(json_decode($f['policy_json'], true, 16, JSON_THROW_ON_ERROR)); }
+		return $p;
 	}
 	public function owned(string $owner): array {
 		return array_map(fn($r) => self::summary($r) + ['accessPolicy' => $this->policy($r['conn_id'])], $this->all('SELECT * FROM ' . $this->connections . ' WHERE owner_key = ? ORDER BY created_at DESC, conn_id', [hash('sha256', $owner)]));
@@ -154,12 +159,16 @@ final class ConnectionStore {
 			return ['committed' => true, 'connection' => self::summary($r)];
 		} catch (\Throwable) { throw new PlatformDenied('registry_outcome_unconfirmed'); }
 	}
-	public function saveAccess(string $owner, string $id, int $revision, string $requestId, bool $enabled, array $apps): array {
+	public function saveAccess(string $owner, string $id, int $revision, string $requestId, bool $enabled, array $apps, ?array $functions = null): array {
 		if (!GatewayVerifier::uuid($id) || !GatewayVerifier::uuid($requestId) || $revision < 1) { throw new PlatformDenied('invalid_permission_request'); }
 		$apps = ConnectionPolicy::modes($apps);
+		if ($functions !== null) {
+			$functions = ConnectionFunctions::normalize($functions);
+			foreach (ConnectionFunctions::catalogue()['areas'] as $a) if (!$a['extension'] && $functions['areas'][$a['id']] !== $apps[$a['app']]) throw new PlatformDenied('function_primary_mode_invalid');
+		}
 		$key = hash('sha256', 'access:' . $requestId);
-		$hash = hash('sha256', json_encode([$owner, $id, $revision, $enabled, $apps], JSON_THROW_ON_ERROR));
-		$this->transaction(function () use ($owner, $id, $revision, $key, $hash, $enabled, $apps) {
+		$hash = hash('sha256', json_encode([$owner, $id, $revision, $enabled, $apps, $functions], JSON_THROW_ON_ERROR));
+		$this->transaction(function () use ($owner, $id, $revision, $key, $hash, $enabled, $apps, $functions) {
 			$e = $this->event($key);
 			if ($e !== null) {
 				if ($e['owner_uid'] !== $owner || $e['conn_id'] !== $id || $e['request_hash'] !== $hash) { throw new PlatformDenied('request_conflict'); }
@@ -168,18 +177,36 @@ final class ConnectionStore {
 			$r = $this->connection($id, $owner);
 			if ((int)$r['revision'] !== $revision || $r['revoked_at'] !== null) { throw new PlatformDenied('version_conflict'); }
 			$before = $this->policy($id);
+			$nextFunctions = $functions ?? ($before['functions'] ?? null);
+			if ($nextFunctions !== null) {
+				foreach (ConnectionFunctions::catalogue()['areas'] as $a) if (!$a['extension']) $nextFunctions['areas'][$a['id']] = $apps[$a['app']];
+				$nextFunctions = ConnectionFunctions::normalize($nextFunctions);
+			}
 			$count = $this->db->executeStatement('UPDATE ' . $this->connections . ' SET revision=revision+1,updated_at=? WHERE conn_id=? AND owner_uid=? AND revision=?', [time(), $id, $owner, $revision]);
 			if ($count !== 1) { throw new PlatformDenied('version_conflict'); }
 			$json = json_encode($apps, JSON_THROW_ON_ERROR);
 			if ($before['configured']) { $this->db->executeStatement('UPDATE ' . $this->access . ' SET enabled=?,apps_json=? WHERE conn_id=?', [(int)$enabled, $json, $id]); }
 			else { $this->db->executeStatement('INSERT INTO ' . $this->access . ' (conn_id,enabled,apps_json) VALUES (?,?,?)', [$id, (int)$enabled, $json]); }
+			if ($nextFunctions !== null) {
+				$json = json_encode($nextFunctions, JSON_THROW_ON_ERROR);
+				if (isset($before['functions'])) $this->db->executeStatement('UPDATE ' . $this->functions . ' SET policy_json=? WHERE conn_id=?', [$json, $id]);
+				else $this->db->executeStatement('INSERT INTO ' . $this->functions . ' (conn_id,policy_json) VALUES (?,?)', [$id, $json]);
+			}
 			$changes = ['main:' . (int)$before['enabled'] . '>' . (int)$enabled];
 			foreach ($apps as $app => $mode) { if ($before['apps'][$app] !== $mode) { $changes[] = $app . ':' . $before['apps'][$app] . '>' . $mode; } }
+			if ($nextFunctions !== null) {
+				$old = $before['functions'] ?? ConnectionFunctions::inherited($before['apps']);
+				foreach ($nextFunctions['areas'] as $area => $mode) if ($mode !== $old['areas'][$area]) $changes[] = 'area.' . $area . ':' . $old['areas'][$area] . '>' . $mode;
+				foreach (array_unique(array_merge($old['allowedTools'], $nextFunctions['allowedTools'])) as $name) {
+					$a = in_array($name, $old['allowedTools'], true); $b = in_array($name, $nextFunctions['allowedTools'], true);
+					if ($a !== $b) $changes[] = 'function.' . $name . ':' . (int)$a . '>' . (int)$b;
+				}
+			}
 			$this->eventInsert($key, $hash, $id, $owner, 'connection.access_changed', $changes);
 			return [];
 		});
 		$e = $this->event($key); $after = $this->policy($id);
-		if ($e === null || $after['enabled'] !== $enabled || $after['apps'] !== $apps) { throw new PlatformDenied('registry_outcome_unconfirmed'); }
+		if ($e === null || $after['enabled'] !== $enabled || $after['apps'] !== $apps || ($functions !== null && ($after['functions'] ?? null) !== $functions)) { throw new PlatformDenied('registry_outcome_unconfirmed'); }
 		return ['committed' => true, 'accessPolicy' => $after];
 	}
 }

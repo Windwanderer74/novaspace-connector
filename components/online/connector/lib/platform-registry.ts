@@ -4,6 +4,7 @@ import { ALL_SCOPES, allowedUserEmail, oauthOrigin, verifyAccessToken, verifyCli
 import { getDeckRuntimeConfig } from './runtime-config';
 import { readBody } from './nextcloud-read';
 import { parseConnectionPolicy, permissionDenial, appForScope, ConnectionPolicyDenied, type ConnectionPolicy } from './connection-policy';
+import { functionPolicyDenial } from './connection-functions';
 
 export type GatewayPrincipal = Readonly<{ subjectHash: string; clientHash: string; scopes: readonly string[] }>;
 const context = new AsyncLocalStorage<GatewayPrincipal>();
@@ -120,7 +121,10 @@ export async function requireTransferPermission(principal: GatewayPrincipal, sco
   try { state = await readRegistryState(principal); }
   catch { throw new ConnectionPolicyDenied('registry_unverified', 'Der aktuelle Verbindungs- und App-Freigabestatus konnte nicht geprüft werden.'); }
   if (state.registered && !state.active) throw new ConnectionPolicyDenied('connection_unavailable', 'Diese Verbindung ist widerrufen oder ihr technischer Zugang wurde geändert.');
-  const denied = permissionDenial(parseConnectionPolicy(state.accessPolicy), appForScope(scope), /:(write|organize)$/.test(scope));
+  const policy = parseConnectionPolicy(state.accessPolicy);
+  const transferTool = scope === 'files:download' ? 'files_download' : scope === 'files:write' ? 'files_prepare_upload' : undefined;
+  const denied = permissionDenial(policy, appForScope(scope), /:(write|organize)$/.test(scope))
+    ?? (transferTool ? functionPolicyDenial(policy.functions, transferTool) : undefined);
   if (!principal.scopes.includes(scope)) throw new ConnectionPolicyDenied('connector_scope_missing', 'Erforderliches Konnektorrecht fehlt: ' + scope);
   if (denied) throw new ConnectionPolicyDenied(denied.structuredContent.outcome, denied.structuredContent.message);
   return state;

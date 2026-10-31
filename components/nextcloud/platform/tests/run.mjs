@@ -8,7 +8,7 @@ import {generateKeyPairSync} from 'node:crypto';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const php=process.env.NF_PHP_BINARY || 'php';
 const temporary=mkdtempSync(join(tmpdir(),'novaspace-platform-test-'));
-const tests=['platform-native-controller.php','platform-access-native.php','platform-inventory-native.php','github-bridge-core.php','github-bridge-signature.php','publication-boundaries.php'];
+const tests=['platform-native-controller.php','platform-access-native.php','platform-functions-native.php','platform-inventory-native.php','github-bridge-core.php','github-bridge-results.php','github-bridge-signature.php','publication-boundaries.php'];
 function run(args,env={}) {
   const result=spawnSync(php,args,{cwd:root,env:{...process.env,...env},encoding:'utf8'});
   if(result.stdout)process.stdout.write(result.stdout);

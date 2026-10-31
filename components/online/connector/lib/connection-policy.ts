@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { AsyncLocalStorage } from 'node:async_hooks';
+import { parseFunctionPolicy, type FunctionPolicy } from './connection-functions';
 
 export const APP_ACCESS = {
   files: { label: 'Dateien', write: true }, deck: { label: 'Deck', write: true },
@@ -11,7 +12,7 @@ export const APP_ACCESS = {
 } as const;
 export type AppName = keyof typeof APP_ACCESS;
 export type AccessMode = 'off' | 'read' | 'write';
-export type ConnectionPolicy = { version: 1; configured: boolean; enabled: boolean; apps: Record<AppName, AccessMode> };
+export type ConnectionPolicy = { version: 1 | 2; configured: boolean; enabled: boolean; apps: Record<AppName, AccessMode>; functions?: FunctionPolicy };
 export class ConnectionPolicyDenied extends Error {
   constructor(public readonly outcome: string, message: string) { super(message); }
   response() { return Response.json({ outcome: this.outcome, message: this.message, reauthenticationRequired: false,
@@ -23,13 +24,15 @@ export function inheritedPolicy(): ConnectionPolicy {
 export function parseConnectionPolicy(value: unknown): ConnectionPolicy {
   if (value === undefined) return inheritedPolicy(); // Old native app: preserve existing OAuth/native limits.
   const p = value as ConnectionPolicy;
-  if (!p || typeof p !== 'object' || Array.isArray(p) || p.version !== 1 || typeof p.configured !== 'boolean'
+  if (!p || typeof p !== 'object' || Array.isArray(p) || ![1, 2].includes(p.version) || typeof p.configured !== 'boolean'
     || typeof p.enabled !== 'boolean' || !p.apps || typeof p.apps !== 'object' || Array.isArray(p.apps)
     || ![Object.keys(APP_ACCESS),Object.keys(APP_ACCESS).filter(k=>!['tasks','contacts'].includes(k)),Object.keys(APP_ACCESS).filter(k=>!['notes','tasks','contacts'].includes(k))].map(keys=>keys.sort().join(',')).includes(Object.keys(p.apps).sort().join(','))) throw new Error('App-Freigabestatus nicht bestätigt.');
   const apps = { ...p.apps };
   for(const app of ['notes','tasks','contacts'] as const)if(!Object.hasOwn(apps,app))apps[app]='off';
   for (const app of Object.keys(APP_ACCESS) as AppName[]) if (!['off','read','write'].includes(apps[app]) || (!APP_ACCESS[app].write && apps[app] === 'write')) throw new Error('App-Freigabestatus nicht bestätigt.');
-  return { version: 1, configured: p.configured, enabled: p.enabled, apps };
+  if (p.version === 1 && Object.hasOwn(p, 'functions')) throw new Error('Einzelfreigaben mit unbestätigter Policy-Version.');
+  return { version: p.version, configured: p.configured, enabled: p.enabled, apps,
+    ...(p.version === 2 ? { functions: parseFunctionPolicy(p.functions) } : {}) };
 }
 export function appForScope(scope: string): AppName | undefined {
   if (scope.startsWith('github:')) return 'deck';

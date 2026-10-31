@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+import {createConfigSchematics} from '@lmstudio/sdk';
+
+export const configSchematics = createConfigSchematics()
+  .field('files','boolean',{displayName:'Datei',subtitle:'Dateien suchen, lesen, kopieren, anlegen und ordnen.'},false)
+  .field('deck','boolean',{displayName:'Deck',subtitle:'Karten, Boards und Listen pflegen; Kommentare und Dateiverknüpfungen mit zusätzlichen Rechten.'},false)
+  .field('mindmap','boolean',{displayName:'Mindmap',subtitle:'Mit benötigten Dateifunktionen. Für Karten-Verknüpfungen auch Deck wählen.'},false)
+  .field('tasks','boolean',{displayName:'Aufgaben',subtitle:'Eigene Aufgabenlisten und Aufgaben pflegen; zusätzliche lokale Aufgabenrechte und native Rechte nötig.'},false)
+  .field('contacts','boolean',{displayName:'Kontakte',subtitle:'Eigene Adressbücher pflegen, Kontakte bearbeiten und einzelne vCards nach Vorschau austauschen; Zusatzrechte gelten.'},false)
+  .field('notes','boolean',{displayName:'Notizen',subtitle:'Notizen, Bilder und Textaustausch; gezieltes Löschen zusätzlich mit Papierkorbrecht. Lokale Zusatzrechte gelten.'},false)
+  .field('calendar','boolean',{displayName:'Kalender',subtitle:'Termine und einfache Serien pflegen, gezielten ICS-Austausch nach Vorschau nutzen und freie Zeitfenster planen.'},false)
+  .field('mail','boolean',{displayName:'E-Mails',subtitle:'Konten, Ordner und Nachrichten lesen. Kein Versand.'},false)
+  .field('tables','boolean',{displayName:'Tabellen/Register',subtitle:'Tabellen lesen. Register- und Tabellen-Schreiben bleibt ein späterer Ausbau.'},false)
+  .field('talk','boolean',{displayName:'Talk',subtitle:'Gespräche lesen. Kein Versand.'},false)
+  .field('announcements','boolean',{displayName:'Mitteilungen',subtitle:'Mitteilungen lesen.'},false)
+  .field('sharing','boolean',{displayName:'Dateifreigaben ändern',subtitle:'Eigene Nutzer-/Gruppen-/geschützte Linkfreigaben verwalten; zusätzlich files:share am PC freigeben.'},false)
+  .field('calendarManagement','boolean',{displayName:'Kalender verwalten',subtitle:'Ganzen eigenen Kalender entfernen/wiederherstellen und lokale Freigaben pflegen. Getrennte bewusste calendar:manage/share-Freigaben erforderlich.'},false)
+  .field('calendarInvitations','boolean',{displayName:'Einladungen organisieren',subtitle:'Eigene Einladungen, Aenderungen und Absagen nach Vorschau. Bewusstes calendar:organize noetig; native Mitteilungen/E-Mails moeglich.'},false)
+  .field('invitationReplies','boolean',{displayName:'Kalenderantworten übermitteln',subtitle:'Eigene Zusage/Absage im eigenen Kalender; bewusstes calendar:schedule nötig. Kann native Antwort/E-Mail an Organisator senden.'},false)
+  .field('boardShares','boolean',{displayName:'Boardfreigaben verwalten',subtitle:'Ausdrücklich gewählte lokale Nutzer-/Gruppenfreigaben pflegen; zusätzlich deck:share am PC freigeben. Nutzerfreigabe aufheben entfernt Kartenzuständigkeiten.'},false)
+  .field('contactBooks','boolean',{displayName:'Adressbuchfreigaben und Entfernen',subtitle:'Kontakte/Freigaben im ganzen Buch betroffen. Bewusstes contacts:share bzw. contacts:manage am PC erforderlich; kein zugesagter Rueckweg beim Entfernen.'},false)
+  .field('deckTrash','boolean',{displayName:'Deck-Papierkorb',subtitle:'Ausgewaehlte Karten/ganze Listen loeschen oder wiederherstellen. Bewusstes deck:trash am PC; Mindmaps bleiben historischer Snapshot.'},false)
+  .field('trash','boolean',{displayName:'Papierkorb verwalten',subtitle:'Eigene Heimspeicherobjekte löschen und gezielt wiederherstellen; zusätzlich files:trash am PC freigeben.'},false)
+  .field('extraTools','stringArray',{displayName:'Einzelwerkzeuge zusätzlich',subtitle:'Optional: genaue Werkzeugnamen, ein Name pro Eintrag.',allowEmptyStrings:false},[])
+  .field('excludedTools','stringArray',{displayName:'Einzelwerkzeuge ausnehmen',subtitle:'Optional: genaue Werkzeugnamen; Ausschluss hat Vorrang.',allowEmptyStrings:false},[])
+  .build();

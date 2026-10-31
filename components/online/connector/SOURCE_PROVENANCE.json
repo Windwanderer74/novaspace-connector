@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "date": "2026-10-29",
+  "date": "2026-10-31",
   "component": "online",
-  "version": "1.36.0",
-  "upstreamCommit": "e2fd91539d4ba5855646f18eefd06e03609a957a",
+  "version": "1.37.0",
+  "upstreamCommit": "19fd6eeba0984b7c2a1e9bace49b045e742edad0",
   "edition": "sanitized AGPL source; no deployment or independent first-install claim",
   "historyImported": false,
   "originalPersonalArchiveSha256": null,
@@ -486,22 +486,40 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "lib/connection-functions.json",
+      "sourcePath": "lib/connection-functions.json",
+      "sourceSha256": "33c27312de78289304939832f62a43b8870c51e441fb7dc3321b28f053825de5",
+      "publishedSha256": "33c27312de78289304939832f62a43b8870c51e441fb7dc3321b28f053825de5",
+      "changes": [],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "lib/connection-functions.ts",
+      "sourcePath": "lib/connection-functions.ts",
+      "sourceSha256": "5ecab74322edda8c317bc48a0e7bdef5f8ff2ebd94b6c046b0d3d15b1f1c8f9c",
+      "publishedSha256": "4472107ff76a27a11e6c53f53d3e76313b7c75b701bff4d1f6c0ad3b8d7ed646",
+      "changes": [
+        "SPDX identifier; catalogue output path points to the published native component."
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "lib/connection-policy.ts",
       "sourcePath": "lib/connection-policy.ts",
-      "sourceSha256": "708db1fb7c0cadc214892009bee30860f0f38f6fdaf4eedf8594091c1e71a5d4",
-      "publishedSha256": "fed62bfbcc32e6e18166213a55df14b10b753a89c38b817c2d36a0c24839741d",
+      "sourceSha256": "334e99a1a04de2a7ae291870ffdaaab5a2245d7f0114aa2584c8823c5853e032",
+      "publishedSha256": "f6b0b27905dd4cfcc42db6212b8c95cf22467471fa7fc9d17acfdd55af8f314b",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained"
+        "SPDX identifier; catalogue output path points to the published native component."
       ],
       "license": "AGPL-3.0-or-later"
     },
     {
       "path": "lib/connector-version.ts",
       "sourcePath": "lib/connector-version.ts",
-      "sourceSha256": "c7931df0349ad378be21298b2afde8495138f07e7f76aa9f655a0d7e2958a022",
-      "publishedSha256": "c0c76007919bb474b6a2a9d99cba13f9f88c8b27cd605a82471359ec90a08c18",
+      "sourceSha256": "81d910122ee7e2346ace1a1612e0f7dca85e42bbfc62e1c78aa3e657ccab1fe8",
+      "publishedSha256": "ec4f5104e5d46b7945af77010108ef5b7943f7189aab973e9f70f3b454ba6de7",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained"
+        "SPDX identifier; catalogue output path points to the published native component."
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1168,10 +1186,10 @@
     {
       "path": "lib/mcp-permissions.ts",
       "sourcePath": "lib/mcp-permissions.ts",
-      "sourceSha256": "9dd4fb221038c949836a206587e07a0c6f020f357ca125d20d4e8c945573b95e",
-      "publishedSha256": "da63341a6e1d2fc037a6cc163c19821a9716bafade983f826d2464ce96c68eef",
+      "sourceSha256": "1b2746205ea9f7e020e0aa164d049f0bae8e3fa4a51b9e575f11bc3ced8ff200",
+      "publishedSha256": "967fec709bbaf42ffa7ef2b69350726caeaa82de6108960b770d04acd5e7fd1b",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained"
+        "SPDX identifier; catalogue output path points to the published native component."
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1450,10 +1468,10 @@
     {
       "path": "lib/platform-registry.ts",
       "sourcePath": "lib/platform-registry.ts",
-      "sourceSha256": "6c77e1dccb3383f46b1418b8acb2402308b676717f6cdafc1dcaa6a6303e6650",
-      "publishedSha256": "91af5a20eb30449c790045bbd037e9832a83d10abedf5b02ace0f930813606c8",
+      "sourceSha256": "847ce6367d74e4d6fb0415e58bc4811c0854616c298c268501bffb4bb00f13f5",
+      "publishedSha256": "b93681ef76d1e212aa6a7654d298172b78cc1e3e48af64cffbdde89480b4c5a4",
       "changes": [
-        "Own-code SPDX notice; existing third-party notices retained"
+        "SPDX identifier; catalogue output path points to the published native component."
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -1730,6 +1748,26 @@
       "license": "AGPL-3.0-or-later"
     },
     {
+      "path": "ops/release-1363/topics/source/config.ts",
+      "sourcePath": "ops/release-1363/topics/source/config.ts",
+      "sourceSha256": "40dee186b54029942f9b5b4d71c8613b7d43baf6bcd9b468da5f7aafe8fc7437",
+      "publishedSha256": "acea1744b8ba7a037bb4ab026e5037e3ea6a1b07602cab94ac831b08cd28e951",
+      "changes": [
+        "SPDX identifier; catalogue output path points to the published native component."
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "ops/release-1363/topics/source/selection.ts",
+      "sourcePath": "ops/release-1363/topics/source/selection.ts",
+      "sourceSha256": "2c2732bda90848cc1f8ba1cd3817f4931e04d879df48cf03d9b80a674d5cf6e2",
+      "publishedSha256": "e9d8d608fd232ba750abf37749ab5c7169f0b7c466db6b213f3dd4779475e188",
+      "changes": [
+        "SPDX identifier; catalogue output path points to the published native component."
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
       "path": "ops/tables-http-test-0.1.0.php",
       "sourcePath": "ops/tables-http-test-0.1.0.php",
       "sourceSha256": "ae0d0a5a94ff7879b8f0a4e25c48936d678146c11c4571f383b4edb1ed8cb08a",
@@ -1894,6 +1932,16 @@
       "publishedSha256": "6149fe9466f87cfac694bff515f3abee952e2e1a1c7e79332fa8a5cd4fb67362",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "scripts/build-connection-functions.mjs",
+      "sourcePath": "scripts/build-connection-functions.mjs",
+      "sourceSha256": "ec89491d8487edc41ef6f61a2fda4d049e036d31f156a81d008f587568f71005",
+      "publishedSha256": "519243d3432f291c897860c0b9eb1241b80f423d3759d40e211132e70127d668",
+      "changes": [
+        "SPDX identifier; catalogue output path points to the published native component."
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -2096,6 +2144,16 @@
       "publishedSha256": "2a0ab0854741d388145fc697bece0b7ea44a0ba477e1c5e24bb80a0590418a40",
       "changes": [
         "Own-code SPDX notice; existing third-party notices retained"
+      ],
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "path": "tests/connection-functions.test.mjs",
+      "sourcePath": "tests/connection-functions.test.mjs",
+      "sourceSha256": "d5eaed7738b75e8a5d7c31ad018c4485e85acb75eacc3e22192c1e228b17890d",
+      "publishedSha256": "b235e20e97dec9ea9963fdf0b34ea156fe4ab5ecfcd2c9dbd17bf46fb1980ddc",
+      "changes": [
+        "SPDX identifier; catalogue output path points to the published native component."
       ],
       "license": "AGPL-3.0-or-later"
     },
@@ -2681,5 +2739,6 @@
     "Credentials, runtime configuration and private receipts",
     "Generated binaries, historical private hosting installers and full private Git history"
   ],
-  "additionalFilesPolicy": "Own publication/build/docs helpers: AGPL-3.0-or-later; existing third-party notices and dependency locks retained."
+  "additionalFilesPolicy": "Own publication/build/docs helpers: AGPL-3.0-or-later; existing third-party notices and dependency locks retained.",
+  "previousPublicCommit": "ab861a8e53c75fe70adac6b9b955311c061102c2"
 }

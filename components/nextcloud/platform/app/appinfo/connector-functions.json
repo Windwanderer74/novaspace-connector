@@ -1,0 +1,1833 @@
+{
+  "version": 1,
+  "connectorVersion": "1.37.0",
+  "areas": [
+    {
+      "id": "files",
+      "label": "Dateien",
+      "app": "files",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "deck",
+      "label": "Deck",
+      "app": "deck",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "mindmap",
+      "label": "Mindmap",
+      "app": "mindmap",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "notes",
+      "label": "Notizen",
+      "app": "notes",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "tables",
+      "label": "Tabellen",
+      "app": "tables",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "tasks",
+      "label": "Aufgaben",
+      "app": "tasks",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "calendar",
+      "label": "Kalender",
+      "app": "calendar",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "contacts",
+      "label": "Kontakte",
+      "app": "contacts",
+      "category": "Arbeit",
+      "extension": false,
+      "write": true
+    },
+    {
+      "id": "calendarInvitations",
+      "label": "Einladungen",
+      "app": "calendar",
+      "category": "Arbeit",
+      "extension": true,
+      "write": true
+    },
+    {
+      "id": "invitationReplies",
+      "label": "Teilnahmeantworten",
+      "app": "calendar",
+      "category": "Arbeit",
+      "extension": true,
+      "write": true
+    },
+    {
+      "id": "mail",
+      "label": "E-Mails",
+      "app": "mail",
+      "category": "Kommunikation",
+      "extension": false,
+      "write": false
+    },
+    {
+      "id": "talk",
+      "label": "Talk",
+      "app": "talk",
+      "category": "Kommunikation",
+      "extension": false,
+      "write": false
+    },
+    {
+      "id": "announcements",
+      "label": "Mitteilungen",
+      "app": "announcements",
+      "category": "Kommunikation",
+      "extension": false,
+      "write": false
+    },
+    {
+      "id": "sharing",
+      "label": "Dateifreigaben verwalten",
+      "app": "files",
+      "category": "Verwaltung",
+      "extension": true,
+      "write": true
+    },
+    {
+      "id": "calendarManagement",
+      "label": "Kalender verwalten",
+      "app": "calendar",
+      "category": "Verwaltung",
+      "extension": true,
+      "write": true
+    },
+    {
+      "id": "boardShares",
+      "label": "Boardfreigaben verwalten",
+      "app": "deck",
+      "category": "Verwaltung",
+      "extension": true,
+      "write": true
+    },
+    {
+      "id": "contactBooks",
+      "label": "Adressbücher verwalten",
+      "app": "contacts",
+      "category": "Verwaltung",
+      "extension": true,
+      "write": true
+    },
+    {
+      "id": "deckTrash",
+      "label": "Deck-Papierkorb verwalten",
+      "app": "deck",
+      "category": "Verwaltung",
+      "extension": true,
+      "write": true
+    },
+    {
+      "id": "trash",
+      "label": "Datei-Papierkorb verwalten",
+      "app": "files",
+      "category": "Verwaltung",
+      "extension": true,
+      "write": true
+    }
+  ],
+  "tools": [
+    {
+      "name": "announcements_list",
+      "title": "Sichtbare Nextcloud-Bekanntmachungen auflisten",
+      "readOnly": true,
+      "app": "announcements",
+      "area": "announcements",
+      "legacy": false
+    },
+    {
+      "name": "announcements_read",
+      "title": "Eine ausgewählte Bekanntmachung lesen",
+      "readOnly": true,
+      "app": "announcements",
+      "area": "announcements",
+      "legacy": false
+    },
+    {
+      "name": "announcements_status",
+      "title": "Announcements-Zugang und Herausgeberrecht prüfen",
+      "readOnly": true,
+      "app": "announcements",
+      "area": "announcements",
+      "legacy": false
+    },
+    {
+      "name": "calendar_apply_file_link",
+      "title": "Genau den geprüften Dateiverweis im Einzeltermin pflegen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_change_calendar_share",
+      "title": "Eigene direkte Kalenderfreigabe gezielt ändern",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendarManagement",
+      "legacy": false
+    },
+    {
+      "name": "calendar_copy_event",
+      "title": "Genau einen unabhängigen Termin kopieren",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_create_calendar",
+      "title": "Einen eigenen Terminkalender anlegen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_create_event",
+      "title": "Nextcloud-Termin anlegen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_create_series",
+      "title": "Eine einfache begrenzte Terminserie anlegen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_delete_calendar",
+      "title": "Genau den geprüften eigenen Kalender entfernen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendarManagement",
+      "legacy": false
+    },
+    {
+      "name": "calendar_delete_event",
+      "title": "Einzelnen Nextcloud-Termin löschen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_edit_series",
+      "title": "Genau die geprüfte gesamte Serie bearbeiten",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_exclude_occurrence",
+      "title": "Genau ein bestätigtes Serienvorkommen ausschließen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_export_ics",
+      "title": "Ein Kalenderoriginal als neue ICS-Datei exportieren",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_find_slots",
+      "title": "Freie Zeitfenster mit Arbeitszeiten und Puffer vorschlagen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_free_busy",
+      "title": "Belegung ausgewählter eigener Kalender prüfen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_import_ics",
+      "title": "Genau das geprüfte ICS-Original neu importieren",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_list",
+      "title": "Nextcloud-Kalender auflisten",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_prepare_copy",
+      "title": "Unabhängige Terminkopie prüfen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_prepare_file_link",
+      "title": "Gewählte vorhandene Datei als Terminverweis vorbereiten",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_prepare_ics_import",
+      "title": "Eine ausgewählte ICS-Datei für Import prüfen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_prepare_meeting",
+      "title": "Eigene Einladung, Besprechungsänderung oder Absage vorbereiten",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_prepare_series_edit",
+      "title": "Gesamtserienpflege samt Ausnahmen prüfen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_event",
+      "title": "Einzelnen Nextcloud-Termin lesen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_invitation",
+      "title": "Eine gespeicherte Kalendereinladung prüfen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_links",
+      "title": "Gespeicherte Terminverweise und Anhangsarten lesen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_management",
+      "title": "Eigenen Kalenderumfang, Freigaben und nativen Löschzustand prüfen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_occurrence",
+      "title": "Genau ein Serienvorkommen prüfen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_period",
+      "title": "Nextcloud-Termine lesen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_scheduling",
+      "title": "Native Kalenderidentität und Scheduling lesen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_series",
+      "title": "Originalserie und ihre Bearbeitungsgrenzen lesen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_settings",
+      "title": "Kalendereigenschaften und Bestand mit Version lesen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_read_trash",
+      "title": "Eigene native Kalenderpapierkorbobjekte lesen oder Wiederherstellung vorbereiten",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_reset_occurrence",
+      "title": "Eine Einzelabweichung zur Serienbasis zurücksetzen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_respond_invitation",
+      "title": "Eigene Zusage oder Absage ausdrücklich übermitteln",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "invitationReplies",
+      "legacy": false
+    },
+    {
+      "name": "calendar_restore_calendar",
+      "title": "Genau den geprüften eigenen Kalender wiederherstellen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendarManagement",
+      "legacy": false
+    },
+    {
+      "name": "calendar_restore_event",
+      "title": "Genau ein geprüftes eigenes Kalenderoriginal nativ wiederherstellen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendarManagement",
+      "legacy": false
+    },
+    {
+      "name": "calendar_search_events",
+      "title": "Ausgewählte Kalender gemeinsam durchsuchen",
+      "readOnly": true,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_submit_meeting",
+      "title": "Genau die vorbereitete eigene Besprechungsaktion ausführen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendarInvitations",
+      "legacy": false
+    },
+    {
+      "name": "calendar_update_calendar",
+      "title": "Eigene Kalendereigenschaften gezielt pflegen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_update_event",
+      "title": "Nextcloud-Termin bearbeiten oder verschieben",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_update_occurrence",
+      "title": "Genau ein Serienvorkommen ändern oder verschieben",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "calendar_update_series",
+      "title": "Gesamte einfache Masterserie gezielt pflegen",
+      "readOnly": false,
+      "app": "calendar",
+      "area": "calendar",
+      "legacy": false
+    },
+    {
+      "name": "contacts_change_book_share",
+      "title": "Eine direkte Adressbuchfreigabe pflegen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contactBooks",
+      "legacy": false
+    },
+    {
+      "name": "contacts_create",
+      "title": "Einen Kontakt anlegen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_create_addressbook",
+      "title": "Ein eigenes Adressbuch anlegen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_delete",
+      "title": "Einen bekannten Kontakt löschen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_delete_book",
+      "title": "Genau das geprüfte eigene Adressbuch dauerhaft entfernen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contactBooks",
+      "legacy": false
+    },
+    {
+      "name": "contacts_export_vcf",
+      "title": "Einen Kontakt als neue vCard exportieren",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_find_duplicates",
+      "title": "Kontakt-Dubletten gezielt finden",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_import_vcf",
+      "title": "Genau die geprüfte vCard neu importieren",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_list_addressbooks",
+      "title": "Adressbücher lesen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_merge_selected",
+      "title": "Ausgewählte Kontaktwerte zusammenführen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_prepare_book_delete",
+      "title": "Gesamtes eigenes Adressbuch zum Löschen prüfen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_prepare_context",
+      "title": "Gewählte Kontaktdaten für einen Arbeitsbezug vorbereiten",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_prepare_merge",
+      "title": "Zwei Kontakte vergleichen und Werteübernahme vorschauen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_prepare_transfer",
+      "title": "Kontaktübertragung vorbereiten",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_prepare_vcf_import",
+      "title": "Eine ausgewählte vCard für Import prüfen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_read",
+      "title": "Einen Kontakt lesen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_read_addressbook_settings",
+      "title": "Adressbucheigenschaften lesen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_read_book_shares",
+      "title": "Eigene Adressbuchfreigaben lesen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_read_options",
+      "title": "Kontaktoptionen lesen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_read_photo",
+      "title": "Kontaktbild lesen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_remove_photo",
+      "title": "Kontaktbild entfernen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_search",
+      "title": "Kontakte in einem Adressbuch suchen",
+      "readOnly": true,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_set_favorite",
+      "title": "Kontaktfavorit setzen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_set_photo",
+      "title": "Kontaktbild aus Datei setzen",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_transfer",
+      "title": "Gewählten Kontakt kopieren oder verschieben",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_update",
+      "title": "Einen Kontakt bearbeiten",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "contacts_update_addressbook",
+      "title": "Eigenes Adressbuch benennen oder beschreiben",
+      "readOnly": false,
+      "app": "contacts",
+      "area": "contacts",
+      "legacy": false
+    },
+    {
+      "name": "create_card",
+      "title": "Deck-Karte anlegen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_attach_file",
+      "title": "Vorhandene Datei für eine Deck-Karte freigeben",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_create_board",
+      "title": "Ein Deck-Board anlegen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_create_board_share",
+      "title": "Eine lokale Boardfreigabe anlegen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "boardShares",
+      "legacy": false
+    },
+    {
+      "name": "deck_create_comment",
+      "title": "Einen beauftragten Deck-Kommentar verfassen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_create_stack",
+      "title": "Eine Deck-Liste anlegen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_detach_file",
+      "title": "Moderne Deck-Dateizuordnung abtrennen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_list_attachments",
+      "title": "Deck-Anhänge mit Versionsnachweisen lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_list_cards",
+      "title": "Deck-Karten gezielt auswählen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_list_comments",
+      "title": "Deck-Kommentare einer Karte lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_move_card_to_board",
+      "title": "Bestehende Deckkarte in ein anderes Board verschieben",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_prepare_card_move",
+      "title": "Boardwechsel einer vorhandenen Deckkarte vorbereiten",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_prepare_trash",
+      "title": "Gezieltes Deck-Löschen oder Wiederherstellen vorschauen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_read_board",
+      "title": "Deck-Board mit Labels und Mitgliedern lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_read_board_shares",
+      "title": "Boardfreigaben mit Versionsnachweisen lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_read_card",
+      "title": "Deck-Karte mit Versionsnachweis lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_read_structure",
+      "title": "Deck-Boards oder Listenstruktur mit Version lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_read_trash",
+      "title": "Native gelöschte Deckkarten oder Listen lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_reconcile_card_move",
+      "title": "Mindmap-Bindung nach erfolgtem Boardwechsel abgleichen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_resolve_attachment_file",
+      "title": "Originaldatei eines modernen Deck-Anhangs prüfen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_restore_item",
+      "title": "Gewählte Deckkarte oder Liste gezielt wiederherstellen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deckTrash",
+      "legacy": false
+    },
+    {
+      "name": "deck_revoke_board_share",
+      "title": "Eine direkte Boardfreigabe aufheben",
+      "readOnly": false,
+      "app": "deck",
+      "area": "boardShares",
+      "legacy": false
+    },
+    {
+      "name": "deck_save_label",
+      "title": "Deck-Label anlegen oder bearbeiten",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_set_assignee",
+      "title": "Eine Deck-Zuständigkeit setzen oder entfernen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_set_card_label",
+      "title": "Ein Deck-Label zuordnen oder entfernen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_trash_item",
+      "title": "Gewählte Deckkarte oder Liste in nativen Papierkorb legen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deckTrash",
+      "legacy": false
+    },
+    {
+      "name": "deck_update_board",
+      "title": "Deck-Board benennen, färben oder archivieren",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_update_board_share",
+      "title": "Rechte einer direkten Boardfreigabe ändern",
+      "readOnly": false,
+      "app": "deck",
+      "area": "boardShares",
+      "legacy": false
+    },
+    {
+      "name": "deck_update_comment",
+      "title": "Einen eigenen Deck-Kommentar bearbeiten",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "deck_update_stack",
+      "title": "Deck-Liste benennen oder einsortieren",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "documents_create_record",
+      "title": "Dokumenteintrag anlegen und prüfen",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "documents_find_record",
+      "title": "Dokumentkennung im Register suchen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "documents_read_record",
+      "title": "Dokumenteintrag mit Schreibversion lesen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "documents_register_status",
+      "title": "Dokumentregister prüfen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "documents_update_record",
+      "title": "Dokumenteintrag versionsgebunden bearbeiten",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "fetch",
+      "title": "Deck-Karte abrufen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "files_copy",
+      "title": "NovaSpace-Datei oder Ordner kopieren",
+      "readOnly": false,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_create_folder",
+      "title": "Nextcloud-Ordner anlegen",
+      "readOnly": false,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_create_text",
+      "title": "Nextcloud-Textdatei anlegen",
+      "readOnly": false,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_download",
+      "title": "Nextcloud-Datei herunterladen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_list",
+      "title": "Nextcloud-Ordner lesen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_move",
+      "title": "Nextcloud-Datei verschieben",
+      "readOnly": false,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_pdf_status",
+      "title": "PDF-Leser prüfen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_prepare_pdf_workspace",
+      "title": "PDF zur Seitensichtung bereitstellen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_prepare_upload",
+      "title": "Binärdatei-Upload ohne Überschreiben vorbereiten",
+      "readOnly": false,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_read_image",
+      "title": "Gewähltes Bild sichten",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_read_pdf",
+      "title": "PDF-Seiten lesen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_read_pdf_original_chunk",
+      "title": "PDF-Originalabschnitt übertragen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_read_text",
+      "title": "Nextcloud-Textdatei lesen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_rename",
+      "title": "Nextcloud-Datei umbenennen",
+      "readOnly": false,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_restore",
+      "title": "Papierkorbobjekt wiederherstellen",
+      "readOnly": false,
+      "app": "files",
+      "area": "trash",
+      "legacy": false
+    },
+    {
+      "name": "files_search",
+      "title": "NovaSpace-Dateien nach Namen suchen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_share_create",
+      "title": "Gezielte Dateifreigabe anlegen",
+      "readOnly": false,
+      "app": "files",
+      "area": "sharing",
+      "legacy": false
+    },
+    {
+      "name": "files_share_read",
+      "title": "Eine Dateifreigabe prüfen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_share_revoke",
+      "title": "Eigene Dateifreigabe aufheben",
+      "readOnly": false,
+      "app": "files",
+      "area": "sharing",
+      "legacy": false
+    },
+    {
+      "name": "files_share_update",
+      "title": "Eigene Dateifreigabe ändern",
+      "readOnly": false,
+      "app": "files",
+      "area": "sharing",
+      "legacy": false
+    },
+    {
+      "name": "files_shares_list",
+      "title": "Dateifreigaben lesen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_stat",
+      "title": "Nextcloud-Datei prüfen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_trash",
+      "title": "Datei in den Papierkorb löschen",
+      "readOnly": false,
+      "app": "files",
+      "area": "trash",
+      "legacy": false
+    },
+    {
+      "name": "files_trash_list",
+      "title": "Eigenen Papierkorb lesen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_trash_read",
+      "title": "Papierkorbobjekt prüfen",
+      "readOnly": true,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "files_update_text",
+      "title": "Nextcloud-Textdatei aktualisieren",
+      "readOnly": false,
+      "app": "files",
+      "area": "files",
+      "legacy": false
+    },
+    {
+      "name": "get_board",
+      "title": "NOVAFORGE-Board lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "get_board_structure",
+      "title": "NOVAFORGE-Boardstruktur lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "get_stack",
+      "title": "NOVAFORGE-Deck-Liste lesen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "github_connection_status",
+      "title": "github_connection_status",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "github_deck_sync_run",
+      "title": "Gewählten Deck-GitHub-Abgleich auslösen",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "github_deck_sync_status",
+      "title": "github_deck_sync_status",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "github_list_repositories",
+      "title": "github_list_repositories",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "github_read_presentation",
+      "title": "github_read_presentation",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "github_write_presentation",
+      "title": "Öffentliche GitHub-Präsentation schreiben",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "inventory_action_history",
+      "title": "Inventory-KI-Aktionen lesen",
+      "readOnly": true,
+      "app": "inventory",
+      "area": "inventory",
+      "legacy": true
+    },
+    {
+      "name": "inventory_create_item",
+      "title": "Inventory-Stammdatensatz anlegen",
+      "readOnly": false,
+      "app": "inventory",
+      "area": "inventory",
+      "legacy": true
+    },
+    {
+      "name": "inventory_get_item",
+      "title": "Inventory-Gerät lesen",
+      "readOnly": true,
+      "app": "inventory",
+      "area": "inventory",
+      "legacy": true
+    },
+    {
+      "name": "inventory_list_items",
+      "title": "Inventory-Geräte auflisten",
+      "readOnly": true,
+      "app": "inventory",
+      "area": "inventory",
+      "legacy": true
+    },
+    {
+      "name": "inventory_status",
+      "title": "Inventory-Zugang prüfen",
+      "readOnly": true,
+      "app": "inventory",
+      "area": "inventory",
+      "legacy": true
+    },
+    {
+      "name": "inventory_update_item",
+      "title": "Inventory-Stammdaten bearbeiten",
+      "readOnly": false,
+      "app": "inventory",
+      "area": "inventory",
+      "legacy": true
+    },
+    {
+      "name": "list_boards",
+      "title": "NOVAFORGE-Boards auflisten",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "mail_list_accounts",
+      "title": "Nextcloud-Mailkonten lesen",
+      "readOnly": true,
+      "app": "mail",
+      "area": "mail",
+      "legacy": false
+    },
+    {
+      "name": "mail_list_folders",
+      "title": "Nextcloud-Mailordner lesen",
+      "readOnly": true,
+      "app": "mail",
+      "area": "mail",
+      "legacy": false
+    },
+    {
+      "name": "mail_list_messages",
+      "title": "Nextcloud-Mailübersicht lesen",
+      "readOnly": true,
+      "app": "mail",
+      "area": "mail",
+      "legacy": false
+    },
+    {
+      "name": "mail_read_message",
+      "title": "Einzelne Nextcloud-Mail lesen",
+      "readOnly": true,
+      "app": "mail",
+      "area": "mail",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_add_source_capsule",
+      "title": "Grundkapsel mit Datei oder Ordner aufnehmen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_create",
+      "title": "Mindmap ohne Überschreiben anlegen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_create_project",
+      "title": "Gemeinsames Projekt über vorhandenen nativen Kern anlegen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_create_work_step",
+      "title": "Arbeitsschritt mit Deckkarte anlegen oder wiederaufnehmen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_link_card",
+      "title": "Mindmap-Knoten mit Deckkarte verknüpfen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_link_file",
+      "title": "Mindmap-Knoten mit vorhandener Datei verknüpfen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_project_folders",
+      "title": "Projektablage lesend auswählen",
+      "readOnly": true,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_project_status",
+      "title": "Bekannten Projektanlauf prüfen",
+      "readOnly": true,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_read",
+      "title": "Mindmap strukturiert lesen",
+      "readOnly": true,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_resume_project",
+      "title": "Denselben gespeicherten Projektanlauf ausdrücklich fortsetzen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_resume_project_card",
+      "title": "Vorhandene Projektkapsel-Zuordnung fortsetzen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_sync_card",
+      "title": "Deck-Checkliste in Mindmap abgleichen",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "mindmap_update_nodes",
+      "title": "Mindmap-Knoten gezielt bearbeiten",
+      "readOnly": false,
+      "app": "mindmap",
+      "area": "mindmap",
+      "legacy": false
+    },
+    {
+      "name": "move_card",
+      "title": "Deck-Karte verschieben",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "notes_attach_image",
+      "title": "Ausgewähltes Bild als native Notizkopie anlegen",
+      "readOnly": false,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_create",
+      "title": "Eine Notiz anlegen",
+      "readOnly": false,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_delete",
+      "title": "Ausdrücklich gewählte Notiz in den Papierkorb legen",
+      "readOnly": false,
+      "app": "notes",
+      "area": "trash",
+      "legacy": false
+    },
+    {
+      "name": "notes_export_text",
+      "title": "Notiztext als neue Markdown-/Textdatei exportieren",
+      "readOnly": false,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_import_text",
+      "title": "Gewählte Textdatei in eine vorhandene Notiz übernehmen",
+      "readOnly": false,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_list",
+      "title": "Notizen seitenweise lesen und suchen",
+      "readOnly": true,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_list_attachments",
+      "title": "Eigene Bilddateien einer Notiz auflisten",
+      "readOnly": true,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_prepare_delete",
+      "title": "Notiz-Löschumfang ohne Änderung prüfen",
+      "readOnly": true,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_read",
+      "title": "Eine Notiz lesen",
+      "readOnly": true,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_resolve_file",
+      "title": "Originaldatei einer Notiz prüfen",
+      "readOnly": true,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "notes_update",
+      "title": "Eine Notiz versionsgebunden bearbeiten",
+      "readOnly": false,
+      "app": "notes",
+      "area": "notes",
+      "legacy": false
+    },
+    {
+      "name": "search",
+      "title": "NOVAFORGE Deck durchsuchen",
+      "readOnly": true,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    },
+    {
+      "name": "tables_create_column",
+      "title": "Tabellenspalte anlegen",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_create_row",
+      "title": "Datensatz anlegen",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_create_table",
+      "title": "Tabelle mit Spalten anlegen",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_find_operation",
+      "title": "Tabellenschreibvorgang nachschlagen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_list",
+      "title": "Nextcloud-Tabellen auflisten",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_list_rows",
+      "title": "Datensatzseite lesen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_pilot_update",
+      "title": "Pilotzelle bedingt ändern",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_pilot_version",
+      "title": "Pilot-Schreibversion lesen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_read",
+      "title": "Tabelle und Spalten lesen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_read_row",
+      "title": "Einzelnen Datensatz lesen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_read_row_version",
+      "title": "Datensatz mit Schreibversion lesen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_read_structure_version",
+      "title": "Tabellenstruktur mit Schreibversion lesen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_search_rows",
+      "title": "Datensatzseite durchsuchen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_share_soul",
+      "title": "Tabelle für Soul sichtbar machen",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_status",
+      "title": "Tables-Fähigkeiten prüfen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_update_column",
+      "title": "Spaltenmetadaten bearbeiten",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_update_row",
+      "title": "Datensatz bedingt bearbeiten",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_update_table",
+      "title": "Tabellenmetadaten bearbeiten",
+      "readOnly": false,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "tables_write_status",
+      "title": "Allgemeines Tabellenschreiben prüfen",
+      "readOnly": true,
+      "app": "tables",
+      "area": "tables",
+      "legacy": false
+    },
+    {
+      "name": "talk_list_rooms",
+      "title": "Nextcloud-Talk-Räume finden",
+      "readOnly": true,
+      "app": "talk",
+      "area": "talk",
+      "legacy": false
+    },
+    {
+      "name": "talk_read_messages",
+      "title": "Nextcloud-Talk-Verlauf lesen",
+      "readOnly": true,
+      "app": "talk",
+      "area": "talk",
+      "legacy": false
+    },
+    {
+      "name": "tasks_create",
+      "title": "Eine eigenständige Aufgabe anlegen",
+      "readOnly": false,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_create_list",
+      "title": "Eine eigene Aufgabenliste anlegen",
+      "readOnly": false,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_delete",
+      "title": "Eine bekannte Aufgabe löschen",
+      "readOnly": false,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_list_lists",
+      "title": "Aufgabenlisten lesen",
+      "readOnly": true,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_read",
+      "title": "Eine Aufgabe lesen",
+      "readOnly": true,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_read_list_settings",
+      "title": "Aufgabenlisten-Eigenschaften mit Version lesen",
+      "readOnly": true,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_search",
+      "title": "Aufgaben in einer Liste suchen",
+      "readOnly": true,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_update",
+      "title": "Eine Aufgabe bearbeiten oder erledigen",
+      "readOnly": false,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "tasks_update_list",
+      "title": "Eigene Aufgabenliste benennen, beschreiben oder einsortieren",
+      "readOnly": false,
+      "app": "tasks",
+      "area": "tasks",
+      "legacy": false
+    },
+    {
+      "name": "update_card",
+      "title": "Deck-Karte bearbeiten",
+      "readOnly": false,
+      "app": "deck",
+      "area": "deck",
+      "legacy": false
+    }
+  ],
+  "hash": "10e2c5429f7dc0d053e2388b7ea468a9ab8efb1dc78a07acf6338f168cff6cbb"
+}

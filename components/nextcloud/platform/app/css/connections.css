@@ -16,3 +16,15 @@
 .ns-platform [role=alert] { padding: 16px; border: 1px solid var(--color-error); border-radius: 8px; }
 
 .ns-platform select,.ns-platform button {min-height:44px;max-width:100%;} .ns-platform pre {white-space:pre-wrap;overflow-wrap:anywhere;}
+.ns-access .ns-category { border: 0; border-top: 1px solid var(--color-border); border-radius: 0; padding: 12px 0; margin-top: 32px; min-width: 0; }
+.ns-category > legend { font-size: 22px; font-weight: 600; padding-right: 16px; }
+.ns-area-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(190px, 260px); align-items: center; gap: 16px; }
+.ns-area-heading label { margin: 12px 0; font-weight: 600; }
+.ns-selection-state,.ns-area-dependency { font-size: 14px; color: var(--color-text-maxcontrast); }
+.ns-function-details summary,.ns-area-help summary { cursor: pointer; padding: 10px 0; min-height: 44px; box-sizing: border-box; }
+.ns-platform .ns-function { display: flex; gap: 12px; align-items: flex-start; min-height: 44px; margin: 4px 0; padding: 8px; box-sizing: border-box; }
+.ns-platform .ns-function input[type=checkbox] { display: inline-block; width: 20px; height: 20px; min-height: 20px; flex: 0 0 20px; margin-top: 3px; }
+.ns-function small { display: block; color: var(--color-text-maxcontrast); }
+.ns-function-details { margin-bottom: 12px; }
+.ns-app-access[data-inactive=true] .ns-function-details { opacity: .75; }
+@media (max-width: 600px) { .ns-platform { padding: 0 12px 32px; margin: 16px auto; } .ns-connection { padding: 8px 12px 16px; } .ns-area-heading { grid-template-columns: minmax(0, 1fr); gap: 0; } }

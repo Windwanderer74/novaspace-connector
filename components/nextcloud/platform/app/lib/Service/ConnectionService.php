@@ -72,12 +72,18 @@ final class ConnectionService {
 	public function revoke(string $id, int $revision, string $requestId): array {
 		return $this->store->revoke($this->web(), $id, $revision, $requestId);
 	}
-	public function saveAccess(string $id, int $revision, string $requestId, string $enabled, array $apps): array {
+	public function saveAccess(string $id, int $revision, string $requestId, string $enabled, array $apps, ?string $catalogue = null, array $allowedTools = [], array $areas = []): array {
 		if (!in_array($enabled, ['0', '1'], true)) { throw new PlatformDenied('permission_main_invalid'); }
-		return $this->store->saveAccess($this->web(), $id, $revision, $requestId, $enabled === '1', $apps);
+		$owner = $this->web(); $functions = null;
+		if ($catalogue !== null) {
+			if (!in_array($id, array_column($this->store->owned($owner), 'connectionId'), true)) throw new PlatformDenied('connection_not_found');
+			$before = $this->store->policy($id);
+			$functions = ConnectionFunctions::fromForm($catalogue, $areas, ConnectionPolicy::modes($apps), $allowedTools, $before['functions'] ?? null);
+		} elseif ($allowedTools !== [] || $areas !== []) throw new PlatformDenied('function_catalogue_missing');
+		return $this->store->saveAccess($owner, $id, $revision, $requestId, $enabled === '1', $apps, $functions);
 	}
 	public function page(): array {
 		$owner = $this->web();
-		return ['ownerUid' => $owner, 'connections' => $this->store->owned($owner), 'events' => $this->store->history($owner), 'appCatalogue' => ConnectionPolicy::APPS];
+		return ['ownerUid' => $owner, 'connections' => $this->store->owned($owner), 'events' => $this->store->history($owner), 'appCatalogue' => ConnectionPolicy::APPS, 'functionCatalogue' => ConnectionFunctions::catalogue()];
 	}
 }

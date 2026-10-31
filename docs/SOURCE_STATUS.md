@@ -1,3 +1,9 @@
+## Quellfortschreibung 31. Oktober 2026
+
+Native Plattform-App **0.5.0** und zugehörige Online-Rechteauswertung **1.37.0** sind als aufbereitete AGPL-Quellen nachgeführt. App-Paket, Dateinachweise, **3/3** Live-Testbericht und bestehende Prüfberichte sind verknüpft. [Veröffentlichung](updates/platform-0.5.0.md). Die persönliche Quelle behält ihren bisherigen datierten Snapshot.
+
+--- Historischer Stand bis30. Oktober ---
+
 ## Gemeinsame Schlussabnahme · 30. Oktober 2026
 
 **Paket 1 ist mit 32/32 Bedingungen abgeschlossen.** Nach der erfolgreichen

@@ -5,7 +5,7 @@
   <name>NovaSpace Plattformgrundlage</name>
   <summary>Persönliche KI-Verbindungen und nachvollziehbare Freigaben</summary>
   <description>Native Zugangsprüfung, bestätigte Cloud-Verbindungen, Widerruf und Konfigurationsverlauf. Begrenzte persönliche Inventory-Delegation mit atomarem Änderungsnachweis.</description>
-  <version>0.4.0</version>
+  <version>0.5.0</version>
   <licence>agpl</licence>
   <author>NovaSpace</author>
   <namespace>NovaspacePlatform</namespace>

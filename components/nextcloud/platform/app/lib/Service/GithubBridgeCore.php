@@ -1,5 +1,6 @@
 <?php
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later
 declare(strict_types=1);
 namespace OCA\NovaspacePlatform\Service;
 
@@ -58,6 +59,16 @@ final class GithubBridgeCore {
         if (!self::text($text, 131072)) { throw new \RuntimeException('readme_not_utf8'); }
         return ['sha' => $d['sha'], 'text' => $text];
     }
+    /** Return bounded counters only; native text may contain private provider details. */
+    private static function syncSummary(mixed $r): ?array {
+        if (!is_array($r) || !is_int($r['deck_to_github'] ?? null) || !is_int($r['github_to_deck'] ?? null)
+            || $r['deck_to_github'] < 0 || $r['github_to_deck'] < 0
+            || !is_array($r['errors'] ?? null) || !is_array($r['warnings'] ?? null)) { return null; }
+        if (isset($r['retryAt']) && (!is_int($r['retryAt']) || $r['retryAt'] < 0)) { return null; }
+        return ['deckToGithub' => $r['deck_to_github'], 'githubToDeck' => $r['github_to_deck'],
+            'errorCount' => count($r['errors']), 'warningCount' => count($r['warnings']),
+            'retryAt' => $r['retryAt'] ?? null];
+    }
     public function execute(string $account, array $c): array {
         self::shape($c);
         $op = $c['operation']; $write = in_array($op, ['presentation_write', 'sync_run'], true);
@@ -69,7 +80,7 @@ final class GithubBridgeCore {
         if (!is_string($login) || !preg_match('/^[A-Za-z0-9][A-Za-z0-9-]{0,38}$/D', $login)) { throw new \RuntimeException('github_identity_unconfirmed'); }
         $base = ['githubLogin' => $login, 'committed' => false];
         if ($write && strcasecmp($login, $c['expectedGithubLogin']) !== 0) { return $base + ['outcome' => 'github_account_conflict']; }
-        if ($op === 'status') { return $base + ['outcome' => 'connected', 'connected' => true, 'bridgeVersion' => '0.1.0', 'githubScopes' => $identity['scopes'] ?? []]; }
+        if ($op === 'status') { return $base + ['outcome' => 'connected', 'connected' => true, 'bridgeVersion' => '0.1.1', 'githubScopes' => $identity['scopes'] ?? []]; }
         if ($op === 'repositories') {
             $repos = $this->ok('/user/repos?affiliation=owner&per_page=50&page=' . $c['page']); $out = [];
             foreach ($repos as $r) {
@@ -93,9 +104,16 @@ final class GithubBridgeCore {
             if ($selected['version'] !== $c['expectedVersion']) { return $base + ['outcome' => 'version_conflict']; }
             try {
                 $r = ($this->sync)($selected['id']);
-                return ['githubLogin' => $login, 'outcome' => ($r['busy'] ?? false) ? 'busy' : 'sync_executed', 'committed' => false,
+                $busy = is_array($r) && ($r['busy'] ?? false) === true;
+                $summary = $busy ? null : self::syncSummary($r);
+                if (!$busy && $summary === null) {
+                    return $base + ['outcome' => 'unknown', 'mayHaveCommitted' => true,
+                        'mappingId' => $selected['id'], 'boardId' => $selected['boardId']];
+                }
+                return $base + ['outcome' => $busy ? 'busy' : ($summary['errorCount'] > 0 ? 'sync_reported_errors' : 'sync_executed'),
                     'mappingId' => $selected['id'], 'boardId' => $selected['boardId'],
-                    'note' => 'Abgleich ausgeführt beziehungsweise belegt beschäftigt; einzelne Zieländerungen und Fehler anschließend frisch prüfen. Keine automatische Wiederholung.'];
+                    'mayHaveCommitted' => !$busy, 'readbackVerified' => false, 'nativeStats' => $summary,
+                    'note' => 'Native Laufzähler, keine Einzelobjekt-Abnahme. Ziele vollständig zurücklesen; bei Fehlern oder unklarem Ergebnis nicht automatisch wiederholen.'];
             } catch (\Throwable) { return $base + ['outcome' => 'unknown', 'mayHaveCommitted' => true, 'mappingId' => $selected['id']]; }
         }
         $root = '/repos/' . rawurlencode($login) . '/' . rawurlencode($c['repository']);

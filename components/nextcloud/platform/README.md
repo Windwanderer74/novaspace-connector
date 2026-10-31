@@ -1,3 +1,48 @@
+# NovaSpace Plattform-App 0.5.0
+
+Stand: **31. Oktober 2026**. Die App-Seite des **NovaSpace Connectors** erhält
+Einzelberechtigungen je KI-Verbindung. Unter **Arbeit**, **Kommunikation** und
+**Verwaltung** stehen 19 Bereiche mit Dropdowns und aufklappbaren Funktionen.
+Eine Einzelauswahl kann den Bereich weiter einschränken; Hauptschalter,
+Bereichsrahmen, ursprüngliche Connectorrechte und native Objektfreigaben gelten
+zusätzlich. Die Detailwahl bleibt beim Ausschalten erhalten.
+
+Die Regeln werden beim tatsächlichen MCP-Aufruf durchgesetzt. Voraussetzung für
+den Online-Anschluss ist dessen Rechteauswertung **1.37.0** oder ein entsprechend
+kompatibler Gateway. Gespeicherte Freigaben erteilen neuen Werkzeugnamen keine
+automatischen Rechte. Die zusätzliche Tabelle `ns_pf_tool_access` speichert die
+Einzelauswahl; bestehende Verbindungen werden beim Update nicht neu angelegt.
+
+- [App-Paket 0.5.0 herunterladen](../../../downloads/novaspace-platform-app-0.5.0.tar.gz)
+- [SHA-256-Prüfsumme](../../../downloads/SHA256SUMS.txt)
+- [Kleine Live-Testreihe: 3/3 bestanden](LIVE-TEST.md)
+- [Einbau und Konfiguration](INSTALL.md)
+- [Quellen und Prüfumfang](SOURCE_PROVENANCE.json) · [Prüfberichte](TEST_RESULTS.json)
+
+Der konkrete Updatepilot **0.4.0 → 0.5.0** wurde auf Nextcloud **35.0.2.2**,
+PHP **8.5.12** und MySQL/MariaDB ausgeführt: private Quell-/Datenbanksicherung,
+native Migration, Dateirückvergleich und unveränderte bestehende Verbindungsdaten
+wurden bestätigt. Danach wurden Speichern/Neuladen, gezielte Sperre, weiter
+mögliches Kartenlesen und Wiederfreigabe live geprüft. Das ist eine begrenzte
+Beta-Abnahme an einer bestehenden Verbindung. Frühere frische Serverprüfungen
+unten behalten ihre damaligen Versionen; neue Nutzer und weitere Clients sind
+weiterer Arbeitsumfang.
+
+Die veröffentlichten Vertrauensdateien sind inaktive Beispiele. Vorhandene eigene
+Gateway-Konfiguration bleibt beim Update installationsbezogen zu erhalten.
+Die eigenen Quellen stehen weiterhin unter **AGPL-3.0-or-later**.
+
+## Pakete selbst erzeugen
+
+Mit `python3 tools/package.py /tmp/novaspace-platform-050` werden nach Prüfung des
+Dateimanifests das vollständige Quellarchiv und das App-Archiv erzeugt.
+`node tests/run.mjs` führt die PHP-Fixtures mit lokalem PHP/OpenSSL/PDO_SQLite aus.
+Die neue Suite `tests/platform-functions-native.php` enthält **61** Prüfungen.
+Der Katalog wird im Online-Quellpaket mit
+`node scripts/build-connection-functions.mjs --check` gegen beide Komponenten geprüft.
+
+## Historische Quell- und Integrationsnachweise bis 29. Oktober 2026
+
 # NovaSpace Plattformgrundlage · App-Quellpaket
 
 ## Aktuelle Quellfortschreibung · 29. Oktober 2026

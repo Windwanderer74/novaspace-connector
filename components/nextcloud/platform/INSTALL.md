@@ -1,3 +1,41 @@
+# App 0.5.0: Einbau und Prüfstand
+
+Die Version ist als Beta-App-Paket und mit vollständigem App-Quellbaum
+veröffentlicht. Das Archiv enthält `novaspace_platform/` und die AGPL-Lizenz.
+Vor Verwendung SHA-256 prüfen und zunächst außerhalb der Cloud entpacken.
+
+Für bestehende Installationen sind Quelle, Schema, Versionsmetadaten und eigene
+Vertrauenskonfiguration zu erfassen und zu sichern. Das Paket enthält inaktive
+Beispiele: eine vorhandene `appinfo/trusted-gateway.json` muss mit der tatsächlichen
+eigenen Gateway-Konfiguration erhalten bleiben. Danach ist die neue native
+Migration `Version000500Date20261031190000` auszuführen und ihre zusätzliche
+Tabelle `ns_pf_tool_access` zurückzuprüfen. Quellen kopieren allein führt keine
+Datenbankmigration aus. Ein allgemeiner Überschreibbefehl ist nicht Teil dieses Pakets.
+
+Der ausgeführte Bestandsupdatepilot verwendete einen an seinen vorher geprüften
+Bestand gebundenen Installer mit eigener Plattform-Datenbanksicherung. Dieser
+benötigt Inventory nicht. Erst nach vollständig zurückgelesener Sicherung und
+erneutem Bestandsvergleich erfolgte das native App-Upgrade; alte Daten wurden
+anschließend verglichen. Dieser installationsbezogene Aufruf wird hier nicht als
+universeller Erstinstaller ausgeliefert. Ein vollständiges Zurücksetzen der
+Datenbank erfolgt nicht automatisch.
+
+Die neue Einzelwahl benötigt einen kompatiblen Gateway; für den Online-Connector
+ist **1.37.0** zusammen mit der App geprüft. App und Online-Connector verwenden
+denselben abgeleiteten Funktionskatalog. Haupt- und Bereichsschalter sowie OAuth-
+und native Objektgrenzen bleiben bindend.
+
+Die Drei-Schritt-Probe in [LIVE-TEST.md](LIVE-TEST.md) lässt sich an einer ausdrücklich
+gewählten Testverbindung nachvollziehen: Kommentare einer eigenen Karte lesen,
+nur diese Lesefunktion deaktivieren und die Sperre prüfen, anschließend wieder
+freigeben. Ein unabhängiger Kartenabruf muss währenddessen weiter funktionieren.
+
+Die frühere Kontext-Statusschnittstelle enthält noch den festen Wert0.4.0.
+Die installierte Appversion wird anhand von Nextcloud-App-Metadaten und
+`appinfo/info.xml` festgestellt; der alte Kontextwert ist dafür nicht maßgeblich.
+
+## Historische Anleitung und Prüfungen der App 0.4.0
+
 # Integration und Testinstallation
 
 Dieses Dokument gehört zum App-Quellpaket vom 23. Oktober 2026. Es beschreibt den vorgesehenen Einbau und seine offenen Abnahmen. Das Paket ist noch kein freigegebenes Produktionsupdate. Der in [DEPLOYED_SOURCE_CHECK.json](DEPLOYED_SOURCE_CHECK.json) dokumentierte Vergleich aller 26 gemeldeten Betriebsdateien ist abgeschlossen; die frühere Metadatenabweichung ist aufgelöst. Die frische Neuinstallation wurde inzwischen für Nextcloud 34.0.4 und 35.0.0 mit PHP 8.3.6/MariaDB 10.11.14 erfolgreich geprüft. Der produktive Updatepfad bleibt gesondert abzunehmen.

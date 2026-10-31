@@ -1,3 +1,9 @@
+## Fortschreibung 31. Oktober 2026 · App0.5.0
+
+Native KI-Verbindungen mit Bereichs-/Einzelwahl ist eingebaut und im gezielten Live-Test **3/3** bestätigt. Online läuft **1.37.0**. [App, Testbericht und Einbau](docs/updates/platform-0.5.0.md). Paket1 bleibt **32/32** abgenommen; der nachfolgende Stand beschreibt seinen Abschluss vom30. Oktober.
+
+---
+
 # Entwicklungsübersicht · NovaSpace Connector
 
 Stand: **30. Oktober 2026 · Paket 1 abgeschlossen und gemeinsam abgenommen**.

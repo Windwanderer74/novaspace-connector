@@ -25,7 +25,7 @@ function nfGithubFixture(array $state = []): array {
         }
         return $state['exists'] ? ['status' => 200, 'data' => ['owner' => ['login' => $state['login']], 'name' => 'showcase', 'id' => 123, 'private' => $state['private'], 'archived' => false]] : ['status' => 404, 'data' => []];
     };
-    $core = new GithubBridgeCore($request, fn() => $maps, function ($id) use (&$calls) { $calls->calls[] = ['SYNC', $id]; return []; });
+    $core = new GithubBridgeCore($request, fn() => $maps, function ($id) use (&$calls) { $calls->calls[] = ['SYNC', $id]; return ['deck_to_github'=>0,'github_to_deck'=>0,'errors'=>[],'warnings'=>[]]; });
     return [$core, $calls];
 }
 $write = ['operation' => 'presentation_write', 'repository' => 'showcase', 'expectedAccount' => 'Owner', 'expectedGithubLogin' => 'ExampleOwner',

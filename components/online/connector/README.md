@@ -1,3 +1,18 @@
+## Fortschreibung 31. Oktober 2026 · Online 1.37.0
+
+Die Rechteauswertung unterstützt jetzt explizite v2-Einzelregeln aus der nativen
+Plattform-App0.5.0. Direkte MCP-Aufrufe und vorhandene Download-/Uploadtickets
+prüfen die aktuelle Auswahl je Verbindung. Bereichs- und Hauptsperren bleiben
+vorrangig. Der gemeinsame Katalog wird aus den tatsächlichen Registrierungen
+und den 19 bestehenden Themenkennungen erzeugt.
+
+**36** gezielte Gateway-/Policy-/Registrierungsprüfungen, Katalogabgleich und
+Produktionsbuild der aufbereiteten Fassung sind erfolgreich. Die kleine
+[Live-Probe mit der App](../../nextcloud/platform/LIVE-TEST.md) besteht **3/3**.
+Die übrigen Komponenten und früheren Nachweise behalten ihren datierten Stand.
+
+--- Historischer Quellpaketstand 1.36.0 ---
+
 # Online-Connector 1.36.0 – Quellpaket
 
 Dieses Paket veröffentlicht den zusammengehörigen Nextcloud-Teil des Online-Connectors unter **AGPL-3.0-or-later**. Ausgangspunkt ist der erhaltene Betriebscheckpoint `e2fd91539d4ba5855646f18eefd06e03609a957a`. Es enthält Anwendung, MCP-/OAuth-Adapter, gemeinsame Bibliotheken, Browser-Erweiterung und die zum Bauen benötigten Eingaben.

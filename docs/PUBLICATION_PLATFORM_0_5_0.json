@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-31",
+  "appVersion": "0.5.0",
+  "onlineVersion": "1.37.0",
+  "sourceCheckpoint": "19fd6eeba0984b7c2a1e9bace49b045e742edad0",
+  "previousPublicCommit": "ab861a8e53c75fe70adac6b9b955311c061102c2",
+  "liveTests": {
+    "passed": 3,
+    "total": 3,
+    "report": "components/nextcloud/platform/LIVE-TEST.md"
+  },
+  "sourceReconciliation": {
+    "runtimeSourceFiles": 31,
+    "missingRuntimeSources": 0,
+    "intentionalPublicationTransforms": [
+      "SPDX comments",
+      "Public setup help link",
+      "Inactive gateway trust examples"
+    ]
+  },
+  "checks": {
+    "publishedNativeFixtureSuitesPassed": 8,
+    "gatewayPolicyAndRegistrationPassed": 36,
+    "sharedCatalogueMatch": true,
+    "onlineProductionBuild": true,
+    "archiveReadback": true
+  },
+  "downloads": [
+    {
+      "name": "novaspace-platform-app-0.5.0.tar.gz",
+      "bytes": 53719,
+      "sha256": "605e411658cbf6c50749a0ea9a402869ab3aea72005e02c4cba5b3fe36637014"
+    },
+    {
+      "name": "novaspace-platform-source-0.5.0.tar.gz",
+      "bytes": 136804,
+      "sha256": "09fa871eee87e33e034890b02d20b9e3a47ab2634e8d8aafb5f803b71fd31857"
+    }
+  ],
+  "license": "AGPL-3.0-or-later",
+  "signing": "Source/app archive in repository; Nextcloud App Store signing is not part of this distribution."
+}

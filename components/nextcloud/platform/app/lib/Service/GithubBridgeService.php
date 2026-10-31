@@ -1,5 +1,6 @@
 <?php
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later
 declare(strict_types=1);
 namespace OCA\NovaspacePlatform\Service;
 
@@ -78,8 +79,8 @@ final class GithubBridgeService {
             $service = \OCP\Server::get(\OCA\DeckGithubSync\Service\SyncService::class);
             $map = $service->findMap($id, $owner);
             if ($map->getUserId() !== $owner) { throw new PlatformDenied('mapping_owner_conflict'); }
-            $service->syncBoard($map);
-            return ['busy' => false];
+            require_once __DIR__ . '/GithubSyncProjectAdapter.php';
+            return GithubSyncProjectAdapter::forMapping($map)->syncBoard($map);
         };
         return $base + (new GithubBridgeCore($request, $maps, $sync))->execute($owner, $command);
     }

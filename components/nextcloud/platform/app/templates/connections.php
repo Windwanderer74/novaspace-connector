@@ -3,6 +3,7 @@
 declare(strict_types=1);
 style('novaspace_platform', 'connections');
 style('novaspace_platform', 'connections-scroll');
+script('novaspace_platform', 'connections');
 ?>
 <main class="ns-platform" tabindex="0" aria-label="KI-Verbindungen">
   <h1>Meine KI-Verbindungen</h1>
@@ -38,7 +39,7 @@ style('novaspace_platform', 'connections-scroll');
     <p>Eine vorhandene Datei lässt sich mit ausdrücklichem Auftrag und zusätzlichem Recht „Dateifreigaben verwalten“ an eine Deck-Karte verknüpfen. Dadurch erhalten aktuelle und spätere Kartenleser Lesezugriff; native Benachrichtigungen sind möglich. Das Abtrennen einer modernen Dateizuordnung erhält die Originaldatei. Alte Deck-Dateianhänge werden damit nicht gelöscht.</p>
     <p>Mit dem zusätzlichen Konnektorrecht „Papierkorb verwalten“ kann die KI ausdrücklich gewählte eigene Dateien im persönlichen Heimspeicher in den Papierkorb löschen und gezielt wiederherstellen. Ordner einschließlich Inhalt müssen ausdrücklich benannt werden. Endgültiges Löschen wird nicht angeboten; native Aufbewahrungsfristen gelten. Die Dateien-Auswahl allein erteilt dieses Zusatzrecht nicht.</p>
     <p>Eigene Dateifreigaben kannst du für einen genau genannten Pfad lesen lassen. Neue Nutzer-/Gruppenfreigaben oder geschützte Links sowie Änderungen und Aufhebungen benötigen zusätzlich das bewusst erteilte Konnektorrecht „Dateifreigaben verwalten“. Die Dateien-Auswahl allein ergänzt dieses Recht nicht. Empfänger und gewünschte Zugriffe bestimmst du; das Aufheben einer Freigabe löscht keine Datei.</p>
-    <p><a href="https://connector.example.invalid/anleitung" target="_blank" rel="noopener noreferrer">Kurzanleitung zum NovaSpace Connector öffnen</a></p>
+    <p><a href="https://github.com/Windwanderer74/novaspace-connector/blob/main/components/nextcloud/platform/INSTALL.md" target="_blank" rel="noopener noreferrer">Kurzanleitung zum NovaSpace Connector öffnen</a></p>
   </details>
   <?php if ($_['error'] !== null): ?>
     <p role="alert"><?php p($_['error']); ?></p>
@@ -84,22 +85,54 @@ style('novaspace_platform', 'connections-scroll');
             </p>
             <?php if (!$access['configured']): ?><p>Deine bisherigen Konnektorfreigaben bleiben wirksam. Hier kannst du sie zusätzlich begrenzen.</p><?php endif; ?>
             <p>Die Auswahl legt den maximal erlaubten Zugriff fest. Die Zustimmung beim Verbinden und deine Cloud-Freigaben gelten zusätzlich. Fehlende Rechte werden dadurch nicht hinzugefügt.</p>
-            <fieldset><legend>App-Freigaben für diese KI-Verbindung</legend>
-            <?php foreach ($_['appCatalogue'] as $key => $info): $selected = $access['apps'][$key]; ?>
-              <div class="ns-app-access">
-                <label for="app-<?php p($c['connectionId'] . '-' . $key); ?>"><?php p($info['label']); ?></label>
-                <select id="app-<?php p($c['connectionId'] . '-' . $key); ?>" name="apps[<?php p($key); ?>]">
-                  <option value="off" <?php if ($selected === 'off') { p('selected'); } ?>>Aus</option>
-                  <option value="read" <?php if ($selected === 'read') { p('selected'); } ?>>Lesen</option>
-                  <?php if ($info['write']): ?><option value="write" <?php if ($selected === 'write') { p('selected'); } ?>>Lesen und unterstützte Änderungen</option><?php endif; ?>
-                </select>
-                <p><?php p($info['changes']); ?></p>
-              </div>
+            <?php
+              $catalogue = $_['functionCatalogue'];
+              $functions = $access['functions'] ?? \OCA\NovaspacePlatform\Service\ConnectionFunctions::inherited($access['apps']);
+              $visibleApps = array_column(array_filter($catalogue['areas'], fn($a) => !$a['extension']), 'app');
+            ?>
+            <input type="hidden" name="catalogue" value="<?php p($catalogue['hash']); ?>">
+            <?php foreach ($access['apps'] as $key => $mode): if (!in_array($key, $visibleApps, true)): ?>
+              <input type="hidden" name="apps[<?php p($key); ?>]" value="<?php p($mode); ?>">
+            <?php endif; endforeach; ?>
+            <p>Wähle den Bereichszugriff. Unter „Einzelne Funktionen“ kannst du ihn weiter einschränken. Aufklappen ändert keine Freigabe. Deine Detailauswahl bleibt beim Ausschalten erhalten.</p>
+            <?php foreach (['Arbeit', 'Kommunikation', 'Verwaltung'] as $category): ?>
+            <fieldset class="ns-category"><legend><?php p($category); ?></legend>
+            <?php foreach ($catalogue['areas'] as $area): if ($area['category'] !== $category) continue;
+              $key = $area['id']; $app = $area['app']; $info = $_['appCatalogue'][$app];
+              $selected = $area['extension'] ? $functions['areas'][$key] : $access['apps'][$app];
+              $rows = array_values(array_filter($catalogue['tools'], fn($t) => !$t['legacy'] && $t['area'] === $key));
+              $restricted = false;
+              foreach ($rows as $t) if (($selected === 'write' || ($selected === 'read' && $t['readOnly'])) && !in_array($t['name'], $functions['allowedTools'], true)) $restricted = true;
+              $field = ($area['extension'] ? 'areas[' . $key : 'apps[' . $app) . ']';
+            ?>
+              <section class="ns-app-access" data-app="<?php p($app); ?>">
+                <div class="ns-area-heading">
+                  <label for="app-<?php p($c['connectionId'] . '-' . $key); ?>"><?php p($area['label']); ?></label>
+                  <select id="app-<?php p($c['connectionId'] . '-' . $key); ?>" name="<?php p($field); ?>" data-area-mode>
+                    <option value="off" <?php if ($selected === 'off') p('selected'); ?>>Aus</option>
+                    <option value="read" <?php if ($selected === 'read') p('selected'); ?>>Lesen</option>
+                    <?php if ($area['write'] && $info['write']): ?><option value="write" <?php if ($selected === 'write') p('selected'); ?>>Lesen und Schreiben</option><?php endif; ?>
+                  </select>
+                </div>
+                <p class="ns-selection-state" aria-live="polite"><?php p($selected === 'off' ? 'Bereich ausgeschaltet · Detailauswahl bleibt gespeichert' : ($restricted ? 'Individuell eingeschränkt' : 'Alle Funktionen innerhalb der gewählten Zugriffsstufe ausgewählt')); ?></p>
+                <?php if ($area['extension']): ?><p class="ns-area-dependency">Zusätzlich gilt der Bereichszugriff „<?php p($info['label']); ?>“. Eine Einzelauswahl hebt dessen Sperre nicht auf.</p><?php endif; ?>
+                <details class="ns-function-details"><summary>Einzelne Funktionen (<?php p(count($rows)); ?>)</summary>
+                  <p>Lesen und Änderungen bleiben durch die Bereichsauswahl, den Hauptschalter und deine vorhandenen Rechte begrenzt.</p>
+                  <?php foreach ($rows as $t): ?>
+                    <label class="ns-function">
+                      <input type="checkbox" name="allowedTools[]" value="<?php p($t['name']); ?>" data-write="<?php p($t['readOnly'] ? '0' : '1'); ?>" <?php if (in_array($t['name'], $functions['allowedTools'], true)) p('checked'); ?>>
+                      <span><?php p($t['title']); ?><small><?php p($t['readOnly'] ? 'Lesen / Prüfen' : 'Änderung'); ?></small></span>
+                    </label>
+                  <?php endforeach; ?>
+                </details>
+                <?php if (!$area['extension']): ?><details class="ns-area-help"><summary>Umfang und Voraussetzungen</summary><p><?php p($info['changes']); ?></p></details><?php endif; ?>
+              </section>
             <?php endforeach; ?>
             </fieldset>
+            <?php endforeach; ?>
             <p>Mindmap und Datei-Verknüpfungen benötigen zusätzlich Dateirechte; Deck-Verknüpfungen zusätzlich Deck-Leserechte. Eine App-Freigabe ersetzt keine Rechte an einzelnen Inhalten.</p>
             <p>Dateizugriff kann auch gespeicherte Mindmaps und exportierte Inhalte anderer Apps umfassen. Diese Liste begrenzt die App-Werkzeuge; die Auswahl einzelner Ordner und Inhalte folgt später.</p>
-            <button type="submit" class="primary">Hauptschalter und App-Freigaben speichern</button>
+            <button type="submit" class="primary">Auswahl für diese Verbindung speichern</button>
             <p>Die Änderung gilt nach dem Speichern für folgende Aufrufe. Bereits laufende Aufrufe können abschließen. Bei einer Sperre erhält die KI den konkreten Grund und kann den Freigabestatus weiter abfragen.</p>
           </form>
           <p>Der Widerruf sperrt folgende Konnektor-Aufrufe und zugehörige Dateifreigaben. Bereits laufende Aufrufe können noch abschließen.</p>
@@ -126,8 +159,11 @@ style('novaspace_platform', 'connections-scroll');
           <span><?php $changes = []; foreach ($e['changedFields'] as $field) {
             $parts = explode(':', $field, 2); $values = explode('>', $parts[1] ?? '');
             if (count($values) !== 2) { continue; }
-            $labels = $parts[0] === 'main' ? ['0' => 'Aus', '1' => 'Ein'] : ['off' => 'Aus', 'read' => 'Lesen', 'write' => 'Lesen und unterstützte Änderungen'];
+            $isFunction = str_starts_with($parts[0], 'function.');
+            $labels = $parts[0] === 'main' || $isFunction ? ['0' => 'Aus', '1' => 'Ein'] : ['off' => 'Aus', 'read' => 'Lesen', 'write' => 'Lesen und Schreiben'];
             $name = $parts[0] === 'main' ? 'Hauptschalter' : ($_['appCatalogue'][$parts[0]]['label'] ?? 'App');
+            if ($isFunction) { $byName = array_column($_['functionCatalogue']['tools'], 'title', 'name'); $name = $byName[substr($parts[0], 9)] ?? substr($parts[0], 9); }
+            if (str_starts_with($parts[0], 'area.')) { $byArea = array_column($_['functionCatalogue']['areas'], 'label', 'id'); $name = $byArea[substr($parts[0], 5)] ?? 'Bereich'; }
             $changes[] = $name . ': ' . ($labels[$values[0]] ?? '?') . ' → ' . ($labels[$values[1]] ?? '?');
           } p(implode(' · ', $changes)); ?></span>
         <?php endif; ?>

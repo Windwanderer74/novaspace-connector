@@ -61,10 +61,10 @@ final class ConnectionsController extends Controller {
 		} catch (\Throwable) { return $this->view(['error' => 'Der Widerruf ist nicht gesichert oder die Verbindung wurde inzwischen geändert. Bitte die aktuelle Verbindungsliste prüfen.'], 409); }
 	}
 	#[NoAdminRequired]
-	public function saveAccess(string $connectionId, int $revision, string $requestId, string $enabled, array $apps) {
+	public function saveAccess(string $connectionId, int $revision, string $requestId, string $enabled, array $apps, ?string $catalogue = null, array $allowedTools = [], array $areas = []) {
 		try {
-			$this->allowed(['connectionId', 'revision', 'requestId', 'enabled', 'apps']);
-			$this->connections->saveAccess($connectionId, $revision, $requestId, $enabled, $apps);
+			$this->allowed(['connectionId', 'revision', 'requestId', 'enabled', 'apps', 'catalogue', 'allowedTools', 'areas']);
+			$this->connections->saveAccess($connectionId, $revision, $requestId, $enabled, $apps, $catalogue, $allowedTools, $areas);
 			return new RedirectResponse($this->urls->linkToRoute('novaspace_platform.connections.index'));
 		} catch (\Throwable) { return $this->view(['error' => 'Die App-Freigaben sind nicht bestätigt oder die Verbindung wurde inzwischen geändert. Bitte die aktuelle Verbindungsliste prüfen. Keine erneute Anmeldung erforderlich.'], 409); }
 	}

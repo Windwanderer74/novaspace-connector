@@ -1,0 +1,2 @@
+605e411658cbf6c50749a0ea9a402869ab3aea72005e02c4cba5b3fe36637014  novaspace-platform-app-0.5.0.tar.gz
+09fa871eee87e33e034890b02d20b9e3a47ab2634e8d8aafb5f803b71fd31857  novaspace-platform-source-0.5.0.tar.gz
