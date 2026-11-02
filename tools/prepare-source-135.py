@@ -26,7 +26,6 @@ def digest(data):return hashlib.sha256(data).hexdigest()
 def jwrite(path,value):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
 def clean(text):
  replacements={
-  'https://next2.novaspace.info':'https://cloud.example.invalid',
   'https://novaspace.info/portal':'https://cloud.example.invalid',
   'https://novaforge-deck-connector.arnedammann8.chatgpt.site':'https://connector.example.invalid',
   'arnedammann8@gmail.com':'operator@example.invalid',
@@ -34,6 +33,9 @@ def clean(text):
   'Sebastian_Dau':'ExampleUser',
  }
  for old,new in replacements.items():text=text.replace(old,new)
+ # Sanitize the main domain and all of its subdomains in publication inputs.
+ text=re.sub(r'https://(?:[a-z0-9-]+\.)*novaspace\.info(?![a-z0-9_.-])',
+             'https://cloud.example.invalid',text,flags=re.IGNORECASE)
  text=re.sub(r'https://cloud\.example\.invalid/index\.php/apps/intravox/#page-[a-f0-9-]+',
              'https://docs.example.invalid/guides/deck',text)
  return text
