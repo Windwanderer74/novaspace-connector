@@ -1,0 +1,24 @@
+{
+  "kind": "novaspace-sync-bridge-0.1.1",
+  "installerSha256": "2b5af25f0e6eef2ce8690e19e631859434e6e64c7aa18d12c3447102c38361da",
+  "installerBytes": 63667,
+  "files": {
+    "GithubSyncProjectAdapter.php": {
+      "beforeSha256": null,
+      "afterSha256": "c915d88825af5fa703c7d81a8126d33c7f1cdfd94ddf9bad8290dbd5f91b4134"
+    },
+    "GithubBridgeCore.php": {
+      "beforeSha256": "27907145aebc2fd3957e0241598161215f831bc5e9d6735e57257a3f595be29b",
+      "afterSha256": "fbc148f8d63c0d2e46e48187b3503c9c78a2c8806843b9c5a00e0dc1af8e3266"
+    },
+    "GithubBridgeService.php": {
+      "beforeSha256": "0bca526649042babb950f6d4025bad5396d81588c7a9ed0b350025c359db2d2a",
+      "afterSha256": "8a36f120d1c881bd1e6b7de926251ffc833df4154fe7d3c01029573c5329c604"
+    }
+  },
+  "upstreamSha256": {
+    "SyncService.php": "9f9221af999230cd050de14e2915427f4ff49618d48908ebdcba72cb76b7d0b1",
+    "DeckService.php": "69d9f62b41bf7c3fcdb717ade573460eaf1422fad938694316695a32bf68c213",
+    "GithubProjectService.php": "4de6ed288cc33479b5309aa1a55ca0f9a5b0caf81fb7c9a29ea0c6513341a57d"
+  }
+}

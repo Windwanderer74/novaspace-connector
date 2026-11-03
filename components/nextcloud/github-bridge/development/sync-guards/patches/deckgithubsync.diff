@@ -1,0 +1,40 @@
+--- a/lib/Service/SyncService.php
++++ b/lib/Service/SyncService.php
+@@ -160,7 +160,9 @@
+ 				break;
+ 			}
+ 		}
++		// Draft items can be omitted by GitHub's updated-date search filter.
++		// A reverse-capable run must also discover changed and new drafts.
++		$incremental = !$allowToDeck && $this->canSyncIncrementally($map, $deckCards, $known, $fieldMap, $allowToGithub);
+-		$incremental = $this->canSyncIncrementally($map, $deckCards, $known, $fieldMap, $allowToGithub);
+ 		$filter = $incremental ? 'updated:>@today-1d' : null;
+ 
+ 		$options = [];
+@@ -215,7 +217,7 @@
+ 				$options[mb_strtolower((string)$name)] = $id;
+ 			}
+ 			if ($statusFieldId !== '') {
++				if ($allowToGithub && $this->fieldAllowed($fieldMap, 'status', BoardMap::DIR_TO_GITHUB)) {
+-				if ($allowToGithub) {
+ 					try {
+ 						$options = $this->github->ensureStatusOptions($userId, $statusFieldId, $fields['fields'] ?? [], array_values($stackById));
+ 					} catch (\Throwable $e) {
+@@ -226,7 +228,7 @@
+ 						$this->logger->warning('deckgithubsync: ensureStatusOptions failed', ['exception' => $e]);
+ 					}
+ 				}
++				if ($allowToDeck && $this->fieldAllowed($fieldMap, 'status', BoardMap::DIR_TO_DECK)) {
+-				if ($allowToDeck) {
+ 					foreach (array_keys($fields['options']) as $statusName) {
+ 						$key = strtolower($statusName);
+ 						if (!isset($stackByTitle[$key])) {
+@@ -243,7 +245,7 @@
+ 						}
+ 					}
+ 				}
++			} elseif ($allowToGithub && $this->fieldAllowed($fieldMap, 'status', BoardMap::DIR_TO_GITHUB)) {
+-			} elseif ($allowToGithub) {
+ 				$this->warnings[] = $this->l->t('GitHub Project has no Status field; stack sync is disabled.');
+ 				$this->logger->warning('deckgithubsync: project has no Status field, stack sync disabled');
+ 			}

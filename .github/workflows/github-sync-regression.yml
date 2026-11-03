@@ -1,0 +1,55 @@
+name: GitHub sync regression candidate
+
+on:
+  pull_request:
+    paths:
+      - 'components/nextcloud/github-bridge/development/sync-guards/**'
+      - '.github/workflows/github-sync-regression.yml'
+  push:
+    branches:
+      - 'fix/github-sync-guards-20261024'
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Check out the proposed source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: PHP version and syntax
+        run: |
+          php --version
+          find 'components/nextcloud/github-bridge/development/sync-guards' -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Verify the pinned upstream blob
+        run: |
+          php -r '$r="components/nextcloud/github-bridge/development/sync-guards/upstream"; $m=json_decode(file_get_contents($r."/SOURCE_PROVENANCE.json"),true,512,JSON_THROW_ON_ERROR); $s=file_get_contents($r."/lib/Service/SyncService.php"); if(sha1("blob ".strlen($s)."\0".$s)!==$m["upstreamGitBlobSha"]){throw new RuntimeException("Upstream fixture differs from pinned Git blob");}'
+      - name: Reproduce the pinned upstream defects
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/native-sync.php' 'components/nextcloud/github-bridge/development/sync-guards/upstream/lib/Service/SyncService.php' baseline
+      - name: Apply the source patch to a disposable fixture
+        run: |
+          cp -R 'components/nextcloud/github-bridge/development/sync-guards/upstream' .ci-deckgithubsync
+          git apply --check --directory=.ci-deckgithubsync 'components/nextcloud/github-bridge/development/sync-guards/patches/deckgithubsync.diff'
+          git apply --directory=.ci-deckgithubsync 'components/nextcloud/github-bridge/development/sync-guards/patches/deckgithubsync.diff'
+          php -l .ci-deckgithubsync/lib/Service/SyncService.php
+      - name: Verify native reverse and field boundaries
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/native-sync.php' .ci-deckgithubsync/lib/Service/SyncService.php fixed
+      - name: Retain existing bridge guards
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/legacy-bridge-core.php'
+      - name: Verify bridge result reporting
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/bridge-results.php'
+      - name: Verify unchanged native sync through the selected adapter
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/native-sync-adapter.php' 'components/nextcloud/github-bridge/development/sync-guards/upstream/lib/Service/SyncService.php' fixed
+      - name: Verify adapter with real project query service
+        run: php 'components/nextcloud/github-bridge/development/sync-guards/tests/project-adapter.php'
+      - name: Build and verify the reproducible installer
+        run: |
+          python 'components/nextcloud/github-bridge/development/sync-guards/build-install-bundle.py'
+          git diff --exit-code -- 'components/nextcloud/github-bridge/development/sync-guards/INSTALL_SHA256.json' 'components/nextcloud/github-bridge/development/sync-guards/NovaSpace_GitHub_Sync_Bridge_0_1_1_Installer.php.txt'
+          php -l 'components/nextcloud/github-bridge/development/sync-guards/NovaSpace_GitHub_Sync_Bridge_0_1_1_Installer.php.txt'
+      - name: Verify installation, rollback and concurrent changes
+        run: python 'components/nextcloud/github-bridge/development/sync-guards/tests/installer.py'
