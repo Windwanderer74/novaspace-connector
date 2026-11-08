@@ -6,7 +6,7 @@ Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinan
 
 ## Zwischenstand 8. November 2026 · begrenzter RAG-Pilot
 
-Der begrenzte RAG-Pilot ist im dokumentierten Prüfumfang abgenommen. Der [Abnahmebericht](docs/updates/rag-pilot-2026-11-08.md) beschreibt Ergebnisse, persönliche Zugriffsprüfung und Grenzen. Als Nächstes folgen die Anbindung an den bestehenden LM-Studio-Connector und die RAG-Steuerung in der App.
+Der begrenzte RAG-Pilot ist über den Online-Anschluss und den persönlichen LM-Studio-Connector im dokumentierten Prüfumfang abgenommen. Status, Treffer mit Quellenbeleg, leere Gegenprobe und lokale Dateilesesperre sind praktisch geprüft; die Prüfkopie ist bereinigt. Der [Abnahmebericht](docs/updates/rag-pilot-2026-11-08.md) trennt die Nachweise und ihre Grenzen. Als Nächstes folgt die RAG-Steuerung in der vorhandenen NovaSpace-App. Eine automatische Verarbeitung aller Dateien ist damit noch nicht eingerichtet.
 
 Die folgenden Versionsangaben und Downloads behalten ihren datierten öffentlichen Quell- und Paketstand.
 
