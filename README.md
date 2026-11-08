@@ -4,6 +4,12 @@
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
+## Zwischenstand 8. November 2026 · begrenzter RAG-Pilot
+
+Der begrenzte RAG-Pilot ist über den Online-Anschluss und den persönlichen LM-Studio-Connector im dokumentierten Prüfumfang abgenommen. Status, Treffer mit Quellenbeleg, leere Gegenprobe und lokale Dateilesesperre sind praktisch geprüft; die Prüfkopie ist bereinigt. Der [Abnahmebericht](docs/updates/rag-pilot-2026-11-08.md) trennt die Nachweise und ihre Grenzen. Als Nächstes folgt die RAG-Steuerung in der vorhandenen NovaSpace-App. Eine automatische Verarbeitung aller Dateien ist damit noch nicht eingerichtet.
+
+Die folgenden Versionsangaben und Downloads behalten ihren datierten öffentlichen Quell- und Paketstand.
+
 ## Neu: App 0.6.0 mit automatischem Speichern
 
 Die App **NovaSpace KI Connector** bietet kurze, alphabetisch sortierte Funktionsnamen
