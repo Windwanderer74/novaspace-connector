@@ -1,8 +1,8 @@
-## Fortschreibung 11. November 2026 · RAG-Ordnerbetrieb
+## Fortschreibung 11. November 2026 · erste RAG-Ausbauetappe abgenommen
 
 Der begrenzte RAG-Pilot wurde um eine mehrseitige Quelle, RAG-Steuerung je Cloud-Verbindung und den automatischen Betrieb ausdrücklich freigegebener Ordner erweitert. Im abgenommenen Ordnerpilot sind Upload, neue Dateifassung, OCR-Fundstelle, Transferfortsetzung, Statusanzeige und Freigabeentzug dokumentiert.
 
-Der etappenweise Ausbau umfasst zunächst vier vorhandene Arbeitsbereiche. Der allgemeine Dateistatus im persönlichen LM-Studio-Anschluss und der abschließende Betriebsnachweis bleiben offen. Die [datierte Fortschreibung](docs/updates/rag-ordnerbetrieb-2026-11-11.md) beschreibt Umfang und Grenzen. Historische Versions- und Paketangaben im folgenden Verlauf bleiben erhalten.
+Die erste Etappe mit vier vorhandenen Arbeitsbereichen ist mit **5/5 Aufgabenbedingungen** abgenommen. Der allgemeine persönliche LM-Studio-Dateistatus und der zusammenhängende Betriebsnachweis aus Importbeleg, aktueller Status-/Suchantwort und unabhängig geprüfter Originalfundstelle sind bestätigt. Als Nächstes werden größere vorhandene Bereiche erfasst und ausgewählt, danach erschlossen. Anschließend folgt die allgemeine Cloud-RAG-Anbindung für denselben berechtigten Bestand. Die [datierte Fortschreibung](docs/updates/rag-ordnerbetrieb-2026-11-11.md) beschreibt Umfang und Grenzen. Historische Versions- und Paketangaben im folgenden Verlauf bleiben erhalten.
 
 ## Fortschreibung31. Oktober 2026 · App 0.6.0
 

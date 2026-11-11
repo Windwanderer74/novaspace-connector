@@ -4,11 +4,11 @@
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
-## Zwischenstand 11. November 2026 · automatischer Ordnerbetrieb
+## Abschluss 11. November 2026 · erste RAG-Ausbauetappe
 
 Der RAG-Pilot verarbeitet jetzt ausdrücklich freigegebene Ordner einschließlich ihrer Unterordner im Hintergrund. Neue und geänderte Fassungen, die Kette von einem PDF-Prüfscan über OCR bis zur Fundstelle, die Fortsetzung einer unterbrochenen Übertragung und die Suchsperre nach Freigabeentzug sind im dokumentierten Pilotumfang bestätigt.
 
-Vier bestehende Arbeitsbereiche sind als nächste Etappe zugeschaltet. Der allgemeine persönliche LM-Studio-Dateistatus und der Abschlussnachweis dieses erweiterten Umfangs bleiben offen. Der [Fortschrittsbericht](docs/updates/rag-ordnerbetrieb-2026-11-11.md) trennt die bestätigten Ergebnisse von den verbleibenden Aufgaben. Öffentliche Quellpakete und Downloads behalten ihren datierten Stand.
+Die erste Ausbauetappe mit vier bestehenden Arbeitsbereichen ist mit **5/5 Aufgabenbedingungen** abgenommen. Der allgemeine Dateistatus im persönlichen LM-Studio-Anschluss ist eingebaut und im persönlichen Bedienweg bestätigt. Eine aktuelle PDF-Fundstelle wurde zusätzlich mit der vollständig gelesenen Originaldatei und ihrer Prüfsumme abgeglichen. Der [Fortschrittsbericht](docs/updates/rag-ordnerbetrieb-2026-11-11.md) beschreibt die Nachweise und die nächsten Schritte: größere vorhandene Bereiche erschließen und anschließend den allgemeinen Cloud-RAG-Zugang für denselben Bestand erweitern. Öffentliche Quellpakete und Downloads behalten ihren datierten Stand.
 
 ## Zwischenstand 10. November 2026 · mehrseitiger RAG-Pilot
 
