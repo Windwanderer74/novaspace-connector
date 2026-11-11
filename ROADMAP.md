@@ -1,3 +1,9 @@
+## Fortschreibung 11. November 2026 · RAG-Ordnerbetrieb
+
+Der begrenzte RAG-Pilot wurde um eine mehrseitige Quelle, RAG-Steuerung je Cloud-Verbindung und den automatischen Betrieb ausdrücklich freigegebener Ordner erweitert. Im abgenommenen Ordnerpilot sind Upload, neue Dateifassung, OCR-Fundstelle, Transferfortsetzung, Statusanzeige und Freigabeentzug dokumentiert.
+
+Der etappenweise Ausbau umfasst zunächst vier vorhandene Arbeitsbereiche. Der allgemeine Dateistatus im persönlichen LM-Studio-Anschluss und der abschließende Betriebsnachweis bleiben offen. Die [datierte Fortschreibung](docs/updates/rag-ordnerbetrieb-2026-11-11.md) beschreibt Umfang und Grenzen. Historische Versions- und Paketangaben im folgenden Verlauf bleiben erhalten.
+
 ## Fortschreibung31. Oktober 2026 · App 0.6.0
 
 **NovaSpace KI Connector 0.6.0** ist eingebaut und in der vereinbarten Autosave-/Sperr-/Rücknahme-Probe **3/3** bestätigt. Kurze alphabetische Funktionsnamen und sichtbarer Speicherstatus sind enthalten; ursprüngliche Policy und Rechte nach der Probe exakt wiederhergestellt. [App, Testbericht und Einbau](docs/updates/platform-0.6.0.md). Online 1.37.0 und Paket 1/32 von 32 bleiben unverändert. Der folgende Verlauf behält seine damaligen Versionsstände.
