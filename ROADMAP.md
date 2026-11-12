@@ -1,3 +1,9 @@
+## Fortschreibung 12. November 2026 · weitere Ordner und ChatGPT-Inhaltssuche abgenommen
+
+Die zweite Ausbauetappe mit vier weiteren Arbeitsbereichen ist mit **18/18 Aufgabenbedingungen** abgeschlossen. Der vorhandene Online-Anschluss **1.37.5** nutzt die bereits freigegebenen Indizes für Inhaltssuche und OCR-/RAG-Dateistatus. Echte ChatGPT-Suchanfragen aus beiden Ausbauetappen bestätigen aktuelle Dateifassungen mit passenden Seitenbelegen.
+
+Importfortsetzung, begrenzte Wiederholung und gebündelte Hinweise auf verbleibende Dateiprobleme sind eingebaut und im beschriebenen Prüfumfang dokumentiert. Die gesonderte Korrekturrunde für OCR-, Passwort- und Formatfälle bleibt offen. Allgemeine Erstinstallation, weitere Nutzer und eine semantische Vektorsuche sind damit nicht abgenommen. Der [datierte Bericht](docs/updates/rag-chatgpt-2026-11-12.md) beschreibt Nachweise und Grenzen; historische Versions- und Paketangaben bleiben erhalten.
+
 ## Fortschreibung 11. November 2026 · erste RAG-Ausbauetappe abgenommen
 
 Der begrenzte RAG-Pilot wurde um eine mehrseitige Quelle, RAG-Steuerung je Cloud-Verbindung und den automatischen Betrieb ausdrücklich freigegebener Ordner erweitert. Im abgenommenen Ordnerpilot sind Upload, neue Dateifassung, OCR-Fundstelle, Transferfortsetzung, Statusanzeige und Freigabeentzug dokumentiert.
