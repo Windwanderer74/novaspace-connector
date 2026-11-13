@@ -4,6 +4,12 @@
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
+## Fortschritt 13. November 2026 · weitere Ordner und passende PDF-Seiten
+
+Eine weitere Importetappe mit sieben freigegebenen Bereichen und **371 Dateien** ist mit getrennt ausgewiesenen Dateiausnahmen geprüft. Ein vorab festgelegter 20-Fälle-Prüfsatz hat konkrete Suchlücken sichtbar gemacht. Zwei davon – richtige Datei, aber falsche PDF-Seite – sind im laufenden Online-Anschluss **1.37.8** korrigiert.
+
+Der passende persönliche LM-Studio-Anschluss ist eingebaut; die direkte Werkzeugausgabe einer freien Frage bestätigt den neuen Suchschritt und die erwartete Seite 2 mit passender Dateiversion. Der [Fortschrittsbericht](docs/updates/rag-suchqualitaet-2026-11-13.md) trennt Basismessung, gezielte Nachprüfung, Ergebnisberichte und offene Datums-, OCR- und Formatfälle. Öffentliche Programmquellen und Downloads behalten ihren datierten Stand.
+
 ## Abschluss 12. November 2026 · weiterer RAG-Ausbau und Inhaltssuche über ChatGPT
 
 Vier weitere freigegebene Arbeitsbereiche sind mit **18/18 Aufgabenbedingungen** erschlossen. Der laufende Online-Connector **1.37.5** kann vorhandene berechtigte Ordnerindizes jetzt auch über den ChatGPT-Anschluss durchsuchen und den OCR-/RAG-Dateistatus abrufen. Tatsächliche Suchanfragen aus der ersten und zweiten Ausbauetappe lieferten die bekannten Dateifassungen mit passenden Seitenbelegen.

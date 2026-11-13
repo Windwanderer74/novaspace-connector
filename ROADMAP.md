@@ -1,3 +1,9 @@
+## Fortschreibung 13. November 2026 · Importetappe und Suchkorrektur
+
+Die weitere Importetappe mit sieben Bereichen und 371 Dateien ist im dokumentierten Bestand geprüft: 288 indexiert und 83 getrennt ausgewiesene Restfälle. Der feste 20-Fälle-Prüfsatz ergab in der Basismessung bei 16 beantwortbaren Fragen 13 Sollseiten unter den ersten drei Treffern. Zwei belegte Seitenlücken wurden anschließend gezielt korrigiert; dieser Nachweis ist kein neuer vollständiger Prüflauf.
+
+Online **1.37.8** und der eingebaute persönliche Patch **NS-RAG-Seiten-r1** verwenden dieselbe begrenzte Fragenaufbereitung. Ein tatsächlicher LM-Studio-Werkzeugaufruf bestätigt den zusätzlichen PDF-Seitenschritt mit passendem Originalbeleg. Der offene Datumsfall, Suchpegel und Dateireste bleiben sichtbar. Als nächste Bestandsausweitung folgt eine ausgewählte überschaubare Ordnergruppe. Der [datierte Bericht](docs/updates/rag-suchqualitaet-2026-11-13.md) erläutert Nachweise und Grenzen; historische Versions- und Paketangaben bleiben erhalten.
+
 ## Fortschreibung 12. November 2026 · weitere Ordner und ChatGPT-Inhaltssuche abgenommen
 
 Die zweite Ausbauetappe mit vier weiteren Arbeitsbereichen ist mit **18/18 Aufgabenbedingungen** abgeschlossen. Der vorhandene Online-Anschluss **1.37.5** nutzt die bereits freigegebenen Indizes für Inhaltssuche und OCR-/RAG-Dateistatus. Echte ChatGPT-Suchanfragen aus beiden Ausbauetappen bestätigen aktuelle Dateifassungen mit passenden Seitenbelegen.
