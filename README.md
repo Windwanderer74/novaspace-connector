@@ -4,6 +4,12 @@
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
+## Fortschritt 20. November 2026 · weitere Dateiformate und automatische Kontoindizes
+
+Der Bestandsabgleich umfasst **2.875 Dateifassungen**. Die Inhaltssuche unterstützt weitere Dokument- und Bildformate. Der reguläre Hintergrundlauf hat vier zusätzliche Kontoaufträge gestartet. Für mindestens einen Kontoindex hat der Indexdienst Suchbereitschaft bestätigt.
+
+Der [Fortschrittsbericht](docs/updates/rag-kontoindizes-2026-11-20.md) beschreibt die Formatverarbeitung, die Gruppenfreigaben und den noch offenen Suchtest aus einem neu freigeschalteten Konto.
+
 ## Fortschritt 13. November 2026 · weitere Ordner und passende PDF-Seiten
 
 Eine weitere Importetappe mit sieben freigegebenen Bereichen und **371 Dateien** ist mit getrennt ausgewiesenen Dateiausnahmen geprüft. Ein vorab festgelegter 20-Fälle-Prüfsatz hat konkrete Suchlücken sichtbar gemacht. Zwei davon – richtige Datei, aber falsche PDF-Seite – sind im laufenden Online-Anschluss **1.37.8** korrigiert.
