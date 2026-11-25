@@ -1,3 +1,11 @@
+## Persönlicher Lesepilot abgeschlossen · 25. November 2026
+
+Der [aktualisierte Prüfbericht zum Prompt-Assistenten](updates/prompt-assistent-2026-11-25.md) dokumentiert das eingebaute und persönlich verwendete **Profil 0.1.3** mit dem persönlichen **LM-Studio-Connector 0.1.31**. Im abschließenden einzelnen Projekt-Leseauftrag wurden Suche, Mindmap und aktuelle Deckkarte ohne nachgeschobene Kartenaufforderung aufgerufen. Die wesentlichen Angaben stimmen mit der Referenz überein; Formulierungs- und Quellenpfadgrenzen sind festgehalten. Die erste Erprobung und die begrenzte Editor-Nachführung sind mit Auswertung abgeschlossen.
+
+Diese Veröffentlichung aktualisiert vier Dokumentationsdateien. Sie liefert kein neues öffentliches Programmquell- oder Installationspaket aus. Die folgenden Quell-, Komponenten- und Downloadstände behalten ihren jeweils bezeichneten Versions- und Prüfumfang. Der persönliche erfolgreiche Lesepilot ist keine heutige Geräteprüfung oder allgemeine Freigabe aller Modell-, Schreib- und Clientabläufe.
+
+--- Historische Zwischenstände und Quellveröffentlichungen ---
+
 ## Dokumentationsfortschreibung 25. November 2026
 
 Der [Fortschrittsbericht zum Prompt-Assistenten](updates/prompt-assistent-2026-11-25.md) dokumentiert die eingebaute erste Stufe, Profil **0.1.1**, den persönlichen LM-Studio-Connector **0.1.30** und die bestätigten Bedienungs- und Leseproben. Der begleitete Mindmap-/Deck-Versuch bestand aus zwei Nachrichten; die eigenständige vollständige Modellbearbeitung bleibt offen.

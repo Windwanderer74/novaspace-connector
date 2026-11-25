@@ -4,13 +4,15 @@
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
-## Fortschritt 25. November 2026 · Prompt-Assistent und persönlicher Projekt-Leseweg
+## Fortschritt 25. November 2026 · Projekt-Lesepilot mit erzeugtem Prompt abgeschlossen
 
-Der **Prompt-Assistent** bietet vier Aufgabenbereiche, eine Vorschau der Arbeitsanweisung und die Übernahme in den eigenen KI-Client. Die erste benutzbare Stufe ist eingebaut; Kopieren und anschließendes Einfügen sind im persönlichen Bedienweg bestätigt.
+Der **Prompt-Assistent** bietet vier Aufgabenbereiche, eine Vorschau der Arbeitsanweisung und die Übernahme in den eigenen KI-Client. Einbau, persönliche Vorschau sowie Kopieren und Einfügen sind bestätigt.
 
-Mit **Profil 0.1.1** und dem persönlichen **LM-Studio-Connector 0.1.30** wurden eine bestehende Projekt-Mindmap und ihre aktuelle Deckkarte gelesen. Der begleitete Versuch benötigte zwei Nachrichten: Nach Suche und Mindmap wurde die Kartenlesung ausdrücklich nachgefordert. Die eigenständige vollständige Bearbeitung in einem Durchlauf und die genaue Auswahl des neuesten dokumentierten Haltepunkts bleiben offen.
+Mit dem von der Seite erzeugten **Profil 0.1.3** und dem eingebauten persönlichen **LM-Studio-Connector 0.1.31** hat Gemma einen einzelnen Projekt-Leseauftrag durchgängig bearbeitet: Dateinamenssuche, Mindmap lesen und aktuelle Deckkarte lesen. Kartenkennung, aktuelle Liste, gespeicherte Bedingungen und das wörtliche Zitat des maßgeblichen nächsten Schritts stimmen mit dem Referenzstand überein. Eine nachgeschobene Aufforderung zur Kartenlesung war in diesem Lauf nicht nötig.
 
-[Prompt-Assistent öffnen](https://novaspace.info/index.php/apps/novaspace_site/ki-einrichten) · [Prüfumfang und nächste Schritte](docs/updates/prompt-assistent-2026-11-25.md). Die unten genannten öffentlichen Programmquellen und Downloads behalten ihren gesonderten datierten Stand.
+Die begrenzte Erprobung und die anschließende Nachführung des Projektprofils sind ausgewertet und abgeschlossen. Gespeicherte Häkchen belegen den dokumentierten Stand; eine heutige technische Geräteprüfung erfolgte dabei nicht. Einzelne Formulierungs- und Quellenpfadgrenzen bleiben dokumentiert.
+
+[Prompt-Assistent öffnen](https://novaspace.info/index.php/apps/novaspace_site/ki-einrichten) · [Persönlicher Nachweis und Prüfgrenzen](docs/updates/prompt-assistent-2026-11-25.md). Diese Fortschreibung beschreibt den persönlichen Betriebs- und Prüfstand. Die unten genannten öffentlichen Programmquellen und Downloads behalten ihre gesonderten Versionsstände.
 
 ## Fortschritt 20. November 2026 · weitere Dateiformate und automatische Kontoindizes
 

@@ -1,10 +1,12 @@
-## Fortschreibung 25. November 2026 · Prompt-Assistent und Projekt-Leseweg
+## Abschluss 25. November 2026 · Prompt-Assistent und Projekt-Lesepilot
 
-Die erste benutzbare Stufe des Prompt-Assistenten ist eingebaut. Vier Aufgabenbereiche führen zu einer Arbeitsanweisung mit Vorschau und Kopierfunktion. Die persönliche Bestätigung von Kopieren und Einfügen liegt vor. Der Pilot steht bei **4/5 Aufgabenbedingungen**.
+Die erste benutzbare Stufe ist eingebaut und persönlich erprobt. Vier Aufgabenbereiche erzeugen eine Arbeitsanweisung mit Vorschau und Kopierfunktion. Die erste Erprobungsaufgabe und die anschließende Nachführung des Projektprofils sind einschließlich Auswertung abgeschlossen.
 
-Profil **0.1.1** und persönlicher LM-Studio-Connector **0.1.30** unterstützen den begleiteten Leseweg von der Dateinamensuche über eine vorhandene Mindmap bis zur aktuellen Deckkarte. Die Kartenlesung wurde in einer zweiten Nachricht ausdrücklich angefordert. Dieser Nachweis umfasst den gespeicherten Projektstand; ein heutiger Gerätezustand wurde damit nicht geprüft.
+Im abschließenden persönlichen Lauf mit erzeugtem **Profil 0.1.3** und eingebautem **LM-Studio-Connector 0.1.31** folgt auf die Dateinamenssuche die Lektüre der Mindmap und der aktuellen Deckkarte innerhalb eines Leseauftrags. Aktuelle Liste, gespeicherter Bedingungsstand und maßgeblicher nächster Schritt stimmen mit der Referenz überein. Die früher nötige zweite Nachricht zur Kartenlesung entfällt in diesem Lauf.
 
-Als nächster kleiner Bedienungstest ist das Ändern und Rücksetzen einer freiwilligen Antwortoption offen. Für die weitere Modellabnahme folgen die vollständige eigenständige Quellenlesung und die verlässliche Auswahl des neuesten Haltepunkts. [Bericht und Prüfgrenzen](docs/updates/prompt-assistent-2026-11-25.md). Die Veröffentlichung ändert die datierten Programmquellen und Downloads nicht.
+Die Regeln zur Dateiauswahl, Quellenpriorität und Trennung von Dokumentationsstand und tatsächlicher Betriebsprüfung sind im erzeugten Projektprofil enthalten. Einzelne sprachliche Ungenauigkeiten und eine nicht belegte Quellen-Unterpfadangabe bleiben in der Auswertung benannt. Dieser Pilot bestätigt keine allgemeine Fehlerfreiheit, keinen heutigen Gerätezustand und keine zusätzlichen Schreibrechte.
+
+Weitere Aufgabenprofile, zusätzliche Clients und praktische Schreibabläufe bleiben getrennte Erprobungen. Design und Usability werden im vorgesehenen Gesamtpaket weiterentwickelt. [Ergebnis, Entwicklung und Grenzen](docs/updates/prompt-assistent-2026-11-25.md). Die öffentlichen Quell- und Downloadstände bleiben gesondert ausgewiesen.
 
 ## Fortschreibung 13. November 2026 · Importetappe und Suchkorrektur
 
