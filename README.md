@@ -4,6 +4,14 @@
 
 Dateien finden, Aufgaben organisieren, Termine planen und Informationen miteinander verbinden: Der Nextcloud Connector von NovaSpace macht unterstützte Funktionen einer angebundenen Nextcloud-Installation für KI-Programme zugänglich. Welche Bereiche eine Verbindung lesen oder bearbeiten darf, wird ausdrücklich festgelegt.
 
+## Fortschritt 25. November 2026 · Prompt-Assistent und persönlicher Projekt-Leseweg
+
+Der **Prompt-Assistent** bietet vier Aufgabenbereiche, eine Vorschau der Arbeitsanweisung und die Übernahme in den eigenen KI-Client. Die erste benutzbare Stufe ist eingebaut; Kopieren und anschließendes Einfügen sind im persönlichen Bedienweg bestätigt.
+
+Mit **Profil 0.1.1** und dem persönlichen **LM-Studio-Connector 0.1.30** wurden eine bestehende Projekt-Mindmap und ihre aktuelle Deckkarte gelesen. Der begleitete Versuch benötigte zwei Nachrichten: Nach Suche und Mindmap wurde die Kartenlesung ausdrücklich nachgefordert. Die eigenständige vollständige Bearbeitung in einem Durchlauf und die genaue Auswahl des neuesten dokumentierten Haltepunkts bleiben offen.
+
+[Prompt-Assistent öffnen](https://novaspace.info/index.php/apps/novaspace_site/ki-einrichten) · [Prüfumfang und nächste Schritte](docs/updates/prompt-assistent-2026-11-25.md). Die unten genannten öffentlichen Programmquellen und Downloads behalten ihren gesonderten datierten Stand.
+
 ## Fortschritt 20. November 2026 · weitere Dateiformate und automatische Kontoindizes
 
 Der Bestandsabgleich umfasst **2.875 Dateifassungen**. Die Inhaltssuche unterstützt weitere Dokument- und Bildformate. Der reguläre Hintergrundlauf hat vier zusätzliche Kontoaufträge gestartet. Für mindestens einen Kontoindex hat der Indexdienst Suchbereitschaft bestätigt.

@@ -1,3 +1,11 @@
+## Fortschreibung 25. November 2026 · Prompt-Assistent und Projekt-Leseweg
+
+Die erste benutzbare Stufe des Prompt-Assistenten ist eingebaut. Vier Aufgabenbereiche führen zu einer Arbeitsanweisung mit Vorschau und Kopierfunktion. Die persönliche Bestätigung von Kopieren und Einfügen liegt vor. Der Pilot steht bei **4/5 Aufgabenbedingungen**.
+
+Profil **0.1.1** und persönlicher LM-Studio-Connector **0.1.30** unterstützen den begleiteten Leseweg von der Dateinamensuche über eine vorhandene Mindmap bis zur aktuellen Deckkarte. Die Kartenlesung wurde in einer zweiten Nachricht ausdrücklich angefordert. Dieser Nachweis umfasst den gespeicherten Projektstand; ein heutiger Gerätezustand wurde damit nicht geprüft.
+
+Als nächster kleiner Bedienungstest ist das Ändern und Rücksetzen einer freiwilligen Antwortoption offen. Für die weitere Modellabnahme folgen die vollständige eigenständige Quellenlesung und die verlässliche Auswahl des neuesten Haltepunkts. [Bericht und Prüfgrenzen](docs/updates/prompt-assistent-2026-11-25.md). Die Veröffentlichung ändert die datierten Programmquellen und Downloads nicht.
+
 ## Fortschreibung 13. November 2026 · Importetappe und Suchkorrektur
 
 Die weitere Importetappe mit sieben Bereichen und 371 Dateien ist im dokumentierten Bestand geprüft: 288 indexiert und 83 getrennt ausgewiesene Restfälle. Der feste 20-Fälle-Prüfsatz ergab in der Basismessung bei 16 beantwortbaren Fragen 13 Sollseiten unter den ersten drei Treffern. Zwei belegte Seitenlücken wurden anschließend gezielt korrigiert; dieser Nachweis ist kein neuer vollständiger Prüflauf.

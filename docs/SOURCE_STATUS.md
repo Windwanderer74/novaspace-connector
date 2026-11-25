@@ -1,3 +1,11 @@
+## Dokumentationsfortschreibung 25. November 2026
+
+Der [Fortschrittsbericht zum Prompt-Assistenten](updates/prompt-assistent-2026-11-25.md) dokumentiert die eingebaute erste Stufe, Profil **0.1.1**, den persönlichen LM-Studio-Connector **0.1.30** und die bestätigten Bedienungs- und Leseproben. Der begleitete Mindmap-/Deck-Versuch bestand aus zwei Nachrichten; die eigenständige vollständige Modellbearbeitung bleibt offen.
+
+Diese Fortschreibung veröffentlicht Dokumentation. Die bereits hier angebotenen Programmquellen, Komponentenmanifeste, Prüfsummen und Downloads behalten ihre jeweils angegebenen Versionsstände. Ein zusammengeführtes öffentliches Quell- oder Erstinstallationspaket des heutigen Betriebsstands ist damit nicht veröffentlicht.
+
+---
+
 ## Quellfortschreibung 31. Oktober 2026
 
 Native Plattform-App **0.6.0** mit Branding, alphabetischen Funktionsnamen und automatischem Speichern ist als aufbereitete AGPL-Quelle nachgeführt. App-/Quellpakete, Dateinachweise und **3/3** Autosave-Live-Testbericht sind verknüpft. Online-Rechteauswertung bleibt **1.37.0**. [Veröffentlichung](updates/platform-0.6.0.md). Persönliche Quelle und frühere Integrationsberichte behalten ihre datierten Stände.
